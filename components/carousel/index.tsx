@@ -177,10 +177,10 @@ export const Carousel = () => {
                         <MobileImg
                             sizes="(max-width: 767px) 100vw, 767px"
                             srcSet="
-                            /carouselimages/gloveup/gloveup-mobile_uc40gc_c_scale,w_200.jpg 200w,
-                            /carouselimages/gloveup/gloveup-mobile_uc40gc_c_scale,w_477.jpg 477w,
-                            /carouselimages/gloveup/gloveup-mobile_uc40gc_c_scale,w_672.jpg 767w"
-                            src="/carouselimages/gloveup/gloveup-mobile_uc40gc_c_scale,w_672.jpg"
+                            /carouselimages/gloveup/gloveup-mobile_200.jpg 200w,
+                            /carouselimages/gloveup/gloveup-mobile_477.jpg 477w,
+                            /carouselimages/gloveup/gloveup-mobile_672.jpg 767w"
+                            src="/carouselimages/gloveup/gloveup-mobile_672.jpg"
                             alt="Glove Up Banner"
                         />
                         <DesktopImg
