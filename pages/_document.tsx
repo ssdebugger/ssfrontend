@@ -20,6 +20,10 @@ export default class MyDocument extends Document {
                 ...initialProps,
                 styles: (
                     <>
+                        <meta
+                            name="description"
+                            content="Sellsage ecommerce platform for ecofriendly products like tableware,dinner bundles,spoons,plates,forks,knifes,bowls,containers."
+                        ></meta>
                         {initialProps.styles}
                         {sheet.getStyleElement()}
                     </>

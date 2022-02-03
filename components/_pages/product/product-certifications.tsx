@@ -58,7 +58,7 @@ export const ProductCertifications = () => {
         <CertificationsContainer>
             <Certificate>
                 <ImageContainer>
-                    <img src="/certificates/usda.png" />
+                    <img alt='certification image' src="/certificates/usda.png" />
                 </ImageContainer>
 
                 <Paragraph>
@@ -69,7 +69,7 @@ export const ProductCertifications = () => {
 
             <Certificate>
                 <ImageContainer>
-                    <img src="/certificates/bpi.png" />
+                    <img alt='certification image' src="/certificates/bpi.png" />
                 </ImageContainer>
                 <Paragraph>
                     BPI certified our products to be commercially compostable{' '}
@@ -78,7 +78,7 @@ export const ProductCertifications = () => {
 
             <Certificate>
                 <ImageContainer>
-                    <img src="/certificates/nmsdc.jpg" />
+                    <img alt='certification image' src="/certificates/nmsdc.jpg" />
                 </ImageContainer>
 
                 <Paragraph>
