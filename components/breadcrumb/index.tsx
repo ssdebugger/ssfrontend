@@ -36,7 +36,7 @@ export const BreadCrumb: React.FC<Props> = ({ items }) => {
     return (
         <BreadCrumblist>
             <CrumbItem>
-               <HyperLink href='/'> <img src="/favicon.svg" /></HyperLink>
+               <HyperLink href='/'> <img src="/favicon.svg" alt='sellsageicon'/></HyperLink>
             </CrumbItem>
 
             {items.map((item) => (

@@ -94,7 +94,7 @@ const Post = (props) => {
 
                 <BlogPostContent>
                     <HyperLink varient="tertiary" href={'/blog/' + props.id}>
-                        <span>READ MORE</span>
+                        <span>READ NOW</span>
                     </HyperLink>
 
                     <Heading4>{props.title}</Heading4>

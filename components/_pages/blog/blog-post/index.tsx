@@ -148,7 +148,7 @@ const BlogPost = ({ blogData, morePosts }) => {
                                     <BlogContainer>
                                         <CardContainer layout="horizontal">
                                             <ImageContainer>
-                                                <Image src={item.image_url} />
+                                                <Image src={item.image_url} alt='image' />
                                             </ImageContainer>
 
                                             <ContentContainer>

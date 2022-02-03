@@ -448,10 +448,11 @@ export const DynamicPage = ({ products }) => {
                                         )}
 
                                         <TileHero>
-                                            <ProductImg src={e['imageurl']} />
+                                            <ProductImg src={e['imageurl']} alt='image' />
                                             <LifeStyleImg
                                                 src={e['lifeimageurl']}
                                                 loading="lazy"
+                                                alt='image'
                                             />
                                         </TileHero>
 
