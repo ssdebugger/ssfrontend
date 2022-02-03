@@ -1,0 +1,121 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-sellsage-dev-150209-authRole",
+      "UnauthRoleArn": "arn:aws:iam::433484640250:role/amplify-sellsage-dev-150209-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::433484640250:role/amplify-sellsage-dev-150209-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-sellsage-dev-150209-deployment",
+      "UnauthRoleName": "amplify-sellsage-dev-150209-unauthRole",
+      "StackName": "amplify-sellsage-dev-150209",
+      "StackId": "arn:aws:cloudformation:us-east-2:433484640250:stack/amplify-sellsage-dev-150209/23388c80-1c51-11ec-bfc9-0a5174c0eb58",
+      "AmplifyAppId": "d3enr0u3qevffa"
+    }
+  },
+  "function": {
+    "AmplifyauthDefineAuthChallenge": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2021-09-23T09:47:31.464Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2021-09-23T09:47:31.560Z",
+      "distZipFilename": "AmplifyauthDefineAuthChallenge-574a5a6a75584b544a72-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-sellsage-dev-150209-deployment",
+        "s3Key": "amplify-builds/AmplifyauthDefineAuthChallenge-574a5a6a75584b544a72-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-sellsage-dev-150209-deployment/amplify-cfn-templates/function/AmplifyauthDefineAuthChallenge-cloudformation-template.json",
+        "logicalId": "functionAmplifyauthDefineAuthChallenge"
+      },
+      "lastPushTimeStamp": "2021-09-23T09:49:48.363Z",
+      "output": {
+        "Region": "us-east-2",
+        "Arn": "arn:aws:lambda:us-east-2:433484640250:function:AmplifyauthDefineAuthChallenge-dev",
+        "Name": "AmplifyauthDefineAuthChallenge-dev",
+        "LambdaExecutionRole": "AmplifyauthDefineAuthChallenge-dev"
+      },
+      "lastPushDirHash": "jm/4QiWwFV+qX/GDJz6T5n0bmF4="
+    },
+    "AmplifyauthCreateAuthChallenge": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2021-09-23T09:47:31.467Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2021-09-23T09:47:31.544Z",
+      "distZipFilename": "AmplifyauthCreateAuthChallenge-3472716445593758794f-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-sellsage-dev-150209-deployment",
+        "s3Key": "amplify-builds/AmplifyauthCreateAuthChallenge-3472716445593758794f-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-sellsage-dev-150209-deployment/amplify-cfn-templates/function/AmplifyauthCreateAuthChallenge-cloudformation-template.json",
+        "logicalId": "functionAmplifyauthCreateAuthChallenge"
+      },
+      "lastPushTimeStamp": "2021-09-23T09:49:48.363Z",
+      "output": {
+        "Region": "us-east-2",
+        "Arn": "arn:aws:lambda:us-east-2:433484640250:function:AmplifyauthCreateAuthChallenge-dev",
+        "Name": "AmplifyauthCreateAuthChallenge-dev",
+        "LambdaExecutionRole": "AmplifyauthCreateAuthChallenge-dev"
+      },
+      "lastPushDirHash": "pGmu0uOb42GX5IduRJDU2mjCqeo="
+    }
+  },
+  "auth": {
+    "AmplifyCognito": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "loginMechanisms": [],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-sellsage-dev-150209-deployment/amplify-cfn-templates/auth/AmplifyCognito-cloudformation-template.yml",
+        "logicalId": "authAmplifyCognito"
+      },
+      "lastPushTimeStamp": "2021-09-23T09:49:48.363Z",
+      "output": {
+        "UserPoolId": "us-east-2_ziBkRicQG",
+        "AppClientIDWeb": "543hkm3dthjdtd7rvniefq1dh8",
+        "AppClientID": "3pla5f96l3p6m4k6h1e0i7obrf",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-2:433484640250:userpool/us-east-2_ziBkRicQG",
+        "UserPoolName": "CustomerAuthPool"
+      },
+      "lastPushDirHash": "KlSRLe5k67ZnEIPDjvfrdZ4Nonk="
+    },
+    "userPoolGroups": {
+      "service": "Cognito-UserPool-Groups",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "SiteCustomers",
+          "attributes": [
+            "UserPoolId",
+            "AppClientIDWeb",
+            "AppClientID",
+            "IdentityPoolId"
+          ]
+        }
+      ]
+    }
+  }
+}

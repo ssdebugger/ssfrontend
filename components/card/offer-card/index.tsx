@@ -1,0 +1,86 @@
+import styled from 'styled-components'
+import { Gift } from 'react-feather'
+import Link from 'next/link'
+
+import { Heading4 } from '@/components/typography/heading'
+import { Paragraph } from '@/components/typography/paragraph'
+import { HyperLink } from '@/components/cta/link'
+
+const OfferCardContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    background: ${(props) => props.theme.vibrantGreen};
+
+    @media (${(props) => props.theme.scrrenMd}) {
+        max-width: 350px;
+    }
+`
+const IconContainer = styled.div`
+    margin-bottom: 0.875rem;
+
+    svg {
+        width: 70px;
+        height: 70px;
+        stroke-width: 1.3px;
+    }
+`
+
+const OfferContent = styled.div`
+    h4 {
+        font-size: 1.75rem;
+        line-height: 38px;
+        font-weight: 800;
+
+        @media (${(props) => props.theme.scrrenMd}) {
+            font-size: 2.25rem;
+            line-height: 45px;
+        }
+    }
+
+    p {
+        font-weight: 500;
+        margin-bottom: 2.25rem;
+        color: ${(props) => props.theme.blueGray900};
+    }
+`
+
+const CardLink = styled.a`
+    width: 100%;
+    border: 1px solid ${(props) => props.theme.blueGray900};
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    box-shadow: 0 0 0 1px transparent;
+    transition: ${(props) => props.theme.transition};
+
+    &:hover,
+    &:focus {
+        box-shadow: 0 0 0 1px #000;
+    }
+`
+
+export const OfferCard = () => {
+    return (
+        <OfferCardContainer>
+            <IconContainer>
+                <Gift />
+            </IconContainer>
+
+            <OfferContent>
+                <Heading4>Must-Have New Year's Eve Dinnerware Supplies</Heading4>
+
+                <Paragraph>
+                    All wrapped up and with loads of new delivery options suiting your needs
+                </Paragraph>
+            </OfferContent>
+
+            <Link href="/shop" passHref>
+                <CardLink>Find your match</CardLink>
+            </Link>
+        </OfferCardContainer>
+    )
+}

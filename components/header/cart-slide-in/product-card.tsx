@@ -1,0 +1,240 @@
+import styled from 'styled-components'
+import { Trash2 } from 'react-feather'
+
+import { Heading4 } from '@/components/typography/heading'
+import { Paragraph } from '@/components/typography/paragraph'
+
+import { CartItem } from '@/types/cart'
+import { useAddItem, useRemoveItem } from '@/context/cart'
+import { useEffect, useState } from 'react'
+
+const CardContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #d2d2d7;
+
+    & > p {
+        margin: 0;
+        font-size: 1.125rem;
+        color: ${(props) => props.theme.blueGray900};
+
+        span {
+            display: block;
+            text-align: center;
+            font-size: 1.125rem;
+
+            &.offer {
+                color: #e85d00;
+                font-size: 0.875rem;
+            }
+        }
+    }
+
+    &:last-child {
+        border: none;
+    }
+
+    @media (min-width: ${(props) => props.theme.screenMd}) {
+        padding-bottom: 1.5rem;
+        margin-bottom: 1.5rem;
+        border-bottom: none;
+    }
+`
+
+const CardImgContainer = styled.div`
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    text-align: center;
+
+    img {
+        max-width: 180px;
+        max-height: 180px;
+        width: auto;
+        height: auto;
+    }
+
+    @media (min-width: ${(props) => props.theme.screenMd}) {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 0;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+`
+
+const CardContent = styled.div`
+    flex: 1;
+    margin: 0 1.25rem 0 0;
+
+    h4 {
+        font-size: 1.125rem;
+        margin-bottom: 0.5rem;
+    }
+
+    & > p {
+        line-height: 1.4;
+        font-size: 0.875rem;
+        letter-spacing: 0.5px;
+    }
+
+    @media (min-width: ${(props) => props.theme.screenMd}) {
+        margin: 0 1.25rem 0;
+    }
+`
+
+const CtaContainer = styled.div`
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+`
+
+const Quantity = styled.div`
+    margin-right: 2rem;
+
+    label {
+        margin-right: 0.75rem;
+    }
+
+    input {
+        max-width: 4rem;
+        padding: 0 0 0 0.5rem;
+    }
+`
+
+const DeleteBtn = styled.button`
+    width: 2rem;
+    height: 2rem;
+
+    svg {
+        stroke-width: 1.75;
+    }
+`
+
+export const ProductCard: React.FC<CartItem> = ({
+    sku,
+    title,
+    quantity,
+    img,
+    productid,
+    price,
+}) => {
+    const addToCart = useAddItem()
+    const removeFromCart = useRemoveItem()
+
+    async function cartApiOperations(
+        actionType: 'SQC' | 'RFC',
+        productId: string | number,
+        quantity: number
+    ) {
+        let fetchdata = {
+            activity_type: actionType,
+            email_id: window.localStorage.getItem('useremail'),
+            pid: String(productId),
+            quant: String(quantity),
+        }
+        console.log(fetchdata, 'in cart api operations cart slide in ')
+
+        let res = await fetch(
+            'https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/addtowlorcart',
+            {
+                method: 'POST',
+
+                body: JSON.stringify(fetchdata),
+            }
+        )
+            .then((res) =>
+                console.log(
+                    `item ${actionType === 'SQC' ? 'added' : 'removed'}`,
+                    res.status
+                )
+            )
+            .catch((error) => console.log(error))
+
+        return res
+    }
+
+    function handleQtyChange(e) {
+        const item: CartItem = {
+            sku: sku,
+            quantity: e.target.value,
+            price: price,
+            productid: productid,
+            title: title,
+            img: img,
+        }
+
+        addToCart(item)
+        let curuser = window.localStorage.getItem('useremail')
+        if (
+            curuser !== 'false' &&
+            curuser != undefined &&
+            curuser != null &&
+            curuser != 'null'
+        ) {
+            console.log('add to cart operation in cart slide in', quantity)
+            cartApiOperations('SQC', productid, quantity)
+        }
+    }
+
+    function removeItem() {
+        removeFromCart(sku)
+        let curuser = window.localStorage.getItem('useremail')
+        if (
+            curuser !== 'false' &&
+            curuser != undefined &&
+            curuser != null &&
+            curuser != 'null'
+        ) {
+            console.log('remove from cart operation in cart slide in')
+            cartApiOperations('RFC', productid, 1)
+        }
+    }
+
+    return (
+        <CardContainer>
+            <CardImgContainer>
+                <img src={img} />
+            </CardImgContainer>
+
+            <CardContent>
+                <Heading4>{title}</Heading4>
+                <Paragraph>Tableware</Paragraph>
+
+                <CtaContainer>
+                    <Quantity>
+                        <label htmlFor="itemQuantity">Qty:</label>
+                        <input
+                            type="number"
+                            id="itemQuantity"
+                            value={quantity}
+                            placeholder="0"
+                            onChange={(e) => handleQtyChange(e)}
+                            min={1}
+                        />
+                    </Quantity>
+
+                    <DeleteBtn onClick={removeItem}>
+                        <Trash2 />
+                    </DeleteBtn>
+                </CtaContainer>
+            </CardContent>
+
+            <Paragraph>
+                <span>${price}</span>
+                {sku === 'BNDL-CPBN-0710-0360' ? (
+                    <span className="offer">33.11% off</span>
+                ) : (
+                    sku === 'BNDL-SHBD-0710-0360' && (
+                        <span className="offer">30.26% off</span>
+                    )
+                )}
+            </Paragraph>
+        </CardContainer>
+    )
+}
