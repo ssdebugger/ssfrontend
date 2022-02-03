@@ -180,7 +180,7 @@ export const ProductCard = (props) => {
 
             <ProductContainer href={'/' + props.sku}>
                 <ProductImageContainer>
-                    <ProductImage src={props.image} loading="lazy" />
+                    <ProductImage src={props.image} alt='image' loading="lazy" />
                 </ProductImageContainer>
 
                 <ProductContent>

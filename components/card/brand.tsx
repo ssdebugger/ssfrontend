@@ -69,7 +69,7 @@ export const BrandCard = (props) => {
     return (
         <CardContainer>
             <ImageContainer>
-                <BrandImage src={props.image} />
+                <BrandImage src={props.image} alt='image' />
             </ImageContainer>
 
             <DeatilsContainer>

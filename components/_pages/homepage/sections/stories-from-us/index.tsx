@@ -89,7 +89,7 @@ const Post = (props) => {
         <Article>
             <BlogPost>
                 <BlogPostImgContainer>
-                    <BlogPostImg src={props.img} />
+                    <BlogPostImg src={props.img} alt='image' />
                 </BlogPostImgContainer>
 
                 <BlogPostContent>

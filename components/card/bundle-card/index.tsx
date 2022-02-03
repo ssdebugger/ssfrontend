@@ -24,8 +24,8 @@ export const BundleCard = (props) => {
                 <Link href={"/product?id=" + props.id} passHref>
                     <CardLink>
                 <ImageContainer>
-                    <CardImage src={props.imageurl} />
-                    <LifeStyleImage src={props.lifeimageurl} />
+                    <CardImage src={props.imageurl}  alt='image'/>
+                    <LifeStyleImage src={props.lifeimageurl} alt='image'/>
                 </ImageContainer>
 
                 <CardTitle>{props.name}</CardTitle>

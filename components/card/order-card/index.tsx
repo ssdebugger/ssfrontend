@@ -160,7 +160,7 @@ export const OrderCard: React.FC<Props> = ({
                 <OrderItemsContainer>
                     {orderitems.map((item) => (
                         <OrderItem key={item.title}>
-                            <img src={item.image_url} />
+                            <img src={item.image_url} alt='image' />
 
                             <OrderItemDetails>
                                 <Heading4>{item.title}</Heading4>

@@ -72,7 +72,7 @@ export const Bundle = () => {
             <BundleCardContainer>
                 <BrandCard>
                     <BrandImgContainer>
-                        <BrandImg src="/brands/gloveup.png" />
+                        <BrandImg src="/brands/gloveup.png" alt='image'/>
                     </BrandImgContainer>
 
                     <BrandContent>
@@ -88,7 +88,7 @@ export const Bundle = () => {
 
                 <BrandCard>
                     <BrandImgContainer>
-                        <BrandImg src="/brands/plantry.png" />
+                        <BrandImg src="/brands/plantry.png" alt='image'/>
                     </BrandImgContainer>
 
                     <BrandContent>

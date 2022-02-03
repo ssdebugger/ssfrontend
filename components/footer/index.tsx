@@ -209,14 +209,17 @@ const Footer = () => {
                             <AccrIcons
                                 loading="lazy"
                                 src="/certificates/nmsdc-transparent.png"
+                                alt='image'
                             />
                             <AccrIcons
                                 loading="lazy"
                                 src="/certificates/bpi.png"
+                                alt='image'
                             />
                             <AccrIcons
                                 loading="lazy"
                                 src="/certificates/usda.png"
+                                alt='image'
                             />
                         </IconsHolder>
                     </GridItem>
