@@ -1,7 +1,5 @@
-import { Button } from '@/components/buttons'
 import { Heading4 } from '@/components/typography/heading'
 import { Paragraph } from '@/components/typography/paragraph'
-import { useAuth } from '@/context/auth'
 import { useCart } from '@/context/cart'
 import { useEffect, useMemo, useState } from 'react'
 import { ShoppingBag, X } from 'react-feather'
@@ -30,6 +28,7 @@ import {
 import { CouponCard } from './coupon-card'
 import { ProductCard } from './product-card'
 import { AlertContainer } from '@/components/_pages/auth/auth.style'
+import { Button } from '@/components/buttons'
 
 interface Props {
     showBag: boolean

@@ -6,11 +6,11 @@ import { Paragraph } from '@/components/typography/paragraph'
 
 import { CartItem } from '@/types/cart'
 import { useAddItem, useRemoveItem } from '@/context/cart'
-import { useEffect, useState } from 'react'
 
 const CardContainer = styled.div`
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.5fr;
+
     padding-bottom: 2rem;
     margin-bottom: 2rem;
     border-bottom: 1px solid #d2d2d7;
@@ -27,7 +27,7 @@ const CardContainer = styled.div`
 
             &.offer {
                 color: #e85d00;
-                font-size: 0.875rem;
+                font-size: 0.75rem;
             }
         }
     }
@@ -37,6 +37,8 @@ const CardContainer = styled.div`
     }
 
     @media (min-width: ${(props) => props.theme.screenMd}) {
+        grid-template-columns: 100px 1fr 0.25fr;
+
         padding-bottom: 1.5rem;
         margin-bottom: 1.5rem;
         border-bottom: none;
@@ -48,6 +50,7 @@ const CardImgContainer = styled.div`
     height: auto;
     margin-bottom: 1rem;
     text-align: center;
+    grid-column: 1 / 4;
 
     img {
         max-width: 180px;
@@ -60,6 +63,7 @@ const CardImgContainer = styled.div`
         width: 100px;
         height: 100px;
         margin-bottom: 0;
+        grid-column: 1;
 
         img {
             width: 100%;
@@ -71,6 +75,7 @@ const CardImgContainer = styled.div`
 const CardContent = styled.div`
     flex: 1;
     margin: 0 1.25rem 0 0;
+    grid-column: 1 / 3;
 
     h4 {
         font-size: 1.125rem;
@@ -85,6 +90,7 @@ const CardContent = styled.div`
 
     @media (min-width: ${(props) => props.theme.screenMd}) {
         margin: 0 1.25rem 0;
+        grid-column: 2;
     }
 `
 
