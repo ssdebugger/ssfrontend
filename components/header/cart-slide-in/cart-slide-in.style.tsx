@@ -164,7 +164,7 @@ export const ProductsList = styled.div`
     margin-bottom: 1.5rem;
 `
 
-export const PriceSection = styled.div`
+export const PriceSectionContainer = styled.div`
     button {
         transition: 0.2s ease;
 
@@ -199,7 +199,7 @@ export const PriceSection = styled.div`
     }
 `
 
-export const BagPrice = styled.div`
+export const BagPriceContainer = styled.div`
     margin-bottom: 1.5rem;
     padding-bottom: 0.5rem;
 `

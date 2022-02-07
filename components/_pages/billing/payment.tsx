@@ -26,6 +26,7 @@ import {
 import { useUser } from '@/context/user'
 import { Paragraph } from '@/components/typography/paragraph'
 import { useClearCart } from '@/context/cart'
+import { limitDecimal } from '@/utils/limt-decimal'
 
 const PaymentContainer = styled(Container)``
 const ShippingContainer = styled(Container)`
@@ -44,9 +45,7 @@ const CardInput = styled.div`
     margin: 0.875rem 0 0 0;
 `
 
-const stripePromise = loadStripe(
-    'pk_live_d2HzkdbXHfM31jQJbUsPZiMe00VrTpDvSg'
-)
+const stripePromise = loadStripe('pk_live_d2HzkdbXHfM31jQJbUsPZiMe00VrTpDvSg')
 var paymentIntent
 var paymentdata
 
@@ -55,11 +54,11 @@ const Checkoutform = (props) => {
     const clearCart = useClearCart()
     const alert = useAlert()
     const elements = useElements()
-    console.log(props,'checkout form props')
+    console.log(props, 'checkout form props')
     useEffect(() => {
         console.clear()
         console.log('payment intent props', props)
-        
+
         fetch('/api/payment', {
             method: 'POST',
             body: JSON.stringify(props),
@@ -337,12 +336,7 @@ const Checkoutform = (props) => {
 
                     <PriceContainer>
                         <span>Total Price</span>
-                        <span>
-                            $
-                            {Math.round(
-                                (props.price + props.tax + Number.EPSILON) * 100
-                            ) / 100}
-                        </span>
+                        <span>$ {limitDecimal(props.price + props.tax)}</span>
                     </PriceContainer>
                 </PriceDetails>
             </ShippingAndPrice>

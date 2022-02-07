@@ -119,16 +119,16 @@ const ToggleInputBtn = styled.input`
     }
 `
 
-interface Props {
+export interface CouponCardProps {
     selectedId: string
     couponId: string
     discountAmount: number
-    discountType: 'percent' | 'flatDiscount'
+    discountType: string
     minSpend: number
     handleSelection: (id: string) => void
 }
 
-export const CouponCard: React.FC<Props> = ({
+export const CouponCard: React.FC<CouponCardProps> = ({
     selectedId,
     couponId,
     discountAmount,

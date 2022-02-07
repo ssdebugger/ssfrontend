@@ -31,6 +31,7 @@ import {
     AddAddressBtn,
 } from './tabs.style'
 import { Plus } from 'react-feather'
+import { limitDecimal } from '@/utils/limt-decimal'
 
 const GuestAddress = (props) => {
     const router = useRouter()
@@ -408,13 +409,9 @@ const Tabs = () => {
                 )
                     .then((res) => res.json())
                     .then((res) => {
-                        let taxValue =
-                            Math.round(
-                                (res['tax_to_add'] +
-                                    res['shipping_cost'] +
-                                    Number.EPSILON) *
-                                    100
-                            ) / 100
+                        let taxValue = limitDecimal(
+                            res['tax_to_add'] + res['shipping_cost']
+                        )
 
                         setTax(taxValue)
                     })

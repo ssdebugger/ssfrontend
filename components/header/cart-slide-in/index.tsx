@@ -1,34 +1,52 @@
+import { useEffect, useState } from 'react'
+import { X } from 'react-feather'
+
 import { Heading4 } from '@/components/typography/heading'
-import { Paragraph } from '@/components/typography/paragraph'
 import { useCart } from '@/context/cart'
-import { useEffect, useMemo, useState } from 'react'
-import { ShoppingBag, X } from 'react-feather'
-import { HyperLink } from '..'
 import { AlertBar } from '@/components/alert/alert-bar'
-import { useAlert } from 'react-alert'
+import { HyperLink } from '..'
 
 import {
-    BagPrice,
     CloseBtn,
     CouponAlertContainer,
-    CouponForm,
-    CouponInput,
-    CouponItem,
     CouponsContainer,
-    CouponsList,
-    EmptyCartContainer,
     PriceContainer,
-    PriceSection,
     ProductsContainer,
     ProductsList,
     SlideInBg,
     SlideInContainer,
     SlideInContent,
 } from './cart-slide-in.style'
-import { CouponCard } from './coupon-card'
 import { ProductCard } from './product-card'
 import { AlertContainer } from '@/components/_pages/auth/auth.style'
 import { Button } from '@/components/buttons'
+import { CouponList } from './coupons/coupon-list'
+import { CustomCoupon } from './coupons/custom-coupon'
+import { limitDecimal } from '@/utils/limt-decimal'
+import { getFromLocal } from '@/utils/local-storage'
+import { EmptyCart } from './empty-state'
+import { PriceSection } from './price-section'
+
+const defaultCouponData = [
+    {
+        minSpend: 50,
+        id: 'welcome-40',
+        amount: 40,
+        type: 'percent',
+    },
+    {
+        minSpend: 20,
+        id: 'save-25',
+        amount: 25,
+        type: 'percent',
+    },
+    {
+        minSpend: 15,
+        id: 'big-20',
+        amount: 10,
+        type: 'percent',
+    },
+]
 
 interface Props {
     showBag: boolean
@@ -37,13 +55,12 @@ interface Props {
 
 export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
     const { cart } = useCart()
-    const alertstatus = useAlert()
 
     const [alert, setAlert] = useState('')
     const [originalPrice, setOriginalPrice] = useState(0)
     const [discount, setDiscount] = useState(0)
     const [couponSelectecd, setCouponSelected] = useState('')
-    const [customCoupon, setCustomCoupon] = useState({
+    const [customCouponDetails, setCustomCouponDetails] = useState({
         coupon_code: '',
         email: '',
         total: 0,
@@ -51,56 +68,6 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
 
     function handleCouponSelection(id: string) {
         setCouponSelected(id)
-    }
-
-    function handleCouponInput(e) {
-        let userEmail = localStorage.getItem('useremail')
-        let isGuestUser = userEmail === undefined || userEmail === null
-
-        setAlert('')
-        if (e.target.value.length > 3) {
-            let couponData = {
-                coupon_code: e.target.value,
-                email: !isGuestUser ? userEmail : 'guest1@sellsage.com',
-                total: originalPrice,
-            }
-
-            setCustomCoupon(couponData)
-        }
-    }
-
-    async function handleCouponSubmit(e) {
-        e.preventDefault()
-
-        try {
-            let couponResponse = await fetch(
-                'https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/applycoupon',
-                {
-                    method: 'POST',
-                    // mode: 'no-cors',
-                    body: JSON.stringify(customCoupon),
-                }
-            )
-                .then((data) => data.json())
-                .then((res) => res.body)
-
-            if (couponResponse === "Didn't match the spend Criteria") {
-                setAlert('Bag total did not match the spend Criteria')
-            } else if (
-                couponResponse.message === 'Coupon code does not exist'
-            ) {
-                setAlert('Coupon code does not exist')
-            } else if (
-                couponResponse === 'You have exhausted your redemption limit'
-            ) {
-                setAlert('You have exhausted your redemption limit')
-            } else if (couponResponse.message === 'Available') {
-                setAlert('')
-                setDiscount(couponResponse.to_deduct)
-            }
-        } catch (error) {
-            console.log(error)
-        }
     }
 
     // Check for changes in cart
@@ -111,9 +78,7 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
             totalBagPrice += Number(item.quantity) * item.price
         })
 
-        setOriginalPrice(
-            Math.round((totalBagPrice + Number.EPSILON) * 100) / 100
-        )
+        setOriginalPrice(limitDecimal(totalBagPrice))
 
         if (cart.length === 0) {
             setAlert('')
@@ -124,7 +89,7 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
 
     // Change the discount value when cart or coupon changes
     useEffect(() => {
-        let existingCoupon = JSON.parse(localStorage.getItem('coupon'))
+        let existingCoupon = getFromLocal('coupon')
 
         if (existingCoupon !== null && existingCoupon !== undefined) {
             if (originalPrice > existingCoupon.minSpend) {
@@ -148,8 +113,7 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
                     let discountValue =
                         priceToDiscountOn * (existingCoupon.amount / 100)
 
-                    let finalDiscountValue =
-                        Math.round((discountValue + Number.EPSILON) * 100) / 100
+                    let finalDiscountValue = limitDecimal(discountValue)
 
                     setDiscount(finalDiscountValue)
                 } else {
@@ -167,7 +131,7 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
 
     // Set Bill details and customCoupon total value when originalPrice or discount value changes
     useEffect(() => {
-        let existingCoupon = JSON.parse(localStorage.getItem('coupon'))
+        let existingCoupon = getFromLocal('coupon')
         let couponExist =
             existingCoupon !== null && existingCoupon !== undefined
 
@@ -179,19 +143,20 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
                 discountValue: couponExist ? existingCoupon.amount : 0,
                 totalDiscount: couponExist ? discount : 0,
             },
-            bagTotal:
-                Math.round((originalPrice - discount + Number.EPSILON) * 100) /
-                100,
+            bagTotal: limitDecimal(originalPrice - discount),
             zipCode: null,
         }
 
         localStorage.setItem('billDetails', JSON.stringify(billDetails))
 
-        setCustomCoupon((prevState) => ({ ...prevState, total: originalPrice }))
+        setCustomCouponDetails((prevState) => ({
+            ...prevState,
+            total: originalPrice,
+        }))
     }, [originalPrice, discount])
 
     useEffect(() => {
-        let existingCoupon = JSON.parse(localStorage.getItem('coupon'))
+        let existingCoupon = getFromLocal('coupon')
         let couponExist =
             existingCoupon !== null && existingCoupon !== undefined
 
@@ -225,51 +190,19 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
                                 )}
                             </CouponAlertContainer>
 
-                            <CouponForm onSubmit={(e) => handleCouponSubmit(e)}>
-                                <CouponInput
-                                    placeholder="Enter your CouponId"
-                                    type={'text'}
-                                    onChange={(e) => handleCouponInput(e)}
-                                />
-                                <Button varient="primary" fill type="submit">
-                                    Apply
-                                </Button>
-                            </CouponForm>
+                            <CustomCoupon
+                                setAlert={setAlert}
+                                setDiscount={setDiscount}
+                                originalBagValue={originalPrice}
+                                customCouponDetails={customCouponDetails}
+                                setCustomCouponDetails={setCustomCouponDetails}
+                            />
 
-                            <CouponsList>
-                                <CouponItem>
-                                    <CouponCard
-                                        minSpend={50}
-                                        couponId="welcome-40"
-                                        discountAmount={40}
-                                        discountType="percent"
-                                        selectedId={couponSelectecd}
-                                        handleSelection={handleCouponSelection}
-                                    />
-                                </CouponItem>
-
-                                <CouponItem>
-                                    <CouponCard
-                                        minSpend={20}
-                                        couponId="save-25"
-                                        discountAmount={25}
-                                        discountType="percent"
-                                        selectedId={couponSelectecd}
-                                        handleSelection={handleCouponSelection}
-                                    />
-                                </CouponItem>
-
-                                <CouponItem>
-                                    <CouponCard
-                                        minSpend={15}
-                                        couponId="big-20"
-                                        discountAmount={10}
-                                        discountType="percent"
-                                        selectedId={couponSelectecd}
-                                        handleSelection={handleCouponSelection}
-                                    />
-                                </CouponItem>
-                            </CouponsList>
+                            <CouponList
+                                currentCouponId={couponSelectecd}
+                                couponData={defaultCouponData}
+                                handleSelection={handleCouponSelection}
+                            />
                         </CouponsContainer>
 
                         <ProductsContainer>
@@ -284,67 +217,21 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
                                         quantity={product.quantity}
                                         productid={product.productid}
                                         img={product.img}
-                                        price={Number(
-                                            (
-                                                product.price * product.quantity
-                                            ).toFixed(2)
+                                        price={limitDecimal(
+                                            product.price * product.quantity
                                         )}
                                     />
                                 ))}
                             </ProductsList>
 
-                            <PriceSection>
-                                <BagPrice>
-                                    <PriceContainer>
-                                        <span>Original Price</span>
-                                        <span>${originalPrice}</span>
-                                    </PriceContainer>
-
-                                    <PriceContainer>
-                                        <span style={{ color: '#019875' }}>
-                                            Discount
-                                        </span>
-                                        <span style={{ color: '#019875' }}>
-                                            ${discount}
-                                        </span>
-                                    </PriceContainer>
-
-                                    <PriceContainer>
-                                        <span>Bag Total</span>
-                                        <span>
-                                            $
-                                            {Math.round(
-                                                (originalPrice -
-                                                    discount +
-                                                    Number.EPSILON) *
-                                                    100
-                                            ) / 100}
-                                        </span>
-                                    </PriceContainer>
-                                </BagPrice>
-
-                                <HyperLink href="/checkout">
-                                    <Button
-                                        varient="primary"
-                                        fill
-                                        onClick={toggleFn}
-                                    >
-                                        Checkout
-                                    </Button>
-                                </HyperLink>
-                            </PriceSection>
+                            <PriceSection
+                                originalPrice={originalPrice}
+                                discount={discount}
+                            />
                         </ProductsContainer>
                     </>
                 ) : (
-                    <EmptyCartContainer>
-                        <Heading4>My Bag</Heading4>
-
-                        <ShoppingBag width={48} height={48} strokeWidth={1.5} />
-                        <Heading4>Your Bag is empty.</Heading4>
-                        <Paragraph>
-                            Sounds like a good time to start shopping.
-                        </Paragraph>
-                    </EmptyCartContainer>
+                    <EmptyCart />
                 )}
             </SlideInContent>
         </SlideInContainer>
