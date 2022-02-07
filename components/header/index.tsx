@@ -160,10 +160,12 @@ export const Header = () => {
                                 src="/favicon-01.svg"
                                 alt="Sellsage Brand Icon"
                             />
+                            {/*                             
                              <BrandNameIcon
                                 src="/logosellsage.svg"
                                 alt="Sellsage Brand Name Icon"
-                            />
+                            /> */}
+                            <h1>sellsage</h1>
                         </HyperLink>
                     </BrandContainer>
 

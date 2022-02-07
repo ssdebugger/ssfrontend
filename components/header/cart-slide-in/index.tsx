@@ -4,7 +4,6 @@ import { X } from 'react-feather'
 import { Heading4 } from '@/components/typography/heading'
 import { useCart } from '@/context/cart'
 import { AlertBar } from '@/components/alert/alert-bar'
-import { HyperLink } from '..'
 
 import {
     CloseBtn,
