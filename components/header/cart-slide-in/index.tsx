@@ -91,17 +91,19 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
     useEffect(() => {
         let existingCoupon = getFromLocal('coupon')
 
-        if (cart.length === 2) {
+        if (cart.length > 1 && cart.length < 3) {
             if (
-                cart[0].sku === 'BNDL-CPBN-0710-0360' ||
-                (cart[0].sku === 'BNDL-SHBD-0710-0360' &&
+                (cart[0].sku === 'BNDL-CPBN-0710-0360' &&
                     cart[1].sku === 'BNDL-SHBD-0710-0360') ||
-                cart[1].sku === 'BNDL-CPBN-0710-0360'
+                (cart[0].sku === 'BNDL-SHBD-0710-0360' &&
+                    cart[1].sku === 'BNDL-CPBN-0710-0360')
             ) {
                 setAlert(`Offer not applicable on selected products`)
                 setCouponSelected('')
             }
         } else {
+            setAlert('')
+
             if (existingCoupon !== null && existingCoupon !== undefined) {
                 if (originalPrice > existingCoupon.minSpend) {
                     setAlert('')
@@ -136,9 +138,6 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
                     )
                     setCouponSelected('')
                     localStorage.removeItem('coupon')
-                }
-
-                if (cart.length === 2 && cart[0]) {
                 }
             }
         }
