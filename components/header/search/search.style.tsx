@@ -150,7 +150,7 @@ export const SearchResult = styled.div`
 export const SearchContainer = styled.div`
     flex: 1;
     margin-right: 0.5rem;
-    z-index: 999;
+    z-index: 1;
 
     svg {
         stroke: ${(props) => props.theme.blueGray500};
