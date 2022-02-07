@@ -97,7 +97,7 @@ export const UserDropdown = () => {
     return (
         <UserDropdownContainer>
             <DropdownLink>
-                <HyperLink href="/profile">
+                <HyperLink href={'/profile?email=' + user}>
                     <User width={16} height={16} />
                     <p>
                         Hi <span>{username}</span>
