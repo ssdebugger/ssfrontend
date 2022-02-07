@@ -70,7 +70,7 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
         setCouponSelected(id)
     }
 
-    // Check for changes in cart
+    // Check changes in cart
     useEffect(() => {
         let totalBagPrice = 0
 
