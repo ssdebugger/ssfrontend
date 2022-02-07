@@ -22,7 +22,7 @@ import { Button } from '@/components/buttons'
 import { CouponList } from './coupons/coupon-list'
 import { CustomCoupon } from './coupons/custom-coupon'
 import { limitDecimal } from '@/utils/limt-decimal'
-import { getFromLocal } from '@/utils/local-storage'
+import { getFromLocal, setToLocal } from '@/utils/local-storage'
 import { EmptyCart } from './empty-state'
 import { PriceSection } from './price-section'
 
@@ -83,6 +83,7 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
             setAlert('')
             localStorage.removeItem('billDetails')
             localStorage.removeItem('coupon')
+            console.log('calling from cart effect', cart.length)
         }
     }, [cart])
 
@@ -90,40 +91,55 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
     useEffect(() => {
         let existingCoupon = getFromLocal('coupon')
 
-        if (existingCoupon !== null && existingCoupon !== undefined) {
-            if (originalPrice > existingCoupon.minSpend) {
-                setAlert('')
+        if (cart.length === 2) {
+            if (
+                cart[0].sku === 'BNDL-CPBN-0710-0360' ||
+                (cart[0].sku === 'BNDL-SHBD-0710-0360' &&
+                    cart[1].sku === 'BNDL-SHBD-0710-0360') ||
+                cart[1].sku === 'BNDL-CPBN-0710-0360'
+            ) {
+                setAlert(`Offer not applicable on selected products`)
+                setCouponSelected('')
+            }
+        } else {
+            if (existingCoupon !== null && existingCoupon !== undefined) {
+                if (originalPrice > existingCoupon.minSpend) {
+                    setAlert('')
 
-                if (existingCoupon.type === 'percent') {
-                    let priceToDiscountOn = 0
+                    if (existingCoupon.type === 'percent') {
+                        let priceToDiscountOn = 0
 
-                    for (let i = 0; i < cart.length; i++) {
-                        if (
-                            cart[i].sku === 'BNDL-CPBN-0710-0360' ||
-                            cart[i].sku === 'BNDL-SHBD-0710-0360'
-                        ) {
-                            continue
+                        for (let i = 0; i < cart.length; i++) {
+                            if (
+                                cart[i].sku === 'BNDL-CPBN-0710-0360' ||
+                                cart[i].sku === 'BNDL-SHBD-0710-0360'
+                            ) {
+                                continue
+                            }
+
+                            priceToDiscountOn +=
+                                Number(cart[i].quantity) * cart[i].price
                         }
 
-                        priceToDiscountOn +=
-                            Number(cart[i].quantity) * cart[i].price
+                        let discountValue =
+                            priceToDiscountOn * (existingCoupon.amount / 100)
+
+                        let finalDiscountValue = limitDecimal(discountValue)
+
+                        setDiscount(finalDiscountValue)
+                    } else {
+                        setDiscount(existingCoupon.amount)
                     }
-
-                    let discountValue =
-                        priceToDiscountOn * (existingCoupon.amount / 100)
-
-                    let finalDiscountValue = limitDecimal(discountValue)
-
-                    setDiscount(finalDiscountValue)
                 } else {
-                    setDiscount(existingCoupon.amount)
+                    setAlert(
+                        `Original Price should be more than $${existingCoupon.minSpend}`
+                    )
+                    setCouponSelected('')
+                    localStorage.removeItem('coupon')
                 }
-            } else {
-                setAlert(
-                    `Original Price should be more than $${existingCoupon.minSpend}`
-                )
-                setCouponSelected('')
-                localStorage.removeItem('coupon')
+
+                if (cart.length === 2 && cart[0]) {
+                }
             }
         }
     }, [cart, couponSelectecd])
@@ -146,7 +162,7 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
             zipCode: null,
         }
 
-        localStorage.setItem('billDetails', JSON.stringify(billDetails))
+        setToLocal('billDetails', billDetails)
 
         setCustomCouponDetails((prevState) => ({
             ...prevState,
