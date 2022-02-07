@@ -7,6 +7,7 @@ import { Search } from './search'
 import {
     BrandContainer,
     BrandIcon,
+    BrandNameIcon,
     ButtonGroup,
     HeaderButton,
     HeaderContainer,
@@ -159,7 +160,10 @@ export const Header = () => {
                                 src="/favicon-01.svg"
                                 alt="Sellsage Brand Icon"
                             />
-                            <h1>SellSage</h1>
+                             <BrandNameIcon
+                                src="/logosellsage.svg"
+                                alt="Sellsage Brand Name Icon"
+                            />
                         </HyperLink>
                     </BrandContainer>
 
