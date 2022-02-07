@@ -32,6 +32,7 @@ const ItemName = styled.span`
     font-size: ${(props) => props.theme.textSm};
 `
 
+
 export const BreadCrumb: React.FC<Props> = ({ items }) => {
     return (
         <BreadCrumblist>
@@ -42,7 +43,7 @@ export const BreadCrumb: React.FC<Props> = ({ items }) => {
             {items.map((item) => (
                 <CrumbItem key={item}>
                     <ChevronRight width={14} height={14} />
-                    {item=='Shop'?<HyperLink href='/shop'><ItemName>{item}</ItemName></HyperLink>:<ItemName>{item}</ItemName> }
+                    {item=='Shop'?<ItemName><HyperLink href='/shop'>{item}</HyperLink></ItemName>:<ItemName>{item}</ItemName> }
                 </CrumbItem>
             ))}
         </BreadCrumblist>
