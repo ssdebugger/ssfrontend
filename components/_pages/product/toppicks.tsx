@@ -26,7 +26,7 @@ const TopPicks = (props) => {
 
     return (
         <Container>
-            <Heading3 margin="0 0 2rem">Products You might like</Heading3>
+            <Heading3 margin="0 0 2rem">Products You might Like</Heading3>
 
             <RecommendedProducts>
                 {offers.slice(0,4).map(item => (<ProductCard
