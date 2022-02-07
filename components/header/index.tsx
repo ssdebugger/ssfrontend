@@ -162,7 +162,7 @@ export const Header = () => {
                             />
 
                             <BrandNameIcon
-                                src="/logosellsage.svg"
+                                src="/pngsellsage.png"
                                 alt="Sellsage Brand Name Icon"
                             />
                         </HyperLink>
