@@ -6,6 +6,7 @@ import { Paragraph } from '@/components/typography/paragraph'
 
 import { CartItem } from '@/types/cart'
 import { useAddItem, useRemoveItem } from '@/context/cart'
+import { getFromLocal } from '@/utils/local-storage'
 
 const CardContainer = styled.div`
     display: grid;
@@ -122,7 +123,12 @@ const DeleteBtn = styled.button`
     }
 `
 
-export const ProductCard: React.FC<CartItem> = ({
+interface ProductProps extends CartItem {
+    showDiscount?: boolean
+    discountValue?: number
+}
+
+export const ProductCard: React.FC<ProductProps> = ({
     sku,
     title,
     quantity,
@@ -235,9 +241,13 @@ export const ProductCard: React.FC<CartItem> = ({
                 <span>${price}</span>
                 {sku === 'BNDL-CPBN-0710-0360' ? (
                     <span className="offer">33.11% off</span>
+                ) : sku === 'BNDL-SHBD-0710-0360' ? (
+                    <span className="offer">30.26% off</span>
                 ) : (
-                    sku === 'BNDL-SHBD-0710-0360' && (
-                        <span className="offer">30.26% off</span>
+                    getFromLocal('coupon') !== null && (
+                        <span className="offer">
+                            {getFromLocal('coupon').amount}% off
+                        </span>
                     )
                 )}
             </Paragraph>

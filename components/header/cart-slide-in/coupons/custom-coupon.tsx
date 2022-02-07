@@ -61,7 +61,7 @@ export const CustomCoupon: React.FC<Props> = ({
     return (
         <CouponForm onSubmit={(e) => handleCouponSubmit(e)}>
             <CouponInput
-                placeholder="Enter your CouponId"
+                placeholder="Enter your Coupon"
                 type={'text'}
                 onChange={(e) => handleCouponInput(e)}
             />
