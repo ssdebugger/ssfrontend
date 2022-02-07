@@ -61,8 +61,8 @@ export const BrandIcon = styled.img`
 `
 
 export const BrandNameIcon =  styled.img`
-    width:8rem;
-    height:3rem;
+    width:7rem;
+    height:40px;
 `
 
 
