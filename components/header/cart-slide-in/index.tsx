@@ -89,8 +89,8 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
     }
 
     useEffect(() => {
-        console.log('alert', alert)
-    }, [alert])
+        console.log('coupon', couponSelected)
+    }, [couponSelected])
 
     function getTotalOriginalPrice(cart: Array<CartItem>) {
         let totalValue = 0
@@ -116,7 +116,16 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
             return 0
         }
 
-        let discountValue = originalCartValue * (coupon.amount / 100)
+        let cartValue = originalCartValue
+        for (let i = 0; i < cart.length; i++) {
+            if (
+                cart[i].sku === 'BNDL-CPBN-0710-0360' ||
+                cart[i].sku === 'BNDL-SHBD-0710-0360'
+            ) {
+                cartValue -= cart[i].price
+            }
+        }
+        let discountValue = cartValue * (coupon.amount / 100)
         return limitDecimal(discountValue)
     }
 
@@ -185,7 +194,6 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
                 setShouldClickCoupon(true)
             } else {
                 setShouldClickCoupon(false)
-                setCouponSelected(initialCouponValue)
             }
         }
     }, [cart])
