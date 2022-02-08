@@ -92,7 +92,7 @@ const Blog = () => {
                     </GridItem>
 
                     <GridItem sm={100} md={50} lg={50}>
-                        {blogJson.slice(8, 13).map((item) => (
+                        {blogJson.slice(1, 6).map((item) => (
                             <HyperLink
                                 key={item.blog_id}
                                 varient="tertiary"
@@ -127,7 +127,7 @@ const Blog = () => {
                             </HyperLink>
                         ))}
                     </GridItem>
-                    {blogJson.slice(2, 6).map((item) => (
+                    {blogJson.slice(8, 12).map((item) => (
                         <GridItem key={item.blog_id} sm={50} md={25} lg={25}>
                             <HyperLink
                                 varient="tertiary"
@@ -186,7 +186,7 @@ const Blog = () => {
                         Featured Posts
                     </Typography>
                     <div style={{ display: 'flex' }}>
-                        {blogJson.slice(14, 17).map((item) => (
+                        {blogJson.slice(15, 18).map((item) => (
                             <HyperLink
                                 key={item.blog_id}
                                 varient="tertiary"

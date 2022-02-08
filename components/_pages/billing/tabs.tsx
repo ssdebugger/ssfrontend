@@ -545,8 +545,8 @@ const Tabs = () => {
                     /* Create an active/current tablink className */
                     .tab button.tablinksactive {
                         background: #007257;
-
-                        border: 2px solid black;
+                        
+                        border: 2px solid #007257;
                         color: #fff;
                     }
 
