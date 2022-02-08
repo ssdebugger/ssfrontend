@@ -7,6 +7,7 @@ import { Paragraph } from '@/components/typography/paragraph'
 import { CartItem } from '@/types/cart'
 import { useAddItem, useRemoveItem } from '@/context/cart'
 import { getFromLocal } from '@/utils/local-storage'
+import { limitDecimal } from '@/utils/limt-decimal'
 
 const CardContainer = styled.div`
     display: grid;
@@ -20,8 +21,16 @@ const CardContainer = styled.div`
         margin: 0;
         font-size: 1.125rem;
         color: ${(props) => props.theme.blueGray900};
-
         span {
+            display: block;
+
+            &.dashed-price {
+                text-decoration: line-through;
+                color: ${(props) => props.theme.blueGray500};
+            }
+        }
+
+        /* span {
             display: block;
             text-align: center;
             font-size: 1.125rem;
@@ -30,7 +39,7 @@ const CardContainer = styled.div`
                 color: #e85d00;
                 font-size: 0.75rem;
             }
-        }
+        } */
     }
 
     &:last-child {
@@ -95,6 +104,12 @@ const CardContent = styled.div`
     }
 `
 
+const CouponStatus = styled.p`
+    color: #e85d00;
+    font-size: 0.75rem !important;
+    margin-bottom: 0.25rem;
+`
+
 const CtaContainer = styled.div`
     display: flex;
     align-items: center;
@@ -124,8 +139,7 @@ const DeleteBtn = styled.button`
 `
 
 interface ProductProps extends CartItem {
-    showDiscount?: boolean
-    discountValue?: number
+    discountAmount: number
 }
 
 export const ProductCard: React.FC<ProductProps> = ({
@@ -135,9 +149,13 @@ export const ProductCard: React.FC<ProductProps> = ({
     img,
     productid,
     price,
+    discountAmount,
 }) => {
     const addToCart = useAddItem()
     const removeFromCart = useRemoveItem()
+
+    let discountValue = price * (discountAmount / 100)
+    let discountedPrice = limitDecimal(price - discountValue)
 
     async function cartApiOperations(
         actionType: 'SQC' | 'RFC',
@@ -215,6 +233,15 @@ export const ProductCard: React.FC<ProductProps> = ({
             </CardImgContainer>
 
             <CardContent>
+                {price !== discountedPrice ? (
+                    <CouponStatus>Coupon Applied</CouponStatus>
+                ) : sku === 'BNDL-CPBN-0710-0360' ? (
+                    <CouponStatus>Pre Discounted Item</CouponStatus>
+                ) : (
+                    sku === 'BNDL-SHBD-0710-0360' && (
+                        <CouponStatus>Pre Discounted Item</CouponStatus>
+                    )
+                )}
                 <Heading4>{title}</Heading4>
                 <Paragraph>Tableware</Paragraph>
 
@@ -238,18 +265,17 @@ export const ProductCard: React.FC<ProductProps> = ({
             </CardContent>
 
             <Paragraph>
-                <span>${price}</span>
-                {sku === 'BNDL-CPBN-0710-0360' ? (
-                    <span className="offer">33.11% off</span>
-                ) : sku === 'BNDL-SHBD-0710-0360' ? (
-                    <span className="offer">30.26% off</span>
+                {price !== discountedPrice ? (
+                    <span className="dashed-price">${price}</span>
+                ) : sku === 'BNDL-CPBN-0710-0360' ? (
+                    <span className="dashed-price">$74.75</span>
                 ) : (
-                    getFromLocal('coupon') !== null && (
-                        <span className="offer">
-                            {getFromLocal('coupon').amount}% off
-                        </span>
+                    sku === 'BNDL-SHBD-0710-0360' && (
+                        <span className="dashed-price">$35.85</span>
                     )
                 )}
+
+                <span>${discountedPrice}</span>
             </Paragraph>
         </CardContainer>
     )

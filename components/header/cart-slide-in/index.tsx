@@ -112,7 +112,7 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
             return 0
         }
 
-        let discountValue = originalCartValue - coupon.amount
+        let discountValue = originalCartValue * (coupon.amount / 100)
         return limitDecimal(discountValue)
     }
 
@@ -233,6 +233,7 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
                                         quantity={product.quantity}
                                         productid={product.productid}
                                         img={product.img}
+                                        discountAmount={couponSelected.amount}
                                         price={limitDecimal(
                                             product.price * product.quantity
                                         )}
