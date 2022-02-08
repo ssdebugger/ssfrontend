@@ -155,7 +155,10 @@ export const ProductCard: React.FC<ProductProps> = ({
     const removeFromCart = useRemoveItem()
 
     let discountValue = price * (discountAmount / 100)
-    let discountedPrice = limitDecimal(price - discountValue)
+    let discountedPrice =
+        sku === 'BNDL-CPBN-0710-0360' || sku === 'BNDL-SHBD-0710-0360'
+            ? price
+            : limitDecimal(price - discountValue)
 
     async function cartApiOperations(
         actionType: 'SQC' | 'RFC',

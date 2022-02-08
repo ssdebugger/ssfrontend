@@ -61,6 +61,7 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
     const [alert, setAlert] = useState('')
     const [originalPrice, setOriginalPrice] = useState(0)
     const [discount, setDiscount] = useState(0)
+    const [shouldClickCoupon, setShouldClickCoupon] = useState(false)
     const [couponSelected, setCouponSelected] =
         useState<Coupon>(initialCouponValue)
     const [customCouponDetails, setCustomCouponDetails] = useState({
@@ -74,14 +75,17 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
             setCouponSelected(initialCouponValue)
             setToLocal('coupon', initialCouponValue)
             setAlert(`Original price should be more than $${coupon.minSpend}`)
-            console.log('inside handle coupon if')
-            console.log(coupon.minSpend, originalPrice)
+
             return
         }
 
-        setAlert('')
-        setToLocal('coupon', coupon)
-        setCouponSelected(coupon)
+        if (shouldClickCoupon) {
+            setAlert('')
+            setToLocal('coupon', coupon)
+            setCouponSelected(coupon)
+        } else {
+            setAlert('Coupon not applicable on selected items.')
+        }
     }
 
     useEffect(() => {
@@ -167,6 +171,23 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
 
     useEffect(() => {
         setTotalOriginalPrice(cart, setOriginalPrice)
+
+        let coupon = getUserCoupon()
+        if (coupon.minSpend > 0) {
+            setCouponSelected(coupon)
+        }
+
+        for (let i = 0; i < cart.length; i++) {
+            if (
+                cart[i].sku !== 'BNDL-CPBN-0710-0360' &&
+                cart[i].sku !== 'BNDL-SHBD-0710-0360'
+            ) {
+                setShouldClickCoupon(true)
+            } else {
+                setShouldClickCoupon(false)
+                setCouponSelected(initialCouponValue)
+            }
+        }
     }, [cart])
 
     useEffect(() => {
