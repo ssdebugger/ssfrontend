@@ -1,5 +1,6 @@
 import { Voucher } from '@/components/svg/voucher'
 import { Paragraph } from '@/components/typography/paragraph'
+import { Coupon } from '@/types/coupon'
 import { useEffect } from 'react'
 import styled from 'styled-components'
 
@@ -121,47 +122,27 @@ const ToggleInputBtn = styled.input`
 
 export interface CouponCardProps {
     selectedId: string
-    couponId: string
-    discountAmount: number
-    discountType: string
-    minSpend: number
-    handleSelection: (id: string) => void
+    couponData: Coupon
+    handleSelection: (coupon: Coupon) => void
 }
 
 export const CouponCard: React.FC<CouponCardProps> = ({
     selectedId,
-    couponId,
-    discountAmount,
-    discountType,
-    minSpend,
+    couponData,
     handleSelection,
 }) => {
-    let isCouponSelected = selectedId === couponId
-
-    useEffect(() => {
-        if (isCouponSelected) {
-            localStorage.setItem(
-                'coupon',
-                JSON.stringify({
-                    id: couponId,
-                    amount: discountAmount,
-                    type: discountType,
-                    minSpend: minSpend,
-                })
-            )
-        }
-    }, [selectedId])
+    let isCouponSelected = selectedId === couponData.id
 
     return (
-        <CardContainer cardSelected={isCouponSelected} id={couponId}>
+        <CardContainer cardSelected={isCouponSelected} id={couponData.id}>
             <Row1 cardSelected={isCouponSelected}>
                 <Voucher />
 
                 <Row1Content>
                     <p>
-                        {discountType === 'percent'
-                            ? `${discountAmount}%`
-                            : `$${discountAmount}`}
+                        {couponData.type === 'percent'
+                            ? `${couponData.amount}%`
+                            : `$${couponData.amount}`}
                     </p>
                     <span>Discount</span>
                 </Row1Content>
@@ -170,11 +151,11 @@ export const CouponCard: React.FC<CouponCardProps> = ({
             <Row2 cardSelected={isCouponSelected}>
                 <Paragraph>
                     Use this coupon to get flat{' '}
-                    {discountType === 'percent'
-                        ? `${discountAmount}%`
-                        : `$${discountAmount}`}{' '}
+                    {couponData.type === 'percent'
+                        ? `${couponData.amount}%`
+                        : `$${couponData.amount}`}{' '}
                     discount on <b>non-discounted</b> items with order value
-                    above ${minSpend}.
+                    above ${couponData.minSpend}.
                 </Paragraph>
             </Row2>
 
@@ -185,7 +166,7 @@ export const CouponCard: React.FC<CouponCardProps> = ({
                     <ToggleInputBtn
                         checked={isCouponSelected}
                         type={'checkbox'}
-                        onChange={() => handleSelection(couponId)}
+                        onChange={() => handleSelection(couponData)}
                     />
                     <ToggleBtnCircle />
                 </ToggleBtn>

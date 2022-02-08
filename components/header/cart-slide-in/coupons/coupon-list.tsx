@@ -5,7 +5,7 @@ import { CouponCard, CouponCardProps } from '../coupon-card'
 interface Props {
     couponData: Array<Coupon>
     currentCouponId: CouponCardProps['selectedId']
-    handleSelection: CouponCardProps['handleSelection']
+    handleSelection: (coupon: Coupon) => void
 }
 export const CouponList: React.FC<Props> = ({
     couponData,
@@ -17,10 +17,7 @@ export const CouponList: React.FC<Props> = ({
             {couponData.map((coupon) => (
                 <CouponItem key={coupon.id}>
                     <CouponCard
-                        minSpend={coupon.minSpend}
-                        couponId={coupon.id}
-                        discountAmount={coupon.amount}
-                        discountType={coupon.type}
+                        couponData={coupon}
                         selectedId={currentCouponId}
                         handleSelection={handleSelection}
                     />

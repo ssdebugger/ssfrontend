@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { X } from 'react-feather'
 
 import { Heading4 } from '@/components/typography/heading'
@@ -25,6 +25,8 @@ import { limitDecimal } from '@/utils/limt-decimal'
 import { getFromLocal, setToLocal } from '@/utils/local-storage'
 import { EmptyCart } from './empty-state'
 import { PriceSection } from './price-section'
+import { CartItem } from '@/types/cart'
+import { Coupon } from '@/types/coupon'
 
 const defaultCouponData = [
     {
@@ -52,132 +54,128 @@ interface Props {
     toggleFn: () => void
 }
 
+const initialCouponValue = { id: '', minSpend: 0, amount: 0, type: '' }
+
 export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
     const { cart } = useCart()
-
     const [alert, setAlert] = useState('')
     const [originalPrice, setOriginalPrice] = useState(0)
     const [discount, setDiscount] = useState(0)
-    const [couponSelectecd, setCouponSelected] = useState('')
+    const [couponSelected, setCouponSelected] =
+        useState<Coupon>(initialCouponValue)
     const [customCouponDetails, setCustomCouponDetails] = useState({
         coupon_code: '',
         email: '',
         total: 0,
     })
 
-    function handleCouponSelection(id: string) {
-        setCouponSelected(id)
+    function handleCouponSelection(coupon: Coupon) {
+        if (coupon.minSpend >= originalPrice) {
+            setCouponSelected(initialCouponValue)
+            setToLocal('coupon', initialCouponValue)
+            setAlert(`Original price should be more than $${coupon.minSpend}`)
+            return
+        }
+
+        setAlert('')
+        setToLocal('coupon', coupon)
+        setCouponSelected(coupon)
     }
 
-    // Check changes in cart
-    useEffect(() => {
-        let totalBagPrice = 0
+    function getTotalOriginalPrice(cart: Array<CartItem>) {
+        let totalValue = 0
+        cart.forEach(
+            (item) => (totalValue += Number(item.price) * item.quantity)
+        )
 
-        cart.map((item) => {
-            totalBagPrice += Number(item.quantity) * item.price
-        })
+        return limitDecimal(totalValue)
+    }
 
-        setOriginalPrice(limitDecimal(totalBagPrice))
+    function getUserCoupon() {
+        let coupon = getFromLocal('coupon')
 
-        if (cart.length === 0) {
-            setAlert('')
-            localStorage.removeItem('billDetails')
-            localStorage.removeItem('coupon')
-            console.log('calling from cart effect', cart.length)
+        if (coupon === null || coupon === undefined) {
+            return 404
         }
-    }, [cart])
 
-    // Change the discount value when cart or coupon changes
-    useEffect(() => {
-        let existingCoupon = getFromLocal('coupon')
+        return coupon
+    }
 
-        if (cart.length > 1 && cart.length < 3) {
-            if (
-                (cart[0].sku === 'BNDL-CPBN-0710-0360' &&
-                    cart[1].sku === 'BNDL-SHBD-0710-0360') ||
-                (cart[0].sku === 'BNDL-SHBD-0710-0360' &&
-                    cart[1].sku === 'BNDL-CPBN-0710-0360')
-            ) {
-                setAlert(`Offer not applicable on selected products`)
-                setCouponSelected('')
+    function getDiscountValue(coupon: Coupon, originalCartValue: number) {
+        if (coupon.minSpend >= originalCartValue) {
+            return {
+                discountValue: 0,
+                msg: `Original price should be more than $${coupon.minSpend}`,
             }
+        }
+
+        let discountValue = originalCartValue - coupon.amount
+        return { discountValue: discountValue, msg: 'coupon applied' }
+    }
+
+    function setTotalOriginalPrice(
+        cart: Array<CartItem>,
+        setBagValue: Dispatch<SetStateAction<number>>
+    ) {
+        let bagValue = getTotalOriginalPrice(cart)
+        setBagValue(bagValue)
+
+        return bagValue
+    }
+
+    function setDicsountValue(
+        originalPrice: number,
+        setBagDiscount: Dispatch<SetStateAction<number>>
+    ) {
+        let coupon = getUserCoupon()
+        if (coupon === 404) {
+            return
+        }
+
+        let discount = getDiscountValue(coupon, originalPrice)
+        if (discount.msg === 'coupon applied') {
+            setBagDiscount(discount.discountValue)
         } else {
-            setAlert('')
-
-            if (existingCoupon !== null && existingCoupon !== undefined) {
-                if (originalPrice > existingCoupon.minSpend) {
-                    setAlert('')
-
-                    if (existingCoupon.type === 'percent') {
-                        let priceToDiscountOn = 0
-
-                        for (let i = 0; i < cart.length; i++) {
-                            if (
-                                cart[i].sku === 'BNDL-CPBN-0710-0360' ||
-                                cart[i].sku === 'BNDL-SHBD-0710-0360'
-                            ) {
-                                continue
-                            }
-
-                            priceToDiscountOn +=
-                                Number(cart[i].quantity) * cart[i].price
-                        }
-
-                        let discountValue =
-                            priceToDiscountOn * (existingCoupon.amount / 100)
-
-                        let finalDiscountValue = limitDecimal(discountValue)
-
-                        setDiscount(finalDiscountValue)
-                    } else {
-                        setDiscount(existingCoupon.amount)
-                    }
-                } else {
-                    setAlert(
-                        `Original Price should be more than $${existingCoupon.minSpend}`
-                    )
-                    setCouponSelected('')
-                    localStorage.removeItem('coupon')
-                }
-            }
+            setBagDiscount(discount.discountValue)
         }
-    }, [cart, couponSelectecd])
+    }
 
-    // Set Bill details and customCoupon total value when originalPrice or discount value changes
-    useEffect(() => {
-        let existingCoupon = getFromLocal('coupon')
-        let couponExist =
-            existingCoupon !== null && existingCoupon !== undefined
+    function setBillDetails(originalPrice: number, discountValue: number) {
+        let existingCoupon = getUserCoupon()
 
         let billDetails = {
             originalPrice: originalPrice,
             discount: {
-                discountId: couponExist ? existingCoupon.id : null,
-                type: couponExist ? existingCoupon.type : null,
-                discountValue: couponExist ? existingCoupon.amount : 0,
-                totalDiscount: couponExist ? discount : 0,
+                discountId: existingCoupon !== 404 ? existingCoupon.id : null,
+                type: existingCoupon !== 404 ? existingCoupon.type : null,
+                discountValue:
+                    existingCoupon !== 404 ? existingCoupon.amount : 0,
+                totalDiscount: existingCoupon !== 404 ? discountValue : 0,
             },
-            bagTotal: limitDecimal(originalPrice - discount),
+            bagTotal: limitDecimal(originalPrice - discountValue),
             zipCode: null,
         }
 
         setToLocal('billDetails', billDetails)
-
-        setCustomCouponDetails((prevState) => ({
-            ...prevState,
-            total: originalPrice,
-        }))
-    }, [originalPrice, discount])
+    }
 
     useEffect(() => {
-        let existingCoupon = getFromLocal('coupon')
-        let couponExist =
-            existingCoupon !== null && existingCoupon !== undefined
+        let totalOriginalPrice = setTotalOriginalPrice(cart, setOriginalPrice)
+    }, [cart])
 
-        if (couponExist) {
-            setCouponSelected(existingCoupon.id)
+    useEffect(() => {
+        setBillDetails(originalPrice, discount)
+        setDicsountValue(originalPrice, setDiscount)
+
+        if (
+            couponSelected.minSpend > 0 &&
+            couponSelected.minSpend > originalPrice
+        ) {
+            setCouponSelected(initialCouponValue)
+        } else if (originalPrice > couponSelected.minSpend) {
+            setAlert('')
         }
-    }, [])
+    }, [originalPrice, discount])
 
     return (
         <SlideInContainer showBag={showBag}>
@@ -213,7 +211,7 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
                             />
 
                             <CouponList
-                                currentCouponId={couponSelectecd}
+                                currentCouponId={couponSelected.id}
                                 couponData={defaultCouponData}
                                 handleSelection={handleCouponSelection}
                             />
