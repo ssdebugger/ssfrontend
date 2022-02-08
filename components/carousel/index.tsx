@@ -88,7 +88,7 @@ const Slide = ({
 }) => {
     return (
         <Link href={href} passHref>
-            <SlideContainer>{children}</SlideContainer>
+            <SlideContainer className='slide'>{children}</SlideContainer>
         </Link>
     )
 }
@@ -103,13 +103,8 @@ export const Carousel = () => {
         setInterval(() => {
             if (scrollValue < containerWidth - screenWidth) {
                 scrollValue += screenWidth
-
                 container.style.transform = `translate3d(-${scrollValue}px, 0, 0)`
-            } else {
-                scrollValue = 0
-
-                container.style.transform = `translate3d(-${scrollValue}px, 0, 0)`
-            }
+            } 
         }, 3000)
     }, [])
 

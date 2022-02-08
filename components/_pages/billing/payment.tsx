@@ -23,6 +23,7 @@ import {
     ShippingAddressDetails,
     ShippingAndPrice,
 } from './payment.style'
+
 import { useUser } from '@/context/user'
 import { Paragraph } from '@/components/typography/paragraph'
 import { useClearCart } from '@/context/cart'
@@ -345,6 +346,7 @@ const Checkoutform = (props) => {
 }
 
 const PaymentGateway = (props) => {
+  
     return (
         <ShippingContainer>
             <PaymentContainer>

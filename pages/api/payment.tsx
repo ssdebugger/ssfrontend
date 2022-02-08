@@ -8,8 +8,8 @@ export default async function handlePayment(
     if (req.method === 'POST') {
         console.log(req.body)
         let billDetails = JSON.parse(req.body)
-        let billingPrice = limitDecimal(billDetails.price + billDetails.tax)
-
+        let billingPrice = Math.ceil((billDetails.price + billDetails.tax))
+        
         const stripe = require('stripe')(
             'sk_live_8FvXoKEV1y0HiYXKd09heslO00IZdmNx1m'
         )

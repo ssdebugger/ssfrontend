@@ -11,6 +11,7 @@ import { Checkbox } from 'components/checkbox/index'
 import BillingDetails from './ordertotal'
 import PaymentGateway from './payment'
 import { useAddUser, useUser } from '@/context/user'
+import { useCart } from '@/context/cart'
 import {
     AddressBox,
     Boxbutton,
@@ -375,6 +376,19 @@ const Tabs = () => {
     const [price, setPrice] = useState(0)
     const [tax, setTax] = useState(0)
     const [discount, setDiscount] = useState(0)
+
+    const [tmp, setTmp] = useState({
+        originalPrice: 0,
+        discount: {
+            discountId: null,
+            type: null,
+            discountValue: 0,
+            totalDiscount: 0,
+        },
+        bagTotal: 0,
+        zipCode: null,
+    })
+
     const ShippingContainer = styled(Container)`
         background-color: #fff;
         width: 100%;
@@ -399,7 +413,7 @@ const Tabs = () => {
             billStorage === ''
         ) {
         } else {
-            let tmp = JSON.parse(window.localStorage.getItem('billDetails'))
+            setTmp(JSON.parse(window.localStorage.getItem('billDetails')))
             if (action == 'Payment') {
                 fetch(
                     'https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/shippingtaxesv2?zipcode=' +
@@ -454,7 +468,29 @@ const Tabs = () => {
             console.log(evt)
         }
     }
+    const { cart } = useCart()
 
+    useEffect(() => {
+        setTimeout(() => {
+            let temp = JSON.parse(window.localStorage.getItem('billDetails'))
+            let tempobj=Object.create(temp)
+            console.log(tmp['bagTotal'], temp['bagTotal'])
+            setTmp((tmp) => tempobj)
+            let temptotal = temp['bagTotal']
+            let tempdisc = temp['discount']['totalDiscount']
+            setPrice((price) => temptotal)
+            setDiscount((discount) => tempdisc)
+            console.log(tmp['bagTotal'], temp['bagTotal'])
+        }, 1000)
+    }, [cart])
+    useEffect(() => {
+        let temp = JSON.parse(window.localStorage.getItem('billDetails'))
+        setTmp((tmp) => temp)
+        let temptotal = tmp['bagTotal']
+        let tempdisc = tmp['discount']['totalDiscount']
+        setPrice((price) => temptotal)
+        setDiscount((discount) => tempdisc)
+    }, [])
     return (
         <>
             <Head>
@@ -545,7 +581,7 @@ const Tabs = () => {
                     /* Create an active/current tablink className */
                     .tab button.tablinksactive {
                         background: #007257;
-                        
+
                         border: 2px solid #007257;
                         color: #fff;
                     }
