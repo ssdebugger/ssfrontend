@@ -105,6 +105,11 @@ export const Carousel = () => {
                 scrollValue += screenWidth
                 container.style.transform = `translate3d(-${scrollValue}px, 0, 0)`
             } 
+            else{
+                
+                scrollValue = 0
+                container.style.transform = `translate3d(-${scrollValue}px, 0, 0)`
+            }
         }, 3000)
     }, [])
 
