@@ -90,6 +90,7 @@ const CardContent = styled.div`
     h4 {
         font-size: 1.125rem;
         margin-bottom: 0.5rem;
+        text-transform: capitalize;
     }
 
     & > p {
@@ -271,10 +272,14 @@ export const ProductCard: React.FC<ProductProps> = ({
                 {price !== discountedPrice ? (
                     <span className="dashed-price">${price}</span>
                 ) : sku === 'BNDL-CPBN-0710-0360' ? (
-                    <span className="dashed-price">${(74.75*quantity).toFixed(2)}</span>
+                    <span className="dashed-price">
+                        ${(74.75 * quantity).toFixed(2)}
+                    </span>
                 ) : (
                     sku === 'BNDL-SHBD-0710-0360' && (
-                        <span className="dashed-price">${(35.85*quantity).toFixed(2)}</span>
+                        <span className="dashed-price">
+                            ${(35.85 * quantity).toFixed(2)}
+                        </span>
                     )
                 )}
 
