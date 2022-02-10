@@ -140,10 +140,14 @@ export const Carousel = () => {
                     overflow-x: auto;
                     scrollbar-width: 0;
                     scrollbar-color: transparent transparent;
+                    ::-webkit-scroll-behavior:smooth;
+                    ::-webkit-scroll-snap-type:x mandatory;;
+
                 }
                 .bannerContainer::-webkit-scrollbar {
                     display: none;
                 }
+                
                 .bannerContainer .carouselItem {
                     flex-grow: 0;
                     flex-shrink: 0;
