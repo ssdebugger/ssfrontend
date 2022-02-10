@@ -7,6 +7,8 @@ import { useEffect } from 'react'
 import Router from 'next/router'
 import { AuthProvider } from 'context/auth'
 import { UserProvider } from 'context/user'
+import smoothscroll from 'smoothscroll-polyfill';
+
 
 function MyApp({ Component, pageProps }: AppProps) {
     const options = {
@@ -23,7 +25,9 @@ function MyApp({ Component, pageProps }: AppProps) {
                 left: 0,
                 behavior: 'smooth',
             })
-        })
+        })       
+    // kick off the polyfill!
+    smoothscroll.polyfill();
     }, [])
 
     return (

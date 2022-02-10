@@ -141,7 +141,7 @@ export const Carousel = () => {
                     scrollbar-width: 0;
                     scrollbar-color: transparent transparent;
                     ::-webkit-scroll-behavior:smooth;
-                    ::-webkit-scroll-snap-type:x mandatory;;
+                    ::-webkit-scroll-snap-type:x mandatory;
 
                 }
                 .bannerContainer::-webkit-scrollbar {
