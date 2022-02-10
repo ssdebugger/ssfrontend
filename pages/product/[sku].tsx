@@ -64,8 +64,9 @@ export async function getServerSideProps({ query }) {
     else if(productSku=='party-pack-square'){
         productSku='BNDL-RTPP-0012-0400'
     }
+    //handling instagrAM
     else if(productSku=='cutlery-set'){
-        productSku='BNDL-CSET-0000-0300'
+        productSku='BNDL-CSET-0000-0300' 
     }
     const response = await fetch(
         `https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/getproductdetails?sku=${productSku}`
