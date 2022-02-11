@@ -38,7 +38,7 @@ const BrandLogo = styled.img`
 export const Banner = () => {
     return (
         <BannerContainer>
-            <BrandLogo src="favicon.svg" />
+            <BrandLogo src="favicon.svg" alt='brand logo'/>
             <TextContainer>
                 <MainHeading>
                     Flourishing a green Earth the right way,

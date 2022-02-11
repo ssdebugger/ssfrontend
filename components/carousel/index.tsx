@@ -24,9 +24,8 @@ export const Carousel = () => {
         const bannerContainer = document.querySelector<HTMLElement>('.bannerContainer') 
         let screenWidth = window.innerWidth
         const speed=5
-        setInterval(() => {
-            bannerContainer.scrollBy(screenWidth, 0)
-            
+         setInterval(() => {
+            bannerContainer.scrollBy(screenWidth, 0)           
             let timeoutX = setTimeout(() => {
                 index = index % numberOfSlides
                 let imageToMove =
