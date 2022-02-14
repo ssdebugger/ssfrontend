@@ -32,7 +32,7 @@ export const Background = styled.div`
     z-index: 40;
 
     width: 100vw;
-    height: calc(100vh - 110px);
+    height: calc(100vh - 122px);
     background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(7px);
 

@@ -35,6 +35,7 @@ export const SearchInputWrapper = styled.div`
     top: 100%;
     left: 0;
     height: 50px;
+    z-index: 50;
 
     @media (min-width: ${(props) => props.theme.screenLg}) {
         width: 300px;
@@ -150,7 +151,6 @@ export const SearchResult = styled.div`
 export const SearchContainer = styled.div`
     flex: 1;
     margin-right: 0.5rem;
-    z-index: 1;
 
     svg {
         stroke: ${(props) => props.theme.blueGray500};
