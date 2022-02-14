@@ -50,6 +50,14 @@ export const Search = () => {
         debounce(e.target.value)
     }
 
+    const handleInputFocus = () => {
+        document.body.style.overflow = 'hidden'
+    }
+
+    const handleOffFocus = () => {
+        document.body.style.overflow = 'auto'
+    }
+
     return (
         <SearchContainer>
             <SearchInputWrapper>
@@ -58,6 +66,8 @@ export const Search = () => {
                     onChange={(e) => inputchange(e)}
                     type="text"
                     placeholder="Search..."
+                    onFocus={handleInputFocus}
+                    onBlur={handleOffFocus}
                 />
 
                 <SearchCloseBtn>

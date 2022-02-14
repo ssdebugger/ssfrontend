@@ -26,7 +26,7 @@ export const NavLinkExpanded = styled.div`
 `
 
 export const Background = styled.div`
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     z-index: 40;
