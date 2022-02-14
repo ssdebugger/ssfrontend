@@ -73,9 +73,10 @@ export const Search = () => {
                 <SearchCloseBtn>
                     <X width={16} height={16} strokeWidth={2.5} />
                 </SearchCloseBtn>
+
+                <Background />
             </SearchInputWrapper>
 
-            <Background />
             <SearchResultsWrapper>
                 <SearchResultContainer>
                     {search.map((x) => (
