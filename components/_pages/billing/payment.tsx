@@ -46,7 +46,7 @@ const CardInput = styled.div`
     margin: 0.875rem 0 0 0;
 `
 
-const stripePromise = loadStripe('pk_live_d2HzkdbXHfM31jQJbUsPZiMe00VrTpDvSg')
+const stripePromise = loadStripe('pk_test_51JfLM2SG5BNiWvSgo4Zjssn5MGrulgcH6ZZ7jEQ9HO9EvegC6pe0TQsFSAUcwxj0y1LcPutWO9v4SKhvfx87UOjl00H0Wblu3f')
 var paymentIntent
 var paymentdata
 

@@ -11,7 +11,7 @@ export default async function handlePayment(
         let billingPrice = Math.ceil((billDetails.price + billDetails.tax))
         
         const stripe = require('stripe')(
-            'sk_live_8FvXoKEV1y0HiYXKd09heslO00IZdmNx1m'
+            'sk_test_51JfLM2SG5BNiWvSgjLdXVI9HCV8ypHpghCaTqspW9b5niFYIgHpmmYicprwoQmD6UlVR81dRMfhXh5i03IrTojLx00JjzPH0RL'
         )
 
         const paymentIntent = await stripe.paymentIntents.create({
