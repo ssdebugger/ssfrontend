@@ -35,6 +35,7 @@ export const SearchInputWrapper = styled.div`
     top: 100%;
     left: 0;
     height: 50px;
+    z-index: 50;
 
     @media (min-width: ${(props) => props.theme.screenLg}) {
         width: 300px;
@@ -78,6 +79,10 @@ export const SearchResultsWrapper = styled.div`
     transition: transform 0.2s ease, opacity 0ms linear 0.2s,
         visibility 0ms linear 0.2s;
     transform-origin: top center;
+
+    @media (min-width: ${(props) => props.theme.screenMd}) {
+        z-index: 50;
+    }
 
     @media (min-width: ${(props) => props.theme.screenLg}) {
         flex-direction: row;
@@ -150,7 +155,6 @@ export const SearchResult = styled.div`
 export const SearchContainer = styled.div`
     flex: 1;
     margin-right: 0.5rem;
-    z-index: 1;
 
     svg {
         stroke: ${(props) => props.theme.blueGray500};
@@ -165,15 +169,16 @@ export const SearchContainer = styled.div`
         &::placeholder {
             color: ${(props) => props.theme.blueGray500};
         }
+
+        &:focus ~ ${Background} {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: all;
+            }
+        }
     }
 
     &:focus-within {
-        ${Background} {
-            opacity: 1;
-            visibility: visible;
-            pointer-events: all;
-        }
-
         ${SearchInputWrapper} {
             width: 100%;
         }

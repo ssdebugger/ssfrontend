@@ -26,22 +26,28 @@ export const NavLinkExpanded = styled.div`
 `
 
 export const Background = styled.div`
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 40;
+    display: none;
 
-    width: 100vw;
-    height: calc(100vh - 110px);
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(7px);
+    @media (min-width: ${(props) => props.theme.screenLg}) {
+        display: block;
 
-    opacity: 0;
-    pointer-events: none;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 30;
 
-    visibility: visible;
+        width: 100vw;
+        height: calc(100vh - 122px);
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(7px);
 
-    transition: opacity 0ms;
+        opacity: 0;
+        pointer-events: none;
+
+        visibility: visible;
+
+        transition: opacity 0ms;
+    }
 `
 
 export const NavLinkExpandedWrapper = styled.div`
