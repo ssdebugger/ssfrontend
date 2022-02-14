@@ -32,7 +32,7 @@ const Impact = () => {
 
                 <ScrollableCol>
                     <ImgContainer>
-                        <HeaderImg src="/impact-header.jpg" />
+                        <HeaderImg src="/impact-header.jpg" alt='impact image'/>
 
                         <HeaderImgContent>
                             {/* <Paragraph>18•12•2021</Paragraph> */}

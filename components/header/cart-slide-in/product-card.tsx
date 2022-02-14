@@ -233,7 +233,7 @@ export const ProductCard: React.FC<ProductProps> = ({
     return (
         <CardContainer>
             <CardImgContainer>
-                <img src={img} />
+                <img src={img} alt='product img' />
             </CardImgContainer>
 
             <CardContent>

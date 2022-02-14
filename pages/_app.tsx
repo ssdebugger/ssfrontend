@@ -8,6 +8,7 @@ import Router from 'next/router'
 import { AuthProvider } from 'context/auth'
 import { UserProvider } from 'context/user'
 
+
 function MyApp({ Component, pageProps }: AppProps) {
     const options = {
         position: positions.BOTTOM_CENTER,
@@ -23,7 +24,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                 left: 0,
                 behavior: 'smooth',
             })
-        })
+        })       
     }, [])
 
     return (
