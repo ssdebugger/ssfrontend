@@ -15,7 +15,7 @@ export default async function handlePayment(
         )
 
         const paymentIntent = await stripe.paymentIntents.create({
-            amount: billingPrice,
+            amount: billingPrice*100,
             currency: 'usd',
             description: 'Sellsage Billing Service',
             shipping: {
