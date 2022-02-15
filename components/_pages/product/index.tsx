@@ -45,7 +45,7 @@ import { useUser, useAddUser } from 'context/user'
 const Productpage = (props) => {
     var data = props.data['body']['response']
     var recproducts = props.data['body']['recproducts']
-
+   
     const AddToCartCta = ({
         sku,
         title,
@@ -213,7 +213,7 @@ const Productpage = (props) => {
         price: data['sale_price']['N'],
     }
 
-    console.log(data)
+    console.log('recproducts',recproducts)
     return (
         <>
             <Head>

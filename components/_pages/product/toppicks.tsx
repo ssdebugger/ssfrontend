@@ -23,7 +23,7 @@ const RecommendedProducts = styled(GridContainer)`
 
 const TopPicks = (props) => {
     const offers = props.offers
-
+    console.log(offers,'product-card')
     return (
         <Container>
             <Heading3 margin="0 0 2rem">Products You Might Like</Heading3>
@@ -35,6 +35,7 @@ const TopPicks = (props) => {
                     price={item['sale_price']['N']}
                     desc={item['short_description']['S']}
                     sku={item['sku_code']['S']}
+                    productId={item['product_id']['N']}
                 />))}  
 
             

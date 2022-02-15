@@ -20,7 +20,6 @@ const ItemDesc = styled.li`
 `
 
 export const AboutItem = (props) => {
-    console.log('about props', props)
     return (
         <AboutItemContainer>
             <Heading3 margin="0 0 1rem 0">Product Specifications</Heading3>
