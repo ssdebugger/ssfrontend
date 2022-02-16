@@ -145,6 +145,7 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
         // when coupon does not exist
         if (coupon.minSpend === 0) {
             setBagDiscount(0)
+            setBillDetails(originalPrice, 0) 
             return
         }
 
