@@ -156,11 +156,11 @@ const Checkoutform = (props) => {
                                     billing:
                                         billingdetails['username'] +
                                         ',' +
-                                        billingdetails['location'],
+                                        billingdetails['location']+','+ billingdetails['phoneNo']+','+ billingdetails['zipCode'],
                                     shipping:
                                         shippingdetails['username'] +
                                         ',' +
-                                        shippingdetails['location'],
+                                        shippingdetails['location']+','+ shippingdetails['phoneNo']+','+ shippingdetails['zipCode'],
                                     payment_details: {
                                         method: 'Stripe',
                                         transaction_id:
