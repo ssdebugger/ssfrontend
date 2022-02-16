@@ -4,7 +4,7 @@ export const MobileNavContainer = styled.div<{ showNav: boolean }>`
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 15;
+    z-index: 55;
     background: #fff;
     width: 100%;
     height: 100vh;
