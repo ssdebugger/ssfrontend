@@ -156,11 +156,11 @@ const Checkoutform = (props) => {
                                     billing:
                                         billingdetails['username'] +
                                         ',' +
-                                        billingdetails['location'],
+                                        billingdetails['location']+','+ billingdetails['phoneNo'],
                                     shipping:
                                         shippingdetails['username'] +
                                         ',' +
-                                        shippingdetails['location'],
+                                        shippingdetails['location']+','+ shippingdetails['phoneNo'],
                                     payment_details: {
                                         method: 'Stripe',
                                         transaction_id:
@@ -191,29 +191,29 @@ const Checkoutform = (props) => {
                                 }
                                 console.log('order details', order_details)
 
-                                fetch(
-                                    'https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/createorder',
-                                    {
-                                        method: 'POST',
-                                        body: JSON.stringify(order_details), // *GET, POST, PUT, DELETE, etc.
-                                        mode: 'no-cors', // no-cors, *cors, same-origin
-                                        headers: {
-                                            'Content-Type': 'application/json',
-                                            // 'Content-Type': 'application/x-www-form-urlencoded',
-                                        },
-                                    }
-                                )
-                                    .then((res) => {
-                                        clearCart()
-                                        alert.show('Order placed')
-                                        router.push('/shop')
-                                    })
-                                    .catch((err) => {
-                                        console.log(err)
-                                        alert.show(
-                                            'Payment Failed, please try again'
-                                        )
-                                    })
+                                // fetch(
+                                //     'https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/createorder',
+                                //     {
+                                //         method: 'POST',
+                                //         body: JSON.stringify(order_details), // *GET, POST, PUT, DELETE, etc.
+                                //         mode: 'no-cors', // no-cors, *cors, same-origin
+                                //         headers: {
+                                //             'Content-Type': 'application/json',
+                                //             // 'Content-Type': 'application/x-www-form-urlencoded',
+                                //         },
+                                //     }
+                                // )
+                                //     .then((res) => {
+                                //         clearCart()
+                                //         alert.show('Order placed')
+                                //         router.push('/shop')
+                                //     })
+                                //     .catch((err) => {
+                                //         console.log(err)
+                                //         alert.show(
+                                //             'Payment Failed, please try again'
+                                //         )
+                                //     })
                             }
                         })
                         .catch((error) => console.log(error))
