@@ -1,5 +1,5 @@
 import Blog from '@/components/_pages/blog'
-import client from '../sanityclient'
+import client from '../../sanityclient'
 export default Blog
 
 export async function getStaticProps() {

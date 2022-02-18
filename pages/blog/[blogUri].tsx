@@ -1,6 +1,5 @@
 import BlogPost from '@/components/_pages/blog/blog-post'
-import jsonData from '../../cummulative.json'
-import client from '../sanityclient'
+import client from '../../sanityclient'
 
 export default BlogPost
 
@@ -8,12 +7,13 @@ export async function getStaticPaths() {
     const paths = await client.fetch(`*[_type == "post"][].slug.current`)
     return {
         paths: paths.map((blogUri) => ({ params: { blogUri } })),
-        fallback: true,
+        fallback: false,
     }
 }
 
-export async function getStaticProps({ params: { blogUri } }) {
+export async function getStaticProps(context) {
     let recommendedPosts
+    const {blogUri=""}=context.params
     const post = await client.fetch(
         `
     *[_type == "post" && slug.current == $blogUri][0]

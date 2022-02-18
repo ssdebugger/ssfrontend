@@ -30,15 +30,13 @@ import {
 import { WhatsApp } from '@/components/svg/whatsapp'
 import { Download, Link, Mail, Twitter } from 'react-feather'
 import { Paragraph } from '@/components/typography/paragraph'
-import client from '../../../../pages/sanityclient'
+import client from '../../../../sanityclient'
 import {
     CardContainer,
     ImageContainer,
     ContentContainer,
     Image,
 } from '@/components/card/blog'
-import { useRouter } from 'next/router'
-import blogJson from '../../../../cummulative.json'
 import { useState } from 'react'
 
 interface Props {}
