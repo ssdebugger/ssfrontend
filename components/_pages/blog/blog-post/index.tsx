@@ -44,7 +44,7 @@ import { useState } from 'react'
 interface Props {}
 
 function urlFor (source) {
-    return imageUrlBuilder(client).image(source)
+    return String(imageUrlBuilder(client).image(source))
   }
 
 const ptComponents = {
@@ -57,7 +57,7 @@ const ptComponents = {
           <img
             alt={value.alt || ' '}
             loading="lazy"
-            src={urlFor(value).quality(0)}
+            src={urlFor(value)}
           />
         )
       }
