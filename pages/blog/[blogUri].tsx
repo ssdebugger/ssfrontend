@@ -1,35 +1,40 @@
 import BlogPost from '@/components/_pages/blog/blog-post'
 import jsonData from '../../cummulative.json'
+import client from '../sanityclient'
 
 export default BlogPost
 
 export async function getStaticPaths() {
-    const paths = jsonData.map((blog) => ({
-        params: {
-            blogUri: blog.blog_id,
-        },
-    }))
-
+    const paths = await client.fetch(`*[_type == "post"][].slug.current`)
     return {
-        paths,
-        fallback: false,
+        paths: paths.map((blogUri) => ({ params: { blogUri } })),
+        fallback: true,
     }
 }
 
 export async function getStaticProps({ params: { blogUri } }) {
-    let data, recommendedPosts
+    let recommendedPosts
+    const post = await client.fetch(
+        `
+    *[_type == "post" && slug.current == $blogUri][0]
+  `,
+        { blogUri }
+    )
 
-    jsonData.forEach((blog) => {
-        if (blog.blog_id === blogUri) {
-            data = blog
-        }
-    })
+    const data = await client.fetch(
+        `*[_type == "post"][]{mainImage{
+            asset->{
+                _id,
+                url
+            }
 
-    recommendedPosts = jsonData.slice(8, 13)
-
+        },title,publishedAt,slug}`
+    )
+    recommendedPosts = data.slice(1, 5)
+    console.log(data, 'serverprops 2')
     return {
         props: {
-            blogData: data,
+            blogData: post,
             morePosts: recommendedPosts,
         },
     }

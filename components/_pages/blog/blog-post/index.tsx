@@ -1,6 +1,9 @@
 import Head from 'next/head'
 import Footer from '@/components/footer'
 import { LandingLayout } from '@/components/layout/landing'
+import {PortableText} from '@portabletext/react'
+
+import imageUrlBuilder from '@sanity/image-url'
 import {
     BlogPostTop,
     Content,
@@ -27,6 +30,7 @@ import {
 import { WhatsApp } from '@/components/svg/whatsapp'
 import { Download, Link, Mail, Twitter } from 'react-feather'
 import { Paragraph } from '@/components/typography/paragraph'
+import client from '../../../../pages/sanityclient'
 import {
     CardContainer,
     ImageContainer,
@@ -39,10 +43,38 @@ import { useState } from 'react'
 
 interface Props {}
 
-const BlogPost = ({ blogData, morePosts }) => {
+function urlFor (source) {
+    return imageUrlBuilder(client).image(source)
+  }
+
+const ptComponents = {
+    types: {
+      image: ({ value }) => {
+        if (!value?.asset?._ref) {
+          return null
+        }
+        return (
+          <img
+            alt={value.alt || ' '}
+            loading="lazy"
+            src={urlFor(value).quality(0)}
+          />
+        )
+      }
+    }
+  }
+
+const BlogPost = ({ blogData,morePosts }) => {
+    const {
+            title = 'Missing title',
+            name = 'Missing name',
+            categories,
+            authorImage,
+            body = []
+          } = blogData
     const [copiedToClipboard, setCopiedToClipboard] = useState(false)
 
-    let link = `https://sellsage.com/blog/${blogData.blog_id}`
+    let link = `https://sellsage.com/blog/${blogData.slug.current}`
     let encodedBlogLink = encodeURIComponent(link)
     let encodedBlogTitle = encodeURIComponent(blogData.title)
 
@@ -80,7 +112,7 @@ const BlogPost = ({ blogData, morePosts }) => {
                         <MainHeading>{blogData.title}</MainHeading>
 
                         <DateAndReadTime>
-                            <Heading4>{formatDate(new Date(blogData.published_date))}</Heading4>
+                            <Heading4>{formatDate(new Date(blogData.publishedAt))}</Heading4>
                             <Heading4>Read time: 6mins</Heading4>
                         </DateAndReadTime>
                     </BlogPostTop>
@@ -126,11 +158,15 @@ const BlogPost = ({ blogData, morePosts }) => {
 
                         <Content>
                             <Paragraph>
-                                <div
+                                {/* <div
                                     dangerouslySetInnerHTML={{
                                         __html: blogData.content,
                                     }}
-                                />
+                                /> */}
+                                   <PortableText
+        value={body}
+        components={ptComponents}
+      />
                             </Paragraph>
                         </Content>
                     </MainContent>
@@ -141,14 +177,14 @@ const BlogPost = ({ blogData, morePosts }) => {
                         <PostsContainer>
                             {morePosts.map((item) => (
                                 <HyperLink
-                                    key={item.blog_id}
+                                    key={item.slug.current}
                                     varient="tertiary"
-                                    href={'/blog/' + item.blog_id}
+                                    href={'/blog/' + item.slug.current}
                                 >
                                     <BlogContainer>
                                         <CardContainer layout="horizontal">
                                             <ImageContainer>
-                                                <Image src={item.image_url} alt='image' />
+                                                <Image src={item.mainImage.asset.url} />
                                             </ImageContainer>
 
                                             <ContentContainer>
@@ -158,7 +194,7 @@ const BlogPost = ({ blogData, morePosts }) => {
                                                 <Heading3>
                                                     {item.title}
                                                 </Heading3>
-                                                <h5>{item.published_date} </h5>
+                                                <h5>{item.publishedAt} </h5>
                                             </ContentContainer>
                                         </CardContainer>
                                     </BlogContainer>

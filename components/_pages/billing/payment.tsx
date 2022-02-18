@@ -154,13 +154,13 @@ const Checkoutform = (props) => {
                                             : window.localStorage.useremail,
                                     items: cart,
                                     billing:
-                                        billingdetails['username'] +
-                                        ',' +
-                                        billingdetails['location']+','+ billingdetails['phoneNo'],
-                                    shipping:
-                                        shippingdetails['username'] +
-                                        ',' +
-                                        shippingdetails['location']+','+ shippingdetails['phoneNo'],
+                                    billingdetails['username'] +
+                                    ',' +
+                                    billingdetails['location']+','+ billingdetails['phoneNo']+','+ billingdetails['zipCode'],
+                                shipping:
+                                    shippingdetails['username'] +
+                                    ',' +
+                                    shippingdetails['location']+','+ shippingdetails['phoneNo']+','+ shippingdetails['zipCode'],
                                     payment_details: {
                                         method: 'Stripe',
                                         transaction_id:

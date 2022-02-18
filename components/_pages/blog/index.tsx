@@ -4,11 +4,14 @@ import { LandingLayout } from '@/components/layout/landing'
 import Footer from '@/components/footer'
 import { FeaturedHolder } from './style'
 import { HyperLink } from '@/components/cta/link'
-import blogJson from '../../../cummulative.json'
+import data from '../../../cummulative.json'
 import Head from 'next/head'
 
-const Blog = () => {
+const Blog = (props) => {
+    const data=props.data
+    
     function formatDate(date) {
+        date=new Date(date)
         var year = date.getFullYear()
 
         var month = (1 + date.getMonth()).toString()
@@ -19,7 +22,16 @@ const Blog = () => {
 
         return month + '-' + day + '-' + year
     }
-
+    data.sort(function(a,b){
+        a=new Date(a.publishedAt)
+        b=new Date(b.publishedAt)
+        return b - a;
+      });
+    for(let i=0;i<data.length;i++){
+           data[i]['publishedAt']=formatDate(data[i]['publishedAt'])    
+    }
+   
+    console.log(data)
     return (
         <>
         <Head>
@@ -38,7 +50,7 @@ const Blog = () => {
 
                         <HyperLink
                             varient="tertiary"
-                            href={'/blog/' + blogJson[0]['blog_id']}
+                            href={'/blog/' + data[0]['slug'].current}
                         >
                             <div
                                 style={{
@@ -48,8 +60,8 @@ const Blog = () => {
                                 }}
                             >
                                 <img
-                                    style={{ width: '100%', maxHeight: '400px',objectFit:'cover' }}
-                                    src={blogJson[0]['image_url']}
+                                    style={{ width: '100%', height: '70%' }}
+                                    src={data[0]['mainImage'].asset.url}
                                     alt="blogpostimg"
                                 />
                                 <div
@@ -72,7 +84,7 @@ const Blog = () => {
                                         fontWeight="500"
                                         fontSize="1.25rem"
                                     >
-                                        {blogJson[0]['title']}
+                                        {data[0]['title']}
                                     </Typography>
                                     <Typography
                                         color="#fff"
@@ -82,7 +94,7 @@ const Blog = () => {
                                     >
                                         {formatDate(
                                             new Date(
-                                                blogJson[0]['published_date']
+                                                data[0]['publishedAt']
                                             )
                                         )}
                                     </Typography>
@@ -92,11 +104,11 @@ const Blog = () => {
                     </GridItem>
 
                     <GridItem sm={100} md={50} lg={50}>
-                        {blogJson.slice(1, 6).map((item) => (
+                        {data.slice(1,6).map((item) => (
                             <HyperLink
-                                key={item.blog_id}
+                                key={item.slug.current}
                                 varient="tertiary"
-                                href={'/blog/' + item['blog_id']}
+                                href={'/blog/' + item['slug'].current}
                             >
                                 <div style={{ marginTop: '2rem' }}>
                                     {/* <Typography
@@ -120,18 +132,18 @@ const Blog = () => {
                                         marginTop="0.2rem"
                                     >
                                         {formatDate(
-                                            new Date(item['published_date'])
+                                            new Date(item['publishedAt'])
                                         )}
                                     </Typography>
                                 </div>
                             </HyperLink>
                         ))}
                     </GridItem>
-                    {blogJson.slice(8, 12).map((item) => (
-                        <GridItem key={item.blog_id} sm={50} md={25} lg={25}>
+                    {data.slice(6, 10).map((item) => (
+                        <GridItem key={item.slug.current} sm={50} md={25} lg={25}>
                             <HyperLink
                                 varient="tertiary"
-                                href={'/blog/' + item['blog_id']}
+                                href={'/blog/' + item['slug'].current}
                             >
                                 <div style={{ marginTop: '1rem' }}>
                                     <img
@@ -139,7 +151,7 @@ const Blog = () => {
                                             width: '300px',
                                             height: '250px',
                                         }}
-                                        src={item['image_url']}
+                                        src={item['mainImage'].asset.url}
                                         alt="blogpostimg"
                                     />
                                     <div>
@@ -167,7 +179,7 @@ const Blog = () => {
                                             marginTop="0.2rem"
                                         >
                                             {formatDate(
-                                                new Date(item['published_date'])
+                                                new Date(item['publishedAt'])
                                             )}
                                         </Typography>
                                     </div>
@@ -186,11 +198,11 @@ const Blog = () => {
                         Featured Posts
                     </Typography>
                     <div style={{ display: 'flex' }}>
-                        {blogJson.slice(15, 18).map((item) => (
+                        {data.slice(10, 12).map((item) => (
                             <HyperLink
-                                key={item.blog_id}
+                                key={item.slug.current}
                                 varient="tertiary"
-                                href={'/blog/' + item['blog_id']}
+                                href={'/blog/' + item['slug'].current}
                             >
                                 <div
                                     style={{
@@ -205,7 +217,7 @@ const Blog = () => {
                                             width: '40rem',
                                             height: '350px',
                                         }}
-                                        src={item['image_url']}
+                                        src={item['mainImage'].asset.url}
                                         alt="blogpostimg"
                                     />
                                     <div
@@ -237,7 +249,7 @@ const Blog = () => {
                                             marginTop="0.2rem"
                                         >
                                             {formatDate(
-                                                new Date(item['published_date'])
+                                                new Date(item['publishedAt'])
                                             )}
                                         </Typography>
                                     </div>
@@ -258,11 +270,11 @@ const Blog = () => {
                         </Typography>
                     </GridItem>
                     <GridItem sm={100} md={50} lg={50}>
-                        {blogJson.slice(20, 25).map((item) => (
+                        {data.slice(12, 17).map((item) => (
                             <HyperLink
-                                key={item.blog_id}
+                                key={item.slug.current}
                                 varient="tertiary"
-                                href={'/blog/' + item['blog_id']}
+                                href={'/blog/' + item['slug'].current}
                             >
                                 <div
                                     style={{
@@ -275,7 +287,7 @@ const Blog = () => {
                                             width: '120px',
                                             height: '90px',
                                         }}
-                                        src={item['image_url']}
+                                        src={item['mainImage'].asset.url}
                                         alt="blogpostimg"
                                     />
                                     <div>
@@ -301,7 +313,7 @@ const Blog = () => {
                                             marginTop="0.2rem"
                                         >
                                             {formatDate(
-                                                new Date(item['published_date'])
+                                                new Date(item['publishedAt'])
                                             )}
                                         </Typography>
                                     </div>
@@ -310,11 +322,11 @@ const Blog = () => {
                         ))}
                     </GridItem>
                     <GridItem sm={100} md={50} lg={50}>
-                        {blogJson.slice(15, 20).map((item) => (
+                        {data.slice(17, 23).map((item) => (
                             <HyperLink
-                                key={item.blog_id}
+                                key={item.slug.current}
                                 varient="tertiary"
-                                href={'/blog/' + item['blog_id']}
+                                href={'/blog/' + item['slug'].current}
                             >
                                 <div
                                     style={{
@@ -327,7 +339,7 @@ const Blog = () => {
                                             width: '120px',
                                             height: '90px',
                                         }}
-                                        src={item['image_url']}
+                                        src={item['mainImage'].asset.url}
                                         alt="blogpostimg"
                                     />
                                     <div>
@@ -353,7 +365,7 @@ const Blog = () => {
                                             marginTop="0.2rem"
                                         >
                                             {formatDate(
-                                                new Date(item['published_date'])
+                                                new Date(item['publishedAt'])
                                             )}
                                         </Typography>
                                     </div>

@@ -131,7 +131,7 @@ export const AddToBagButton = styled.button`
 export const ProductCard = (props) => {
     const addToCart = useAddItem()
     const [isAddedToCart, setIsAddedToCart] = useState(false)
-
+    
     function handleClick() {
         addToCart({
             sku: props.sku,
