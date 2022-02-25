@@ -4,14 +4,14 @@ import { HyperLink } from '../header'
 
 const MobileImg = styled.img`
     display: block;
-    min-width:100%;
+    min-width: 100%;
     @media (min-width: ${(props) => props.theme.screenMd}) {
         display: none;
     }
 `
 const DesktopImg = styled.img`
     display: none;
-    min-width:100%;
+    min-width: 100%;
     @media (min-width: ${(props) => props.theme.screenMd}) {
         display: block;
     }
@@ -21,11 +21,12 @@ export const Carousel = () => {
     useEffect(() => {
         let index = 0
         const numberOfSlides = 3
-        const bannerContainer = document.querySelector<HTMLElement>('.bannerContainer') 
+        const bannerContainer =
+            document.querySelector<HTMLElement>('.bannerContainer')
         let screenWidth = window.innerWidth
-        const speed=5
-         setInterval(() => {
-            bannerContainer.scrollBy(screenWidth, 0)           
+        const speed = 5
+        setInterval(() => {
+            bannerContainer.scrollBy(screenWidth, 0)
             let timeoutX = setTimeout(() => {
                 index = index % numberOfSlides
                 let imageToMove =
@@ -42,7 +43,7 @@ export const Carousel = () => {
                 index++
                 clearTimeout(timeoutX)
             }, 1000)
-        }, speed*1000)
+        }, speed * 1000)
     }, [])
 
     return (
@@ -104,20 +105,19 @@ export const Carousel = () => {
                         <HyperLink href="/GLOV-DOM-0030-0036">
                             <MobileImg
                                 sizes="(max-width: 767px) 100vw, 767px"
-                                srcSet="
-                            /carouselimages/gloveup/gloveup-mobile_200.jpg 200w,
-                            /carouselimages/gloveup/gloveup-mobile_477.jpg 477w,
-                            /carouselimages/gloveup/gloveup-mobile_672.jpg 767w"
-                                src="/carouselimages/gloveup/gloveup-mobile_672.jpg"
+                                srcSet="/carouselimages/gloveup/Mobile_banner_sample_2-01-min_msjc0i_c_scale,w_250.png 250w,
+                                    /carouselimages/gloveup/Mobile_banner_sample_2-01-min_msjc0i_c_scale,w_526.png 526w,
+                                    /carouselimages/gloveup/Mobile_banner_sample_2-01-min_msjc0i_c_scale,w_730.png 730w"
+                                src="/carouselimages/gloveup/Mobile_banner_sample_2-01-min_msjc0i_c_scale,w_730.png"
                                 alt="Glove Up Banner"
                             />
+
                             <DesktopImg
                                 sizes="(max-width: 1400px) 100vw, 1400px"
-                                srcSet="
-                            /carouselimages/gloveup/gloveup-desktop_950.jpg 768w,
-                            /carouselimages/gloveup/gloveup-desktop_1213.jpg 1213w,
-                            /carouselimages/gloveup/gloveup-desktop_1400.jpg 1400w"
-                                src="/carouselimages/gloveup/gloveup-desktop_1400.jpg"
+                                srcSet="/carouselimages/gloveup/webbanner_sample_2-01-min_defigy_c_scale,w_760.png 760w,
+                                        /carouselimages/gloveup/webbanner_sample_2-01-min_defigy_c_scale,w_1098.png 1098w,
+                                        /carouselimages/gloveup/webbanner_sample_2-01-min_defigy_c_scale,w_1380.png 1380w"
+                                src="/carouselimages/gloveup/webbanner_sample_2-01-min_defigy_c_scale,w_1380.png"
                                 alt="Glove Up Banner"
                             />
                         </HyperLink>
@@ -127,26 +127,25 @@ export const Carousel = () => {
             <style jsx>{`
                 .bannerWrapper {
                     position: relative;
-                    min-width:100%;
+                    min-width: 100%;
                 }
 
                 .bannerContainer {
                     display: flex;
-                    min-width:100%;
+                    min-width: 100%;
                     flex-wrap: nowrap;
                     scroll-snap-type: x mandatory;
                     scroll-behavior: smooth;
                     overflow-x: auto;
                     scrollbar-width: 0;
                     scrollbar-color: transparent transparent;
-                    ::-webkit-scroll-behavior:smooth;
-                    ::-webkit-scroll-snap-type:x mandatory;
-
+                    ::-webkit-scroll-behavior: smooth;
+                    ::-webkit-scroll-snap-type: x mandatory;
                 }
                 .bannerContainer::-webkit-scrollbar {
                     display: none;
                 }
-                
+
                 .bannerContainer .carouselItem {
                     flex-grow: 0;
                     flex-shrink: 0;
