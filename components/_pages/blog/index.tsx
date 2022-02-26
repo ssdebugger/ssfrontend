@@ -60,7 +60,7 @@ const Blog = (props) => {
                                 }}
                             >
                                 <img
-                                    style={{ width: '100%', height: '70%' }}
+                                    style={{ width: '100%', height: '450px' }}
                                     src={data[0]['mainImage'].asset.url}
                                     alt="blogpostimg"
                                 />
@@ -270,7 +270,7 @@ const Blog = (props) => {
                         </Typography>
                     </GridItem>
                     <GridItem sm={100} md={50} lg={50}>
-                        {data.slice(12, 17).map((item) => (
+                        {data.slice(12, 16).map((item) => (
                             <HyperLink
                                 key={item.slug.current}
                                 varient="tertiary"
@@ -322,7 +322,7 @@ const Blog = (props) => {
                         ))}
                     </GridItem>
                     <GridItem sm={100} md={50} lg={50}>
-                        {data.slice(17, 23).map((item) => (
+                        {data.slice(17, 22).map((item) => (
                             <HyperLink
                                 key={item.slug.current}
                                 varient="tertiary"
