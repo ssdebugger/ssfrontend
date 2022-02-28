@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Check } from 'react-feather'
 
 import Carousel from '@/components/_pages/product/carousel'
 import { LandingLayout } from '@/components/layout/landing'
@@ -22,11 +21,9 @@ import {
     AddToCart,
     CollapseBtnContainer,
     Container,
-    Desktop,
     HeadingContainer,
     ImageContainer,
     MainContentContainer,
-    Mobile,
     PricingContainer,
     ProductPageTop,
     ProductPageTopHeading,
@@ -36,15 +33,11 @@ import {
 } from './index.style'
 import { AboutItem } from './about-item'
 import { Paragraph } from '@/components/typography/paragraph'
-import { Heart } from 'react-feather'
-import { Typography } from './index.style'
 import { ProductCertifications } from './product-certifications'
-import { CustomerReviews } from './customer-review'
-import { useUser, useAddUser } from 'context/user'
 
 const Productpage = (props) => {
-    var data = props.data['body']['response']
-    var recproducts = props.data['body']['recproducts']
+    let data = props.data['body']['response']
+    let recproducts = props.data['body']['recproducts']
 
     const AddToCartCta = ({
         sku,
@@ -86,10 +79,6 @@ const Productpage = (props) => {
                 curuser != null &&
                 curuser != 'null'
             ) {
-                console.log(
-                    'adding to user cart api in products page',
-                    window.localStorage.getItem('useremail')
-                )
                 let fetchdata = {
                     activity_type: 'ATC',
                     email_id: window.localStorage.getItem('useremail'),
@@ -213,7 +202,6 @@ const Productpage = (props) => {
         price: data['sale_price']['N'],
     }
 
-    console.log(data)
     return (
         <>
             <Head>
