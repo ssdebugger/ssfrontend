@@ -156,10 +156,12 @@ export const ProductCard: React.FC<ProductProps> = ({
     const removeFromCart = useRemoveItem()
 
     let discountValue = price * (discountAmount / 100)
-    let discountedPrice =
-        sku === 'BNDL-CPBN-0710-0360' || sku === 'BNDL-SHBD-0710-0360'
-            ? price
-            : limitDecimal(price - discountValue)
+    // let discountedPrice =
+    //     sku === 'BNDL-CPBN-0710-0360' || sku === 'BNDL-SHBD-0710-0360'
+    //         ? price
+    //         : limitDecimal(price - discountValue)
+
+    let discountedPrice = limitDecimal(price - discountValue)
 
     async function cartApiOperations(
         actionType: 'SQC' | 'RFC',
@@ -233,11 +235,11 @@ export const ProductCard: React.FC<ProductProps> = ({
     return (
         <CardContainer>
             <CardImgContainer>
-                <img src={img} alt='product img' />
+                <img src={img} alt="product img" />
             </CardImgContainer>
 
             <CardContent>
-                {price !== discountedPrice ? (
+                {/* {price !== discountedPrice ? (
                     <CouponStatus>Coupon Applied</CouponStatus>
                 ) : sku === 'BNDL-CPBN-0710-0360' ? (
                     <CouponStatus>Pre Discounted Item</CouponStatus>
@@ -245,7 +247,7 @@ export const ProductCard: React.FC<ProductProps> = ({
                     sku === 'BNDL-SHBD-0710-0360' && (
                         <CouponStatus>Pre Discounted Item</CouponStatus>
                     )
-                )}
+                )} */}
                 <Heading4>{title}</Heading4>
                 <Paragraph>Tableware</Paragraph>
 
@@ -269,7 +271,7 @@ export const ProductCard: React.FC<ProductProps> = ({
             </CardContent>
 
             <Paragraph>
-                {price !== discountedPrice ? (
+                {/* {price !== discountedPrice ? (
                     <span className="dashed-price">${price}</span>
                 ) : sku === 'BNDL-CPBN-0710-0360' ? (
                     <span className="dashed-price">
@@ -281,6 +283,10 @@ export const ProductCard: React.FC<ProductProps> = ({
                             ${(35.85 * quantity).toFixed(2)}
                         </span>
                     )
+                )} */}
+
+                {price !== discountedPrice && (
+                    <span className="dashed-price">${price}</span>
                 )}
 
                 <span>${discountedPrice}</span>

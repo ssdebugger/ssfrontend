@@ -431,7 +431,7 @@ export const DynamicPage = ({ products }) => {
                                         key={item}
                                         inStock={e['in_stock']['N'] != 0}
                                     >
-                                        {Number(e['product_id']['N']) === 47 ? (
+                                        {/* {Number(e['product_id']['N']) === 47 ? (
                                             <NewLaunch top="15px" left="15px">
                                                 Valentine Offer
                                             </NewLaunch>
@@ -445,14 +445,17 @@ export const DynamicPage = ({ products }) => {
                                                     Valentine Offer
                                                 </NewLaunch>
                                             )
-                                        )}
+                                        )} */}
 
                                         <TileHero>
-                                            <ProductImg src={e['imageurl']} alt='image' />
+                                            <ProductImg
+                                                src={e['imageurl']}
+                                                alt="image"
+                                            />
                                             <LifeStyleImg
                                                 src={e['lifeimageurl']}
                                                 loading="lazy"
-                                                alt='image'
+                                                alt="image"
                                             />
                                         </TileHero>
 

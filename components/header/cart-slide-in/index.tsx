@@ -109,20 +109,22 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
 
     function getDiscountValue(coupon: Coupon, originalCartValue: number) {
         if (coupon.minSpend >= originalCartValue) {
-            console.log('making coupon zero',originalCartValue,coupon)
+            console.log('making coupon zero', originalCartValue, coupon)
             return 0
         }
 
         let cartValue = originalCartValue
-        for (let i = 0; i < cart.length; i++) {
-            if (
-                cart[i].sku === 'BNDL-CPBN-0710-0360' ||
-                cart[i].sku === 'BNDL-SHBD-0710-0360'
-            ) {
-                cartValue -= cart[i].price*cart[i].quantity
-            }
-        }
-        console.log(cartValue,'in discount')
+
+        // for (let i = 0; i < cart.length; i++) {
+        //     if (
+        //         cart[i].sku === 'BNDL-CPBN-0710-0360' ||
+        //         cart[i].sku === 'BNDL-SHBD-0710-0360'
+        //     ) {
+        //         cartValue -= cart[i].price*cart[i].quantity
+        //     }
+        // }
+
+        console.log(cartValue, 'in discount')
         let discountValue = cartValue * (coupon.amount / 100)
         return limitDecimal(discountValue)
     }
@@ -145,19 +147,24 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
         // when coupon does not exist
         if (coupon.minSpend === 0) {
             setBagDiscount(0)
-            setBillDetails(originalPrice, 0) 
+            setBillDetails(originalPrice, 0)
             return
         }
 
         let discount = getDiscountValue(coupon, originalPrice)
         setBagDiscount(discount)
-        setBillDetails(originalPrice, discount) 
+        setBillDetails(originalPrice, discount)
         return discount
     }
 
     function setBillDetails(originalPrice: number, discountValue: number) {
         let existingCoupon = getUserCoupon()
-        console.log('in bill details',existingCoupon,originalPrice,discountValue)
+        console.log(
+            'in bill details',
+            existingCoupon,
+            originalPrice,
+            discountValue
+        )
         let billDetails = {
             originalPrice: originalPrice,
             discount: {
@@ -186,26 +193,25 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
             setToLocal('coupon', coupon)
             setAlert('')
         }
-        var  productcheck=false
+        var productcheck = false
         for (let i = 0; i < cart.length; i++) {
             if (
                 cart[i].sku !== 'BNDL-CPBN-0710-0360' &&
                 cart[i].sku !== 'BNDL-SHBD-0710-0360'
-            ) { 
+            ) {
                 setShouldClickCoupon(true)
-                productcheck=true
+                productcheck = true
             }
         }
-        if(!productcheck){
+        if (!productcheck) {
             setShouldClickCoupon(false)
             setCouponSelected(initialCouponValue)
             // setToLocal('coupon', initialCouponValue)
-            
         }
     }, [cart])
 
-    useEffect(() => { 
-        console.log('in original price useeffect') 
+    useEffect(() => {
+        console.log('in original price useeffect')
         setDiscountValue(originalPrice, setDiscount)
         if (
             couponSelected.minSpend > 0 &&

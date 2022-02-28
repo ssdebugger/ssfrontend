@@ -20,7 +20,7 @@ const DesktopImg = styled.img`
 export const Carousel = () => {
     useEffect(() => {
         let index = 0
-        const numberOfSlides = 3
+        const numberOfSlides = 2
         const bannerContainer =
             document.querySelector<HTMLElement>('.bannerContainer')
         let screenWidth = window.innerWidth
@@ -50,29 +50,6 @@ export const Carousel = () => {
         <>
             <div className="bannerWrapper">
                 <div className="bannerContainer">
-                    <div className="carouselItem">
-                        <HyperLink href="/shop">
-                            <MobileImg
-                                src="/carouselimages/valentine_day/valentine_mobile.png"
-                                alt="Sellsage Valentine Offer"
-                            />
-
-                            <DesktopImg
-                                sizes="(max-width: 1536px) 100vw, 1536px"
-                                srcSet="
-                            /carouselimages/valentine_day/valentine_desktop_b0ewnj_c_scale,w_730.png 730w,
-                            /carouselimages/valentine_day/valentine_desktop_b0ewnj_c_scale,w_863.png 863w,
-                            /carouselimages/valentine_day/valentine_desktop_b0ewnj_c_scale,w_981.png 981w,
-                            /carouselimages/valentine_day/valentine_desktop_b0ewnj_c_scale,w_1097.png 1097w,
-                            /carouselimages/valentine_day/valentine_desktop_b0ewnj_c_scale,w_1204.png 1204w,
-                            /carouselimages/valentine_day/valentine_desktop_b0ewnj_c_scale,w_1308.png 1308w,
-                            /carouselimages/valentine_day/valentine_desktop_b0ewnj_c_scale,w_1405.png 1405w,
-                            /carouselimages/valentine_day/valentine_desktop_b0ewnj_c_scale,w_1536.png 1536w"
-                                src="/carouselimages/valentine_day/valentine_desktop_b0ewnj_c_scale,w_1536.png"
-                                alt="Sellsage Valentine Offer"
-                            />
-                        </HyperLink>
-                    </div>
                     <div className="carouselItem">
                         <HyperLink href="/shop">
                             <MobileImg
@@ -139,8 +116,8 @@ export const Carousel = () => {
                     overflow-x: auto;
                     scrollbar-width: 0;
                     scrollbar-color: transparent transparent;
-                    ::-webkit-scroll-behavior: smooth;
-                    ::-webkit-scroll-snap-type: x mandatory;
+                    scroll-behavior: smooth;
+                    scroll-snap-type: x mandatory;
                 }
                 .bannerContainer::-webkit-scrollbar {
                     display: none;

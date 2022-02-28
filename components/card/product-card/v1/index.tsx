@@ -170,17 +170,21 @@ export const ProductCard = (props) => {
 
     return (
         <Container>
-            {Number(props.productId) === 47 ? (
+            {/* {Number(props.productId) === 47 ? (
                 <NewLaunch>Valentine Offer</NewLaunch>
             ) : (
                 Number(props.productId) === 46 && (
                     <NewLaunch>Valentine Offer</NewLaunch>
                 )
-            )}
+            )} */}
 
             <ProductContainer href={'/' + props.sku}>
                 <ProductImageContainer>
-                    <ProductImage src={props.image} alt='image' loading="lazy" />
+                    <ProductImage
+                        src={props.image}
+                        alt="image"
+                        loading="lazy"
+                    />
                 </ProductImageContainer>
 
                 <ProductContent>
