@@ -73,6 +73,7 @@ const StockOutSize = styled.div`
     &:nth-child(2n) {
         margin-right: 1rem;
     }
+
     ${SizeDesc} {
         font-weight: 200;
         color: gray;
