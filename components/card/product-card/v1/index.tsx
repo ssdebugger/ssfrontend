@@ -129,6 +129,7 @@ export const AddToBagButton = styled.button`
 `
 
 export const ProductCard = (props) => {
+    console.log(props)
     const addToCart = useAddItem()
     const [isAddedToCart, setIsAddedToCart] = useState(false)
 

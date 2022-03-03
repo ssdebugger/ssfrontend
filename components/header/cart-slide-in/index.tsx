@@ -29,12 +29,12 @@ import { CartItem } from '@/types/cart'
 import { Coupon } from '@/types/coupon'
 
 const defaultCouponData = [
-    {
-        minSpend: 50,
-        id: 'welcome-40',
-        amount: 40,
-        type: 'percent',
-    },
+    // {
+    //     minSpend: 50,
+    //     id: 'welcome-40',
+    //     amount: 40,
+    //     type: 'percent',
+    // },
     {
         minSpend: 20,
         id: 'save-25',

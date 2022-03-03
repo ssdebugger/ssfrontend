@@ -32,10 +32,10 @@ const ProductsContainer = styled.div`
 `
 
 export const Offer = ({ productsList }) => {
+    console.log(productsList)
     return (
         <OfferContainer>
             <OfferCard />
-
             <ProductsContainer>
                 {productsList.map((item) => (
                     <ProductCard

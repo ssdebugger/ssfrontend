@@ -7,9 +7,11 @@ const Carousel = (props) => {
     useEffect(() => {
         currentpath = window.location.origin + window.location.pathname
         window.onpopstate=function(e){
+               console.log(window.location)
+               console.log(e)
                e.preventDefault()
                if(e.state){
-                 router.push('/')
+                 router.push(currentpath)
                }
         }
     }, [])

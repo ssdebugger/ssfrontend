@@ -20,17 +20,13 @@ const HomepageMain = styled.main`
 `
 
 const Homepage = ({ offers, bundles }) => {
-    const ProductsOfferList = [offers['body'][0],offers['body'][5]]
-    console.log(bundles)
-    for (let i = 1; i < 4; i++) {
+    const ProductsOfferList = []
+    for (let i = 0; i < 5; i++) {
         ProductsOfferList.push(offers['body'][i])
     }
 
     const NewLaunchesList = []
-    for (let i = 2; i < 5; i++) {
-        NewLaunchesList.push(bundles['body'][i])
-    }
-    for (let i = 6; i < 7; i++) {
+    for (let i = 0; i < 4; i++) {
         NewLaunchesList.push(bundles['body'][i])
     }
 
