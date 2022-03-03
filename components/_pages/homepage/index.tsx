@@ -46,7 +46,7 @@ const Homepage = ({ offers, bundles }) => {
     return (
         <>
             <Head>
-                <title>Sellsage</title>
+                <title>Sellsage </title>
             </Head>
 
             <Header />
