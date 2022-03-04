@@ -53,6 +53,7 @@ export const NewLaunches = ({ newLaunchProducts }) => {
                         price={item.sale_price}
                         desc={item.short_description.S}
                         sku={item.sku_code.S}
+                        productId={item.product_id.N}
                     />
                 ))}
             </ProductsContainer>

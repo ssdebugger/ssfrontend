@@ -71,7 +71,7 @@ export const OfferCard = () => {
             </IconContainer>
 
             <OfferContent>
-                <Heading4>Must-Have Valentine Month Dinnerware Supplies</Heading4>
+                <Heading4>INTERNATIONAL WOMEN’S DAY SALE is still ON. Don’t miss it! </Heading4>
 
                 <Paragraph>
                     All wrapped up and with loads of new delivery options suiting your needs

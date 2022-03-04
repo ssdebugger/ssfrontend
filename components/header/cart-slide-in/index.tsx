@@ -35,12 +35,12 @@ const defaultCouponData = [
     //     amount: 40,
     //     type: 'percent',
     // },
-    {
-        minSpend: 20,
-        id: 'save-25',
-        amount: 25,
-        type: 'percent',
-    },
+    // {
+    //     minSpend: 20,
+    //     id: 'save-25',
+    //     amount: 25,
+    //     type: 'percent',
+    // },
     {
         minSpend: 15,
         id: 'big-20',
@@ -115,14 +115,18 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
 
         let cartValue = originalCartValue
 
-        // for (let i = 0; i < cart.length; i++) {
-        //     if (
-        //         cart[i].sku === 'BNDL-CPBN-0710-0360' ||
-        //         cart[i].sku === 'BNDL-SHBD-0710-0360'
-        //     ) {
-        //         cartValue -= cart[i].price*cart[i].quantity
-        //     }
-        // }
+        for (let i = 0; i < cart.length; i++) {
+            if (
+                cart[i].sku === 'PALM-HRTB-0500-0020' ||
+                cart[i].sku === 'PALM-RTGT-0703-0020' ||
+                cart[i].sku === 'BNDL-CSET-0000-0300' ||
+                cart[i].sku === 'PALM-RTGT-0906-0020' ||
+                cart[i].sku === 'BNDL-SQDB-0710-0030'||
+                cart[i].sku === 'PALM-OVLB-0510-0020'
+            ) {
+                cartValue -= cart[i].price*cart[i].quantity
+            }
+        }
 
         console.log(cartValue, 'in discount')
         let discountValue = cartValue * (coupon.amount / 100)
@@ -196,8 +200,12 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
         var productcheck = false
         for (let i = 0; i < cart.length; i++) {
             if (
-                cart[i].sku !== 'BNDL-CPBN-0710-0360' &&
-                cart[i].sku !== 'BNDL-SHBD-0710-0360'
+                cart[i].sku !== 'PALM-HRTB-0500-0020' &&
+                cart[i].sku !== 'PALM-RTGT-0703-0020' &&
+                cart[i].sku !== 'BNDL-CSET-0000-0300' &&
+                cart[i].sku !== 'PALM-RTGT-0906-0020'  &&
+                cart[i].sku !== 'BNDL-SQDB-0710-0030' &&
+                cart[i].sku !== 'PALM-OVLB-0510-0020'
             ) {
                 setShouldClickCoupon(true)
                 productcheck = true
