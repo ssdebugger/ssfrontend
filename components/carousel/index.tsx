@@ -54,6 +54,22 @@ export const Carousel = () => {
                         <HyperLink href="/shop">
                             <MobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
+                                src="/carouselimages/womens_day/womens-day-mobile-comp.png"
+                                alt="Womens Day offer"
+                            />
+
+                            <DesktopImg
+                                sizes="(max-width: 1400px) 100vw, 1400px"
+                                src="/carouselimages/womens_day/womens-day-desktop-comp.png"
+                                alt="Womens Day offer"
+                            />
+                        </HyperLink>
+                    </div>
+
+                    <div className="carouselItem">
+                        <HyperLink href="/shop">
+                            <MobileImg
+                                sizes="(max-width: 706px) 100vw, 706px"
                                 srcSet="
                             /carouselimages/plantry/plantry-mobile_jzdzrt_c_scale,w_200.png 200w,
                             /carouselimages/plantry/plantry-mobile_jzdzrt_c_scale,w_349.png 349w,
