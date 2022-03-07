@@ -332,7 +332,7 @@ const Signup = () => {
                             </MainContentWrapper>
                         </MainContent>
 
-                        <SideContent imageLink={'signinvid.mp4'}>
+                        <SideContent imageLink={'creative-rectangle.png'}>
                             <SideContentText>
                                 <Heading3>
                                     Benefits of shopping with us

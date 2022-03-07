@@ -35,6 +35,7 @@ const TopPicks = (props) => {
                     price={item['sale_price']['N']}
                     desc={item['short_description']['S']}
                     sku={item['sku_code']['S']}
+                    originalprice='0'
                     productId={item['product_id']['N']}
                 />))}  
 
