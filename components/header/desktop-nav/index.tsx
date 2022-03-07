@@ -82,7 +82,7 @@ export const DesktopNav: React.FC<Props> = ({ NavLinksData }) => {
                                                 }
                                             >
                                                 <BlogImg
-                                                    src='main.jpg'
+                                                    src='/main.jpg'
                                                     alt="The story behind Sellsage"
                                                 />
                                                 <Heading4>
