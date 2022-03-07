@@ -44,6 +44,7 @@ export const Offer = ({ productsList }) => {
                         name={item.name.S}
                         image={item.imageurl}
                         price={item.sale_price.N}
+                        originalprice={item.price.N}
                         desc={item.description.S}
                         productId={item.product_id.N}
                     />

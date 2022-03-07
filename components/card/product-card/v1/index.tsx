@@ -7,9 +7,15 @@ import { Heading3, SubHeading } from '@/components/typography/heading'
 import { Paragraph } from '@/components/typography/paragraph'
 import { useAddItem } from '@/context/cart'
 
+export const DashedHeading = styled(Heading3)`
+    color: #fa3b56;
+    text-decoration: line-through;
+    margin-bottom:0.25rem;
+`
+
 export const Container = styled.div`
     position: relative;
-    width: 240px;
+    width: 260px;
     height: max-content;
     padding-top: 22%;
 `
@@ -210,7 +216,7 @@ export const ProductCard = (props) => {
                             <Star className="filled" />
                             <Star className="default" />
                         </RatingsContainer> */}
-
+                  {props.originalprice!=0?(<DashedHeading>${props.originalprice}</DashedHeading>):null}  
                     <Heading3>${props.price}</Heading3>
                 </ProductContent>
             </ProductContainer>

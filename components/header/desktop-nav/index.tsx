@@ -58,7 +58,7 @@ export const DesktopNav: React.FC<Props> = ({ NavLinksData }) => {
                                             <HyperLink
                                                 href={
                                                     '/blog/' +
-                                                    blogJson[0]['blog_id']
+                                                    'not-your-trash-still-your-responsibility-here-s-why'
                                                 }
                                             >
                                                 <BlogImg
@@ -78,19 +78,15 @@ export const DesktopNav: React.FC<Props> = ({ NavLinksData }) => {
                                             <HyperLink
                                                 href={
                                                     '/blog/' +
-                                                    blogJson[6]['blog_id']
+                                                    'sustainable-living-where-to-start-and-how-to-stay-consistent'
                                                 }
                                             >
                                                 <BlogImg
-                                                    src={
-                                                        blogJson[6][
-                                                            'image_url'
-                                                        ]
-                                                    }
+                                                    src='main.jpg'
                                                     alt="The story behind Sellsage"
                                                 />
                                                 <Heading4>
-                                                    {blogJson[6]['title']}
+                                                    {blogJson[2]['title']}
                                                 </Heading4>
                                                 <span>Read more</span>
                                             </HyperLink>

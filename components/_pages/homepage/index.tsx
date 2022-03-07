@@ -19,7 +19,7 @@ const HomepageMain = styled.main`
     }
 `
 
-const Homepage = ({ offers, bundles }) => {
+const Homepage = ({ offers, bundles,data }) => {
     const ProductsOfferList = []
     for (let i = 0; i < 5; i++) {
         ProductsOfferList.push(offers['body'][i])
@@ -62,7 +62,7 @@ const Homepage = ({ offers, bundles }) => {
 
                 <Offer productsList={ProductsOfferList} />
 
-                <StoriesFromUs />
+                <StoriesFromUs data={data} />
 
                 <div className="embedsocial-hashtag" data-ref="f435d93354be5f95d8dcdfbd24816a8a6bdea9c1"></div>
 
