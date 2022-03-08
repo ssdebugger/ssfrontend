@@ -7,9 +7,15 @@ import { Heading3, SubHeading } from '@/components/typography/heading'
 import { Paragraph } from '@/components/typography/paragraph'
 import { useAddItem } from '@/context/cart'
 
+export const DashedHeading = styled(Heading3)`
+    color: #fa3b56;
+    text-decoration: line-through;
+    margin-bottom:0.25rem;
+`
+
 export const Container = styled.div`
     position: relative;
-    width: 240px;
+    width: 260px;
     height: max-content;
     padding-top: 22%;
 `
@@ -129,6 +135,7 @@ export const AddToBagButton = styled.button`
 `
 
 export const ProductCard = (props) => {
+    console.log(props)
     const addToCart = useAddItem()
     const [isAddedToCart, setIsAddedToCart] = useState(false)
 
@@ -170,13 +177,21 @@ export const ProductCard = (props) => {
 
     return (
         <Container>
-            {/* {Number(props.productId) === 47 ? (
-                <NewLaunch>Valentine Offer</NewLaunch>
+            {Number(props.productId) === 4 ? (
+                <NewLaunch>Women's Day Deal </NewLaunch>
+            ) : Number(props.productId) === 24 ? (
+                <NewLaunch>Women's Day Deal</NewLaunch>
+            ) : Number(props.productId) === 45 ? (
+                <NewLaunch>Women's Day Deal</NewLaunch>
+            ) : Number(props.productId) === 7 ? (
+                <NewLaunch>Women's Day Deal</NewLaunch>
+            ) : Number(props.productId) === 38 ? (
+                <NewLaunch>Women's Day Deal</NewLaunch>
             ) : (
-                Number(props.productId) === 46 && (
-                    <NewLaunch>Valentine Offer</NewLaunch>
+                Number(props.productId) === 43 && (
+                    <NewLaunch>Women's Day Deal</NewLaunch>
                 )
-            )} */}
+            )}
 
             <ProductContainer href={'/' + props.sku}>
                 <ProductImageContainer>
@@ -201,7 +216,7 @@ export const ProductCard = (props) => {
                             <Star className="filled" />
                             <Star className="default" />
                         </RatingsContainer> */}
-
+                  {props.originalprice!=0?(<DashedHeading>${props.originalprice}</DashedHeading>):null}  
                     <Heading3>${props.price}</Heading3>
                 </ProductContent>
             </ProductContainer>

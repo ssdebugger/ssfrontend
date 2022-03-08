@@ -52,7 +52,9 @@ export const NewLaunches = ({ newLaunchProducts }) => {
                         image={item.imageurl}
                         price={item.sale_price}
                         desc={item.short_description.S}
+                        originalprice='0'
                         sku={item.sku_code.S}
+                        productId={item.product_id.N}
                     />
                 ))}
             </ProductsContainer>

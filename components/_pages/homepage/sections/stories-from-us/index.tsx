@@ -6,6 +6,7 @@ import { Paragraph } from '@/components/typography/paragraph'
 import { ScrollbarStyles } from 'theme'
 import { HyperLink } from '@/components/cta/link'
 import blogJson from '../../../../../cummulative.json'
+import { Item } from '@/components/carousel/style'
 
 const StoriesFromUsContainer = styled.section`
     ${HomepageContainerStyles}
@@ -109,37 +110,21 @@ const Post = (props) => {
     )
 }
 
-export const StoriesFromUs = () => {
+export const StoriesFromUs = (props) => {
+    const data=props.data
     return (
         <StoriesFromUsContainer>
             <Heading3>Stories from us</Heading3>
-
             <BlogPostsContainer>
-                <Post
-                    img={blogJson[0]['image_url']}
-                    title={blogJson[0]['title']}
-                    id={blogJson[0]['blog_id']}
-                />
-                <Post
-                    img={blogJson[4]['image_url']}
-                    title={blogJson[4]['title']}
-                    id={blogJson[4]['blog_id']}
-                />
-                <Post
-                    img={blogJson[3]['image_url']}
-                    title={blogJson[3]['title']}
-                    id={blogJson[3]['blog_id']}
-                />
-                <Post
-                    img={blogJson[5]['image_url']}
-                    title={blogJson[5]['title']}
-                    id={blogJson[5]['blog_id']}
-                />
-                <Post
-                    img={blogJson[2]['image_url']}
-                    title={blogJson[2]['title']}
-                    id={blogJson[2]['blog_id']}
-                />
+                
+        { data.slice(0,5).map(item =>
+             (  
+
+                  <Post
+                    img={item.mainImage.asset.url}
+                    title={item.title}
+                    id={item.slug.current}
+                />) )   }
             </BlogPostsContainer>
         </StoriesFromUsContainer>
     )

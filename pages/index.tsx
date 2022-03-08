@@ -1,5 +1,6 @@
 import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next'
 import Homepage from '@/components/_pages/homepage'
+import client from '../sanityclient'
 
 export default Homepage
 
@@ -9,7 +10,15 @@ export const getStaticProps: GetStaticProps = async () => {
     )
 
     const responsebundles = await fetch(
-        'https://hqe9oxnhea.execute-api.us-east-2.amazonaws.com/dev/getbundleproducts'
+        'https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/getbundleproducts'
+    )
+    const data = await client.fetch(
+        `*[_type == "post"][]{mainImage{
+         asset->{
+             _id,
+             url
+         }       
+      },title,publishedAt,slug}`
     )
 
     const offers = await responseoffers.json()
@@ -19,6 +28,7 @@ export const getStaticProps: GetStaticProps = async () => {
         props: {
             offers,
             bundles,
+            data,
         },
         revalidate: 10,
     }
