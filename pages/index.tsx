@@ -9,7 +9,7 @@ export const getStaticProps: GetStaticProps = async () => {
     )
 
     const responsebundles = await fetch(
-        'https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/getbundleproducts'
+        'https://hqe9oxnhea.execute-api.us-east-2.amazonaws.com/dev/getbundleproducts'
     )
 
     const offers = await responseoffers.json()

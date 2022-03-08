@@ -20,9 +20,8 @@ const HomepageMain = styled.main`
 `
 
 const Homepage = ({ offers, bundles }) => {
-    const ProductsOfferList = [offers['body'][0],offers['body'][5]]
-    console.log(bundles)
-    for (let i = 1; i < 4; i++) {
+    const ProductsOfferList = []
+    for (let i = 0; i < 5; i++) {
         ProductsOfferList.push(offers['body'][i])
     }
 
@@ -68,7 +67,7 @@ const Homepage = ({ offers, bundles }) => {
 
                 <StoriesFromUs />
 
-                <div className="embedsocial-hashtag" data-ref="f435d93354be5f95d8dcdfbd24816a8a6bdea9c1"></div>
+                {/* <div className="embedsocial-hashtag" data-ref="f435d93354be5f95d8dcdfbd24816a8a6bdea9c1"></div> */}
 
                 <Footer />
 
