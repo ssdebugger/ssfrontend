@@ -30,6 +30,6 @@ export const getStaticProps: GetStaticProps = async () => {
             bundles,
             data,
         },
-        revalidate: 10,
+        revalidate: 120,
     }
 }
