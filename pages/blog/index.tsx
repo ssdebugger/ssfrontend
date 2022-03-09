@@ -11,7 +11,7 @@ export async function getStaticProps() {
          }       
       },title,publishedAt,slug}`
     )
-    console.log(data,'get server side props 1')
+
     return {
         props: {
             data,
