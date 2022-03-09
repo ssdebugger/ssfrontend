@@ -1,32 +1,40 @@
+import { GetStaticPaths, GetStaticProps } from 'next'
+
 import Productpage from '@/components/_pages/product'
 
 export default Productpage
 
-export async function getServerSideProps({ query }) {
-    const productSku = query.sku
+export const getStaticProps: GetStaticProps = async (context) => {
+    const sku = context.params.sku
 
-    const response = await fetch(
-        `https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/getproductdetails?sku=${productSku}`
+    const res = await fetch(
+        `https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/getproductdetails?sku=${sku}`
+    )
+    const data = await res.json()
+
+    return {
+        props: {
+            data: data,
+        },
+        revalidate: 120,
+    }
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+    const res = await fetch(
+        'https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/getallproducts'
     )
 
-    const data = await response.json()
+    const productData = await res.json()
 
-    try {
-        if ((await data.body.statusCode) === 200) {
-            const responseoffers = await fetch(
-                'https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/gettopoffers'
-            )
+    const paths = productData.body.map((item) => ({
+        params: {
+            sku: item.sku_code.S,
+        },
+    }))
 
-            const offers = await responseoffers.json()
-
-            return { props: { data, offers } }
-        }
-    } catch (error) {
-        return {
-            redirect: {
-                destination: '/404',
-                permanent: false,
-            },
-        }
+    return {
+        paths,
+        fallback: 'blocking',
     }
 }

@@ -19,7 +19,7 @@ const HomepageMain = styled.main`
     }
 `
 
-const Homepage = ({ offers, bundles,data }) => {
+const Homepage = ({ offers, bundles, data }) => {
     const ProductsOfferList = []
     for (let i = 0; i < 5; i++) {
         ProductsOfferList.push(offers['body'][i])
@@ -30,18 +30,18 @@ const Homepage = ({ offers, bundles,data }) => {
         NewLaunchesList.push(bundles['body'][i])
     }
 
-    useEffect(() => {
-        ;(function (d, s, id) {
-            var js
-            if (d.getElementById(id)) {
-                return
-            }
-            js = d.createElement(s)
-            js.id = id
-            js.src = 'https://embedsocial.com/cdn/ht.js'
-            d.getElementsByTagName('head')[0].appendChild(js)
-        })(document, 'script', 'EmbedSocialHashtagScript')
-    }, [])
+    // useEffect(() => {
+    //     ;(function (d, s, id) {
+    //         var js
+    //         if (d.getElementById(id)) {
+    //             return
+    //         }
+    //         js = d.createElement(s)
+    //         js.id = id
+    //         js.src = 'https://embedsocial.com/cdn/ht.js'
+    //         d.getElementsByTagName('head')[0].appendChild(js)
+    //     })(document, 'script', 'EmbedSocialHashtagScript')
+    // }, [])
 
     return (
         <>
@@ -63,8 +63,8 @@ const Homepage = ({ offers, bundles,data }) => {
                 <Offer productsList={ProductsOfferList} />
 
                 <StoriesFromUs data={data} />
-
-                <div className="embedsocial-hashtag" data-ref="f435d93354be5f95d8dcdfbd24816a8a6bdea9c1"></div>
+                {/* 
+                <div className="embedsocial-hashtag" data-ref="f435d93354be5f95d8dcdfbd24816a8a6bdea9c1"></div> */}
 
                 <Footer />
 

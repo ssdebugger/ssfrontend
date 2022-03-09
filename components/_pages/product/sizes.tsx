@@ -28,9 +28,6 @@ const Size = styled.div`
     }
 `
 
-
-
-
 const Checkbox = styled.input`
     position: absolute;
     top: 0;
@@ -48,8 +45,6 @@ const Checkbox = styled.input`
         box-shadow: 0 0 0 1.5px ${(props) => props.theme.cream500};
     }
 `
-
-
 
 const SizeLabel = styled.label`
     display: flex;
@@ -70,22 +65,23 @@ const SizePrice = styled.span`
     color: ${(props) => props.theme.blueGray700};
 `
 const StockOutSize = styled.div`
-position: relative;
-flex-basis: calc(50% - 1rem);
-margin: 0 0 1rem 0;
+    position: relative;
+    flex-basis: calc(50% - 1rem);
+    margin: 0 0 1rem 0;
 
-pointer-events:none;
-&:nth-child(2n) {
-    margin-right: 1rem;
-}
-${SizeDesc} {
-         font-weight:200;
-         color:gray;
-};
-${SizePrice} {
-    font-weight:200;
-    color:red;
-};
+    pointer-events: none;
+    &:nth-child(2n) {
+        margin-right: 1rem;
+    }
+
+    ${SizeDesc} {
+        font-weight: 200;
+        color: gray;
+    }
+    ${SizePrice} {
+        font-weight: 200;
+        color: red;
+    } ;
 `
 /**
  * Main logic
@@ -93,80 +89,73 @@ ${SizePrice} {
 export const SizeSelector = (props) => {
     const variations = props.variations
     const router = useRouter()
-    console.log('size chart props',props)
-    const path=router.query.sku
+
+    const path = router.query.sku
     const productRoute = (sku) => {
         router.push(sku)
     }
     useEffect(() => {
-           const defaultSize=window.document.getElementById('default') as HTMLInputElement
-           console.log(defaultSize)
-           if(defaultSize!==null){
-                 
-           defaultSize.checked=true
-           }
-    },[])
+        const defaultSize = window.document.getElementById(
+            'default'
+        ) as HTMLInputElement
+        console.log(defaultSize)
+        if (defaultSize !== null) {
+            defaultSize.checked = true
+        }
+    }, [])
 
     return (
         <SizeSelectorContainer>
             <Heading3 margin="0 0 1rem">Size</Heading3>
             <SizesContainer>
-            {
-                variations.map((x, i) =>  (
-                   x['sort_key']!==9999 ? 
-               (
-                    path!==x['sku'] ?
-                    <Size key={i}>
-                        
-                        <Checkbox  
-                            name="sizeSku"
-                            type="radio"
-                            onChange={() => productRoute(x['sku'])}
-                        />
-                        <SizeLabel>
-                            <SizeDesc>{x['size'].replace(/'/g,'"')}</SizeDesc>
-                            <SizePrice>
-                                $ {x['sale_price']}
-                            </SizePrice>
-                        </SizeLabel>
-                    </Size>
-                    :
-                    <Size key={i}>
-                    <Checkbox id='default'
-                        name="sizeSku"
-                        type="radio"
-                        onChange={() => productRoute(x['sku'])}
-                    />
+                {variations.map((x, i) =>
+                    x['sort_key'] !== 9999 ? (
+                        path !== x['sku'] ? (
+                            <Size key={i}>
+                                <Checkbox
+                                    name="sizeSku"
+                                    type="radio"
+                                    onChange={() => productRoute(x['sku'])}
+                                />
+                                <SizeLabel>
+                                    <SizeDesc>
+                                        {x['size'].replace(/'/g, '"')}
+                                    </SizeDesc>
+                                    <SizePrice>$ {x['sale_price']}</SizePrice>
+                                </SizeLabel>
+                            </Size>
+                        ) : (
+                            <Size key={i}>
+                                <Checkbox
+                                    id="default"
+                                    name="sizeSku"
+                                    type="radio"
+                                    onChange={() => productRoute(x['sku'])}
+                                />
 
-                    <SizeLabel>
-                        <SizeDesc>{x['size'].replace(/'/g,'"')}</SizeDesc>
-                        <SizePrice>
-                            $ {x['sale_price']}
-                        </SizePrice>
-                    </SizeLabel>
-                </Size> 
-
-                ) : (
-                    <StockOutSize key={i}>
-                        
-                    <Checkbox id='default'
-                        name="sizeSku"
-                        type="radio"
-                        onChange={() => productRoute(x['sku'])}
-                    />
-                    <SizeLabel>
-                        <SizeDesc>{x['size']}</SizeDesc>
-                        <SizePrice>
-                            Out of stock
-                        </SizePrice>
-                    </SizeLabel>
-                </StockOutSize> 
-                )
-                ) 
-                )
-            }
-                
-                
+                                <SizeLabel>
+                                    <SizeDesc>
+                                        {x['size'].replace(/'/g, '"')}
+                                    </SizeDesc>
+                                    <SizePrice>$ {x['sale_price']}</SizePrice>
+                                </SizeLabel>
+                            </Size>
+                        )
+                    ) : (
+                        <StockOutSize key={i}>
+                            <Checkbox
+                                id="default"
+                                name="sizeSku"
+                                type="radio"
+                                onChange={() => productRoute(x['sku'])}
+                            />
+                            <SizeLabel>
+                                <SizeDesc>{x['size']}</SizeDesc>
+                                <SizePrice>Out of stock</SizePrice>
+                            </SizeLabel>
+                        </StockOutSize>
+                    )
+                )}
             </SizesContainer>
         </SizeSelectorContainer>
     )
