@@ -88,7 +88,14 @@ const ContactUs = () => {
                 setMessage(e.target.value)
             }
     }
-    const contactemail = () => {
+    const contactemail = (e) => {
+        e.target.innerHTML = 'Submitted'
+        e.target.disabled = true
+
+        setTimeout(() => {
+            e.target.innerHTML = 'Submit'
+            e.target.disabled = false
+        }, 1500)
         let data={
             "name": name,
             "email": mail,
@@ -215,7 +222,7 @@ const ContactUs = () => {
                                 ) are required.
                             </Paragraph>
 
-                            <Button onClick={contactemail} varient="secondary" type="submit">
+                            <Button onClick={(e) => contactemail(e)} varient="secondary" type="submit">
                                 Submit
                             </Button>
                         </Form>
