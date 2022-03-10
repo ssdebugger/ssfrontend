@@ -230,8 +230,6 @@ export const DynamicPage = ({ products }) => {
         }
     }
 
-    console.log(items)
-
     return (
         <>
             <Head>

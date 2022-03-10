@@ -98,7 +98,7 @@ export const SizeSelector = (props) => {
         const defaultSize = window.document.getElementById(
             'default'
         ) as HTMLInputElement
-        console.log(defaultSize)
+
         if (defaultSize !== null) {
             defaultSize.checked = true
         }
