@@ -1,4 +1,4 @@
-import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next'
+import { GetStaticProps } from 'next'
 import Homepage from '@/components/_pages/homepage'
 import client from '../sanityclient'
 

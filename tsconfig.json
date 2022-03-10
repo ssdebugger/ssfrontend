@@ -1,48 +1,29 @@
 {
-  "compilerOptions": {
-    "target": "ES2017",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": false,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "baseUrl": ".",
-    "paths": {
-      "@/styles/*": [
-        "styles/*"
-      ],
-      "@/components/*": [
-        "components/*"
-      ],
-      "@/utils/*": [
-        "utils/*"
-      ],
-      "@/types/*": [
-        "types/*"
-      ],
-      "@/context/*": [
-        "context/*"
-      ]
+    "compilerOptions": {
+        "target": "ES2017",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "strict": false,
+        "forceConsistentCasingInFileNames": true,
+        "noEmit": true,
+        "esModuleInterop": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "jsx": "preserve",
+        "baseUrl": ".",
+        "paths": {
+            "@/styles/*": ["styles/*"],
+            "@/components/*": ["components/*"],
+            "@/utils/*": ["utils/*"],
+            "@/types/*": ["types/*"],
+            "@/context/*": ["context/*"],
+            "@/lib/*": ["lib/*"]
+        },
+        "incremental": true
     },
-    "incremental": true
-  },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+    "exclude": ["node_modules"]
 }

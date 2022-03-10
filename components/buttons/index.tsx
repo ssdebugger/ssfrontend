@@ -16,7 +16,7 @@ const StyledButton = styled.button<{
     varient?: ButtonStyleProps['varient']
     fill?: ButtonStyleProps['fill']
     size?: ButtonStyleProps['size']
-    disabled?:ButtonStyleProps['disabled']
+    disabled?: ButtonStyleProps['disabled']
 }>`
     min-width: 140px;
     height: ${(props) => (props.size === 'large' ? '55px' : ' 44px')};
@@ -47,7 +47,7 @@ export const Button: React.FC<ButtonProps> = ({
     children,
     fill,
     size,
-    disabled
+    disabled,
 }) => {
     return (
         <StyledButton

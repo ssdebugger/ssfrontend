@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
     let recommendedPosts
-    const {blogUri=""}=context.params
+    const { blogUri = '' } = context.params
     const post = await client.fetch(
         `
     *[_type == "post" && slug.current == $blogUri][0]
@@ -31,7 +31,7 @@ export async function getStaticProps(context) {
         },title,publishedAt,slug}`
     )
     recommendedPosts = data.slice(1, 5)
-    console.log(data, 'serverprops 2')
+
     return {
         props: {
             blogData: post,
