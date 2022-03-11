@@ -52,7 +52,7 @@ function sortData(data) {
         a = new Date(a.publishedAt)
         b = new Date(b.publishedAt)
 
-        return b - 1
+        return b-a
     })
 }
 
