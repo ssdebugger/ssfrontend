@@ -50,8 +50,7 @@ function formatDate(date) {
 function sortData(data) {
     data.sort((a, b) => {
         a = new Date(a.publishedAt)
-        b = new Date(b.publishedAt)
-
+        b = new Date(b.publishedAt) 
         return b-a
     })
 }
