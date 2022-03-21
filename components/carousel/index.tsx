@@ -20,7 +20,7 @@ const DesktopImg = styled.img`
 export const Carousel = () => {
     useEffect(() => {
         let index = 0
-        const numberOfSlides = 2
+        const numberOfSlides = 3
         const bannerContainer =
             document.querySelector<HTMLElement>('.bannerContainer')
         let screenWidth = window.innerWidth
@@ -70,48 +70,29 @@ export const Carousel = () => {
                         <HyperLink href="/shop">
                             <MobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                srcSet="
-                            /carouselimages/plantry/plantry-mobile_jzdzrt_c_scale,w_200.png 200w,
-                            /carouselimages/plantry/plantry-mobile_jzdzrt_c_scale,w_349.png 349w,
-                            /carouselimages/plantry/plantry-mobile_jzdzrt_c_scale,w_458.png 458w,
-                            /carouselimages/plantry/plantry-mobile_jzdzrt_c_scale,w_551.png 551w,
-                            /carouselimages/plantry/plantry-mobile_jzdzrt_c_scale,w_637.png 637w,
-                            /carouselimages/plantry/plantry-mobile_jzdzrt_c_scale,w_706.png 767w"
-                                src="/carouselimages/plantry/plantry-mobile_jzdzrt_c_scale,w_706.png"
+                                src="/carouselimages/plantry/plantrymobile_comp.png"
                                 alt="Plantry Banner"
                             />
 
                             <DesktopImg
-                                sizes="(max-width: 1400px) 100vw, 1400px"
-                                srcSet="
-                            /carouselimages/plantry/plantry-desktop_utnd6o_c_scale,w_892.jpg 768w,
-                            /carouselimages/plantry/plantry-desktop_utnd6o_c_scale,w_1108.jpg 1108w,
-                            /carouselimages/plantry/plantry-desktop_utnd6o_c_scale,w_1289.jpg 1289w,
-                            /carouselimages/plantry/plantry-desktop_utnd6o_c_scale,w_1372.jpg 1372w,
-                            /carouselimages/plantry/plantry-desktop_utnd6o_c_scale,w_1400.jpg 1400w"
-                                src="/carouselimages/plantry/plantry-desktop_utnd6o_c_scale,w_1400.jpg"
-                                alt="Plantry Banner"
+                            sizes="(max-width: 706px) 100vw, 706px"
+                            src="/carouselimages/plantry/plantrydesktop_comp.png"
+                            alt="Plantry Banner"
                             />
                         </HyperLink>
                     </div>
                     <div className="carouselItem">
-                        <HyperLink href="/GLOV-DOM-0030-0036">
+                        <HyperLink href="/shop">
                             <MobileImg
-                                sizes="(max-width: 767px) 100vw, 767px"
-                                srcSet="/carouselimages/gloveup/Mobile_banner_sample_2-01-min_msjc0i_c_scale,w_250.png 250w,
-                                    /carouselimages/gloveup/Mobile_banner_sample_2-01-min_msjc0i_c_scale,w_526.png 526w,
-                                    /carouselimages/gloveup/Mobile_banner_sample_2-01-min_msjc0i_c_scale,w_730.png 730w"
-                                src="/carouselimages/gloveup/Mobile_banner_sample_2-01-min_msjc0i_c_scale,w_730.png"
-                                alt="Glove Up Banner"
+                                sizes="(max-width: 706px) 100vw, 706px"
+                                src="/carouselimages/plantry/gloveupmobile_comp.png"
+                                alt="Gloveup Banner"
                             />
 
                             <DesktopImg
-                                sizes="(max-width: 1400px) 100vw, 1400px"
-                                srcSet="/carouselimages/gloveup/webbanner_sample_2-01-min_defigy_c_scale,w_760.png 760w,
-                                        /carouselimages/gloveup/webbanner_sample_2-01-min_defigy_c_scale,w_1098.png 1098w,
-                                        /carouselimages/gloveup/webbanner_sample_2-01-min_defigy_c_scale,w_1380.png 1380w"
-                                src="/carouselimages/gloveup/webbanner_sample_2-01-min_defigy_c_scale,w_1380.png"
-                                alt="Glove Up Banner"
+                            sizes="(max-width: 706px) 100vw, 706px"
+                            src="/carouselimages/plantry/gloveupdesktop_comp.png"
+                            alt="Gloveup Banner"
                             />
                         </HyperLink>
                     </div>
