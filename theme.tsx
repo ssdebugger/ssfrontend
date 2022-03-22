@@ -144,6 +144,11 @@ ul {
     list-style: none;
 }
 
+#__react-alert__{
+    position: relative;
+    z-index: 500;
+}
+
 /* Marcellus - 400 */
 @font-face {
     font-family: 'marcellus';
