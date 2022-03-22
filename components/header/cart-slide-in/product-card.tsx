@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Trash2 } from 'react-feather'
+import { useAlert } from 'react-alert'
 
 import { Heading4 } from '@/components/typography/heading'
 import { Paragraph } from '@/components/typography/paragraph'
@@ -152,21 +153,17 @@ export const ProductCard: React.FC<ProductProps> = ({
     price,
     discountAmount,
 }) => {
+    const alert = useAlert()
     const addToCart = useAddItem()
     const removeFromCart = useRemoveItem()
 
     let discountValue = price * (discountAmount / 100)
-    let discountedPrice =
-        sku === 'PALM-HRTB-0500-0020' ||
-        sku === 'PALM-RTGT-0703-0020' ||
-        sku === 'BNDL-CSET-0000-0300' ||
-        sku === 'PALM-RTGT-0906-0020' ||
-        sku === 'PALM-OVLB-0510-0020' ||
-        sku === 'BNDL-SQDB-0710-0030'
-            ? price
-            : limitDecimal(price - discountValue)
+    // let discountedPrice =
+    //     sku === 'BNDL-CPBN-0710-0360' || sku === 'BNDL-SHBD-0710-0360'
+    //         ? price
+    //         : limitDecimal(price - discountValue)
 
-    // let discountedPrice = limitDecimal(price - discountValue)
+    let discountedPrice = limitDecimal(price - discountValue)
 
     async function cartApiOperations(
         actionType: 'SQC' | 'RFC',
@@ -201,25 +198,29 @@ export const ProductCard: React.FC<ProductProps> = ({
     }
 
     function handleQtyChange(e) {
-        const item: CartItem = {
-            sku: sku,
-            quantity: e.target.value,
-            price: price,
-            productid: productid,
-            title: title,
-            img: img,
-        }
+        if (parseInt(e.target.value) > quantity) {
+            alert.show(`Maximum quantity available: ${quantity}`)
+        } else {
+            const item: CartItem = {
+                sku: sku,
+                quantity: e.target.value,
+                price: price,
+                productid: productid,
+                title: title,
+                img: img,
+            }
 
-        addToCart(item)
-        let curuser = window.localStorage.getItem('useremail')
-        if (
-            curuser !== 'false' &&
-            curuser != undefined &&
-            curuser != null &&
-            curuser != 'null'
-        ) {
-            console.log('add to cart operation in cart slide in', quantity)
-            cartApiOperations('SQC', productid, quantity)
+            addToCart(item)
+            let curuser = window.localStorage.getItem('useremail')
+            if (
+                curuser !== 'false' &&
+                curuser != undefined &&
+                curuser != null &&
+                curuser != 'null'
+            ) {
+                console.log('add to cart operation in cart slide in', quantity)
+                cartApiOperations('SQC', productid, quantity)
+            }
         }
     }
 
@@ -244,23 +245,15 @@ export const ProductCard: React.FC<ProductProps> = ({
             </CardImgContainer>
 
             <CardContent>
-                {price !== discountedPrice ? (
+                {/* {price !== discountedPrice ? (
                     <CouponStatus>Coupon Applied</CouponStatus>
-                ) : sku === 'PALM-HRTB-0500-0020' ? (
-                    <CouponStatus>Pre Discounted Item</CouponStatus>
-                ) : sku === 'BNDL-CSET-0000-0300' ? (
-                    <CouponStatus>Pre Discounted Item</CouponStatus>
-                ) : sku === 'PALM-RTGT-0906-0020' ? (
-                    <CouponStatus>Pre Discounted Item</CouponStatus>
-                ) : sku === 'BNDL-SQDB-0710-0030' ? (
-                    <CouponStatus>Pre Discounted Item</CouponStatus>
-                ) : sku === 'PALM-OVLB-0510-0020' ? (
+                ) : sku === 'BNDL-CPBN-0710-0360' ? (
                     <CouponStatus>Pre Discounted Item</CouponStatus>
                 ) : (
-                    sku === 'PALM-RTGT-0703-0020' && (
+                    sku === 'BNDL-SHBD-0710-0360' && (
                         <CouponStatus>Pre Discounted Item</CouponStatus>
                     )
-                )}
+                )} */}
                 <Heading4>{title}</Heading4>
                 <Paragraph>Tableware</Paragraph>
 
@@ -284,39 +277,23 @@ export const ProductCard: React.FC<ProductProps> = ({
             </CardContent>
 
             <Paragraph>
-                {price !== discountedPrice ? (
+                {/* {price !== discountedPrice ? (
                     <span className="dashed-price">${price}</span>
-                ) : sku === 'PALM-HRTB-0500-0020' ? (
+                ) : sku === 'BNDL-CPBN-0710-0360' ? (
                     <span className="dashed-price">
-                        ${(14.95 * quantity).toFixed(2)}
-                    </span>
-                ) : sku === 'PALM-RTGT-0906-0020' ? (
-                    <span className="dashed-price">
-                        ${(12.95 * quantity).toFixed(2)}
-                    </span>
-                ) : sku === 'PALM-RTGT-0703-0020' ? (
-                    <span className="dashed-price">
-                        ${(12.99 * quantity).toFixed(2)}
-                    </span>
-                ) : sku === 'PALM-OVLB-0510-0020' ? (
-                    <span className="dashed-price">
-                        ${(11.95 * quantity).toFixed(2)}
-                    </span>
-                ) : sku === 'BNDL-SQDB-0710-0030' ? (
-                    <span className="dashed-price">
-                        ${(29.95 * quantity).toFixed(2)}
+                        ${(74.75 * quantity).toFixed(2)}
                     </span>
                 ) : (
-                    sku === 'BNDL-CSET-0000-0300' && (
+                    sku === 'BNDL-SHBD-0710-0360' && (
                         <span className="dashed-price">
-                            ${(29.95 * quantity).toFixed(2)}
+                            ${(35.85 * quantity).toFixed(2)}
                         </span>
                     )
-                )}
-
-                {/* {price !== discountedPrice && (
-                    <span className="dashed-price">${price}</span>
                 )} */}
+
+                {price !== discountedPrice && (
+                    <span className="dashed-price">${price}</span>
+                )}
 
                 <span>${discountedPrice}</span>
             </Paragraph>

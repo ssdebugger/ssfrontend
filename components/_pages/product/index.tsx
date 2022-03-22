@@ -16,6 +16,9 @@ import Head from 'next/head'
 import { CollapseButton } from '@/components/collapse-button'
 import { BreadCrumb } from '@/components/breadcrumb'
 import { SizeSelector } from './sizes'
+
+import { useAlert } from 'react-alert'
+
 import {
     AboutItemContainer,
     AddToCart,
@@ -38,6 +41,7 @@ import { ProductCertifications } from './product-certifications'
 const Productpage = (props) => {
     let data = props.data['body']['response']
     let recproducts = props.data['body']['recproducts']
+    const alert = useAlert()
 
     const AddToCartCta = ({
         sku,
@@ -72,6 +76,16 @@ const Productpage = (props) => {
         const handleAddToCart = (e) => {
             let itemIndex = cart.findIndex((item) => item.sku === sku)
             let curuser = window.localStorage.getItem('useremail')
+
+            if (
+                itemIndex !== -1 &&
+                cart[itemIndex].quantity <= data.in_stock.N
+            ) {
+                alert.show(
+                    `Product already in cart, Maximum quantity available: ${data.in_stock.N}`
+                )
+                return
+            }
 
             if (
                 curuser !== 'false' &&
@@ -133,7 +147,13 @@ const Productpage = (props) => {
         const handleProductQuantityChange = (e: {
             target: { value: string }
         }) => {
-            setProductQuantity(parseInt(e.target.value))
+            if (parseInt(e.target.value) <= 0) {
+                setProductQuantity(1)
+            } else if (parseInt(e.target.value) > parseInt(data.in_stock.N)) {
+                alert.show(`Maximum quantity available: ${data.in_stock.N}`)
+            } else {
+                setProductQuantity(parseInt(e.target.value))
+            }
         }
 
         return (
