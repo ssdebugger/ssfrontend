@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Gift } from 'react-feather'
+import { Gift, Home } from 'react-feather'
 import Link from 'next/link'
 
 import { Heading4 } from '@/components/typography/heading'
@@ -63,20 +63,42 @@ const CardLink = styled.a`
     }
 `
 
-export const OfferCard = () => {
+export const OfferCard = ({ card }) => {
     return (
         <OfferCardContainer>
-            <IconContainer>
-                <Gift />
-            </IconContainer>
+            {card == 'card1' ? (
+                <IconContainer>
+                    <Gift />
+                </IconContainer>
+            ) : (
+                <IconContainer>
+                    <Home />
+                </IconContainer>
+            )}
 
-            <OfferContent>
-                <Heading4>INTERNATIONAL WOMEN’S DAY SALE is still ON. Don’t miss it! </Heading4>
+            {card == 'card1' ? (
+                <OfferContent>
+                    <Heading4>
+                        Must-Have Valentine Month Dinnerware Supplies
+                    </Heading4>
 
-                <Paragraph>
-                    All wrapped up and with loads of new delivery options suiting your needs
-                </Paragraph>
-            </OfferContent>
+                    <Paragraph>
+                        All wrapped up and with loads of new delivery options
+                        suiting your needs
+                    </Paragraph>
+                </OfferContent>
+            ) : (
+                <OfferContent>
+                    <Heading4>
+                        Make your life Easier and Greener every day
+                    </Heading4>
+
+                    <Paragraph>
+                        All wrapped up and with loads of new delivery options
+                        suiting your needs
+                    </Paragraph>
+                </OfferContent>
+            )}
 
             <Link href="/shop" passHref>
                 <CardLink>Find your match</CardLink>

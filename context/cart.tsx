@@ -10,6 +10,7 @@ type ActionType =
           img: string
           productid: number
           price: number
+          inStockQuantity: number
       }
     | { type: 'DELETE'; sku: string }
     | { type: 'EMPTYCART' }
@@ -40,12 +41,13 @@ function cartReducer(state: CartItem[], action: ActionType) {
                     cartValue[itemIndex].quantity = action.quantity
                 }
             } else {
-                let ItemDetails = {
+                let ItemDetails: Omit<CartItem, 'quantity'> = {
                     sku: action.sku,
                     title: action.title,
                     img: action.img,
                     productid: action.productid,
                     price: action.price,
+                    inStockQuantity: action.inStockQuantity,
                 }
 
                 if (action.quantity === 0) {
@@ -117,7 +119,15 @@ export const useAddItem = () => {
         throw new Error('useAddItem must be used within a CartProvider')
     }
 
-    function add({ sku, quantity, title, img, productid, price }: CartItem) {
+    function add({
+        sku,
+        quantity,
+        title,
+        img,
+        productid,
+        price,
+        inStockQuantity,
+    }: CartItem) {
         dispatch({
             type: 'ADD',
             sku: sku,
@@ -126,6 +136,7 @@ export const useAddItem = () => {
             img: img,
             productid: productid,
             price: price,
+            inStockQuantity: inStockQuantity,
         })
 
         // cartApiOperations('ATC', productid, quantity)

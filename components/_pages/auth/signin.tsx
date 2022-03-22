@@ -16,17 +16,6 @@ import { useAddItem } from '@/context/cart'
 import { GetCartItems } from '@/utils/get-cart-items'
 import { useAddUser, useUser } from '@/context/user'
 
-type CartItems = Array<{
-    product_id: string
-    regular_price: string
-    sku_code: string
-    description: string
-    product_name: string
-    sale_price: string
-    quantity: number
-    image0: string
-}>
-
 const SignIn = () => {
     const router = useRouter()
     const loginFn = useAuthLogin()
@@ -84,8 +73,8 @@ const SignIn = () => {
                             'username',
                             response.body[0]['firstname']
                         )
-                    })                    
-                window.localStorage.setItem('useremail',email)
+                    })
+                window.localStorage.setItem('useremail', email)
                 loginFn()
 
                 router.push({ pathname: '/' })
@@ -110,21 +99,22 @@ const SignIn = () => {
                     window.localStorage.getItem('useremail')
                 )
 
-               setTimeout(function(){
-                data.map((item) => {
-                    if (Number(item.quantity) !== 0) {
-                        let itemDetails = {
-                            sku: item.sku_code['S'],
-                            quantity: item.quantity,
-                            title: item.product_name['S'],
-                            img: item.image0,
-                            productid: Number(item.product_id['N']),
-                            price: Number(item.sale_price['N']),
+                setTimeout(function () {
+                    data.map((item) => {
+                        if (Number(item.quantity) !== 0) {
+                            let itemDetails = {
+                                sku: item.sku_code['S'],
+                                quantity: item.quantity,
+                                title: item.product_name['S'],
+                                img: item.image0,
+                                productid: Number(item.product_id['N']),
+                                price: Number(item.sale_price['N']),
+                                inStockQuantity: Number(item.in_stock['N']),
+                            }
+                            addToCart(itemDetails)
                         }
-                        addToCart(itemDetails)
-                    }
-                })
-               },2000)
+                    })
+                }, 2000)
             }
         }
 

@@ -21,6 +21,7 @@ const HomepageMain = styled.main`
 
 const Homepage = ({ offers, bundles, data }) => {
     const ProductsOfferList = []
+
     for (let i = 0; i < 5; i++) {
         ProductsOfferList.push(offers['body'][i])
     }
@@ -54,13 +55,13 @@ const Homepage = ({ offers, bundles, data }) => {
             <HomepageMain>
                 <Carousel />
 
-                <Offer productsList={ProductsOfferList} />
+                <Offer card={'card1'} productsList={ProductsOfferList} />
 
                 <Bundle />
 
                 <NewLaunches newLaunchProducts={NewLaunchesList} />
 
-                <Offer productsList={ProductsOfferList} />
+                <Offer card={'card2'} productsList={ProductsOfferList} />
 
                 <StoriesFromUs data={data} />
                 {/* 

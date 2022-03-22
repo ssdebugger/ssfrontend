@@ -10,7 +10,7 @@ import { useAddItem } from '@/context/cart'
 export const DashedHeading = styled(Heading3)`
     color: #fa3b56;
     text-decoration: line-through;
-    margin-bottom:0.25rem;
+    margin-bottom: 0.25rem;
 `
 
 export const Container = styled.div`
@@ -147,6 +147,7 @@ export const ProductCard = (props) => {
             img: props.image,
             productid: props.productId,
             price: props.price,
+            inStockQuantity: props.inStockQuantity,
         })
 
         setIsAddedToCart((prevState) => !prevState)
@@ -216,7 +217,9 @@ export const ProductCard = (props) => {
                             <Star className="filled" />
                             <Star className="default" />
                         </RatingsContainer> */}
-                  {props.originalprice!=0?(<DashedHeading>${props.originalprice}</DashedHeading>):null}  
+                    {props.originalprice != 0 ? (
+                        <DashedHeading>${props.originalprice}</DashedHeading>
+                    ) : null}
                     <Heading3>${props.price}</Heading3>
                 </ProductContent>
             </ProductContainer>

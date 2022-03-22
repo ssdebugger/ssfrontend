@@ -5,4 +5,5 @@ export interface CartItem {
     img: string
     productid: number
     price: number
+    inStockQuantity: number
 }

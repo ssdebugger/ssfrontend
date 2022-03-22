@@ -186,7 +186,6 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
 
     useEffect(() => {
         setTotalOriginalPrice(cart, setOriginalPrice)
-        console.log('in cart useeffect')
         let coupon = getUserCoupon()
         if (coupon.minSpend > 0) {
             setCouponSelected(coupon)
@@ -279,6 +278,9 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
                                         price={limitDecimal(
                                             product.price * product.quantity
                                         )}
+                                        inStockQuantity={
+                                            product.inStockQuantity
+                                        }
                                     />
                                 ))}
                             </ProductsList>

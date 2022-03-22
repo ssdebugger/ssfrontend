@@ -49,12 +49,14 @@ const Productpage = (props) => {
         img,
         productid,
         price,
+        inStockQuantity,
     }: {
         sku: CartItem['sku']
         title: CartItem['title']
         img: CartItem['img']
         productid: CartItem['productid']
         price: CartItem['price']
+        inStockQuantity: CartItem['inStockQuantity']
     }) => {
         const { cart } = useCart()
         const add = useAddItem()
@@ -123,6 +125,7 @@ const Productpage = (props) => {
                     img: img,
                     productid: productid,
                     price: price,
+                    inStockQuantity: inStockQuantity,
                 })
             } else {
                 add({
@@ -132,6 +135,7 @@ const Productpage = (props) => {
                     img: img,
                     productid: productid,
                     price: price,
+                    inStockQuantity: inStockQuantity,
                 })
             }
 
@@ -220,6 +224,7 @@ const Productpage = (props) => {
         img: data['image0'],
         productid: data['product_id']['N'],
         price: data['sale_price']['N'],
+        inStockQuantity: parseInt(data['in_stock']['N']),
     }
 
     return (
@@ -343,6 +348,7 @@ const Productpage = (props) => {
                             img={ItemData.img}
                             productid={ItemData.productid}
                             price={ItemData.price}
+                            inStockQuantity={ItemData.inStockQuantity}
                         />
 
                         <SaveToWishlist id="savebtn">

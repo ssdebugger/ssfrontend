@@ -152,6 +152,7 @@ export const ProductCard: React.FC<ProductProps> = ({
     productid,
     price,
     discountAmount,
+    inStockQuantity,
 }) => {
     const alert = useAlert()
     const addToCart = useAddItem()
@@ -198,8 +199,8 @@ export const ProductCard: React.FC<ProductProps> = ({
     }
 
     function handleQtyChange(e) {
-        if (parseInt(e.target.value) > quantity) {
-            alert.show(`Maximum quantity available: ${quantity}`)
+        if (parseInt(e.target.value) > inStockQuantity) {
+            alert.show(`Maximum quantity available: ${inStockQuantity}`)
         } else {
             const item: CartItem = {
                 sku: sku,
@@ -208,6 +209,7 @@ export const ProductCard: React.FC<ProductProps> = ({
                 productid: productid,
                 title: title,
                 img: img,
+                inStockQuantity: inStockQuantity,
             }
 
             addToCart(item)

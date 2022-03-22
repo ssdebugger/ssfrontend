@@ -6,6 +6,7 @@ type CartItems = Array<{
     product_name: string
     sale_price: string
     quantity: number
+    in_stock: string
     image0: string
 }>
 
