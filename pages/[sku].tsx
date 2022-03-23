@@ -4,7 +4,7 @@ import Productpage from '@/components/_pages/product'
 
 export default Productpage
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export async function getServerSideProps(context){
     const sku = context.params.sku
 
     const res = await fetch(
@@ -15,26 +15,25 @@ export const getStaticProps: GetStaticProps = async (context) => {
     return {
         props: {
             data: data,
-        },
-        revalidate: 120,
+        }
     }
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-    const res = await fetch(
-        'https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/getallproducts'
-    )
+// export const getStaticPaths: GetStaticPaths = async () => {
+//     const res = await fetch(
+//         'https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/getallproducts'
+//     )
 
-    const productData = await res.json()
+//     const productData = await res.json()
 
-    const paths = productData.body.map((item) => ({
-        params: {
-            sku: item.sku_code.S,
-        },
-    }))
+//     const paths = productData.body.map((item) => ({
+//         params: {
+//             sku: item.sku_code.S,
+//         },
+//     }))
 
-    return {
-        paths,
-        fallback: 'blocking',
-    }
-}
+//     return {
+//         paths,
+//         fallback: 'blocking',
+//     }
+// }
