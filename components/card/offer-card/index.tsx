@@ -79,7 +79,7 @@ export const OfferCard = ({ card }) => {
             {card == 'card1' ? (
                 <OfferContent>
                     <Heading4>
-                        Must-Have Valentine Month Dinnerware Supplies
+                    INTERNATIONAL WOMEN’S DAY SALE is still ON. Don’t miss it! 
                     </Heading4>
 
                     <Paragraph>
