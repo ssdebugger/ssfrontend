@@ -100,13 +100,13 @@ export const Carousel = () => {
                         <HyperLink href="/shop">
                             <MobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/gloveup/gloveupmobile_comp.png"
+                                src="/carouselimages/Gloveup/gloveupmobile_comp.png"
                                 alt="Gloveup Banner"
                             />
 
                             <DesktopImg
                             sizes="(max-width: 706px) 100vw, 706px"
-                            src="/carouselimages/gloveup/gloveupdesktop_comp.png"
+                            src="/carouselimages/Gloveup/gloveupdesktop_comp.png"
                             alt="Gloveup Banner"
                             />
                         </HyperLink>
