@@ -20,7 +20,7 @@ const DesktopImg = styled.img`
 export const Carousel = () => {
     useEffect(() => {
         let index = 0
-        const numberOfSlides = 3
+        const numberOfSlides = 4
         const bannerContainer =
             document.querySelector<HTMLElement>('.bannerContainer')
         let screenWidth = window.innerWidth
@@ -92,6 +92,21 @@ export const Carousel = () => {
                             <DesktopImg
                             sizes="(max-width: 706px) 100vw, 706px"
                             src="/carouselimages/plantry/gloveupdesktop_comp.png"
+                            alt="Gloveup Banner"
+                            />
+                        </HyperLink>
+                    </div>
+                    <div className="carouselItem">
+                        <HyperLink href="/shop">
+                            <MobileImg
+                                sizes="(max-width: 706px) 100vw, 706px"
+                                src="/carouselimages/gloveup/gloveupmobile_comp.png"
+                                alt="Gloveup Banner"
+                            />
+
+                            <DesktopImg
+                            sizes="(max-width: 706px) 100vw, 706px"
+                            src="/carouselimages/gloveup/gloveupdesktop_comp.png"
                             alt="Gloveup Banner"
                             />
                         </HyperLink>
