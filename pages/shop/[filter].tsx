@@ -3,7 +3,7 @@ import { DynamicPage } from '@/components/_pages/dynamic-products-page/[slug]'
 export default DynamicPage
 
 export async function getServerSideProps(context) {
-    let filter='none'
+    const filter=context.params=='shop'?'none': context.params.filter
     const responseproducts = await fetch(
         'https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/getallproducts'
     )
@@ -12,7 +12,6 @@ export async function getServerSideProps(context) {
         props: {
             products,
             filter
-
         },
     }
 }

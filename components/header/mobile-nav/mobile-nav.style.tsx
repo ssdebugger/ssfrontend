@@ -30,7 +30,8 @@ export const NavLink = styled.li<{ readonly profileLink?: boolean }>`
     font-weight: ${(props) => props.profileLink && '500'};
 `
 
-export const NavLinkContent = styled.div`
+export const NavLinkContent = styled.div<{ selected?: boolean }>`
+    width: 100%;
     display: flex;
     justify-content: space-between;
     padding: 0.75rem 0;
@@ -39,11 +40,42 @@ export const NavLinkContent = styled.div`
         font-size: 1.5rem;
         color: #000;
         text-transform: capitalize;
+        font-weight: ${(props) => props.selected && 600600};
     }
 
     svg {
         stroke: ${(props) => props.theme.blueGray700};
         stroke-width: 1.5;
+    }
+`
+
+export const NavSublinks = styled.ul<{ show: boolean }>`
+    transform-origin: top center;
+    opacity: ${(props) => (props.show ? 1 : 0)};
+    height: ${(props) => (props.show ? '370px' : '0px')};
+    transform: ${(props) =>
+        props.show ? 'translateY(0)' : 'translateY(-100px)'};
+    pointer-events: ${(props) => (props.show ? 'all' : 'none')};
+    transition: ${(props) =>
+        props.show
+            ? 'height 0.2s ease, transform 0.3s ease 0.15s, opacity 0.2s ease 0.25s'
+            : 'height 0.2s ease, transform 0.3s ease 0.3s, opacity 0.2s ease'};
+`
+export const NavSublink = styled.li`
+    &:first-child {
+        padding: 0.5rem 0 0;
+    }
+
+    &:last-child {
+        padding: 0 0 1rem;
+    }
+
+    a {
+        padding: 0.5rem 0.25rem;
+        display: block;
+        font-size: 1.25rem;
+        color: #000;
+        text-transform: capitalize;
     }
 `
 

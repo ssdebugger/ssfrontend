@@ -223,14 +223,13 @@ const Footer = () => {
                             />
                         </IconsHolder>
                     </GridItem>
-
                     <GridItem className="gridItem" lg={25} md={25} sm={100}>
                         <Typography
                             color="#fff"
                             fontWeight="500"
                             fontSize="19px"
                         >
-                            Be the first to know
+                            Subscribe to the newsletter
                         </Typography>
 
                         <Typography
@@ -238,9 +237,7 @@ const Footer = () => {
                             fontWeight="400"
                             fontSize="14px"
                         >
-                            Join our email list for exclusive offers,
-                            sustainable living tips, and the latest ethical
-                            products.
+                            Subscribe now to get 10% off your first order and to make your inbox greener with monthly sustainable tips!
                         </Typography>
 
                         <EmailInput placeholder="Email" />

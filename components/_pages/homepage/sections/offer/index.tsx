@@ -38,7 +38,8 @@ export const Offer = ({ productsList, card }) => {
             {/* <div style={{}}><ChevronsLeft size={35} /></div> */}
             <ProductsContainer>
                 {productsList.map((item) => (
-                    <ProductCard
+                card =='card1' ? (
+                       <ProductCard
                         key={item.sku.S}
                         sku={item.sku.S}
                         name={item.name.S}
@@ -48,7 +49,17 @@ export const Offer = ({ productsList, card }) => {
                         desc={item.description.S}
                         productId={item.product_id.N}
                         inStockQuantity={item.in_stock.N}
-                    />
+                    />):(    <ProductCard
+                        key={item.sku_code.S}
+                        sku={item.sku_code.S}
+                        name={item.product_name.S}
+                        image={item.imageurl}
+                        price={item.sale_price}
+                        originalprice={0}
+                        desc={item.short_description.S}
+                        productId={item.product_id.N}
+                        inStockQuantity={item.in_stock.N}
+                    />)
                 ))}
             </ProductsContainer>
             {/* <div style={{}} ><ChevronsRight size={35} /></div>   */}

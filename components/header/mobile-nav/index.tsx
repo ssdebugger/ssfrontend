@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { ArrowUpRight, LogOut, X } from 'react-feather'
+import { ArrowUpRight, ChevronDown, LogOut, X } from 'react-feather'
 
 import { useAuth, useAuthLogout } from '@/context/auth'
 import { useClearCart } from '@/context/cart'
@@ -17,6 +17,8 @@ import {
     JoinUsSection,
     JoinUsLinks,
     LogoutBtn,
+    NavSublinks,
+    NavSublink,
 } from './mobile-nav.style'
 
 type Props = {
@@ -26,6 +28,8 @@ type Props = {
 
 export const MobileNav: React.FC<Props> = ({ showNav, toggleNavFn }) => {
     const [username, setUsername] = useState('')
+    const [showDropdown, setShowdropdown] = useState('')
+
     const isLoggedIn = useAuth()
     const logout = useAuthLogout()
     const clearCart = useClearCart()
@@ -39,13 +43,25 @@ export const MobileNav: React.FC<Props> = ({ showNav, toggleNavFn }) => {
         router.replace('/')
     }
 
+    const handleShowDropdown = (dropDownId: string) => {
+        if (showDropdown === dropDownId) {
+            setShowdropdown('')
+        } else {
+            setShowdropdown(dropDownId)
+        }
+    }
+
     useEffect(() => {
         setUsername(localStorage.getItem('username'))
     }, [])
 
+    useEffect(() => {
+        console.log(showDropdown)
+    }, [showDropdown])
+
     return (
-        <MobileNavContainer showNav={showNav} onClick={toggleNavFn}>
-            <NavCloseBtn>
+        <MobileNavContainer showNav={showNav}>
+            <NavCloseBtn onClick={toggleNavFn}>
                 <X />
             </NavCloseBtn>
 
@@ -62,15 +78,51 @@ export const MobileNav: React.FC<Props> = ({ showNav, toggleNavFn }) => {
                 )}
 
                 <NavLink>
-                    <HyperLink href="/shop">
-                        <NavLinkContent>
-                            <span>Shop</span>
-                            <ArrowUpRight />
-                        </NavLinkContent>
-                    </HyperLink>
+                    <NavLinkContent onClick={() => handleShowDropdown('shop')}>
+                        <span>Shop</span>
+                        <ChevronDown />
+                    </NavLinkContent>
+
+                    <NavSublinks show={showDropdown === 'shop'}>
+                        <NavSublink>
+                            <HyperLink href="/shop">
+                                View all products
+                            </HyperLink>
+                        </NavSublink>
+
+                        <NavSublink onClick={toggleNavFn}>
+                            <HyperLink href="/shop/bowls">Bowls</HyperLink>
+                        </NavSublink>
+
+                        <NavSublink onClick={toggleNavFn}>
+                            <HyperLink href="/shop/tray">Tray</HyperLink>
+                        </NavSublink>
+
+                        <NavSublink onClick={toggleNavFn}>
+                            <HyperLink href="/shop/gloves">Gloves</HyperLink>
+                        </NavSublink>
+
+                        <NavSublink onClick={toggleNavFn}>
+                            <HyperLink href="/shop/bundles">Bundles</HyperLink>
+                        </NavSublink>
+
+                        <NavSublink onClick={toggleNavFn}>
+                            <HyperLink href="/shop/plates">Plates</HyperLink>
+                        </NavSublink>
+
+                        <NavSublink onClick={toggleNavFn}>
+                            <HyperLink href="/shop/cutlery">Cutlery</HyperLink>
+                        </NavSublink>
+
+                        <NavSublink onClick={toggleNavFn}>
+                            <HyperLink href="/shop/container">
+                                Container
+                            </HyperLink>
+                        </NavSublink>
+                    </NavSublinks>
                 </NavLink>
 
-                <NavLink>
+                <NavLink onClick={toggleNavFn}>
                     <HyperLink href="/about">
                         <NavLinkContent>
                             <span>About us</span>
@@ -79,7 +131,7 @@ export const MobileNav: React.FC<Props> = ({ showNav, toggleNavFn }) => {
                     </HyperLink>
                 </NavLink>
 
-                <NavLink>
+                <NavLink onClick={toggleNavFn}>
                     <HyperLink href="/sustainability">
                         <NavLinkContent>
                             <span>Sustainability</span>
@@ -88,7 +140,7 @@ export const MobileNav: React.FC<Props> = ({ showNav, toggleNavFn }) => {
                     </HyperLink>
                 </NavLink>
 
-                <NavLink>
+                <NavLink onClick={toggleNavFn}>
                     <HyperLink href="/impact">
                         <NavLinkContent>
                             <span>Impact</span>
@@ -97,7 +149,7 @@ export const MobileNav: React.FC<Props> = ({ showNav, toggleNavFn }) => {
                     </HyperLink>
                 </NavLink>
 
-                <NavLink>
+                <NavLink onClick={toggleNavFn}>
                     <HyperLink href="/blog">
                         <NavLinkContent>
                             <span>Blog</span>
@@ -106,7 +158,7 @@ export const MobileNav: React.FC<Props> = ({ showNav, toggleNavFn }) => {
                     </HyperLink>
                 </NavLink>
 
-                <NavLink>
+                <NavLink onClick={toggleNavFn}>
                     <HyperLink href="/contact-us">
                         <NavLinkContent>
                             <span>Contact Us</span>
@@ -117,7 +169,7 @@ export const MobileNav: React.FC<Props> = ({ showNav, toggleNavFn }) => {
             </LinksContainer>
 
             {!isLoggedIn && (
-                <JoinUsSection>
+                <JoinUsSection onClick={toggleNavFn}>
                     <Paragraph>
                         Become a Sellsage memeber and help fight climate change.
                     </Paragraph>
@@ -131,9 +183,11 @@ export const MobileNav: React.FC<Props> = ({ showNav, toggleNavFn }) => {
             )}
 
             {isLoggedIn && (
-                <LogoutBtn onClick={logoutFn}>
-                    <LogOut /> <span>Logout</span>
-                </LogoutBtn>
+                <div onClick={toggleNavFn}>
+                    <LogoutBtn onClick={logoutFn}>
+                        <LogOut /> <span>Logout</span>
+                    </LogoutBtn>
+                </div>
             )}
         </MobileNavContainer>
     )

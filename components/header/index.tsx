@@ -43,7 +43,24 @@ const NavLinksData = [
             },
         ],
     },
-    { name: 'Shop', href: '/shop' },
+    {
+        name: 'Shop',
+        href: '/shop',
+        subLinks: [
+            {
+                sectionHeading: 'Shop ',
+                links: [
+                    { name: 'Bowls', href: '/shop/bowls' },
+                    { name: 'Plates', href: '/shop/plates' },
+                    { name: 'Tray', href: '/shop/tray' },
+                    { name: 'Cutlery', href: '/shop/cutlery' },
+                    { name: 'Gloves', href: '/shop/gloves' },
+                    { name: 'Container', href: '/shop/container' },
+                    { name: 'Bundles', href: '/shop/bundles' },
+                ],
+            },
+        ],
+    },
     { name: 'Blog', href: '/blog' },
     { name: 'Contact Us', href: '/contact-us' },
 ]

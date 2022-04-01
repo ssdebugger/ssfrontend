@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import { useEffect } from 'react'
 
 import { Heading3, Heading4 } from '@/components/typography/heading'
 import { Paragraph } from '@/components/typography/paragraph'
@@ -9,70 +9,59 @@ import {
     BrandImgContainer,
     BrandImg,
     BrandContent,
+    BundleContainer,
+    HeadingContainer,
+    BundleCardContainer,
+    Text,
 } from './bundle.style'
 import { HyperLink } from '@/components/header'
 
-const BundleContainer = styled.section`
-    padding: 3rem 0;
-    background: ${(props) => props.theme.vibrantGreen};
-
-    @media (min-width: ${(props) => props.theme.screenLg}) {
-        padding: 4rem ${(props) => props.theme.spacingTabletHorizontal};
-    }
-
-    @media (min-width: ${(props) => props.theme.screenXl}) {
-        padding: 4rem ${(props) => props.theme.spacingDesktop};
-    }
-`
-
-const HeadingContainer = styled.div`
-    max-width: 53rem;
-    margin: 0 auto 3rem;
-    text-align: center;
-    padding: 0 ${(props) => props.theme.spacingMobile};
-
-    h3 {
-        margin-bottom: 1.5rem;
-        font-size: 2.375rem;
-        line-height: 1.25;
-        font-weight: 800;
-    }
-
-    p {
-        line-height: 1.5;
-        font-weight: 500;
-        max-width: 37.5rem;
-        margin: 0 auto;
-    }
-`
-
-const BundleCardContainer = styled.div`
-    display: grid;
-    grid-template-columns: 1fr;
-
-    @media (min-width: ${(props) => props.theme.screenLg}) {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2.5rem;
-    }
-`
-
 export const Bundle = () => {
+    useEffect(() => {
+        let options: IntersectionObserverInit = {
+            rootMargin: '0px',
+            threshold: 1,
+        }
+
+        let observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show')
+                } else {
+                    entry.target.classList.remove('show')
+                }
+            })
+        }, options)
+
+        observer.observe(document.querySelector('#bundleHeading'))
+        observer.observe(document.querySelector('#bundleDesc'))
+
+        return () => {
+            observer.disconnect()
+        }
+    }, [])
+
     return (
         <BundleContainer>
-            <HeadingContainer>
-                <Heading3>Perfect Gifting Kits for your loved ones</Heading3>
+            <BundleCardContainer id="bundleCardContainer">
+                <BrandCard>
+                    <Text>
+                        <Heading3 id="bundleHeading">
+                            Let's refresh the earth together
+                        </Heading3>
 
-                <Paragraph>
-                    Our Gifting Kit collections are designed to recognise
-                    everyday act of kindness and reverberate beyond the first
-                    exchange.
-                </Paragraph>
-            </HeadingContainer>
+                        <Paragraph id="bundleDesc">
+                            In our world avoiding plastic can be challenging and
+                            not a moment too soon for a plastic-choked planet.
+                            Relax, while Sell Sage offers you some sustainable
+                            living inspiration
+                        </Paragraph>
+                    </Text>
+                </BrandCard>
 
-            <BundleCardContainer>
                 <BrandCard>
                     <BrandImgContainer>
-                        <BrandImg src="/brands/gloveup.png" alt='image'/>
+                        <BrandImg src="/brands/gloveup.png" alt="image" />
                     </BrandImgContainer>
 
                     <BrandContent>
@@ -88,11 +77,11 @@ export const Bundle = () => {
 
                 <BrandCard>
                     <BrandImgContainer>
-                        <BrandImg src="/brands/plantry.png" alt='image'/>
+                        <BrandImg src="/brands/plantry.png" alt="image" />
                     </BrandImgContainer>
 
                     <BrandContent>
-                        <Heading4>Be eco-friendly with Plantry</Heading4>
+                        <Heading4>Eco-friendly with Plantry</Heading4>
                         <Paragraph>
                             Classy and environment friendly products for your
                             house and loved ones.
@@ -101,63 +90,6 @@ export const Bundle = () => {
                         <HyperLink href="/shop">Shop Plantry</HyperLink>
                     </BrandContent>
                 </BrandCard>
-
-                {/* <BundleCard>
-                    <BundleImgContainer>
-                        <BundleCardImg src="/brands/sasya.png" />
-                    </BundleImgContainer>
-
-                    <BundleContent>
-                        <Heading4>Party pack rectangle</Heading4>
-
-                        <Paragraph>
-                            The perfect party bundle, weather you’re buying for
-                            a newbie or Sellsager
-                        </Paragraph>
-
-                        <Link href="/" passHref>
-                            <HyperLink>Shop party bundle</HyperLink>
-                        </Link>
-                    </BundleContent>
-                </BundleCard>
-
-                <BundleCard>
-                    <BundleImgContainer>
-                        <BundleCardImg src="/brands/sasya.png" />
-                    </BundleImgContainer>
-
-                    <BundleContent>
-                        <Heading4>Party pack rectangle</Heading4>
-
-                        <Paragraph>
-                            The perfect party bundle, weather you’re buying for
-                            a newbie or Sellsager
-                        </Paragraph>
-
-                        <Link href="/" passHref>
-                            <HyperLink>Shop party bundle</HyperLink>
-                        </Link>
-                    </BundleContent>
-                </BundleCard>
-
-                <BundleCard>
-                    <BundleImgContainer>
-                        <BundleCardImg src="/brands/sasya.png" />
-                    </BundleImgContainer>
-
-                    <BundleContent>
-                        <Heading4>Party pack rectangle</Heading4>
-
-                        <Paragraph>
-                            The perfect party bundle, weather you’re buying for
-                            a newbie or Sellsager
-                        </Paragraph>
-
-                        <Link href="/" passHref>
-                            <HyperLink>Shop party bundle</HyperLink>
-                        </Link>
-                    </BundleContent>
-                </BundleCard> */}
             </BundleCardContainer>
         </BundleContainer>
     )

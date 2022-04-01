@@ -7,7 +7,7 @@ export const SlideInContainer = styled.div<{ showBag: boolean }>`
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 110;
+    z-index: 50;
     transition: 0.2s ease;
     overflow: hidden;
     opacity: ${(props) => (props.showBag ? 1 : 0)};

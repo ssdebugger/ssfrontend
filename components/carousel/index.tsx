@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { HyperLink } from '../header'
+import { ArrowLeft, ArrowRight } from 'react-feather'
+
 
 const MobileImg = styled.img`
     display: block;
@@ -18,12 +20,54 @@ const DesktopImg = styled.img`
 `
 
 export const Carousel = () => {
-    useEffect(() => {
-        let index = 0
-        const numberOfSlides = 5
+    var index = 0
+    const numberOfSlides = 4
+
+    const scrollbanner = (direction) => {
         const bannerContainer =
             document.querySelector<HTMLElement>('.bannerContainer')
-        let screenWidth = window.innerWidth
+
+        if (direction == 'left') {
+            const screenWidth = -window.innerWidth
+            // if (index < 0) {
+            //     index = 4
+            // }
+            bannerContainer.scrollBy(-screenWidth, 0)
+            index = index % numberOfSlides
+            let imageToMove =
+                bannerContainer.querySelectorAll<HTMLElement>(`.carouselItem`)[
+                    index
+                ]
+            // The line below move the item to end of carousel by
+            // manipulating its flex order
+            imageToMove.style.order =
+                imageToMove.style.order && imageToMove.style.order === String(0)
+                    ? String(1)
+                    : String(+Number(imageToMove.style.order) + 1)
+            index++
+        } else {
+            const screenWidth = window.innerWidth
+            bannerContainer.scrollBy(screenWidth, 0)
+            index = index % numberOfSlides
+            let imageToMove =
+                bannerContainer.querySelectorAll<HTMLElement>(`.carouselItem`)[
+                    index
+                ]
+            // The line below move the item to end of carousel by
+            // manipulating its flex order
+            imageToMove.style.order =
+                imageToMove.style.order && imageToMove.style.order === String(0)
+                    ? String(1)
+                    : String(+Number(imageToMove.style.order) + 1)
+            index++
+        }
+    }
+    useEffect(() => {
+        const screenWidth = window.innerWidth
+     
+        const bannerContainer =
+            document.querySelector<HTMLElement>('.bannerContainer')
+       
         const speed = 5
         setInterval(() => {
             bannerContainer.scrollBy(screenWidth, 0)
@@ -49,6 +93,28 @@ export const Carousel = () => {
     return (
         <>
             <div className="bannerWrapper">
+            <div
+                    onClick={() => scrollbanner('left')}
+                    style={{
+                        position: 'absolute',
+                        left: 0,
+                        top: '50%',
+                        cursor: 'pointer',
+                    }}
+                >
+                    <ArrowLeft />
+                </div>
+                <div
+                    onClick={() => scrollbanner('right')}
+                    style={{
+                        position: 'absolute',
+                        right: 0,
+                        top: '50%',
+                        cursor: 'pointer',
+                    }}
+                >
+                    <ArrowRight />
+                </div>
                 <div className="bannerContainer">
                     <div className="carouselItem">
                         <HyperLink href="/shop">
@@ -80,7 +146,7 @@ export const Carousel = () => {
                         </HyperLink>
                     </div>
 
-                    <div className="carouselItem">
+                    {/* <div className="carouselItem">
                         <HyperLink href="/shop">
                             <MobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
@@ -94,7 +160,8 @@ export const Carousel = () => {
                             alt="Plantry Banner"
                             />
                         </HyperLink>
-                    </div>
+                    </div> */}
+
                     <div className="carouselItem">
                         <HyperLink href="/shop">
                             <MobileImg

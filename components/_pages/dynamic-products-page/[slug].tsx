@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+
 import {
     Container,
     BillboardRow,
@@ -35,17 +36,17 @@ import {
 } from './style'
 import { NewLaunch } from '@/components/card/product-card/v1'
 import { Checkbox } from '@/components/checkbox'
-import { useState, useRef } from 'react'
+import { useState, useRef,useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { Header } from '@/components/header'
 import Footer from '@/components/footer'
 
-export const DynamicPage = ({ products }) => {
+export const DynamicPage = ({ products,filter }) => {
     const router = useRouter()
-
     const allitems = products['body']
-    const ids = ['Plantry', 'Gloveup']
-    const sizes = ["6'", "7'", "10'", "11'", "14'"]
+    console.log(allitems)
+    const ids = ['Bowls', 'Plates', 'Tray', 'Cutlery', 'Gloves', 'Container','Bundles']
+    const sizes = ["3'", "4'", "5'", "6'", "7'","10'"]
     const [items, setItems] = useState(products['body'])
     var filterstate = useRef(allitems)
     var repeatname = useRef('')
@@ -59,9 +60,9 @@ export const DynamicPage = ({ products }) => {
             if (repeatname.current !== name) {
                 repeatname.current = name
                 let filterrecords = allitems.filter(
-                    (x) => x['brand']['S'] === name
+                    (x) => x['category']['L'][1]['S'] === name
                 )
-                for (var i = 0; i < 2; i++) {
+                for (var i = 0; i < 7; i++) {
                     let ele = document.getElementById(ids[i])
 
                     if (ids[i] == name) {
@@ -86,7 +87,7 @@ export const DynamicPage = ({ products }) => {
                 let filterrecords = allitems.filter(
                     (x) => x['size'] !== null && x['size']['S'] == size
                 )
-                for (var i = 0; i < 5; i++) {
+                for (var i = 0; i < 6; i++) {
                     let ele = document.getElementById(sizes[i])
 
                     if (sizes[i] == size) {
@@ -113,13 +114,13 @@ export const DynamicPage = ({ products }) => {
                     repeatsize.current = ''
 
                     let filterrecords = allitems.filter(
-                        (x) => x['brand']['S'] === name
+                        (x) => x['category']['L'][1]['S'] === name
                     )
                     filtercount.current[1] = '0'
                     filterstate.current = filterrecords
                     setItems((items) => filterrecords)
                 } else {
-                    for (var i = 0; i < 5; i++) {
+                    for (var i = 0; i < 6; i++) {
                         let ele = document.getElementById(sizes[i])
 
                         if (sizes[i] == size) {
@@ -133,7 +134,7 @@ export const DynamicPage = ({ products }) => {
                         (x) =>
                             x['size'] !== null &&
                             x['size']['S'] == size &&
-                            x['brand']['S'] === name
+                            x['category']['L'][1]['S'] === name
                     )
                     filtercount.current[1] = size
                     filterstate.current = filterrecords
@@ -153,7 +154,7 @@ export const DynamicPage = ({ products }) => {
                     filterstate.current = filterrecords
                     setItems((items) => filterrecords)
                 } else {
-                    for (var i = 0; i < 2; i++) {
+                    for (var i = 0; i < 7; i++) {
                         let ele = document.getElementById(ids[i])
 
                         if (ids[i] == name) {
@@ -168,7 +169,7 @@ export const DynamicPage = ({ products }) => {
                         (x) =>
                             x['size'] !== null &&
                             x['size']['S'] == size &&
-                            x['brand']['S'] === name
+                            x['category']['L'][1]['S'] === name
                     )
                     filtercount.current[0] = name
                     filterstate.current = filterrecords
@@ -177,6 +178,16 @@ export const DynamicPage = ({ products }) => {
             }
         }
     }
+    useEffect(() => {
+        if(filter!=='none'){
+            console.log('filter is applied',filter)
+            filterfunction(filter.charAt(0).toUpperCase()+filter.slice(1),'0','brand')
+        }
+        else{
+            console.log('filter is not applied',filter)
+        }
+    },[])
+   
 
     const checkedlow = useRef(false)
     const checkedhigh = useRef(false)
@@ -229,7 +240,6 @@ export const DynamicPage = ({ products }) => {
             setItems((items) => sortedarr)
         }
     }
-
     return (
         <>
             <Head>
@@ -241,10 +251,9 @@ export const DynamicPage = ({ products }) => {
             <Main>
                 <BillboardRow>
                     <Container containerSize={1440}>
-                        <Heading>{router.asPath.replace('/', '')}</Heading>
+                        <Heading>Shop</Heading>
                         <Desc>
-                            Great Savings, Every Day. Shop from our Deals of the
-                            day and avail great offers.
+                        <b>Eco-friendly</b> & <b>Plastic-free</b> products for your everyday life
                         </Desc>
                     </Container>
                 </BillboardRow>
@@ -259,41 +268,89 @@ export const DynamicPage = ({ products }) => {
 
                                 <BrandCategories>
                                     <Brand
-                                        id="Plantry"
+                                        id="Bowls"
                                         onClick={() =>
                                             filterfunction(
-                                                'Plantry',
+                                                'Bowls',
                                                 filtercount.current[1],
                                                 'brand'
                                             )
                                         }
                                     >
-                                        Plantry
+                                        Bowls
                                     </Brand>
                                     <Brand
-                                        id="Gloveup"
+                                        id="Plates"
                                         onClick={() =>
                                             filterfunction(
-                                                'Gloveup',
+                                                'Plates',
                                                 filtercount.current[1],
                                                 'brand'
                                             )
                                         }
                                     >
-                                        Glove up
+                                        Plates
                                     </Brand>
-                                    {/* <Brand
-                                            id="Sasya"
+                                    <Brand
+                                        id="Tray"
+                                        onClick={() =>
+                                            filterfunction(
+                                                'Tray',
+                                                filtercount.current[1],
+                                                'brand'
+                                            )
+                                        }
+                                    >
+                                        Tray
+                                    </Brand>
+                                    <Brand
+                                        id="Cutlery"
+                                        onClick={() =>
+                                            filterfunction(
+                                                'Cutlery',
+                                                filtercount.current[1],
+                                                'brand'
+                                            )
+                                        }
+                                    >
+                                        Cutlery
+                                    </Brand>
+                                    <Brand
+                                        id="Gloves"
+                                        onClick={() =>
+                                            filterfunction(
+                                                'Gloves',
+                                                filtercount.current[1],
+                                                'brand'
+                                            )
+                                        }
+                                    >
+                                        Gloves
+                                    </Brand>
+                                    <Brand
+                                        id="Container"
+                                        onClick={() =>
+                                            filterfunction(
+                                                'Container',
+                                                filtercount.current[1],
+                                                'brand'
+                                            )
+                                        }
+                                    >
+                                        Container
+                                    </Brand>
+                                    <Brand
+                                            id="Bundles"
                                             onClick={() =>
                                                 filterfunction(
-                                                    'Sasya',
+                                                    'Bundles',
                                                     filtercount.current[1],
                                                     'brand'
                                                 )
                                             }
                                         >
-                                            Sasya
-                                        </Brand> */}
+                                            Bundles
+                                        </Brand>
                                 </BrandCategories>
 
                                 <Filters>

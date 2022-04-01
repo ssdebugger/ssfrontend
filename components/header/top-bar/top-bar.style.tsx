@@ -10,7 +10,6 @@ export const TopBarContainer = styled.div`
 
     @media (min-width: ${(props) => props.theme.screenLg}) {
         padding: 0 5rem;
-        z-index: 100;
     }
 `
 
@@ -19,7 +18,7 @@ export const TopBarOffer = styled.div`
 
     h4 {
         display: inline-block;
-        font-size: 0.875rem;
+        font-size: 1rem;
         margin: 0 0.5rem 0 0;
         font-weight: 500;
     }
@@ -29,6 +28,11 @@ export const TopBarOffer = styled.div`
         font-size: 0.875rem;
         margin: 0;
         color: ${(props) => props.theme.blueGray900};
+    }
+    @media (min-width: ${(props) => props.theme.screenLg}) {
+        h4 {
+            margin-left:40%;
+        }
     }
 `
 

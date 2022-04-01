@@ -75,7 +75,6 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
             setCouponSelected(initialCouponValue)
             setToLocal('coupon', initialCouponValue)
             setAlert(`Original price should be more than $${coupon.minSpend}`)
-
             return
         }
 

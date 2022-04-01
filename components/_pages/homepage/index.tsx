@@ -10,6 +10,7 @@ import { Bundle } from './sections/bundle'
 import { NewLaunches } from './sections/new-launches'
 import { StoriesFromUs } from './sections/stories-from-us'
 import { EmailSubscription } from './sections/email-subscription'
+import { Infographic } from './sections/infographic'
 
 const HomepageMain = styled.main`
     margin-top: 50px;
@@ -20,6 +21,7 @@ const HomepageMain = styled.main`
 `
 
 const Homepage = ({ offers, bundles, data }) => {
+    let othersection = bundles['body'].slice(-1)[0]
     const ProductsOfferList = []
 
     for (let i = 0; i < 5; i++) {
@@ -30,6 +32,7 @@ const Homepage = ({ offers, bundles, data }) => {
     for (let i = 0; i < 4; i++) {
         NewLaunchesList.push(bundles['body'][i])
     }
+    console.log('checking other products', othersection, ProductsOfferList)
 
     // useEffect(() => {
     //     ;(function (d, s, id) {
@@ -56,12 +59,14 @@ const Homepage = ({ offers, bundles, data }) => {
                 <Carousel />
 
                 <Offer card={'card1'} productsList={ProductsOfferList} />
-
-                <Bundle />
+                <Infographic />
+                
 
                 <NewLaunches newLaunchProducts={NewLaunchesList} />
 
-                <Offer card={'card2'} productsList={ProductsOfferList} />
+                <Bundle />
+
+                <Offer card={'card2'} productsList={othersection} />
 
                 <StoriesFromUs data={data} />
                 {/* 

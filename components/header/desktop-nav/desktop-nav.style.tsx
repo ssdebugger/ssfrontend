@@ -57,7 +57,7 @@ export const NavLinkExpandedWrapper = styled.div`
     margin: 0 auto;
     display: flex;
     opacity: 0;
-    tranform: translateY(-10px);
+    transform: translateY(-10px);
     transition: transform 0.1s, opacity 0.1s;
     transition-delay: 0s;
     z-index: 41;
@@ -75,8 +75,10 @@ export const ExpandedSection = styled.div`
 `
 export const ExpandedLinks = styled.div`
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     gap: 0.25rem;
+    min-width: 230px;
 
     a {
         display: block;
