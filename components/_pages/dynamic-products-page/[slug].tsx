@@ -431,27 +431,27 @@ export const DynamicPage = ({ products }) => {
                                     >
                                         {Number(e['product_id']['N']) === 4 ? (
                                             <NewLaunch top="15px" left="15px">
-                                                Women's Day Deal
+                                                Earth Day Deal
                                             </NewLaunch>
                                         ) : Number(e['product_id']['N']) ===
                                           43 ? (
                                             <NewLaunch top="15px" left="15px">
-                                                Women's Day Deal
+                                                Earth Day Deal
                                             </NewLaunch>
                                         ) : Number(e['product_id']['N']) ===
                                           24 ? (
                                             <NewLaunch top="15px" left="15px">
-                                                Women's Day Deal
+                                                Earth Day Deal
                                             </NewLaunch>
                                         ) : Number(e['product_id']['N']) ===
                                           7 ? (
                                             <NewLaunch top="15px" left="15px">
-                                                Women's Day Deal
+                                                Earth Day Deal
                                             </NewLaunch>
                                         ) : Number(e['product_id']['N']) ===
                                           38 ? (
                                             <NewLaunch top="15px" left="15px">
-                                                Women's Day Deal
+                                                Earth Day Deal
                                             </NewLaunch>
                                         ) : (
                                             Number(e['product_id']['N']) ===
@@ -460,7 +460,7 @@ export const DynamicPage = ({ products }) => {
                                                     top="15px"
                                                     left="15px"
                                                 >
-                                                    Women's Day Deal
+                                                    Earth Day Deal
                                                 </NewLaunch>
                                             )
                                         )}

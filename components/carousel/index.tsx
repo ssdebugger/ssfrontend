@@ -20,7 +20,7 @@ const DesktopImg = styled.img`
 export const Carousel = () => {
     useEffect(() => {
         let index = 0
-        const numberOfSlides = 4
+        const numberOfSlides = 5
         const bannerContainer =
             document.querySelector<HTMLElement>('.bannerContainer')
         let screenWidth = window.innerWidth
@@ -54,14 +54,28 @@ export const Carousel = () => {
                         <HyperLink href="/shop">
                             <MobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/womens_day/womens-day-mobile-comp.png"
-                                alt="Womens Day offer"
+                                src="/carouselimages/offer/easter_mobile.png"
+                                alt="Easter offer"
+                            />
+                            <DesktopImg
+                                sizes="(max-width: 1400px) 100vw, 1400px"
+                                src="/carouselimages/offer/easter_desktop.png"
+                                alt="Easter offer"
+                            />
+                        </HyperLink>
+                    </div>
+                    <div className="carouselItem">
+                        <HyperLink href="/shop">
+                            <MobileImg
+                                sizes="(max-width: 706px) 100vw, 706px"
+                                src="/carouselimages/offer/earth_mobile.png"
+                                alt="Earth Banner"
                             />
 
                             <DesktopImg
-                                sizes="(max-width: 1400px) 100vw, 1400px"
-                                src="/carouselimages/womens_day/womens-day-desktop-comp.png"
-                                alt="Womens Day offer"
+                            sizes="(max-width: 706px) 100vw, 706px"
+                            src="/carouselimages/offer/earth_desktop.png"
+                            alt="Earth Banner"
                             />
                         </HyperLink>
                     </div>
