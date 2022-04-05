@@ -97,7 +97,7 @@ const Blog = (props) => {
     return (
         <>
             <Head>
-                <title>Blog - Sellsage</title>
+                <title>Blog - Sellsage </title>
             </Head>
 
             <Header />
