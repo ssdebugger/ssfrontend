@@ -200,6 +200,7 @@ export const ProductCard: React.FC<ProductProps> = ({
 
     function handleQtyChange(e) {
         if (parseInt(e.target.value) > inStockQuantity) {
+            alert.removeAll()
             alert.show(`Maximum quantity available: ${inStockQuantity}`)
         } else {
             const item: CartItem = {
