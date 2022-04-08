@@ -95,8 +95,8 @@ export const OfferCard = ({ card }) => {
 
                     <Paragraph>
                         Shop from our range of Dining Essentials and
-                        biodegradable options for disposable Tableware - all
-                        curated for a waste free kitchen
+                        biodegradable options for disposable tableware - all
+                        curated for a waste-free kitchen
                     </Paragraph>
                 </OfferContent>
             )}
