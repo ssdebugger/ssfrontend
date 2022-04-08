@@ -83,6 +83,7 @@ const Productpage = (props) => {
                 itemIndex !== -1 &&
                 cart[itemIndex].quantity <= data.in_stock.N
             ) {
+                alert.removeAll()
                 alert.show(
                     `Product already in cart, Maximum quantity available: ${data.in_stock.N}`
                 )
@@ -154,6 +155,7 @@ const Productpage = (props) => {
             if (parseInt(e.target.value) <= 0) {
                 setProductQuantity(1)
             } else if (parseInt(e.target.value) > parseInt(data.in_stock.N)) {
+                alert.removeAll()
                 alert.show(`Maximum quantity available: ${data.in_stock.N}`)
             } else {
                 setProductQuantity(parseInt(e.target.value))

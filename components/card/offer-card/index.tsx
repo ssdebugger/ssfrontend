@@ -79,7 +79,7 @@ export const OfferCard = ({ card }) => {
             {card == 'card1' ? (
                 <OfferContent>
                     <Heading4>
-                    INTERNATIONAL EARTH DAY SALE is still ON. Don’t miss it! 
+                        INTERNATIONAL EARTH DAY SALE is still ON. Don’t miss it!
                     </Heading4>
 
                     <Paragraph>
@@ -94,8 +94,9 @@ export const OfferCard = ({ card }) => {
                     </Heading4>
 
                     <Paragraph>
-                        All wrapped up and with loads of new delivery options
-                        suiting your needs
+                        Shop from our range of Dining Essentials and
+                        biodegradable options for disposable Tableware - all
+                        curated for a waste free kitchen
                     </Paragraph>
                 </OfferContent>
             )}
