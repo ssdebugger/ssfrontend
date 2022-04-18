@@ -31,14 +31,11 @@ export const CustomCoupon: React.FC<Props> = ({
 }) => {
     function handleCouponInput(e) {
         let couponValue = e.target.value
-        let userEamil = getFromLocal('useremail')
-        let isGuestUser = userEamil === null
 
-        setAlert('')
         if (couponValue.length > 3) {
             let data = {
                 coupon_code: couponValue,
-                email: isGuestUser ? 'guest1@selslage.com' : userEamil,
+                email: '',
                 total: originalBagValue,
             }
 
@@ -48,7 +45,17 @@ export const CustomCoupon: React.FC<Props> = ({
 
     async function handleCouponSubmit(e) {
         e.preventDefault()
-        let customCoupon = await getCustomCoupon(customCouponDetails)
+
+        let localUserEmail = localStorage.getItem('useremail')
+        let isGuestUser = localUserEmail === 'False' || localUserEmail === null
+
+        let userEmail = isGuestUser ? 'guest1@sellsage.com' : localUserEmail
+
+        let couponDetails = customCouponDetails
+        couponDetails.email = userEmail
+        setCustomCouponDetails(couponDetails)
+
+        let customCoupon = await getCustomCoupon(couponDetails)
 
         if (customCoupon.message === 'Available') {
             setAlert('')
