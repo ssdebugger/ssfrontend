@@ -53,6 +53,7 @@ export const CustomCoupon: React.FC<Props> = ({
 
         let couponDetails = customCouponDetails
         couponDetails.email = userEmail
+        couponDetails.total = originalBagValue
         setCustomCouponDetails(couponDetails)
 
         let customCoupon = await getCustomCoupon(couponDetails)
