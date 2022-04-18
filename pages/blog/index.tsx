@@ -12,9 +12,12 @@ export async function getStaticProps() {
       },title,publishedAt,slug}`
     )
 
+    console.log(JSON.stringify(data, null, 4))
+
     return {
         props: {
             data,
         },
+        revalidate: 240,
     }
 }
