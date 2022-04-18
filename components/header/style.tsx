@@ -58,13 +58,13 @@ export const BrandContainer = styled.div`
 export const BrandIcon = styled.img`
     width: 2.5rem;
     height: 2.75rem;
+    max-height: 35px;
 `
 
-export const BrandNameIcon =  styled.img`
-    width:7rem;
-    height:40px;
+export const BrandNameIcon = styled.img`
+    width: 7rem;
+    height: 40px;
 `
-
 
 // Nav
 export const Nav = styled.nav`
