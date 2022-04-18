@@ -37,5 +37,6 @@ export async function getStaticProps(context) {
             blogData: post,
             morePosts: recommendedPosts,
         },
+        revalidate: 120,
     }
 }
