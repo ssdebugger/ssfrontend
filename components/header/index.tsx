@@ -173,13 +173,13 @@ export const Header = () => {
                 <HeaderWrapper>
                     <BrandContainer>
                         <HyperLink href="/">
-                            <BrandIcon
+                            {/* <BrandIcon
                                 src="/favicon-01.svg"
                                 alt="Sellsage Brand Icon"
-                            />
+                            /> */}
 
                             <BrandNameIcon
-                                src="/pngsellsage.png"
+                                src="/new_sslogo.svg"
                                 alt="Sellsage Brand Name Icon"
                             />
                         </HyperLink>
