@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Footer from '@/components/footer'
 import { LandingLayout } from '@/components/layout/landing'
-import {PortableText} from '@portabletext/react'
+import { PortableText } from '@portabletext/react'
 
 import imageUrlBuilder from '@sanity/image-url'
 import {
@@ -41,35 +41,35 @@ import { useState } from 'react'
 
 interface Props {}
 
-function urlFor (source) {
+function urlFor(source) {
     return String(imageUrlBuilder(client).image(source))
-  }
+}
 
 const ptComponents = {
     types: {
-      image: ({ value }) => {
-        if (!value?.asset?._ref) {
-          return null
-        }
-        return (
-          <img
-            alt={value.alt || ' '}
-            loading="lazy"
-            src={urlFor(value)}
-          />
-        )
-      }
-    }
-  }
+        image: ({ value }) => {
+            if (!value?.asset?._ref) {
+                return null
+            }
+            return (
+                <img
+                    alt={value.alt || ' '}
+                    loading="lazy"
+                    src={urlFor(value)}
+                />
+            )
+        },
+    },
+}
 
-const BlogPost = ({ blogData,morePosts }) => {
+const BlogPost = ({ blogData, morePosts }) => {
     const {
-            title = 'Missing title',
-            name = 'Missing name',
-            categories,
-            authorImage,
-            body = []
-          } = blogData
+        title = 'Missing title',
+        name = 'Missing name',
+        categories,
+        authorImage,
+        body = [],
+    } = blogData
     const [copiedToClipboard, setCopiedToClipboard] = useState(false)
 
     let link = `https://sellsage.com/blog/${blogData.slug.current}`
@@ -86,16 +86,16 @@ const BlogPost = ({ blogData,morePosts }) => {
         }, 1200)
     }
     function formatDate(date) {
-        var year = date.getFullYear();
-      
-        var month = (1 + date.getMonth()).toString();
-        month = month.length > 1 ? month : '0' + month;
-      
-        var day = date.getDate().toString();
-        day = day.length > 1 ? day : '0' + day;
-        
-        return month + '-' + day + '-' + year;
-      }
+        var year = date.getFullYear()
+
+        var month = (1 + date.getMonth()).toString()
+        month = month.length > 1 ? month : '0' + month
+
+        var day = date.getDate().toString()
+        day = day.length > 1 ? day : '0' + day
+
+        return month + '-' + day + '-' + year
+    }
     return (
         <>
             <Head>
@@ -110,7 +110,10 @@ const BlogPost = ({ blogData,morePosts }) => {
                         <MainHeading>{blogData.title}</MainHeading>
 
                         <DateAndReadTime>
-                            <Heading4>{formatDate(new Date(blogData.publishedAt))}</Heading4>
+                            {''}
+                            <Heading4>
+                                {formatDate(new Date(blogData.publishedAt))}
+                            </Heading4>
                             <Heading4>Read time: 6mins</Heading4>
                         </DateAndReadTime>
                     </BlogPostTop>
@@ -161,10 +164,10 @@ const BlogPost = ({ blogData,morePosts }) => {
                                         __html: blogData.content,
                                     }}
                                 /> */}
-                                   <PortableText
-        value={body}
-        components={ptComponents}
-      />
+                                <PortableText
+                                    value={body}
+                                    components={ptComponents}
+                                />
                             </Paragraph>
                         </Content>
                     </MainContent>
@@ -182,7 +185,11 @@ const BlogPost = ({ blogData,morePosts }) => {
                                     <BlogContainer>
                                         <CardContainer layout="horizontal">
                                             <ImageContainer>
-                                                <Image src={item.mainImage.asset.url} />
+                                                <Image
+                                                    src={
+                                                        item.mainImage.asset.url
+                                                    }
+                                                />
                                             </ImageContainer>
 
                                             <ContentContainer>
