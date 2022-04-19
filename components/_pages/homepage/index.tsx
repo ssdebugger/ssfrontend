@@ -11,6 +11,7 @@ import { NewLaunches } from './sections/new-launches'
 import { StoriesFromUs } from './sections/stories-from-us'
 import { EmailSubscription } from './sections/email-subscription'
 import { Infographic } from './sections/infographic'
+import { InstagramPosts } from './sections/instagram'
 
 const HomepageMain = styled.main`
     margin-top: 50px;
@@ -71,7 +72,7 @@ const Homepage = ({ offers, bundles, data }) => {
                 <StoriesFromUs data={data} />
                 {/* 
                 <div className="embedsocial-hashtag" data-ref="f435d93354be5f95d8dcdfbd24816a8a6bdea9c1"></div> */}
-
+                 <InstagramPosts />
                 <Footer />
 
                 <EmailSubscription />
