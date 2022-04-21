@@ -21,7 +21,7 @@ const DesktopImg = styled.img`
 
 export const Carousel = () => {
     var index = 0
-    const numberOfSlides = 4
+    const numberOfSlides = 3
 
     const scrollbanner = (direction) => {
         const bannerContainer =
@@ -116,7 +116,7 @@ export const Carousel = () => {
                     <ArrowRight />
                 </div>
                 <div className="bannerContainer">
-                    <div className="carouselItem">
+                    {/* <div className="carouselItem">
                         <HyperLink href="/shop">
                             <MobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
@@ -129,7 +129,7 @@ export const Carousel = () => {
                                 alt="Easter offer"
                             />
                         </HyperLink>
-                    </div>
+                    </div> */}
                     <div className="carouselItem">
                         <HyperLink href="/shop">
                             <MobileImg
