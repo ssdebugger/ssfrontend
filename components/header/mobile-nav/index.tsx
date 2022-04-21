@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { ArrowUpRight, ChevronDown, LogOut, X } from 'react-feather'
-
 import { useAuth, useAuthLogout } from '@/context/auth'
 import { useClearCart } from '@/context/cart'
 
@@ -29,7 +28,6 @@ type Props = {
 export const MobileNav: React.FC<Props> = ({ showNav, toggleNavFn }) => {
     const [username, setUsername] = useState('')
     const [showDropdown, setShowdropdown] = useState('')
-
     const isLoggedIn = useAuth()
     const logout = useAuthLogout()
     const clearCart = useClearCart()
@@ -53,11 +51,18 @@ export const MobileNav: React.FC<Props> = ({ showNav, toggleNavFn }) => {
 
     useEffect(() => {
         setUsername(localStorage.getItem('username'))
+        
     }, [])
 
     useEffect(() => {
         console.log(showDropdown)
     }, [showDropdown])
+    
+    const navToProfile = () => {
+        const user = window.localStorage.getItem('useremail')
+        router.replace({pathname:'./profile',query:{email:user}})
+
+    }
 
     return (
         <MobileNavContainer showNav={showNav}>
@@ -67,13 +72,11 @@ export const MobileNav: React.FC<Props> = ({ showNav, toggleNavFn }) => {
 
             <LinksContainer>
                 {isLoggedIn && (
-                    <NavLink profileLink>
-                        <HyperLink href="/profile">
+                    <NavLink profileLink onClick={navToProfile}>
                             <NavLinkContent>
                                 <span>Hi {username}</span>
                                 <ArrowUpRight />
                             </NavLinkContent>
-                        </HyperLink>
                     </NavLink>
                 )}
 

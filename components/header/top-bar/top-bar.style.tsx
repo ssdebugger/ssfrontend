@@ -6,10 +6,11 @@ export const TopBarContainer = styled.div`
     background: #fbf5f1;
     padding: 0.5rem 1.125rem;
     position: relative;
-    z-index: 999;
+    z-index: 2;
 
     @media (min-width: ${(props) => props.theme.screenLg}) {
         padding: 0 5rem;
+        z-index:100;
     }
 `
 
