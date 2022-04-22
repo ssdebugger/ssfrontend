@@ -25,17 +25,21 @@ export const Pricing = (props) => {
     return (
         <>
             <MainPricing>{`$ ${props.saleprice}`}</MainPricing>
-            <DiscountContainer>
-                <OriginalPrice>{props.regularprice}</OriginalPrice>
-                <DiscountPercent>
-                    Save ${(props.regularprice - props.saleprice).toFixed(2)} (
-                    {(
-                        ((props.regularprice - props.saleprice) * 100) /
-                        props.regularprice
-                    ).toFixed(2)}
-                    %)
-                </DiscountPercent>
-            </DiscountContainer>
+            {Number(props.regularprice) - Number(props.saleprice) ==
+            0 ? null : (
+                <DiscountContainer>
+                    <OriginalPrice>{props.regularprice}</OriginalPrice>
+                    <DiscountPercent>
+                        Save $
+                        {(props.regularprice - props.saleprice).toFixed(2)} (
+                        {(
+                            ((props.regularprice - props.saleprice) * 100) /
+                            props.regularprice
+                        ).toFixed(2)}
+                        %)
+                    </DiscountPercent>
+                </DiscountContainer>
+            )}
         </>
     )
 }

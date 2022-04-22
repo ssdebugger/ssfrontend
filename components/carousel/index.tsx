@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { HyperLink } from '../header'
-import { ArrowLeft, ArrowRight } from 'react-feather'
-
+import { ChevronLeft, ChevronRight } from 'react-feather'
 
 const MobileImg = styled.img`
     display: block;
@@ -16,6 +15,34 @@ const DesktopImg = styled.img`
     min-width: 100%;
     @media (min-width: ${(props) => props.theme.screenMd}) {
         display: block;
+    }
+`
+
+const Arrowleft = styled.div`
+    position: absolute;
+    left: 0;
+    top: 40%;
+    display: none;
+    cursor: pointer;
+    background: white;
+    min-height: 20%;
+    min-width: 2.5rem;
+    @media screen and (max-width: 600px) {
+        display: none;
+    }
+`
+
+const Arrowright = styled.div`
+    position: absolute;
+    right: 0;
+    top: 40%;
+    display: none;
+    cursor: pointer;
+    background: white;
+    min-height: 20%;
+    min-width: 2.5rem;
+    @media screen and (max-width: 600px) {
+        display: none;
     }
 `
 
@@ -64,10 +91,10 @@ export const Carousel = () => {
     }
     useEffect(() => {
         const screenWidth = window.innerWidth
-     
+
         const bannerContainer =
             document.querySelector<HTMLElement>('.bannerContainer')
-       
+
         const speed = 5
         setInterval(() => {
             bannerContainer.scrollBy(screenWidth, 0)
@@ -88,33 +115,39 @@ export const Carousel = () => {
                 clearTimeout(timeoutX)
             }, 1000)
         }, speed * 1000)
+        const bannerWrapper =
+        document.querySelector<HTMLElement>('.bannerWrapper')
+        bannerWrapper.addEventListener('mouseenter', function () {
+            const screenWidth = window.innerWidth
+            console.log('mouse entering')
+            if (screenWidth > 600) {
+                document.getElementById('arrowleft').style.display = 'flex'
+                document.getElementById('arrowright').style.display = 'flex'
+            }
+        })
+        bannerWrapper.addEventListener('mouseleave', function () {
+            console.log('mouse leaving')
+            document.getElementById('arrowleft').style.display = 'none'
+            document.getElementById('arrowright').style.display = 'none'
+        })
     }, [])
 
     return (
         <>
             <div className="bannerWrapper">
-            <div
-                    onClick={() => scrollbanner('left')}
-                    style={{
-                        position: 'absolute',
-                        left: 0,
-                        top: '50%',
-                        cursor: 'pointer',
-                    }}
-                >
-                    <ArrowLeft />
-                </div>
-                <div
+                <Arrowleft id="arrowleft" onClick={() => scrollbanner('left')}>
+                    <div className="leftContainer">
+                        <ChevronLeft />
+                    </div>
+                </Arrowleft>
+                <Arrowright
+                    id="arrowright"
                     onClick={() => scrollbanner('right')}
-                    style={{
-                        position: 'absolute',
-                        right: 0,
-                        top: '50%',
-                        cursor: 'pointer',
-                    }}
                 >
-                    <ArrowRight />
-                </div>
+                    <div className="rightContainer">
+                        <ChevronRight />
+                    </div>
+                </Arrowright>
                 <div className="bannerContainer">
                     {/* <div className="carouselItem">
                         <HyperLink href="/shop">
@@ -139,9 +172,9 @@ export const Carousel = () => {
                             />
 
                             <DesktopImg
-                            sizes="(max-width: 706px) 100vw, 706px"
-                            src="/carouselimages/offer/earth_desktop.png"
-                            alt="Earth Banner"
+                                sizes="(max-width: 706px) 100vw, 706px"
+                                src="/carouselimages/offer/earth_desktop.png"
+                                alt="Earth Banner"
                             />
                         </HyperLink>
                     </div>
@@ -171,9 +204,9 @@ export const Carousel = () => {
                             />
 
                             <DesktopImg
-                            sizes="(max-width: 706px) 100vw, 706px"
-                            src="/carouselimages/plantry/gloveupdesktop_comp.png"
-                            alt="Gloveup Banner"
+                                sizes="(max-width: 706px) 100vw, 706px"
+                                src="/carouselimages/plantry/gloveupdesktop_comp.png"
+                                alt="Gloveup Banner"
                             />
                         </HyperLink>
                     </div>
@@ -186,9 +219,9 @@ export const Carousel = () => {
                             />
 
                             <DesktopImg
-                            sizes="(max-width: 706px) 100vw, 706px"
-                            src="/carouselimages/Gloveup/gloveupdesktop_comp.png"
-                            alt="Gloveup Banner"
+                                sizes="(max-width: 706px) 100vw, 706px"
+                                src="/carouselimages/Gloveup/gloveupdesktop_comp.png"
+                                alt="Gloveup Banner"
                             />
                         </HyperLink>
                     </div>
@@ -198,6 +231,16 @@ export const Carousel = () => {
                 .bannerWrapper {
                     position: relative;
                     min-width: 100%;
+                }
+                .leftContainer {
+                    position: absolute;
+                    top: 40%;
+                    left: 0rem;
+                }
+                .rightContainer {
+                    position: absolute;
+                    top: 40%;
+                    right: 0rem;
                 }
 
                 .bannerContainer {
