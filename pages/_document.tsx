@@ -20,9 +20,12 @@ export default class MyDocument extends Document {
                 ...initialProps,
                 styles: (
                     <>
+                       <meta name='title' content='Compostable Plates & Gloves | Disposable Eco Products'>
+            
+                       </meta>
                         <meta
                             name="description"
-                            content="Sellsage ecommerce platform for ecofriendly products like tableware,dinner bundles,spoons,plates,forks,knifes,bowls,containers."
+                            content="Go plastic-free with compostable & biodegradable plates, bowls, trays, utensils, and gloves!  Elegant disposable dinnerware for wedding, party and events!"
                         ></meta>
                         <link
                             rel="apple-touch-icon"
