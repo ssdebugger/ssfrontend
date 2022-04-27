@@ -21,7 +21,7 @@ import Head from 'next/head'
 const Userprofile = (props) => {
     const router = useRouter()
     const logout = useAuthLogout()
-    console.log(props)
+
     const useremail = props.response.body[0]['email_id']
     const isbusiness = props.response.body[0]['business']
     const username = props.response.body[0]['firstname']
@@ -59,7 +59,7 @@ const Userprofile = (props) => {
     }
     return (
         <>
-        <Head>
+            <Head>
                 <title>UserProfile - Sellsage</title>
             </Head>
             <LandingLayout>

@@ -17,7 +17,7 @@ const Confirm = (props) => {
         userPoolId: 'us-east-2_PtilY0Lzj',
         userPoolWebClientId: '449s5sgctbta5ao7ku7qg9r1dq',
     })
-    console.log(props,'confirmation props')
+    
     const router = useRouter()
     const handleClick = (e) => {
         e.preventDefault()
@@ -29,7 +29,7 @@ const Confirm = (props) => {
                     "password": props.password
 
                 }
-                console.log(data,'passing data to userput details')
+              
                 fetch('https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/welcomeemail?email='+props.email)               
                 fetch('https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/putuserdetails', {
                     method: 'POST', // *GET, POST, PUT, DELETE, etc.

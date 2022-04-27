@@ -294,7 +294,7 @@ const Productpage = (props) => {
                             <CollapseButton heading="About brand">
                                 {data['product_id']['N'] == 44 ? (
                                     <Paragraph>
-                                        Glove-up is SellSage's line of
+                                        Glove-up is SellSage`&#39;`s line of
                                         commercially compostable individually
                                         packaged gloves made of plant-based
                                         biopolymer. Certified by BPI, this

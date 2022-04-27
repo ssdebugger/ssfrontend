@@ -55,15 +55,14 @@ const Shippingaddress = () => {
         // Declare all variables
         var i, tablinks
         tablinks = document.getElementsByClassName('tablinksactive')
-        console.log(tablinks, 'button clicked')
+
         for (i = 0; i < tablinks.length; i++) {
             tablinks[i].className = tablinks[i].className.replace(
                 'tablinksactive',
                 'tablinks'
             )
-            console.log('in for loop', tablinks[i])
         }
-        console.log(tablinks, 'checking changes in classes')
+
         // Show the current tab, and add an "active" class to the button that opened the tab
         evt.className += 'active'
     }

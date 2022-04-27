@@ -57,7 +57,6 @@ export const EmailSubscription = () => {
 
     const submitForm = (e) => {
         e.preventDeafult()
-        console.log('form submitted')
     }
 
     useEffect(() => {
@@ -95,7 +94,7 @@ export const EmailSubscription = () => {
             aspectRatio="tall"
         >
             <EmailSubContainer>
-                <h4>Don't leave us yet!</h4>
+                <h4>Don`&#39;`t leave us yet!</h4>
 
                 <Paragraph>
                     We keep adding to our collection. Leave us your email

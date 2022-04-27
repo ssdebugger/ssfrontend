@@ -49,7 +49,7 @@ const Impact = () => {
                         <Paragraph>
                             In line with our mission and vision, environmental
                             sustainability is important to us. Being an
-                            eco-conscious company in today's consumerist society
+                            eco-conscious company in today`&#39;`s consumerist society
                             is as tough as it gets. However, we at SellSage want
                             to stay true to our goals and want to promote
                             sustainable living through our products and our
@@ -134,7 +134,6 @@ const Impact = () => {
                             need of clean-up equipment? We are happy to
                             collaborate with you. Please reach out to us at
                             <b>
-                                {' '}
                                 <a href="mailto:connect@sellsage.com">
                                     connect@sellsage.com
                                 </a>

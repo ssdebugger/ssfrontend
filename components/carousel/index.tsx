@@ -116,17 +116,16 @@ export const Carousel = () => {
             }, 1000)
         }, speed * 1000)
         const bannerWrapper =
-        document.querySelector<HTMLElement>('.bannerWrapper')
+            document.querySelector<HTMLElement>('.bannerWrapper')
         bannerWrapper.addEventListener('mouseenter', function () {
             const screenWidth = window.innerWidth
-            console.log('mouse entering')
+
             if (screenWidth > 600) {
                 document.getElementById('arrowleft').style.display = 'flex'
                 document.getElementById('arrowright').style.display = 'flex'
             }
         })
         bannerWrapper.addEventListener('mouseleave', function () {
-            console.log('mouse leaving')
             document.getElementById('arrowleft').style.display = 'none'
             document.getElementById('arrowright').style.display = 'none'
         })

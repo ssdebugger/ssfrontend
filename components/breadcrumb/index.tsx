@@ -1,6 +1,8 @@
+
 import { ChevronRight } from 'react-feather'
 import styled from 'styled-components'
 import { HyperLink } from '../header'
+import Image from 'next/image'
 
 interface Props {
     items?: Array<string>
@@ -37,7 +39,7 @@ export const BreadCrumb: React.FC<Props> = ({ items }) => {
     return (
         <BreadCrumblist>
             <CrumbItem>
-               <HyperLink href='/'> <img src="/favicon.svg" alt='sellsageicon'/></HyperLink>
+               <HyperLink href='/'> <Image src="/favicon.svg" alt='sellsageicon' height={32} width={32}/></HyperLink>
             </CrumbItem>
 
             {items.map((item) => (

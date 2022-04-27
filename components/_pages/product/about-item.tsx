@@ -25,8 +25,8 @@ export const AboutItem = (props) => {
             <Heading3 margin="0 0 1rem 0">Product Specifications</Heading3>
 
             <ItemList>
-                {props.data.map((item) => (
-                    <ItemDesc>{item['S']}</ItemDesc>
+                {props.data.map((item,key) => (
+                    <ItemDesc key={key}>{item['S']}</ItemDesc>
                 ))}
             </ItemList>
             <ItemList liststyle="none">

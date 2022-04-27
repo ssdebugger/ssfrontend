@@ -16,7 +16,7 @@ const BillingDetails = (props) => {
     }
     const shipping = 100
     const tax = 10
-    console.log(props.subtotal + shipping + tax)
+    
     const position = props.position
     return (
         <div className="container">

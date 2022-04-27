@@ -144,7 +144,7 @@ const ContactUs = () => {
                             <MapPin />
                             <a
                                 target="_blank"
-                                rel="noopener"
+                                rel="noreferrer"
                                 href="https://goo.gl/maps/omS4DrsBMo92UWrt9"
                             >
                                 41150 Van Born Rd, Canton, MI 48188{' '}

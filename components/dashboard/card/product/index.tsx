@@ -118,7 +118,6 @@ export const DashboardProductCard: React.FC<DashboardPopupProps> = (props) => {
 
     useEffect(() => {
         setPopupData({ ...props })
-        console.log(props)
     }, [props])
 
     return (

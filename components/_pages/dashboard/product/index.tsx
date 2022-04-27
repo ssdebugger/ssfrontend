@@ -29,8 +29,8 @@ export const DashboardProduct = (props) => {
             </ProdcutAvailability>
 
             <ProdcutCategory>
-                {props.tags.L.map((item) => (
-                    <span>{item.S}</span>
+                {props.tags.L.map((item,key) => (
+                    <span key={key}>{item.S}</span>
                 ))}
             </ProdcutCategory>
 

@@ -24,7 +24,6 @@ import { LandingLayout } from 'components/layout/landing'
 
 const Orders = (props) => {
     let orders = props.response.body
-    console.log('orders', orders)
 
     return (
         <>

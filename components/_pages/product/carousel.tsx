@@ -3,22 +3,20 @@ import { useRouter } from 'next/router'
 
 const Carousel = (props) => {
     var currentpath
-    const router=useRouter()
+    const router = useRouter()
     useEffect(() => {
         currentpath = window.location.origin + window.location.pathname
-        window.onpopstate=function(e){
-               console.log(window.location)
-               console.log(e)
-               e.preventDefault()
-               if(e.state){
-                 router.push(currentpath)
-               }
+        window.onpopstate = function (e) {
+            e.preventDefault()
+            if (e.state) {
+                router.push(currentpath)
+            }
         }
     }, [])
 
     const returnfunc = (e, i) => {
         e.preventDefault()
-        console.log(window.location)
+
         window.location.href = '#' + i
     }
     const images = props.images
@@ -28,7 +26,7 @@ const Carousel = (props) => {
                 <div className="slides">
                     {images.map((e, i) => (
                         <div key={i} id={'slide-' + i}>
-                            <img src={images[i]} alt='product image'/>
+                            <img src={images[i]} alt="product image" />
                         </div>
                     ))}
                 </div>
@@ -39,7 +37,11 @@ const Carousel = (props) => {
                                 key={i}
                                 onClick={(e) => returnfunc(e, 'slide-' + i)}
                             >
-                                <img className="link" src={images[i]} alt='product image' />
+                                <img
+                                    className="link"
+                                    src={images[i]}
+                                    alt="product image"
+                                />
                             </a>
                         ))}
                     </>

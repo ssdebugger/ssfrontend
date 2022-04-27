@@ -38,10 +38,10 @@ const SettingsContent = () => {
                         return Auth.changePassword(user, oldpwd, newpwd)
                     })
                     .then((data) => {
-                        console.log(data)
-                        const  email=window.localStorage.getItem('useremail')
+                        const email = window.localStorage.getItem('useremail')
                         fetch(
-                            'https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/passwordchange?email='+email
+                            'https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/passwordchange?email=' +
+                                email
                         )
                         setEmpty(false)
                         setUpdated(true)

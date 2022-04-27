@@ -87,7 +87,7 @@ const Admin = () => {
                 e.target.innerHTML = 'UPDATE DETAILS'
                 e.target.disabled = false
                 alertstatus.show('Order Details Updated')
-                console.log('Updated Order details',res)
+              
         
         
         })

@@ -11,7 +11,7 @@ const Dashboard = ({ productList }) => {
 
     useEffect(() => {
         setAllProducts(productList)
-        console.log(productList)
+        
     }, [])
 
     return (
@@ -19,8 +19,8 @@ const Dashboard = ({ productList }) => {
             <Heading3>Products</Heading3>
 
             <HomepageContainer>
-                {allProducts.map((item) => (
-                    <DashboardProduct {...item} />
+                {allProducts.map((item,key) => (
+                    <DashboardProduct key={key} {...item} />
                 ))}
             </HomepageContainer>
         </DashboardTemplate>

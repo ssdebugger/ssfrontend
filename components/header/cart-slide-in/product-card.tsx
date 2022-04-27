@@ -177,7 +177,6 @@ export const ProductCard: React.FC<ProductProps> = ({
             pid: String(productId),
             quant: String(quantity),
         }
-        console.log(fetchdata, 'in cart api operations cart slide in ')
 
         let res = await fetch(
             'https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/addtowlorcart',
@@ -221,7 +220,6 @@ export const ProductCard: React.FC<ProductProps> = ({
                 curuser != null &&
                 curuser != 'null'
             ) {
-                console.log('add to cart operation in cart slide in', quantity)
                 cartApiOperations('SQC', productid, quantity)
             }
         }
@@ -236,7 +234,6 @@ export const ProductCard: React.FC<ProductProps> = ({
             curuser != null &&
             curuser != 'null'
         ) {
-            console.log('remove from cart operation in cart slide in')
             cartApiOperations('RFC', productid, 1)
         }
     }

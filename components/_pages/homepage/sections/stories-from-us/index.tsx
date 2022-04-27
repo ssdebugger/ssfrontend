@@ -117,10 +117,11 @@ export const StoriesFromUs = (props) => {
            <Heading3>Transition towards a more sustainable lifestyle</Heading3>
             <BlogPostsContainer>
                 
-        { data.slice(0,5).map(item =>
+        { data.slice(0,5).map((item,key) =>
              (  
 
                   <Post
+                    key={key}
                     img={item.mainImage.asset.url}
                     title={item.title}
                     id={item.slug.current}

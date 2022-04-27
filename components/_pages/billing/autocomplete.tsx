@@ -18,16 +18,19 @@ const Autocompleteform = (props) => {
             types: ['address'],
         },
         onPlaceSelected: (place) => {
-            let address=(document.getElementById('location'+props.id) as HTMLInputElement).value
+            let address = (
+                document.getElementById(
+                    'location' + props.id
+                ) as HTMLInputElement
+            ).value
             setAddress(address)
-            console.log(place['address_components'])
+
             place['address_components'].map((x, i) => {
-                console.log(x['types'][0])
                 if (x['types'][0] === 'postal_code') {
                     ;(
                         document.getElementById(
                             'postal_code' + props.id
-                        ) as HTMLInputElement 
+                        ) as HTMLInputElement
                     ).value = x['long_name']
                     setZip(x['long_name'])
                 } else if (x['types'][0] === 'country') {
@@ -261,23 +264,26 @@ const Autocompleteform = (props) => {
                 ).value,
             }
             addresslist.push(newaddress)
-            let data={
-                "email":window.localStorage.getItem('useremail'),
-                "activity_type": "add",
-                "address":newaddress
-                  
-        }
-        console.log(data)
-        fetch('https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/crudaddress', {
-            method: 'POST', // *GET, POST, PUT, DELETE, etc.
-            mode: 'no-cors', // no-cors, *cors, same-origin
-            headers: {
-              'Content-Type': 'application/json'
-              // 'Content-Type': 'application/x-www-form-urlencoded',
-            },
-           body: JSON.stringify(data) // body data type must match "Content-Type" header
-          }).then(res => console.log('Posted user details',res))
-          .catch(err => console.log(err,'user post error'))
+            let data = {
+                email: window.localStorage.getItem('useremail'),
+                activity_type: 'add',
+                address: newaddress,
+            }
+
+            fetch(
+                'https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/crudaddress',
+                {
+                    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                    mode: 'no-cors', // no-cors, *cors, same-origin
+                    headers: {
+                        'Content-Type': 'application/json',
+                        // 'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: JSON.stringify(data), // body data type must match "Content-Type" header
+                }
+            )
+                .then((res) => console.log('Posted user details', res))
+                .catch((err) => console.log(err, 'user post error'))
 
             let userdetails = {
                 verified: user.user['verified'],
@@ -298,19 +304,14 @@ const Autocompleteform = (props) => {
     const [zip, setZip] = useState('')
 
     const handlechange = (e, tar) => {
-        console.log(tar,name,address)
         if (tar == 'name') {
-            console.log('changing name')
-            setName(name => e.target.value)
+            setName((name) => e.target.value)
         } else if (tar == 'mobile') {
-            console.log('changing mobile')
-            setMobile(mobile => e.target.value)
+            setMobile((mobile) => e.target.value)
         } else if (tar == 'address') {
-            console.log('address chnge')
-            setAddress(address => e.target.value)
+            setAddress((address) => e.target.value)
         } else if (tar == 'zip') {
-            console.log('zip changwe')
-            setZip(zip => e.target.value)
+            setZip((zip) => e.target.value)
         }
     }
 
@@ -374,7 +375,17 @@ const Autocompleteform = (props) => {
                         placeholder="Country"
                         id={'country' + props.id}
                     />
-                    <Button disabled={name.length<1 || address.length<1 || zip.length<1 || mobile.length<1 } fill onClick={(e) => onSubmit(e)} varient="primary">
+                    <Button
+                        disabled={
+                            name.length < 1 ||
+                            address.length < 1 ||
+                            zip.length < 1 ||
+                            mobile.length < 1
+                        }
+                        fill
+                        onClick={(e) => onSubmit(e)}
+                        varient="primary"
+                    >
                         Save address
                     </Button>
                 </div>

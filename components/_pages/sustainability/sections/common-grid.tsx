@@ -81,7 +81,6 @@ const Column = styled.div<{ flexBasis?: number }>`
 `
 
 export const CommonGrid: React.FC<Props> = ({ sectionTitle, description }) => {
-    console.log('blogjson')
     return (
         <Container>
             <SubHeading>{sectionTitle}</SubHeading>
@@ -127,7 +126,7 @@ export const CommonGrid: React.FC<Props> = ({ sectionTitle, description }) => {
                             Read more
                         </HyperLink>
                     </BlogPost> */}
-                {/* </Column> */} 
+                {/* </Column> */}
             </Grid>
         </Container>
     )

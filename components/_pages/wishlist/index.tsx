@@ -6,11 +6,10 @@ import { ProductCard } from '@/components/card/product-card'
 import Head from 'next/head'
 
 const Wishlist = (props) => {
-    console.log(props, 'wishlist response')
     const wishlist = props.wishlistresponse['body']
     return (
         <>
-        <Head>
+            <Head>
                 <title>Wishlist - Sellsage</title>
             </Head>
             <LandingLayout>

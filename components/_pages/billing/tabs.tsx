@@ -53,22 +53,18 @@ const GuestAddress = (props) => {
         ) as HTMLInputElement
 
         if (displayGuestBillingAddress.current) {
-            console.log('1')
             container.style.height = '0px'
             container.style.opacity = '0'
             container.style.pointerEvents = 'none'
             displayGuestBillingAddress.current = false
             checkbox.checked = true
-            console.log(checkbox.checked, displayGuestBillingAddress)
         } else {
-            console.log('2')
             container.style.height = 'auto'
             container.style.opacity = '1'
             container.style.pointerEvents = 'all'
 
             displayGuestBillingAddress.current = true
             checkbox.checked = false
-            console.log(checkbox.checked, displayGuestBillingAddress)
         }
     }
     return (
@@ -144,12 +140,10 @@ const UserAddress = (props) => {
         const container = document.getElementById('billingcontainer')
 
         if (displayBillingAddress) {
-            console.log('1')
             container.style.height = 'auto'
             container.style.opacity = '1'
             container.style.pointerEvents = 'all'
         } else {
-            console.log('2')
             container.style.height = '0px'
             container.style.opacity = '0'
             container.style.pointerEvents = 'none'
@@ -161,7 +155,7 @@ const UserAddress = (props) => {
         var i, tablinks
         tablinks = document.getElementsByClassName('tablinksshipactive')
         window.localStorage.setItem('ship', JSON.stringify(item))
-        console.log(window.localStorage.getItem('bill'), 'storage bill')
+
         props.setShip(JSON.parse(window.localStorage.getItem('ship')))
         if (
             window.localStorage.getItem('bill') == undefined ||
@@ -179,7 +173,7 @@ const UserAddress = (props) => {
                 'tablinksship'
             )
         }
-        console.log(tablinks, 'checking changes in classes')
+
         // Show the current tab, and add an "active" class to the button that opened the tab
         evt.target.className += 'active'
         evt.target.innerHTML = 'Delivery address'
@@ -200,7 +194,7 @@ const UserAddress = (props) => {
                 'tablinksbill'
             )
         }
-        console.log(tablinks, 'checking changes in classes')
+
         // Show the current tab, and add an "active" class to the button that opened the tab
         evt.target.className += 'active'
         evt.target.innerHTML = 'Billing address'
@@ -231,7 +225,7 @@ const UserAddress = (props) => {
                         user.user === null ? null : (
                             <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                                 {user.user['address'].map((item, key) => (
-                                    <AddressBox>
+                                    <AddressBox key={key}>
                                         <Typography
                                             fontSize="1.5rem"
                                             fontWeight="600"
@@ -429,7 +423,7 @@ const Tabs = () => {
 
                         setTax(taxValue)
                     })
-                console.log('action is payment')
+
                 let getshipdetails = {
                     username: shipStorage['username'],
                     location: shipStorage['location'],
@@ -440,13 +434,11 @@ const Tabs = () => {
                 }
                 setShip((ship) => getshipdetails)
                 setBill((bill) => getbilldetails)
-                console.log(ship, bill, getbilldetails)
             }
 
-            console.log('temp', tmp['bagTotal'], tmp)
             setPrice((price) => tmp['bagTotal'])
             setDiscount((discount) => tmp['discount']['totalDiscount'])
-            console.log(price, discount, 'price disocunt passed')
+
             var i, tabcontent, tablinks
             // Get all elements with class="tabcontent" and hide them
             tabcontent = document.getElementsByClassName('tabcontent')
@@ -465,7 +457,6 @@ const Tabs = () => {
             // Show the current tab, and add an "active" class to the button that opened the tab
             document.getElementById(action).style.display = 'block'
             evt.currentTarget.className += 'active'
-            console.log(evt)
         }
     }
     const { cart } = useCart()
@@ -473,14 +464,13 @@ const Tabs = () => {
     useEffect(() => {
         setTimeout(() => {
             let temp = JSON.parse(window.localStorage.getItem('billDetails'))
-            let tempobj=Object.create(temp)
-            console.log(tmp['bagTotal'], temp['bagTotal'])
+            let tempobj = Object.create(temp)
+
             setTmp((tmp) => tempobj)
             let temptotal = temp['bagTotal']
             let tempdisc = temp['discount']['totalDiscount']
             setPrice((price) => temptotal)
             setDiscount((discount) => tempdisc)
-            console.log(tmp['bagTotal'], temp['bagTotal'])
         }, 1000)
     }, [cart])
     useEffect(() => {

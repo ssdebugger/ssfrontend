@@ -39,10 +39,7 @@ const Addaddress = (props) => {
     }
 
     const handleClick = (e) => {
-        console.log({
-            name: name,
-            address: city + ' ' + state + ' ' + pincode + ' ' + number,
-        })
+       
     }
     return (
         <div className="modal">

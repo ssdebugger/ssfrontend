@@ -1,6 +1,7 @@
 import { Button } from '@/components/cta/button'
 import { HyperLink } from '@/components/cta/link'
 import { Heading3, Heading4 } from '@/components/typography/heading'
+import Image from 'next/image'
 import Link from 'next/link'
 import {
     AlertCircle,
@@ -160,7 +161,7 @@ export const OrderCard: React.FC<Props> = ({
                 <OrderItemsContainer>
                     {orderitems.map((item) => (
                         <OrderItem key={item.title}>
-                            <img src={item.image_url} alt='image' />
+                            <Image src={item.image_url} alt='image' height={50} width={50}/>
 
                             <OrderItemDetails>
                                 <Heading4>{item.title}</Heading4>

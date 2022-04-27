@@ -120,7 +120,7 @@ const Dummy = () => {
 
 const ProductsInCart = (props) => {
     const { cart } = useCart()
-    console.log(cart, 'in cart items')
+    
     var count = 0
     const cartcount = () => {
         cart.map((item) => {
@@ -130,7 +130,7 @@ const ProductsInCart = (props) => {
         })
     }
     cartcount()
-    console.log('count', count)
+    
     return count != 0 ? (
         <GridContainer>
             <GridItem sm={100} md={65} lg={65}>

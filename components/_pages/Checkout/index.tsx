@@ -13,7 +13,6 @@ import PopupCheckout from './popupcheckout'
 const Checkout = (props) => {
     const [toggle, setToggle] = useState(false)
     const toggleConfirm = () => {
-        console.log('Toggle confirm screen from ', toggle)
         setToggle(!toggle)
     }
     const [address, setAddress] = useState({
@@ -22,7 +21,6 @@ const Checkout = (props) => {
             'Default addresscity,defaukt address street,default address BuILDING',
     })
     const changeaddress = (e) => {
-        console.log('setting new address')
         setAddress({ name: e['name'], address: e['address'] })
     }
     return (

@@ -108,7 +108,6 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
 
     function getDiscountValue(coupon: Coupon, originalCartValue: number) {
         if (coupon.minSpend >= originalCartValue) {
-            console.log('making coupon zero', originalCartValue, coupon)
             return 0
         }
 
@@ -123,7 +122,6 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
         //     }
         // }
 
-        console.log(cartValue, 'in discount')
         let discountValue = cartValue * (coupon.amount / 100)
         return limitDecimal(discountValue)
     }
@@ -158,12 +156,7 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
 
     function setBillDetails(originalPrice: number, discountValue: number) {
         let existingCoupon = getUserCoupon()
-        console.log(
-            'in bill details',
-            existingCoupon,
-            originalPrice,
-            discountValue
-        )
+
         let billDetails = {
             originalPrice: originalPrice,
             discount: {
@@ -209,13 +202,11 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
     }, [cart])
 
     useEffect(() => {
-        console.log('in original price useeffect')
         setDiscountValue(originalPrice, setDiscount)
         if (
             couponSelected.minSpend > 0 &&
             couponSelected.minSpend > originalPrice
         ) {
-            console.log('in if loop')
             setCouponSelected(initialCouponValue)
             setToLocal('coupon', initialCouponValue)
         }

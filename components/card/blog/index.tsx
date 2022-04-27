@@ -58,7 +58,7 @@ export const BlogCard: React.FC<Props> = ({ layout }) => {
     return (
         <CardContainer layout={layout}>
             <ImageContainer>
-                <Image src="/gloveup.png" />
+                <Image alt='Gloves' src="/gloveup.png" />
             </ImageContainer>
 
             <ContentContainer>

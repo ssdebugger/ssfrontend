@@ -33,7 +33,6 @@ const Homepage = ({ offers, bundles, data }) => {
     for (let i = 0; i < 4; i++) {
         NewLaunchesList.push(bundles['body'][i])
     }
-    console.log('checking other products', othersection, ProductsOfferList)
 
     // useEffect(() => {
     //     ;(function (d, s, id) {
@@ -61,7 +60,6 @@ const Homepage = ({ offers, bundles, data }) => {
 
                 <Offer card={'card1'} productsList={ProductsOfferList} />
                 <Infographic />
-                
 
                 <NewLaunches newLaunchProducts={NewLaunchesList} />
 
@@ -72,7 +70,7 @@ const Homepage = ({ offers, bundles, data }) => {
                 <StoriesFromUs data={data} />
                 {/* 
                 <div className="embedsocial-hashtag" data-ref="f435d93354be5f95d8dcdfbd24816a8a6bdea9c1"></div> */}
-                 <InstagramPosts />
+                <InstagramPosts />
                 <Footer />
 
                 <EmailSubscription />

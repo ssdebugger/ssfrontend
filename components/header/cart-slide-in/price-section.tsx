@@ -1,5 +1,6 @@
 import { Button } from '@/components/buttons'
 import { limitDecimal } from '@/utils/limt-decimal'
+import Link from 'next/link'
 
 import {
     BagPriceContainer,
@@ -38,11 +39,11 @@ export const PriceSection: React.FC<Props> = ({ originalPrice, discount }) => {
         <PriceSectionContainer>
             <BagPrice originalPrice={originalPrice} discount={discount} />
 
-            <a href="/checkout">
+            <Link href="/checkout" passHref>
                 <Button varient="primary" fill>
                     Checkout
                 </Button>
-            </a>
+            </Link>
         </PriceSectionContainer>
     )
 }

@@ -47,7 +47,7 @@ export const Bundle = () => {
                 <BrandCard>
                     <Text>
                         <Heading3 id="bundleHeading">
-                            Let's refresh the earth together
+                            Let`&#39;`s refresh the earth together
                         </Heading3>
 
                         <Paragraph id="bundleDesc">

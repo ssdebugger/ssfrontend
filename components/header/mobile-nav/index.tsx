@@ -51,17 +51,13 @@ export const MobileNav: React.FC<Props> = ({ showNav, toggleNavFn }) => {
 
     useEffect(() => {
         setUsername(localStorage.getItem('username'))
-        
     }, [])
 
-    useEffect(() => {
-        console.log(showDropdown)
-    }, [showDropdown])
-    
+    useEffect(() => {}, [showDropdown])
+
     const navToProfile = () => {
         const user = window.localStorage.getItem('useremail')
-        router.replace({pathname:'./profile',query:{email:user}})
-
+        router.replace({ pathname: './profile', query: { email: user } })
     }
 
     return (
@@ -73,10 +69,10 @@ export const MobileNav: React.FC<Props> = ({ showNav, toggleNavFn }) => {
             <LinksContainer>
                 {isLoggedIn && (
                     <NavLink profileLink onClick={navToProfile}>
-                            <NavLinkContent>
-                                <span>Hi {username}</span>
-                                <ArrowUpRight />
-                            </NavLinkContent>
+                        <NavLinkContent>
+                            <span>Hi {username}</span>
+                            <ArrowUpRight />
+                        </NavLinkContent>
                     </NavLink>
                 )}
 

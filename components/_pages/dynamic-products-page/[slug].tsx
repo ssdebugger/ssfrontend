@@ -36,17 +36,25 @@ import {
 } from './style'
 import { NewLaunch } from '@/components/card/product-card/v1'
 import { Checkbox } from '@/components/checkbox'
-import { useState, useRef,useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { Header } from '@/components/header'
 import Footer from '@/components/footer'
 
-export const DynamicPage = ({ products,filter }) => {
+export const DynamicPage = ({ products, filter }) => {
     const router = useRouter()
     const allitems = products['body']
-    console.log(allitems)
-    const ids = ['Bowls', 'Plates', 'Tray', 'Cutlery', 'Gloves', 'Container','Bundles']
-    const sizes = ["3'", "4'", "5'", "6'", "7'","10'"]
+
+    const ids = [
+        'Bowls',
+        'Plates',
+        'Tray',
+        'Cutlery',
+        'Gloves',
+        'Container',
+        'Bundles',
+    ]
+    const sizes = ["3'", "4'", "5'", "6'", "7'", "10'"]
     const [items, setItems] = useState(products['body'])
     var filterstate = useRef(allitems)
     var repeatname = useRef('')
@@ -179,15 +187,17 @@ export const DynamicPage = ({ products,filter }) => {
         }
     }
     useEffect(() => {
-        if(filter!=='none'){
-            console.log('filter is applied',filter)
-            filterfunction(filter.charAt(0).toUpperCase()+filter.slice(1),'0','brand')
+        if (filter !== 'none') {
+            
+            filterfunction(
+                filter.charAt(0).toUpperCase() + filter.slice(1),
+                '0',
+                'brand'
+            )
+        } else {
+            
         }
-        else{
-            console.log('filter is not applied',filter)
-        }
-    },[])
-   
+    }, [])
 
     const checkedlow = useRef(false)
     const checkedhigh = useRef(false)
@@ -253,7 +263,8 @@ export const DynamicPage = ({ products,filter }) => {
                     <Container containerSize={1440}>
                         <Heading>Shop</Heading>
                         <Desc>
-                        <b>Eco-friendly</b> & <b>Plastic-free</b> products for your everyday life
+                            <b>Eco-friendly</b> & <b>Plastic-free</b> products
+                            for your everyday life
                         </Desc>
                     </Container>
                 </BillboardRow>
@@ -340,17 +351,17 @@ export const DynamicPage = ({ products,filter }) => {
                                         Container
                                     </Brand>
                                     <Brand
-                                            id="Bundles"
-                                            onClick={() =>
-                                                filterfunction(
-                                                    'Bundles',
-                                                    filtercount.current[1],
-                                                    'brand'
-                                                )
-                                            }
-                                        >
-                                            Bundles
-                                        </Brand>
+                                        id="Bundles"
+                                        onClick={() =>
+                                            filterfunction(
+                                                'Bundles',
+                                                filtercount.current[1],
+                                                'brand'
+                                            )
+                                        }
+                                    >
+                                        Bundles
+                                    </Brand>
                                 </BrandCategories>
 
                                 <Filters>

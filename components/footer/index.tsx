@@ -157,6 +157,7 @@ const Footer = () => {
                             <SocialIconHolder>
                                 <a
                                     target="_blank"
+                                    rel='noreferrer'
                                     href="https://www.instagram.com/sellsage/"
                                 >
                                     <Instagram
@@ -170,6 +171,7 @@ const Footer = () => {
                             <SocialIconHolder>
                                 <a
                                     target="_blank"
+                                    rel='noreferrer'
                                     href="https://www.facebook.com/sellsage"
                                 >
                                     <Facebook fill="#fff" />
@@ -179,6 +181,7 @@ const Footer = () => {
                             <SocialIconHolder>
                                 <a
                                     target="_blank"
+                                    rel='noreferrer'
                                     href="https://www.linkedin.com/company/sellsage/"
                                 >
                                     <LinkedIn fill="#fff" />
@@ -188,6 +191,7 @@ const Footer = () => {
                             <SocialIconHolder>
                                 <a
                                     target="_blank"
+                                    rel='noreferrer'
                                     href="https://www.pinterest.com/sellsage/"
                                 >
                                     <Pinterest />
