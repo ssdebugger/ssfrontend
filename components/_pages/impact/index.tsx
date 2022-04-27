@@ -18,6 +18,14 @@ const Impact = () => {
     return (
         <>
             <Head>
+                <meta
+                    name="title"
+                    content="Sustainability | Plastic-Free & Compostable for the Future"
+                ></meta>
+                <meta
+                    name="description"
+                    content="Ethically sourced, plastic-free & sustainable is our motto! Reduce your waste, choose compostable with our palm leaf plates & dinnerware. Make the world greener"
+                ></meta>
                 <title>Impact - Sellsage</title>
             </Head>
             <Header />
@@ -32,7 +40,10 @@ const Impact = () => {
 
                 <ScrollableCol>
                     <ImgContainer>
-                        <HeaderImg src="/impact-header.jpg" alt='impact image'/>
+                        <HeaderImg
+                            src="/impact-header.jpg"
+                            alt="impact image"
+                        />
 
                         <HeaderImgContent>
                             {/* <Paragraph>18•12•2021</Paragraph> */}
@@ -49,11 +60,11 @@ const Impact = () => {
                         <Paragraph>
                             In line with our mission and vision, environmental
                             sustainability is important to us. Being an
-                            eco-conscious company in today`&#39;`s consumerist society
-                            is as tough as it gets. However, we at SellSage want
-                            to stay true to our goals and want to promote
-                            sustainable living through our products and our
-                            blogs so it becomes a part of your lifestyle.
+                            eco-conscious company in today`&#39;`s consumerist
+                            society is as tough as it gets. However, we at
+                            SellSage want to stay true to our goals and want to
+                            promote sustainable living through our products and
+                            our blogs so it becomes a part of your lifestyle.
                         </Paragraph>
 
                         <Paragraph>

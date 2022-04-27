@@ -20,6 +20,12 @@ const AboutUsPage = () => {
     return (
         <>
             <Head>
+            <meta name='title' content='About Us | Sustainable Company | Eco Friendly Products'>            
+                       </meta>
+                        <meta
+                            name="description"
+                            content="SellSage is a minority owned business with a mission to make sustainable living convenient & accessible. Our disposable products are compostable & elegant"
+                        ></meta>
                 <title>About Us - Sellsage</title>
             </Head>
 

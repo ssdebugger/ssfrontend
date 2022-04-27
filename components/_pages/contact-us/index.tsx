@@ -118,6 +118,10 @@ const ContactUs = () => {
     return (
         <>
             <Head>
+                <meta name='title' content='Contact Us | Sustainable & Compostable Disposable Dinnerware'>
+                </meta>
+                <meta name='description' content='You have a question about our compostable, natural, palm leaf plates and dinnerware? You want to learn more about our sustainable practice? Get in touch!'>
+                </meta>
                 <title>Contact us - Sellsage</title>
             </Head>
 

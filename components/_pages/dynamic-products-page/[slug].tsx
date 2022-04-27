@@ -188,14 +188,12 @@ export const DynamicPage = ({ products, filter }) => {
     }
     useEffect(() => {
         if (filter !== 'none') {
-            
             filterfunction(
                 filter.charAt(0).toUpperCase() + filter.slice(1),
                 '0',
                 'brand'
             )
         } else {
-            
         }
     }, [])
 
@@ -253,6 +251,14 @@ export const DynamicPage = ({ products, filter }) => {
     return (
         <>
             <Head>
+                <meta
+                    name="title"
+                    content="Shop Compostable Plates, Utensils, Bowls, Trays & Gloves"
+                ></meta>
+                <meta
+                    name="description"
+                    content="Shop Compostable, Biodegradable, Sustainable, 100% Plant-Based Dinnerware Made from Palm Leaf + Eco Friendly Gloves – Disposable & Plastic-Free Products"
+                ></meta>
                 <title>Shop - Sellsage</title>
             </Head>
 

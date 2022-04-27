@@ -97,6 +97,10 @@ const Blog = (props) => {
     return (
         <>
             <Head>
+                <meta name='title' content='Blog | Compostable Dinnerware & Sustainable Living Tips'>
+                </meta>
+                <meta name='description' content='Blogs made to inspire you and help you transition toward a green lifestyle. Low waste wedding, composting tips, sustainable gift ideas, zero waste home & more!'>
+                </meta>
                 <title>Blog - Sellsage</title>
             </Head>
 

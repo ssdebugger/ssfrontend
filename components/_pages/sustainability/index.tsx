@@ -55,6 +55,14 @@ const Sustainability = () => {
     return (
         <>
             <Head>
+            <meta
+                    name="title"
+                    content="Sustainability | Plastic-Free & Compostable for the Future"
+                ></meta>
+                <meta
+                    name="description"
+                    content="Ethically sourced, plastic-free & sustainable is our motto! Reduce your waste, choose compostable with our palm leaf plates & dinnerware. Make the world greener"
+                ></meta>
                 <title>Sustainability - Sellsage</title>
             </Head>
 
