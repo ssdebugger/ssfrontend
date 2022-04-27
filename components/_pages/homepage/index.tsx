@@ -56,9 +56,9 @@ const Homepage = ({ offers, bundles, data }) => {
                 ></meta>
                 <meta
                     name="description"
-                    content="Go plastic-free with compostable & biodegradable plates, bowls, trays, utensils, and gloves!  Elegant disposable dinnerware for wedding, party and events!"
+                    content="Go plastic-free with compostable & biodegradable plates, bowls, trays, utensils, and gloves! Elegant disposable dinnerware for wedding,party and events!"
                 ></meta>
-                <title>Sellsage </title>
+                <title>Compostable Plates & Gloves | Disposable Eco Products</title>
             </Head>
 
             <Header />
