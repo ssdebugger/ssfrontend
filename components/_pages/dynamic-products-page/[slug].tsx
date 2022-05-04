@@ -259,7 +259,9 @@ export const DynamicPage = ({ products, filter }) => {
                     name="description"
                     content="Shop Compostable, Biodegradable, Sustainable, 100% Plant-Based Dinnerware Made from Palm Leaf + Eco Friendly Gloves – Disposable & Plastic-Free Products"
                 ></meta>
-                <title>Shop Compostable Plates, Utensils, Bowls, Trays & Gloves</title>
+                <title>
+                    Shop Compostable Plates, Utensils, Bowls, Trays & Gloves
+                </title>
             </Head>
 
             <Header />

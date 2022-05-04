@@ -162,7 +162,7 @@ export const Carousel = () => {
                             />
                         </HyperLink>
                     </div> */}
-                    <div className="carouselItem">
+                    {/* <div className="carouselItem">
                         <HyperLink href="/shop">
                             <MobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
@@ -176,9 +176,9 @@ export const Carousel = () => {
                                 alt="Mothers Day offer"
                             />
                         </HyperLink>
-                    </div>
+                    </div> */}
 
-                    {/* <div className="carouselItem">
+                    <div className="carouselItem">
                         <HyperLink href="/shop">
                             <MobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
@@ -192,7 +192,7 @@ export const Carousel = () => {
                                 alt="Earth Banner"
                             />
                         </HyperLink>
-                    </div> */}
+                    </div>
 
                     {/* <div className="carouselItem">
                         <HyperLink href="/shop">
