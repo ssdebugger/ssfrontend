@@ -79,11 +79,11 @@ export const OfferCard = ({ card }) => {
             {card == 'card1' ? (
                 <OfferContent>
                     <Heading4>
-                    This MOTHER’S DAY, why not treat your mother to something special while also remembering Mother Earth?
+                    This MOTHER`&#39;`S DAY, why not treat your mother to something special while also remembering Mother Earth?
                     </Heading4>
 
                     <Paragraph>
-                      Here's some of our top picks that puts the planet first
+                      Here`&#39;`s some of our top picks that puts the planet first
                     </Paragraph>
                 </OfferContent>
             ) : (
