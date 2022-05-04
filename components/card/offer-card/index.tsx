@@ -79,12 +79,11 @@ export const OfferCard = ({ card }) => {
             {card == 'card1' ? (
                 <OfferContent>
                     <Heading4>
-                        INTERNATIONAL EARTH DAY SALE is still ON. Don’t miss it!
+                    This MOTHER’S DAY, why not treat your mother to something special while also remembering Mother Earth?
                     </Heading4>
 
                     <Paragraph>
-                        All wrapped up and with loads of new delivery options
-                        suiting your needs
+                      Here's some of our top picks that puts the planet first
                     </Paragraph>
                 </OfferContent>
             ) : (

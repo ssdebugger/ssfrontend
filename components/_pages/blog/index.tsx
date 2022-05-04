@@ -105,7 +105,6 @@ const Blog = (props) => {
             </Head>
 
             <Header />
-
             <BlogPageContainer>
                 <HeadlinePosts posts={headlinePosts} />
                 <FeatuerdPosts posts={featuredPosts} />
