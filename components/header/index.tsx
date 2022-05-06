@@ -50,13 +50,37 @@ const NavLinksData = [
             {
                 sectionHeading: 'Shop ',
                 links: [
-                    { name: 'Bowls', href: '/shop/bowls' },
-                    { name: 'Plates', href: '/shop/plates' },
-                    { name: 'Tray', href: '/shop/tray' },
-                    { name: 'Cutlery', href: '/shop/cutlery' },
-                    { name: 'Gloves', href: '/shop' },
-                    { name: 'Container', href: '/shop/container' },
-                    { name: 'Bundles', href: '/shop/bundles' },
+                    {
+                        name: 'Bowls',
+                        href: { pathname: '/shop', query: { name: 'bowls' } },
+                    },
+                    {
+                        name: 'Plates',
+                        href: { pathname: '/shop', query: { name: 'plates' } },
+                    },
+                    {
+                        name: 'Tray',
+                        href: { pathname: '/shop', query: { name: 'tray' } },
+                    },
+                    {
+                        name: 'Cutlery',
+                        href: { pathname: '/shop', query: { name: 'cutlery' } },
+                    },
+                    {
+                        name: 'Gloves',
+                        href: { pathname: '/shop', query: { name: 'gloves' } },
+                    },
+                    {
+                        name: 'Container',
+                        href: {
+                            pathname: '/shop',
+                            query: { name: 'container' },
+                        },
+                    },
+                    {
+                        name: 'Bundles',
+                        href: { pathname: '/shop', query: { name: 'bundles' } },
+                    },
                 ],
             },
         ],

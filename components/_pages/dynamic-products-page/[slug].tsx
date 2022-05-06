@@ -41,8 +41,9 @@ import { useRouter } from 'next/router'
 import { Header } from '@/components/header'
 import Footer from '@/components/footer'
 
-export const DynamicPage = ({ products, filter }) => {
+export const DynamicPage = ({ products }) => {
     const router = useRouter()
+    const filter=router.query.name || 'none'
     const allitems = products['body']
 
     const ids = [
@@ -189,7 +190,7 @@ export const DynamicPage = ({ products, filter }) => {
     useEffect(() => {
         if (filter !== 'none') {
             filterfunction(
-                filter.charAt(0).toUpperCase() + filter.slice(1),
+                String(filter).charAt(0).toUpperCase() + filter.slice(1),
                 '0',
                 'brand'
             )
