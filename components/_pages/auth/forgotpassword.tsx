@@ -79,7 +79,7 @@ const Forgotpassword = (props) => {
                 <Content>
                     <SubHeading>Forgot password?</SubHeading>
                     <Paragraph>
-                        Type the address linked to your account and we`&#39;`ll send
+                        Type the address linked to your account and we&#39;ll send
                         you password reset instructions. They might end up in
                         your spam folder, so please check there as well.
                     </Paragraph>

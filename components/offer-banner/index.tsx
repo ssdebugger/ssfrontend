@@ -38,7 +38,7 @@ export const OfferBanner = () => {
                     </MainHeading>
                 </BrandContainer>
 
-                <Heading3 margin="0 0 0.5rem">New here? don`&#39;`t miss our welcome discount!</Heading3>
+                <Heading3 margin="0 0 0.5rem">New here? don&#39;t miss our welcome discount!</Heading3>
                 <Paragraph maxWidth="500px" color="#dedede">
                     Welcome, USE CODE:
                     <HighlightText> HELLOSAGE</HighlightText> during checkout to

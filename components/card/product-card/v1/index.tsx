@@ -178,18 +178,18 @@ export const ProductCard = (props) => {
     return (
         <Container>
             {Number(props.productId) === 4 ? (
-                <NewLaunch>Mother`&#39;`s Day Deal </NewLaunch>
+                <NewLaunch>Mother&#39;s Day Deal </NewLaunch>
             ) : Number(props.productId) === 24 ? (
-                <NewLaunch>Mother`&#39;`s Day Deal</NewLaunch>
+                <NewLaunch>Mother&#39;s Day Deal</NewLaunch>
             ) : Number(props.productId) === 45 ? (
-                <NewLaunch>Mother`&#39;`s Day Deal</NewLaunch>
+                <NewLaunch>Mother&#39;s Day Deal</NewLaunch>
             ) : Number(props.productId) === 7 ? (
-                <NewLaunch>Mother`&#39;`s Day Deal</NewLaunch>
+                <NewLaunch>Mother&#39;s Day Deal</NewLaunch>
             ) : Number(props.productId) === 38 ? (
-                <NewLaunch>Mother`&#39;`s Day Deal</NewLaunch>
+                <NewLaunch>Mother&#39;s Day Deal</NewLaunch>
             ) : (
                 Number(props.productId) === 43 && (
-                    <NewLaunch>Mother`&#39;`s Day Deal</NewLaunch>
+                    <NewLaunch>Mother&#39;s Day Deal</NewLaunch>
                 )
             )}
 

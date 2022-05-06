@@ -60,7 +60,7 @@ const Impact = () => {
                         <Paragraph>
                             In line with our mission and vision, environmental
                             sustainability is important to us. Being an
-                            eco-conscious company in today`&#39;`s consumerist
+                            eco-conscious company in today&#39;s consumerist
                             society is as tough as it gets. However, we at
                             SellSage want to stay true to our goals and want to
                             promote sustainable living through our products and

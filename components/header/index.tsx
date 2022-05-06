@@ -54,7 +54,7 @@ const NavLinksData = [
                     { name: 'Plates', href: '/shop/plates' },
                     { name: 'Tray', href: '/shop/tray' },
                     { name: 'Cutlery', href: '/shop/cutlery' },
-                    { name: 'Gloves', href: '/shop/gloves' },
+                    { name: 'Gloves', href: '/shop' },
                     { name: 'Container', href: '/shop/container' },
                     { name: 'Bundles', href: '/shop/bundles' },
                 ],
