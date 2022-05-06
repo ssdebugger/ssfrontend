@@ -90,31 +90,31 @@ export const MobileNav: React.FC<Props> = ({ showNav, toggleNavFn }) => {
                         </NavSublink>
 
                         <NavSublink onClick={toggleNavFn}>
-                            <HyperLink href="/shop/bowls">Bowls</HyperLink>
+                            <HyperLink href="/shop?name=bowls">Bowls</HyperLink>
                         </NavSublink>
 
                         <NavSublink onClick={toggleNavFn}>
-                            <HyperLink href="/shop/tray">Tray</HyperLink>
+                            <HyperLink href="/shop?name=tray">Tray</HyperLink>
                         </NavSublink>
 
                         <NavSublink onClick={toggleNavFn}>
-                            <HyperLink href="/shop/gloves">Gloves</HyperLink>
+                            <HyperLink href="/shop?name=gloves">Gloves</HyperLink>
                         </NavSublink>
 
                         <NavSublink onClick={toggleNavFn}>
-                            <HyperLink href="/shop/bundles">Bundles</HyperLink>
+                            <HyperLink href="/shop?name=bundles">Bundles</HyperLink>
                         </NavSublink>
 
                         <NavSublink onClick={toggleNavFn}>
-                            <HyperLink href="/shop/plates">Plates</HyperLink>
+                            <HyperLink href="/shop?name=plates">Plates</HyperLink>
                         </NavSublink>
 
                         <NavSublink onClick={toggleNavFn}>
-                            <HyperLink href="/shop/cutlery">Cutlery</HyperLink>
+                            <HyperLink href="/shop?name=cutlery">Cutlery</HyperLink>
                         </NavSublink>
 
                         <NavSublink onClick={toggleNavFn}>
-                            <HyperLink href="/shop/container">
+                            <HyperLink href="/shop?name=container">
                                 Container
                             </HyperLink>
                         </NavSublink>
