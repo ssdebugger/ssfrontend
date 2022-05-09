@@ -7,6 +7,7 @@ export const MobileNavContainer = styled.div<{ showNav: boolean }>`
     z-index: 55;
     background: #fff;
     width: 100%;
+    min-width: 100vw;
     height: 100vh;
     padding: 1.5rem 1.75rem 5rem;
     overflow-y: auto;
