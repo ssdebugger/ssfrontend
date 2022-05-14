@@ -11,12 +11,12 @@ const BillingDetails = (props) => {
     const router = useRouter()
     const routeCheckout = () => {
         router.push({
-            pathname: './checkout'
+            pathname: './checkout',
         })
     }
     const shipping = 100
     const tax = 10
-    
+
     const position = props.position
     return (
         <div className="container">
@@ -196,14 +196,13 @@ const BillingDetails = (props) => {
                 </GridItem>
             </GridContainer>
             <Button
-                    varient="primary"
-                    size="regular"
-                    fill
-                    onClick={routeCheckout}
-                >
-                    Proceed to Buy
-                </Button>
-            
+                varient="primary"
+                size="regular"
+                fill='true'
+                onClick={routeCheckout}
+            >
+                Proceed to Buy
+            </Button>
 
             <style jsx>{`
                 .container {

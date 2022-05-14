@@ -85,7 +85,7 @@ export const CustomerReview: React.FC<CustomerReviewProps> = ({
             {images?.length > 0 && (
                 <ImagesContainer>
                     {images?.map((link) => (
-                        <Image alt='Review image' key={link} src={link} />
+                        <Image alt='eco products' key={link} src={link} />
                     ))}
                 </ImagesContainer>
             )}

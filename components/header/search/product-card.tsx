@@ -41,7 +41,7 @@ export const ProductCard = (props) => {
         <ProductCardContainer>
             <HyperLink href={"/"+props.sku}>
                 <ProductImgContainer>
-                    <img src={props.img} />
+                    <img src={props.img} alt='eco products' />
                 </ProductImgContainer>
 
                 <ProductContent>

@@ -11,7 +11,7 @@ const Dashboard = ({ productList }) => {
 
     useEffect(() => {
         setAllProducts(productList)
-        
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
@@ -19,7 +19,7 @@ const Dashboard = ({ productList }) => {
             <Heading3>Products</Heading3>
 
             <HomepageContainer>
-                {allProducts.map((item,key) => (
+                {allProducts.map((item, key) => (
                     <DashboardProduct key={key} {...item} />
                 ))}
             </HomepageContainer>

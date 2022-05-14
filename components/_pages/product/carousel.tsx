@@ -2,9 +2,10 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
 const Carousel = (props) => {
-    var currentpath
     const router = useRouter()
     useEffect(() => {
+        var currentpath
+
         currentpath = window.location.origin + window.location.pathname
         window.onpopstate = function (e) {
             e.preventDefault()
@@ -12,6 +13,7 @@ const Carousel = (props) => {
                 router.push(currentpath)
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const returnfunc = (e, i) => {

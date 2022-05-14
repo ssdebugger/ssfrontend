@@ -66,8 +66,6 @@ export const Reset = () => {
             Auth.forgotPasswordSubmit(user.trim(), code.trim(), newpwd.trim())
                 .then((response) => {
                     fetch("https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/passwordresetemail?email="+user)
-                    .then(res => console.log('email sent',res))
-                    .catch(err => console.log('email not sent',err))
                     router.push({
                         pathname: '/signin',
                     })

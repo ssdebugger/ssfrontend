@@ -40,7 +40,7 @@ export const PriceSection: React.FC<Props> = ({ originalPrice, discount }) => {
             <BagPrice originalPrice={originalPrice} discount={discount} />
 
             <Link href="/checkout" passHref>
-                <Button varient="primary" fill>
+                <Button varient="primary" fill='true'>
                     Checkout
                 </Button>
             </Link>

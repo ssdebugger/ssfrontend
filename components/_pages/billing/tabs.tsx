@@ -472,6 +472,7 @@ const Tabs = () => {
             setPrice((price) => temptotal)
             setDiscount((discount) => tempdisc)
         }, 1000)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [cart])
     useEffect(() => {
         let temp = JSON.parse(window.localStorage.getItem('billDetails'))
@@ -480,6 +481,7 @@ const Tabs = () => {
         let tempdisc = tmp['discount']['totalDiscount']
         setPrice((price) => temptotal)
         setDiscount((discount) => tempdisc)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     return (
         <>

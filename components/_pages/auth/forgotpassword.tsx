@@ -102,7 +102,7 @@ const Forgotpassword = (props) => {
                         </InputContainer>
 
                         <Button
-                            fill
+                            fill='true'
                             size="large"
                             varient="primary"
                             onClick={(e) => submitForm(e)}

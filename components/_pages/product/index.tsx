@@ -110,8 +110,6 @@ const Productpage = (props) => {
                         body: JSON.stringify(fetchdata),
                     }
                 )
-                    .then((res) => console.log('added to cart', fetchdata, res))
-                    .catch((err) => console.log('Failed to add items', err))
             }
 
             if (itemIndex !== -1) {
@@ -176,7 +174,7 @@ const Productpage = (props) => {
                 <Button
                     varient="primary"
                     size="large"
-                    fill
+                    fill='true'
                     onClick={(e) => handleAddToCart(e)}
                 >
                     Add to cart
@@ -206,7 +204,7 @@ const Productpage = (props) => {
                     body: JSON.stringify(fetchdata),
                 }
             )
-                .then((res) => console.log('added to wishlist', fetchdata, res))
+                .then()
                 .catch((err) => console.log(err, 'error'))
         }
 
@@ -360,7 +358,7 @@ const Productpage = (props) => {
                                 }
                                 varient="primary"
                                 size="large"
-                                fill
+                                fill='true'
                             >
                                 Save to Wishlist
                             </Button>

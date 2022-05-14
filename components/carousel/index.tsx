@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useRef } from 'react'
 import styled from 'styled-components'
 import { HyperLink } from '../header'
 import { ChevronLeft, ChevronRight } from 'react-feather'
+
 
 const MobileImg = styled.img`
     display: block;
@@ -47,7 +48,7 @@ const Arrowright = styled.div`
 `
 
 export const Carousel = () => {
-    var index = 0
+    const index =  useRef(0)
     const numberOfSlides = 3
 
     const scrollbanner = (direction) => {
@@ -60,10 +61,10 @@ export const Carousel = () => {
             //     index = 4
             // }
             bannerContainer.scrollBy(-screenWidth, 0)
-            index = index % numberOfSlides
+            index.current = index.current % numberOfSlides
             let imageToMove =
                 bannerContainer.querySelectorAll<HTMLElement>(`.carouselItem`)[
-                    index
+                    index.current
                 ]
             // The line below move the item to end of carousel by
             // manipulating its flex order
@@ -71,14 +72,14 @@ export const Carousel = () => {
                 imageToMove.style.order && imageToMove.style.order === String(0)
                     ? String(1)
                     : String(+Number(imageToMove.style.order) + 1)
-            index++
+            index.current++
         } else {
             const screenWidth = window.innerWidth
             bannerContainer.scrollBy(screenWidth, 0)
-            index = index % numberOfSlides
+            index.current = index.current % numberOfSlides
             let imageToMove =
                 bannerContainer.querySelectorAll<HTMLElement>(`.carouselItem`)[
-                    index
+                    index.current
                 ]
             // The line below move the item to end of carousel by
             // manipulating its flex order
@@ -86,7 +87,7 @@ export const Carousel = () => {
                 imageToMove.style.order && imageToMove.style.order === String(0)
                     ? String(1)
                     : String(+Number(imageToMove.style.order) + 1)
-            index++
+            index.current++
         }
     }
     useEffect(() => {
@@ -99,11 +100,11 @@ export const Carousel = () => {
         setInterval(() => {
             bannerContainer.scrollBy(screenWidth, 0)
             let timeoutX = setTimeout(() => {
-                index = index % numberOfSlides
+                index.current = index.current % numberOfSlides
                 let imageToMove =
                     bannerContainer.querySelectorAll<HTMLElement>(
                         `.carouselItem`
-                    )[index]
+                    )[index.current]
                 // The line below move the item to end of carousel by
                 // manipulating its flex order
                 imageToMove.style.order =
@@ -111,7 +112,7 @@ export const Carousel = () => {
                     imageToMove.style.order === String(0)
                         ? String(1)
                         : String(+Number(imageToMove.style.order) + 1)
-                index++
+                index.current++
                 clearTimeout(timeoutX)
             }, 1000)
         }, speed * 1000)

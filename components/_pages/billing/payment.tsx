@@ -55,10 +55,8 @@ const Checkoutform = (props) => {
     const clearCart = useClearCart()
     const alert = useAlert()
     const elements = useElements()
-    console.log(props, 'checkout form props')
     useEffect(() => {
         console.clear()
-        console.log('payment intent props', props)
 
         fetch('/api/payment', {
             method: 'POST',
@@ -66,11 +64,8 @@ const Checkoutform = (props) => {
         })
             .then((res) => {
                 paymentIntent = res.json()
-                console.log(paymentIntent, 'payment intent')
             })
-            .catch((error) => {
-                console.log(error)
-            })
+            .catch((error) => {})
     }, [props])
 
     const router = useRouter()
@@ -105,7 +100,6 @@ const Checkoutform = (props) => {
                             if (res.error) {
                                 alert.show(res.error.message)
                             } else {
-                                console.log(billingDetails, 'billingdeatils')
                                 let cart = JSON.parse(
                                     window.localStorage.getItem('cart')
                                 )
@@ -156,11 +150,19 @@ const Checkoutform = (props) => {
                                     billing:
                                         billingdetails['username'] +
                                         ',' +
-                                        billingdetails['location']+','+ billingdetails['phoneNo']+','+ billingdetails['zipCode'],
+                                        billingdetails['location'] +
+                                        ',' +
+                                        billingdetails['phoneNo'] +
+                                        ',' +
+                                        billingdetails['zipCode'],
                                     shipping:
                                         shippingdetails['username'] +
                                         ',' +
-                                        shippingdetails['location']+','+ shippingdetails['phoneNo']+','+ shippingdetails['zipCode'],
+                                        shippingdetails['location'] +
+                                        ',' +
+                                        shippingdetails['phoneNo'] +
+                                        ',' +
+                                        shippingdetails['zipCode'],
                                     payment_details: {
                                         method: 'Stripe',
                                         transaction_id:
@@ -189,7 +191,6 @@ const Checkoutform = (props) => {
                                         shipping_cost: 0,
                                     },
                                 }
-                                console.log('order details', order_details)
 
                                 fetch(
                                     'https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/createorder',
@@ -209,7 +210,7 @@ const Checkoutform = (props) => {
                                         router.push('/shop')
                                     })
                                     .catch((err) => {
-                                        console.log(err)
+                                    
                                         alert.show(
                                             'Payment Failed, please try again'
                                         )
@@ -289,7 +290,7 @@ const Checkoutform = (props) => {
                 </InputContainer>
 
                 <Button
-                    fill
+                    fill="true"
                     size="large"
                     onClick={(e) => processpayment(e)}
                     varient="primary"
@@ -346,7 +347,6 @@ const Checkoutform = (props) => {
 }
 
 const PaymentGateway = (props) => {
-  
     return (
         <ShippingContainer>
             <PaymentContainer>

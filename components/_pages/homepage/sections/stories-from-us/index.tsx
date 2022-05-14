@@ -48,7 +48,7 @@ const Article = styled.article`
     }
 `
 
-const BlogPost = styled.a`
+const BlogPost = styled.div`
     display: block;
 `
 
@@ -94,7 +94,7 @@ const Post = (props) => {
                 </BlogPostImgContainer>
 
                 <BlogPostContent>
-                    <HyperLink varient="tertiary" href={'/blog/' + props.id}>
+                    <HyperLink  varient="tertiary" href={'/blog/' + props.id} >
                         <span>READ NOW</span>
                     </HyperLink>
 

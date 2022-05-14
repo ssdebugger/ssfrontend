@@ -1,7 +1,9 @@
 import styled from 'styled-components'
+import React, { ForwardedRef } from 'react'
+
 type ButtonStyleProps = {
     varient?: 'primary' | 'secondary'
-    readonly fill?: boolean
+    readonly fill?: String
     size?: 'regular' | 'large'
     disabled?: boolean
 }
@@ -17,6 +19,7 @@ const StyledButton = styled.button<{
     fill?: ButtonStyleProps['fill']
     size?: ButtonStyleProps['size']
     disabled?: ButtonStyleProps['disabled']
+    ref?: React.Ref<HTMLButtonElement>
 }>`
     min-width: 140px;
     height: ${(props) => (props.size === 'large' ? '55px' : ' 44px')};
@@ -40,7 +43,7 @@ const StyledButton = styled.button<{
     }
 `
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button: React.FC<ButtonProps> = React.forwardRef(({
     type,
     onClick,
     varient,
@@ -48,17 +51,21 @@ export const Button: React.FC<ButtonProps> = ({
     fill,
     size,
     disabled,
-}) => {
+},ref: React.MutableRefObject<HTMLButtonElement>) => {
     return (
+        
         <StyledButton
+            ref={ref}
             type={type}
             onClick={onClick}
             varient={varient}
-            fill={fill}
+            fill={String(fill)}
             size={size}
             disabled={disabled}
         >
             {children}
         </StyledButton>
     )
-}
+})
+
+Button.displayName='button'

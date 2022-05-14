@@ -71,6 +71,7 @@ const Blog = (props) => {
     const [morePosts, setMorePosts] = useState([])
 
     useEffect(() => {
+   
         sortData(data)
 
         setAllDates(data)
@@ -92,6 +93,7 @@ const Blog = (props) => {
                 setMorePosts((prevData) => [...prevData, data[i]])
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (

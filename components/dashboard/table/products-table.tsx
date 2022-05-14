@@ -90,6 +90,7 @@ export const ProductsTable: React.FC<Props> = ({ data, handlePoupDetails }) => {
                                     <img
                                         src={product.imageurl}
                                         loading="lazy"
+                                        alt='eco products'
                                     />
                                 </div>
                             </TableData>

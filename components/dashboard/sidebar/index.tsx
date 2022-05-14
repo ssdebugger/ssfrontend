@@ -19,7 +19,7 @@ export const Sidebar = () => {
     return (
         <Aside>
             <BrandIcon>
-                <img src="/favicon-01.svg" />
+                <img src="/favicon-01.svg" alt='SellSage logo'/>
                 <h1>Sellsage</h1>
             </BrandIcon>
 

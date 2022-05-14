@@ -189,6 +189,7 @@ const BlogPost = ({ blogData, morePosts }) => {
                                                     src={
                                                         item.mainImage.asset.url
                                                     }
+                                                    alt='eco products'
                                                 />
                                             </ImageContainer>
 

@@ -15,7 +15,7 @@ export const DashboardProduct = (props) => {
     return (
         <ProductContainer>
             <ProductImage>
-                <img src={props.imageurl} loading="lazy" />
+                <img src={props.imageurl} loading="lazy" alt='eco products' />
             </ProductImage>
 
             <ProductTitle>{props.product_name.S} </ProductTitle>

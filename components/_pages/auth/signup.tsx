@@ -59,9 +59,7 @@ const Signup = () => {
     }
 
     const handleChange = (e, targetfield) => {
-        console.log('in handle change')
         if (targetfield == 'name') {
-            console.log('setting name')
             setName(e.target.value)
         }
         if (targetfield == 'email') {
@@ -88,7 +86,7 @@ const Signup = () => {
     }
     const submitForm = (e) => {
         e.preventDefault()
-        console.log(email, name, password)
+
         if (
             email.trim() === '' ||
             name.trim() === '' ||
@@ -97,7 +95,6 @@ const Signup = () => {
             /**
              * for testing needs to be changed.
              * */
-            console.log('Please fill all the fields')
         } else {
             Auth.configure({
                 region: 'us-east-2',

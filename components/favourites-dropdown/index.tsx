@@ -31,7 +31,7 @@ export const FavouriteDropdown = () => {
 
                     <DropdownItems>
                         <DropdownItem>
-                            <img src="/dinner-bundle.jpg" />
+                            <img alt='eco friendly products' src="/dinner-bundle.jpg" />
 
                             <ProductDetails>
                                 <Heading4>
@@ -46,7 +46,7 @@ export const FavouriteDropdown = () => {
                         </DropdownItem>
 
                         <DropdownItem>
-                            <img src="/plate.jpg" />
+                            <img src="/plate.jpg" alt='eco friendly products' />
 
                             <ProductDetails>
                                 <Heading4>
@@ -61,7 +61,7 @@ export const FavouriteDropdown = () => {
                         </DropdownItem>
                     </DropdownItems>
 
-                    <Button varient="primary" fill>
+                    <Button varient="primary" fill='true'>
                         View Favourites
                     </Button>
                 </DropdownContent>

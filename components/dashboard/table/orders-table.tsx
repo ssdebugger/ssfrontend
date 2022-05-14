@@ -70,7 +70,7 @@ export const OrdersTable = () => {
 
                         <TableData width={'84px'}>
                             <div>
-                                <img src="https://images-na.ssl-images-amazon.com/images/I/41q3vc06d8L._SCLZZZZZZZ__SX55_.jpg" />
+                                <img alt='eco friendly products' src="https://images-na.ssl-images-amazon.com/images/I/41q3vc06d8L._SCLZZZZZZZ__SX55_.jpg" />
                             </div>
                         </TableData>
 

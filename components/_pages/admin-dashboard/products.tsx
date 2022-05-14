@@ -118,6 +118,7 @@ const Products: React.FC<Props> = ({ data }) => {
             )
         )
         setOutOfStock(data.filter((item) => Number(item.in_stock.N) === 0))
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (

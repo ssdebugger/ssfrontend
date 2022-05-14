@@ -82,10 +82,10 @@ const Autocompleteform = (props) => {
     //             window.alert('No details available for input: \'' + place.name + '\'');
     //             return;
     //         }
-    //         fillInAddress(place);
+    //         fill='true'InAddress(place);
     //     });
 
-    //     function fillInAddress(place) {  // optional parameter
+    //     function fill='true'InAddress(place) {  // optional parameter
     //         const addressNameFormat = {
     //             'street_number': 'short_name',
     //             'route': 'long_name',
@@ -282,8 +282,6 @@ const Autocompleteform = (props) => {
                     body: JSON.stringify(data), // body data type must match "Content-Type" header
                 }
             )
-                .then((res) => console.log('Posted user details', res))
-                .catch((err) => console.log(err, 'user post error'))
 
             let userdetails = {
                 verified: user.user['verified'],
@@ -382,7 +380,7 @@ const Autocompleteform = (props) => {
                             zip.length < 1 ||
                             mobile.length < 1
                         }
-                        fill
+                        fill="true"
                         onClick={(e) => onSubmit(e)}
                         varient="primary"
                     >

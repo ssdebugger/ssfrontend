@@ -55,7 +55,6 @@ const SignIn = () => {
                 )
                     .then((response) => response.json())
                     .then((response) => {
-                        console.log('user response', response, 'User is', user)
                         let userdetails = {
                             verified: response.body[0]['email_verified'],
                             type: response.body[0]['business']
@@ -68,7 +67,7 @@ const SignIn = () => {
                             wishlist: response.body[0]['wishlist'],
                         }
                         adddToUser(userdetails)
-                        console.log('user details ', userdetails)
+
                         window.localStorage.setItem(
                             'username',
                             response.body[0]['firstname']
@@ -119,6 +118,7 @@ const SignIn = () => {
         }
 
         AddTOCartFn()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isLoggedIn])
 
     return (
@@ -170,7 +170,7 @@ const SignIn = () => {
                         </InputContainer>
 
                         <Button
-                            fill
+                            fill="true"
                             size="large"
                             varient="primary"
                             onClick={(e) => submitForm(e)}

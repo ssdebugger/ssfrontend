@@ -174,9 +174,9 @@ export const MobileNav: React.FC<Props> = ({ showNav, toggleNavFn }) => {
                     </Paragraph>
 
                     <JoinUsLinks>
-                        <HyperLink href="signup">Join Us</HyperLink>
+                        <HyperLink href="/signup">Join Us</HyperLink>
 
-                        <HyperLink href="signin">Sign in</HyperLink>
+                        <HyperLink href="/signin">Sign in</HyperLink>
                     </JoinUsLinks>
                 </JoinUsSection>
             )}

@@ -39,8 +39,7 @@ const Confirm = (props) => {
                       // 'Content-Type': 'application/x-www-form-urlencoded',
                     },
                    body: JSON.stringify(data) // body data type must match "Content-Type" header
-                  }).then(res => console.log('Posted user details',res))
-                  .catch(err => console.log(err,'user post error'))
+                  })
                 router.push({ pathname: '/signin' })
             })
             .catch((err) => {

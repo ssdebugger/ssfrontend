@@ -91,7 +91,7 @@ const Admin = () => {
         
         
         })
-          .catch(err => console.log(err,'user post error'))
+          .catch(err => alertstatus.show('user post error'))
       
       
     }
@@ -156,7 +156,7 @@ const Admin = () => {
                         </InputContainer>
 
                         <Button
-                            fill
+                            fill='true'
                             size="large"
                             varient="primary"
                             onClick={(e) => submitForm(e)}

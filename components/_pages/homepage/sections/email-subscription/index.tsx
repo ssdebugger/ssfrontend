@@ -120,7 +120,7 @@ export const EmailSubscription = () => {
                     />
 
                     <Button
-                        fill
+                        fill='true'
                         size="regular"
                         varient="primary"
                         onClick={(e) => submitForm(e)}

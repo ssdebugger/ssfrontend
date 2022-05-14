@@ -196,6 +196,7 @@ export const DynamicPage = ({ products }) => {
             )
         } else {
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const checkedlow = useRef(false)

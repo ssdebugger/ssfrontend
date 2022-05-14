@@ -29,6 +29,7 @@ const Reviewimage = () => {
                         margin: '1rem 1rem 0 1rem',
                     }}
                     src={imagegallery[i]}
+                    alt='eco friendly products'
                 />
             ))}
         </UserImageHolder>

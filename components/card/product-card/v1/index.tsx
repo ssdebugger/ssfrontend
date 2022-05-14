@@ -169,7 +169,7 @@ export const ProductCard = (props) => {
                 body: JSON.stringify(fetchdata),
             }
         )
-            .then((res) => console.log('added to cart', fetchdata, res))
+            .then()
             .catch((err) => console.log('Failed to add items', err))
 
         return () => clearTimeout(addToCartTimeout)

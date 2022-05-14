@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useAlert } from 'react-alert'
+import Image from 'next/image'
 
 import { Heading4 } from '@/components/typography/heading'
 import {
@@ -124,7 +125,9 @@ export const DashboardProductCard: React.FC<DashboardPopupProps> = (props) => {
         <div>
             <ProductCardContent>
                 <ProductCardImg>
-                    <img src={props.imgUrl} />
+                    <img src={props.imgUrl} alt='eco products' />
+                    
+
                 </ProductCardImg>
 
                 <ProductDetails>

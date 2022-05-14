@@ -38,7 +38,7 @@ export const ProductCard = (props) => {
                 fetch("https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/addtowlorcart",{
                     method:'POST',
                     body:JSON.stringify(data)
-                }).then(res => console.log('added to wishlist',data,res))
+                }).then()
                 .catch(err => console.log(err,'error'))
             }
             else{
@@ -51,7 +51,7 @@ export const ProductCard = (props) => {
                 fetch("https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/addtowlorcart",{
                     method:'POST',
                     body:JSON.stringify(data)
-                }).then(res => console.log('removing from wishlist',data,res))
+                }).then()
                 .catch(err => console.log(err,'error'))
             }
         }

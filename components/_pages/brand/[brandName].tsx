@@ -116,7 +116,7 @@ export const DynamicBrandPage = () => {
                         </HyperLink>
                     </BillboardContent>
 
-                    <BillboardImg src="/plate.jpg" />
+                    <BillboardImg src="/plate.jpg" alt='disposable plates' />
                 </Billboard>
 
                 <AboutBrandContainer>
@@ -142,7 +142,7 @@ export const DynamicBrandPage = () => {
                         </Paragraph>
                     </AboutBrandContent>
 
-                    <BrandImage src="https://images-na.ssl-images-amazon.com/images/S/stores-image-uploads-na-prod/f/AmazonStores/ATVPDKIKX0DER/17401536436f65a40c83d4c44b286f78.w4254.h4254._CR0%2C0%2C4254%2C4254_.jpg" />
+                    <BrandImage src="https://images-na.ssl-images-amazon.com/images/S/stores-image-uploads-na-prod/f/AmazonStores/ATVPDKIKX0DER/17401536436f65a40c83d4c44b286f78.w4254.h4254._CR0%2C0%2C4254%2C4254_.jpg" alt='Sellsage' />
                 </AboutBrandContainer>
 
                 <FeatureBlock>
@@ -168,7 +168,7 @@ export const DynamicBrandPage = () => {
                         {FeaturesData.map((item) => (
                             <Feature key={item.heading}>
                                 <FeatureIcon>
-                                    <img src={item.url} />
+                                    <img src={item.url} alt='eco products' />
                                 </FeatureIcon>
                                 <FeatureContent>
                                     <FeatureHeading>
@@ -294,8 +294,8 @@ export const DynamicBrandPage = () => {
                                     <Link href="/" passHref key={item}>
                                         <ProductCard>
                                             <TileHero>
-                                                <ProductImg src="/round-bowl.jpg" />
-                                                <LifeStyleImg src="/round-bowl-life.jpg" />
+                                                <ProductImg src="/round-bowl.jpg" alt='disposable plates' />
+                                                <LifeStyleImg src="/round-bowl-life.jpg" alt='disposable plates' />
                                             </TileHero>
 
                                             <HighlightText>

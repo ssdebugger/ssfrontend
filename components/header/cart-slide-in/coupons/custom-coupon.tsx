@@ -74,7 +74,7 @@ export const CustomCoupon: React.FC<Props> = ({
                 onChange={(e) => handleCouponInput(e)}
             />
 
-            <Button varient="primary" fill type="submit">
+            <Button varient="primary" fill='true' type="submit">
                 Apply
             </Button>
         </CouponForm>

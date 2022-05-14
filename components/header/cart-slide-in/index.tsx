@@ -126,57 +126,21 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
         return limitDecimal(discountValue)
     }
 
-    function setTotalOriginalPrice(
-        cart: Array<CartItem>,
-        setBagValue: Dispatch<SetStateAction<number>>
-    ) {
-        let bagValue = getTotalOriginalPrice(cart)
-        setBagValue(bagValue)
+  
 
-        return bagValue
-    }
 
-    function setDiscountValue(
-        originalPrice: number,
-        setBagDiscount: Dispatch<SetStateAction<number>>
-    ) {
-        let coupon = getUserCoupon()
-        // when coupon does not exist
-        if (coupon.minSpend === 0) {
-            setBagDiscount(0)
-            setBillDetails(originalPrice, 0)
-            return
-        }
-
-        let discount = getDiscountValue(coupon, originalPrice)
-        setBagDiscount(discount)
-        setBillDetails(originalPrice, discount)
-        return discount
-    }
-
-    function setBillDetails(originalPrice: number, discountValue: number) {
-        let existingCoupon = getUserCoupon()
-
-        let billDetails = {
-            originalPrice: originalPrice,
-            discount: {
-                discountId:
-                    existingCoupon.minSpend !== 0 ? existingCoupon.id : null,
-                type:
-                    existingCoupon.minSpend !== 0 ? existingCoupon.type : null,
-                discountValue:
-                    existingCoupon.minSpend !== 0 ? existingCoupon.amount : 0,
-                totalDiscount:
-                    existingCoupon.minSpend !== 0 ? discountValue : 0,
-            },
-            bagTotal: limitDecimal(originalPrice - discountValue),
-            zipCode: null,
-        }
-
-        setToLocal('billDetails', billDetails)
-    }
+ 
 
     useEffect(() => {
+        function setTotalOriginalPrice(
+            cart: Array<CartItem>,
+            setBagValue: Dispatch<SetStateAction<number>>
+        ) {
+            let bagValue = getTotalOriginalPrice(cart)
+            setBagValue(bagValue)
+    
+            return bagValue
+        }
         setTotalOriginalPrice(cart, setOriginalPrice)
         let coupon = getUserCoupon()
         if (coupon.minSpend > 0) {
@@ -202,6 +166,45 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
     }, [cart])
 
     useEffect(() => {
+        function setBillDetails(originalPrice: number, discountValue: number) {
+            let existingCoupon = getUserCoupon()
+    
+            let billDetails = {
+                originalPrice: originalPrice,
+                discount: {
+                    discountId:
+                        existingCoupon.minSpend !== 0 ? existingCoupon.id : null,
+                    type:
+                        existingCoupon.minSpend !== 0 ? existingCoupon.type : null,
+                    discountValue:
+                        existingCoupon.minSpend !== 0 ? existingCoupon.amount : 0,
+                    totalDiscount:
+                        existingCoupon.minSpend !== 0 ? discountValue : 0,
+                },
+                bagTotal: limitDecimal(originalPrice - discountValue),
+                zipCode: null,
+            }
+    
+            setToLocal('billDetails', billDetails)
+        }    
+        
+    function setDiscountValue(
+        originalPrice: number,
+        setBagDiscount: Dispatch<SetStateAction<number>>
+    ) {
+        let coupon = getUserCoupon()
+        // when coupon does not exist
+        if (coupon.minSpend === 0) {
+            setBagDiscount(0)
+            setBillDetails(originalPrice, 0)
+            return
+        }
+
+        let discount = getDiscountValue(coupon, originalPrice)
+        setBagDiscount(discount)
+        setBillDetails(originalPrice, discount)
+        return discount
+    }
         setDiscountValue(originalPrice, setDiscount)
         if (
             couponSelected.minSpend > 0 &&

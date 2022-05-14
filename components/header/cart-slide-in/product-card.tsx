@@ -186,12 +186,7 @@ export const ProductCard: React.FC<ProductProps> = ({
                 body: JSON.stringify(fetchdata),
             }
         )
-            .then((res) =>
-                console.log(
-                    `item ${actionType === 'SQC' ? 'added' : 'removed'}`,
-                    res.status
-                )
-            )
+            .then()
             .catch((error) => console.log(error))
 
         return res
