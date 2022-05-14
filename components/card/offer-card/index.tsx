@@ -77,13 +77,13 @@ export const OfferCard = ({ card }) => {
             )}
 
             {card == 'card1' ? (
-                // <OfferContent>
-                //     <Heading4>
-                //     This MOTHER&#39;S DAY, why not treat your mother to something special while also remembering Mother Earth?
-                //     </Heading4>
+                <OfferContent>
+                    <Heading4>
+                    Save some Green today!
+                    </Heading4>
 
                     <Paragraph>
-                      Here&#39;s some of our top picks that puts the planet first
+                    Scroll down to see some sustainable swaps that can have big impact on your environmental footprint
                     </Paragraph>
                 // </OfferContent>
             ) : (
