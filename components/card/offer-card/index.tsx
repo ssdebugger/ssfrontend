@@ -85,7 +85,7 @@ export const OfferCard = ({ card }) => {
                     <Paragraph>
                     Scroll down to see some sustainable swaps that can have big impact on your environmental footprint
                     </Paragraph>
-                // </OfferContent>
+                 </OfferContent>
             ) : (
                 <OfferContent>
                     <Heading4>
