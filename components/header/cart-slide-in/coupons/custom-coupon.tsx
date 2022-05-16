@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from 'react'
 
 // utility functions
-import { getFromLocal } from '@/utils/local-storage'
+import { getFromLocal,setToLocal } from '@/utils/local-storage'
 import { getCustomCoupon } from '@/utils/get-custom-coupon'
 
 // styled components
@@ -61,6 +61,8 @@ export const CustomCoupon: React.FC<Props> = ({
         if (customCoupon.message === 'Available') {
             setAlert('')
             setDiscount(customCoupon.to_deduct)
+            setAlert('Coupon Applied')
+            setToLocal('coupon',customCoupon.coupon)
         } else {
             setAlert(customCoupon.message)
         }
