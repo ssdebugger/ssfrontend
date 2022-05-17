@@ -1,3 +1,3 @@
-import Billing from 'components/_pages/billing';
+import Checkout from '@/components/_pages/v2/checkout'
 
-export default Billing;
+export default Checkout

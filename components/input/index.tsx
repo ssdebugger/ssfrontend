@@ -8,6 +8,7 @@ interface Props {
     onChangeHandler?: (e) => any
     readonly required?: boolean
     pattern?: string
+    className?: string
 }
 
 export const CommonInputStyles = css`
@@ -55,9 +56,10 @@ export const Input: React.FC<Props> = ({
     required,
     placeholder,
     pattern,
+    className,
 }) => {
     return (
-        <InputContainer>
+        <InputContainer className={className}>
             <Label htmlFor={heading}>
                 {heading + ' '}
                 {required && <span>*</span>}
