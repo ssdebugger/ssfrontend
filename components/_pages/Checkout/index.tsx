@@ -1,6 +1,5 @@
 import { LandingLayout } from '@/components/layout/landing'
 import { GridContainer, GridItem } from '../homepage/style'
-import Billing from '../cart/billing'
 import { Button, Typography } from '../product/index.style'
 import Address from './address'
 import TopPicks from '../product/toppicks'
