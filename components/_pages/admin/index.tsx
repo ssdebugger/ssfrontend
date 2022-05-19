@@ -9,7 +9,7 @@ import { useAuth, useAuthLogin } from '@/context/auth'
 import { HyperLink } from '@/components/header'
 import Footer from '@/components/footer'
 import { Paragraph } from '@/components/typography/paragraph'
-import { SubHeading } from '@/components/typography/heading'
+import { SubHeading,MainHeading } from '@/components/typography/heading'
 import {useAlert} from 'react-alert'
 import {
     Form,
@@ -103,7 +103,7 @@ const Admin = () => {
 
             <LandingLayout>
                 <Content>
-                    <SubHeading>Admin Panel</SubHeading>
+                    <MainHeading>Admin Panel</MainHeading>
                     <Paragraph>Update order details.</Paragraph>
 
                     {alert.length > 0 && (

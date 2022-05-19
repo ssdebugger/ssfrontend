@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Image from 'next/image'
 
-import { Heading3, SubHeading } from '@/components/typography/heading'
+import { Heading3, SubHeading,MainHeading } from '@/components/typography/heading'
 import { Paragraph } from '@/components/typography/paragraph'
 import { ImpactContainerStyles } from '../impact.style'
 import { HyperLink } from '@/components/cta/link'
@@ -83,7 +83,7 @@ const Column = styled.div<{ flexBasis?: number }>`
 export const CommonGrid: React.FC<Props> = ({ sectionTitle, description }) => {
     return (
         <Container>
-            <SubHeading>{sectionTitle}</SubHeading>
+            <MainHeading>{sectionTitle}</MainHeading>
 
             <Grid>
                 <Column flexBasis={40}>

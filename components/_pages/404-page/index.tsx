@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import Footer from '@/components/footer'
 import { LandingLayout } from '@/components/layout/landing'
-import { SubHeading } from '@/components/typography/heading'
+import { SubHeading,MainHeading } from '@/components/typography/heading'
 import { Paragraph } from '@/components/typography/paragraph'
 import { HyperLink } from '@/components/header'
 import { ArrowLeft } from 'react-feather'
@@ -74,7 +74,7 @@ const ErrorPage = () => {
 
             <LandingLayout>
                 <Content>
-                    <SubHeading>4😔4</SubHeading>
+                    <MainHeading>4😔4</MainHeading>
 
                     <Paragraph>
                         We&#39;re sorry, it looks like the page you&#39;re looking for

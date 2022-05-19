@@ -10,7 +10,7 @@ import {
     Main,
     ScrollableCol,
 } from './impact.styles'
-import { Heading3, SubHeading } from '@/components/typography/heading'
+import { Heading3, SubHeading,MainHeading } from '@/components/typography/heading'
 import { Paragraph } from '@/components/typography/paragraph'
 import Footer from '@/components/footer'
 
@@ -33,9 +33,9 @@ const Impact = () => {
                 <FixedCol>
                     {/* <Paragraph>18•12•2021</Paragraph> */}
 
-                    <SubHeading>
+                    <MainHeading>
                         The future is shaped by our actions today.
-                    </SubHeading>
+                    </MainHeading>
                 </FixedCol>
 
                 <ScrollableCol>

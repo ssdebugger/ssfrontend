@@ -9,7 +9,7 @@ import { useAuth, useAuthLogin } from '@/context/auth'
 import { HyperLink } from '@/components/header'
 import Footer from '@/components/footer'
 import { Paragraph } from '@/components/typography/paragraph'
-import { SubHeading } from '@/components/typography/heading'
+import { SubHeading,MainHeading } from '@/components/typography/heading'
 import { Form, InputContainer, Content, AlertContainer } from './auth.style'
 import { AlertBar } from '@/components/alert/alert-bar'
 import { useAddItem } from '@/context/cart'
@@ -129,7 +129,7 @@ const SignIn = () => {
 
             <LandingLayout>
                 <Content>
-                    <SubHeading>Welcome Back</SubHeading>
+                    <MainHeading>Welcome Back</MainHeading>
                     <Paragraph>Sign in to see your order details.</Paragraph>
 
                     {alert.length > 0 && (

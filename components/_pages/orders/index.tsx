@@ -15,7 +15,7 @@ import {
 import { Header } from '@/components/header'
 import Footer from '@/components/footer'
 
-import { SubHeading } from '@/components/typography/heading'
+import { SubHeading,MainHeading } from '@/components/typography/heading'
 
 import { Search, Sliders } from 'react-feather'
 import { OrderCard } from '@/components/card/order-card'
@@ -33,7 +33,7 @@ const Orders = (props) => {
 
             <LandingLayout>
                 <Main>
-                    <SubHeading>Your orders</SubHeading>
+                    <MainHeading>Your orders</MainHeading>
 
                     <OrderOptionsContainer>
                         <OrderOptions>

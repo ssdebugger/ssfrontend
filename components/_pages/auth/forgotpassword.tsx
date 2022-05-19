@@ -9,7 +9,7 @@ import { Input } from '@/components/input'
 import { LandingLayout } from '@/components/layout/landing'
 import { HyperLink } from '@/components/header'
 import { Paragraph } from '@/components/typography/paragraph'
-import { SubHeading } from '@/components/typography/heading'
+import { SubHeading,MainHeading } from '@/components/typography/heading'
 
 import { Form, InputContainer, Content, AlertContainer } from './auth.style'
 import { AlertBar } from '@/components/alert/alert-bar'
@@ -77,7 +77,7 @@ const Forgotpassword = (props) => {
 
             <LandingLayout>
                 <Content>
-                    <SubHeading>Forgot password?</SubHeading>
+                    <MainHeading>Forgot password?</MainHeading>
                     <Paragraph>
                         Type the address linked to your account and we&#39;ll send
                         you password reset instructions. They might end up in

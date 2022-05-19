@@ -12,7 +12,7 @@ import {
     Main,
     ScrollableCol,
 } from '@/components/_pages/impact/impact.styles'
-import { Heading3, Heading4, SubHeading } from '@/components/typography/heading'
+import { Heading3, Heading4, SubHeading,MainHeading } from '@/components/typography/heading'
 import { Paragraph } from '@/components/typography/paragraph'
 import Footer from '@/components/footer'
 
@@ -35,10 +35,10 @@ const AboutUsPage = () => {
                 <FixedCol>
                     <div>
                         {/* <Paragraph>18•12•2021</Paragraph> */}
-                        <SubHeading>
+                        <MainHeading>
                             Impacting business and individuals for a green
                             tomorrow.
-                        </SubHeading>
+                        </MainHeading>
                     </div>
                 </FixedCol>
 
@@ -49,10 +49,10 @@ const AboutUsPage = () => {
                         <HeaderImgContent>
                             {/* <Paragraph>18•12•2021</Paragraph> */}
 
-                            <SubHeading>
+                            <MainHeading>
                                 Impacting business and individuals for a green
                                 tomorrow.
-                            </SubHeading>
+                            </MainHeading>
                         </HeaderImgContent>
                     </ImgContainer>
 

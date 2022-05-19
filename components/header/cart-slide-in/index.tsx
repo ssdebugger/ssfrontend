@@ -1,10 +1,8 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { X } from 'react-feather'
-
-import { Heading4 } from '@/components/typography/heading'
+import { Heading4,MainHeading } from '@/components/typography/heading'
 import { useCart } from '@/context/cart'
 import { AlertBar } from '@/components/alert/alert-bar'
-
 import {
     CloseBtn,
     CouponAlertContainer,
@@ -256,7 +254,7 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
                         </CouponsContainer>
 
                         <ProductsContainer>
-                            <Heading4>My Bag</Heading4>
+                            <MainHeading>My Bag</MainHeading>
 
                             <ProductsList>
                                 {cart.map((product) => (
