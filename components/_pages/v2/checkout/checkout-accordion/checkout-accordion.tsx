@@ -1,26 +1,29 @@
 import React from 'react'
 import { CheckCircle, ChevronDown, Circle } from 'react-feather'
 
-import * as Styles from './checkout-accordin.styles'
+import * as Styles from './checkout-accordion.styles'
 
 const AccordinContext = React.createContext({
-    show: false,
+    isOpen: false,
     stepName: '',
-    toggle: () => {},
+    toggle: (currentId: string) => {},
 })
 
 interface AccordinProps {
-    children: React.ReactNode
+    isOpen: boolean
+    toggle: (currentId: string) => void
     stepName: string
+    children: React.ReactNode
 }
 
-export const Accordin = ({ children, stepName }: AccordinProps) => {
-    const [show, setShow] = React.useState(false)
-    const toggle = React.useCallback(() => setShow((prev) => !prev), [])
-    const value = React.useMemo(() => ({ show, stepName, toggle }), [show])
-
+export const Accordin = ({
+    isOpen,
+    children,
+    stepName,
+    toggle,
+}: AccordinProps) => {
     return (
-        <AccordinContext.Provider value={value}>
+        <AccordinContext.Provider value={{ isOpen, stepName, toggle }}>
             {children}
         </AccordinContext.Provider>
     )
@@ -39,12 +42,12 @@ const useAccordinContext = () => {
 }
 
 const Header = ({ children }: { children: string }) => {
-    const { show, stepName, toggle } = useAccordinContext()
+    const { isOpen, stepName, toggle } = useAccordinContext()
 
     return (
-        <Styles.Header onClick={toggle} show={show}>
+        <Styles.Header onClick={() => toggle(stepName)} show={isOpen}>
             <Styles.HeaderContents>
-                <Styles.StepIndicator show={show}>
+                <Styles.StepIndicator show={isOpen}>
                     {stepName}
                 </Styles.StepIndicator>
                 <h2>{children}</h2>
@@ -56,10 +59,10 @@ const Header = ({ children }: { children: string }) => {
 }
 
 export const Contents = ({ children }: { children: React.ReactNode }) => {
-    const { show } = useAccordinContext()
+    const { isOpen } = useAccordinContext()
 
     return (
-        <Styles.AccordinContents show={show}>
+        <Styles.AccordinContents show={isOpen}>
             {children}
         </Styles.AccordinContents>
     )

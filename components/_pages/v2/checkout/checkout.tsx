@@ -5,14 +5,32 @@ import * as Styles from './checkout.styles'
 
 import Footer from '@/components/footer'
 import { Header } from '@/components/header'
-import { Accordin } from './checkout-accordin'
+import { Accordin } from './checkout-accordion'
 import { Input } from '@/components/input'
 import { CheckoutOrderProduct } from './checkout-cards'
 import { ChevronDown } from 'react-feather'
+import { Button } from '@/components/buttons'
+
+const Steps = ['a', 'b']
 
 const Checkout = () => {
     const [showOrderDetailsCard, setShowOrderDetailsCard] =
         React.useState(false)
+
+    const [openIndexes, setOpenIndexes] = React.useState(['a'])
+
+    const showOneAlways = (currentId: string) => {
+        const closing = openIndexes.includes(currentId)
+        const isLastIndex = openIndexes.length < 2
+
+        if (closing && isLastIndex) return
+
+        if (closing) {
+            setOpenIndexes((prev) => prev.filter((i) => i !== currentId))
+        } else {
+            setOpenIndexes((prev) => [...prev, currentId])
+        }
+    }
 
     return (
         <>
@@ -24,7 +42,11 @@ const Checkout = () => {
             <Styles.Main>
                 <Styles.Col1>
                     <Styles.ShippingDropdown>
-                        <Accordin stepName="a">
+                        <Accordin
+                            stepName={Steps[0]}
+                            toggle={showOneAlways}
+                            isOpen={openIndexes.includes(Steps[0])}
+                        >
                             <Accordin.Header>Shipping Address</Accordin.Header>
                             <Accordin.Contents>
                                 <Styles.ShippingDetailsContainer>
@@ -83,12 +105,23 @@ const Checkout = () => {
                                         className="col-start-1 col-end-3"
                                     />
                                 </Styles.ShippingDetailsContainer>
+
+                                <Button
+                                    varient="primary"
+                                    onClick={() => setOpenIndexes(['b'])}
+                                >
+                                    Save and Pay
+                                </Button>
                             </Accordin.Contents>
                         </Accordin>
                     </Styles.ShippingDropdown>
 
                     <Styles.ShippingDropdown>
-                        <Accordin stepName="b">
+                        <Accordin
+                            stepName={Steps[1]}
+                            toggle={showOneAlways}
+                            isOpen={openIndexes.includes(Steps[1])}
+                        >
                             <Accordin.Header>Make Payment</Accordin.Header>
                             <Accordin.Contents>
                                 <Styles.ShippingDetailsContainer styleRegular>
@@ -120,6 +153,7 @@ const Checkout = () => {
                                         type="text"
                                     />
                                 </Styles.ShippingDetailsContainer>
+                                <Button varient="primary">Pay Now</Button>
                             </Accordin.Contents>
                         </Accordin>
                     </Styles.ShippingDropdown>

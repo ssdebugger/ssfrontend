@@ -55,6 +55,12 @@ export const AccordinContents = styled.div<{ show: boolean }>`
             : 'transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.2s ease, max-height 0.4s ease'};
     opacity: ${(props) => (props.show ? 1 : 0)};
 
+    transform-origin: top center;
+    transform: ${(props) => (props.show ? 'scaleY(1)' : 'scaleY(0)')};
+    opacity: ${(props) => (props.show ? 1 : 0)};
+    height: max-content;
+    max-height: ${(props) => (props.show ? '800px' : 0)};
+
     label {
         margin-bottom: 0.5rem;
     }
@@ -63,13 +69,7 @@ export const AccordinContents = styled.div<{ show: boolean }>`
         border-radius: 8px;
     }
 
-    transform-origin: top center;
-    transform: ${(props) => (props.show ? 'scaleY(1)' : 'scaleY(0)')};
-    opacity: ${(props) => (props.show ? 1 : 0)};
-    height: max-content;
-    max-height: ${(props) => (props.show ? '730px' : 0)};
-
-    @media (min-width: 768px) {
-        max-height: ${(props) => (props.show ? '435px' : 0)};
+    button {
+        margin: 0 1rem 2rem;
     }
 `
