@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react'
-
+import styled from 'styled-components'
 // utility functions
 import { getFromLocal,setToLocal } from '@/utils/local-storage'
 import { getCustomCoupon } from '@/utils/get-custom-coupon'
@@ -44,7 +44,9 @@ export const CustomCoupon: React.FC<Props> = ({
     }
 
     async function handleCouponSubmit(e) {
-        e.preventDefault()
+        
+        e.target.innerHTML = 'Applying ...'
+        e.target.disabled = true
 
         let localUserEmail = localStorage.getItem('useremail')
         let isGuestUser = localUserEmail === 'False' || localUserEmail === null
@@ -60,25 +62,29 @@ export const CustomCoupon: React.FC<Props> = ({
 
         if (customCoupon.message === 'Available') {
             setAlert('')
+            e.target.innerHTML = 'Apply'
+            e.target.disabled = false
             setDiscount(customCoupon.to_deduct)
             setAlert('Coupon Applied')
             setToLocal('coupon',customCoupon.coupon)
         } else {
             setAlert(customCoupon.message)
+            e.target.innerHTML = 'Apply'
+            e.target.disabled = false
         }
     }
 
     return (
-        <CouponForm onSubmit={(e) => handleCouponSubmit(e)}>
+        <CouponForm>
             <CouponInput
                 placeholder="Enter your Coupon"
                 type={'text'}
                 onChange={(e) => handleCouponInput(e)}
-            />
-
-            <Button varient="primary" fill='true' type="submit">
+            />  
+            <Button onClick={(e) => handleCouponSubmit(e)} varient="primary" fill='true'>
                 Apply
             </Button>
+         
         </CouponForm>
     )
 }
