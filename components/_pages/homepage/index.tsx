@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import styled from 'styled-components'
 
 import Head from 'next/head'
@@ -34,19 +33,6 @@ const Homepage = ({ offers, bundles, data }) => {
         NewLaunchesList.push(bundles['body'][i])
     }
 
-    // useEffect(() => {
-    //     ;(function (d, s, id) {
-    //         var js
-    //         if (d.getElementById(id)) {
-    //             return
-    //         }
-    //         js = d.createElement(s)
-    //         js.id = id
-    //         js.src = 'https://embedsocial.com/cdn/ht.js'
-    //         d.getElementsByTagName('head')[0].appendChild(js)
-    //     })(document, 'script', 'EmbedSocialHashtagScript')
-    // }, [])
-
     return (
         <>
             <Head>
@@ -76,8 +62,6 @@ const Homepage = ({ offers, bundles, data }) => {
                 <Offer card={'card2'} productsList={othersection} />
 
                 <StoriesFromUs data={data} />
-                {/* 
-                <div className="embedsocial-hashtag" data-ref="f435d93354be5f95d8dcdfbd24816a8a6bdea9c1"></div> */}
                 <InstagramPosts />
                 <Footer />
 

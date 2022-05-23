@@ -1,9 +1,4 @@
-import { LandingLayout } from '@/components/layout/landing'
-import { GridContainer, GridItem } from '../homepage/style'
-import { Button, Typography } from '../product/index.style'
-import Address from './address'
-import TopPicks from '../product/toppicks'
-import Footer from '@/components/footer'
+
 import { withRouter } from 'next/router'
 import { useState } from 'react'
 import Addaddress from './addaddress'

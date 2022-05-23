@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import {  Form, InputContainer, SubmitBtn } from './auth.style'
 import { Input } from '@/components/input/oldInput'
-import { Auth } from 'aws-amplify'
+import  Auth  from '@aws-amplify/auth'
 import { useRouter } from 'next/router'
 
 import Popup from './popup'

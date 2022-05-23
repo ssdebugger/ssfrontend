@@ -1,12 +1,10 @@
 import { useState } from 'react'
-import Link from 'next/link'
 import Head from 'next/head'
 import { Header } from '@/components/header'
-import { Auth } from 'aws-amplify'
+import  Auth  from '@aws-amplify/auth'
 import Confirm from './confirm'
 import Popup from './popup'
 
-import { LandingLayout } from 'components/layout/landing'
 import {
     BusinessSignUp,
     Container,
@@ -26,8 +24,6 @@ import { Input, Textarea } from '@/components/input'
 import { Button } from '@/components/buttons'
 
 import { Heading3, MainHeading } from '@/components/typography/heading'
-import { Paragraph } from '@/components/typography/paragraph'
-import { InputLabel } from '@/components/input/style'
 import Footer from '@/components/footer'
 
 const Signup = () => {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
-import { Auth } from 'aws-amplify'
+import  Auth  from '@aws-amplify/auth'
 import { Button } from '@/components/buttons'
 import { Input } from '@/components/input'
 import { LandingLayout } from '@/components/layout/landing'

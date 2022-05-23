@@ -1,4 +1,3 @@
-import { GetStaticPaths, GetStaticProps } from 'next'
 
 import Productpage from '@/components/_pages/product'
 

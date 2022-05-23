@@ -79,7 +79,7 @@ export const OfferCard = ({ card }) => {
             {card == 'card1' ? (
                 <OfferContent>
                     <Heading4>
-                    Save some Green today!
+                    Wondering how to make eco-friendly changes?
                     </Heading4>
 
                     <Paragraph>

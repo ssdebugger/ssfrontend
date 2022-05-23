@@ -1,5 +1,5 @@
 import { DynamicPage } from '@/components/_pages/dynamic-products-page/[slug]'
-import { GetStaticPaths, GetStaticProps } from 'next'
+import {  GetStaticProps } from 'next'
 
 export default DynamicPage
 
