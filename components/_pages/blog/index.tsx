@@ -12,7 +12,6 @@ import { MoreFromUs } from './more-from-us'
 /**
  * Types for data received from sanity.io
  */
-
 export type PostType = {
     mainImage: {
         asset: {
