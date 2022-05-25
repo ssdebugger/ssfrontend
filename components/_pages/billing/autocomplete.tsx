@@ -18,11 +18,13 @@ const Autocompleteform = (props) => {
             types: ['address'],
         },
         onPlaceSelected: (place) => {
+           
             let address = (
                 document.getElementById(
                     'location' + props.id
                 ) as HTMLInputElement
             ).value
+        
             setAddress(address)
 
             place['address_components'].map((x, i) => {
@@ -39,18 +41,21 @@ const Autocompleteform = (props) => {
                             'country' + props.id
                         ) as HTMLInputElement
                     ).value = x['long_name']
+                    setCountry(x['long_name'])
                 } else if (x['types'][0] === 'administrative_area_level_1') {
                     ;(
                         document.getElementById(
                             'administrative_area_level_1' + props.id
                         ) as HTMLInputElement
                     ).value = x['long_name']
+                    setState(x['long_name'])
                 } else if (x['types'][0] === 'locality') {
                     ;(
                         document.getElementById(
                             'locality' + props.id
                         ) as HTMLInputElement
                     ).value = x['long_name']
+                    setCity(x['long_name'])
                 }
             })
         },
@@ -300,6 +305,9 @@ const Autocompleteform = (props) => {
     const [mobile, setMobile] = useState('')
     const [address, setAddress] = useState('')
     const [zip, setZip] = useState('')
+    const [city,setCity]=useState('')
+    const [state,setState]=useState('')
+    const [country,setCountry]=useState('')
 
     const handlechange = (e, tar) => {
         if (tar == 'name') {
@@ -310,6 +318,15 @@ const Autocompleteform = (props) => {
             setAddress((address) => e.target.value)
         } else if (tar == 'zip') {
             setZip((zip) => e.target.value)
+        }
+        else if (tar == 'city') {
+            setCity((city) => e.target.value)
+        }
+        else if (tar == 'state') {
+            setState((state) => e.target.value)
+        }
+        else if (tar == 'country') {
+            setCountry((country) => e.target.value)
         }
     }
 
@@ -351,13 +368,17 @@ const Autocompleteform = (props) => {
                         type="text"
                         placeholder="City"
                         id={'locality' + props.id}
+                        value={city}
+                        onChange={(e) => handlechange(e, 'city')}
                     />
                     <div className="half-input-container">
                         <input
                             type="text"
                             className="half-input"
                             placeholder="State/Province"
+                            value={state}
                             id={'administrative_area_level_1' + props.id}
+                            onChange={(e) => handlechange(e, 'state')}
                         />
                         <input
                             type="text"
@@ -372,6 +393,8 @@ const Autocompleteform = (props) => {
                         type="text"
                         placeholder="Country"
                         id={'country' + props.id}
+                        value={country}
+                        onChange={(e) => handlechange(e, 'country')}
                     />
                     <Button
                         disabled={
