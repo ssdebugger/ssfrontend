@@ -99,6 +99,10 @@ const BlogPost = ({ blogData, morePosts }) => {
     return (
         <>
             <Head>
+            <meta name='title' content={blogData.title}>
+                </meta>
+                <meta name='description' content={blogData.title}>
+                </meta>
                 <title>{blogData.title} - sellsage</title>
             </Head>
 

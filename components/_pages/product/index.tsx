@@ -227,11 +227,18 @@ const Productpage = (props) => {
         price: data['sale_price']['N'],
         inStockQuantity: parseInt(data['in_stock']['N']),
     }
-
     return (
         <>
             <Head>
-                <title>Shop - SellSage</title>
+            <meta
+                    name="title"
+                    content={data['short_description']['S']}
+                ></meta>
+                <meta
+                    name="description"
+                    content={data['about']['L'][0]['S']}
+                ></meta>
+                <title>{data['short_description']['S']}</title>
             </Head>
 
             <LandingLayout>
