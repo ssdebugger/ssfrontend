@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Link from 'next/link'
 import { ShoppingBag, Check } from 'react-feather'
 
-import { Heading3, SubHeading } from '@/components/typography/heading'
+import { Heading3, SubHeading,MainHeading } from '@/components/typography/heading'
 import { Paragraph } from '@/components/typography/paragraph'
 import { useAddItem } from '@/context/cart'
 

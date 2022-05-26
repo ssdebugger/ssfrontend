@@ -44,7 +44,7 @@ const AboutUsPage = () => {
 
                 <ScrollableCol>
                     <ImgContainer>
-                        <HeaderImg src="/impact-header.jpg" alt='Sustainable img' />
+                        <HeaderImg src="/sustainable-impact.jpg" alt='Sustainable img' />
 
                         <HeaderImgContent>
                             {/* <Paragraph>18•12•2021</Paragraph> */}

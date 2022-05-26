@@ -1,5 +1,5 @@
 import { ProductCard } from '@/components/card/product-card/v1'
-import { Heading3 } from '@/components/typography/heading'
+import { Heading3,MainHeading } from '@/components/typography/heading'
 import styled from 'styled-components'
 import { HomepageContainerStyles } from '../../style'
 

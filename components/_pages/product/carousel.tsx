@@ -28,7 +28,7 @@ const Carousel = (props) => {
                 <div className="slides">
                     {images.map((e, i) => (
                         <div key={i} id={'slide-' + i}>
-                            <img src={images[i]} alt="product image" />
+                            <img src={images[i]} alt={props.alt} />
                         </div>
                     ))}
                 </div>
@@ -42,7 +42,7 @@ const Carousel = (props) => {
                                 <img
                                     className="link"
                                     src={images[i]}
-                                    alt="product image"
+                                    alt={props.alt}
                                 />
                             </a>
                         ))}

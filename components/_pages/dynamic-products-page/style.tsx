@@ -60,7 +60,7 @@ export const BillboardRow = styled.div`
     }
 `
 
-export const Heading = styled.h2`
+export const Heading = styled.h1`
     margin-bottom: 0.75rem;
     font-size: 1.75rem;
     text-transform: capitalize;

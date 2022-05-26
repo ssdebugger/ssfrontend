@@ -263,6 +263,7 @@ const Productpage = (props) => {
                                             data['image2'],
                                             data['image3'],
                                         ]}
+                                        alt={data['about']['L'][0]['S']}
                                     />
                                 </GridItem>
                             </GridContainer>

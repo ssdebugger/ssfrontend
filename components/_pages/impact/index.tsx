@@ -41,7 +41,7 @@ const Impact = () => {
                 <ScrollableCol>
                     <ImgContainer>
                         <HeaderImg
-                            src="/impact-header.jpg"
+                            src="/sustainable-impact.jpg"
                             alt="impact image"
                         />
 

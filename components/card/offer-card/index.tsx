@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Gift, Home } from 'react-feather'
 import Link from 'next/link'
 
-import { Heading4 } from '@/components/typography/heading'
+import { Heading4,MainHeading } from '@/components/typography/heading'
 import { Paragraph } from '@/components/typography/paragraph'
 import { HyperLink } from '@/components/cta/link'
 
@@ -78,9 +78,9 @@ export const OfferCard = ({ card }) => {
 
             {card == 'card1' ? (
                 <OfferContent>
-                    <Heading4>
+                    <MainHeading fontSize='1.728rem' fontWeight={800}>
                     Wondering how to make eco-friendly changes?
-                    </Heading4>
+                    </MainHeading>
 
                     <Paragraph>
                     Scroll down to see some sustainable swaps 
@@ -91,9 +91,9 @@ export const OfferCard = ({ card }) => {
                  </OfferContent>
             ) : (
                 <OfferContent>
-                    <Heading4>
+                    <MainHeading fontSize='1.728rem' fontWeight={800}>
                         Make your life Easier and Greener every day
-                    </Heading4>
+                    </MainHeading>
 
                     <Paragraph>
                         Shop from our range of Dining Essentials and

@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-
 import Head from 'next/head'
 import Footer from '@/components/footer'
 import { Carousel } from '@/components/carousel'
@@ -46,7 +45,6 @@ const Homepage = ({ offers, bundles, data }) => {
                 ></meta>
                 <title>Compostable Plates & Gloves | Disposable Eco Products</title>
             </Head>
-
             <Header />
 
             <HomepageMain>
