@@ -8,6 +8,7 @@ import Router from 'next/router'
 import { AuthProvider } from 'context/auth'
 import { UserProvider } from 'context/user'
 import ReactGa from 'react-ga'
+import { useRouter } from 'next/router'
 
 function MyApp({ Component, pageProps }: AppProps) {
     ReactGa.initialize('UA-222573250-1')
@@ -29,6 +30,19 @@ function MyApp({ Component, pageProps }: AppProps) {
             })
         })
     }, [])
+    const router=useRouter()
+    useEffect(() => {
+        import('react-facebook-pixel')
+          .then((x) => x.default)
+          .then((ReactPixel) => {
+            ReactPixel.init('776492553756503') // facebookPixelId
+            ReactPixel.pageView()
+    
+            router.events.on('routeChangeComplete', () => {
+              ReactPixel.pageView()
+            })
+          })
+      }, [router.events])
 
     return (
         <Theme>
