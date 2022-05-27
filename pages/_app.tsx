@@ -9,7 +9,7 @@ import { AuthProvider } from 'context/auth'
 import { UserProvider } from 'context/user'
 import ReactGa from 'react-ga'
 import { useRouter } from 'next/router'
-import ReactPinterestTag from 'react-pinterest-tag'
+
 
 function MyApp({ Component, pageProps }: AppProps) {
     ReactGa.initialize('UA-222573250-1')
@@ -42,9 +42,12 @@ function MyApp({ Component, pageProps }: AppProps) {
             router.events.on('routeChangeComplete', () => {
               ReactPixel.pageView()
             })
-            ReactPinterestTag.init('2613059152744')
+            import('react-pinterest-tag').then((ReactPinterestTag) => {
+                ReactPinterestTag.init('2613059152744')
  
-            ReactPinterestTag.pageView()
+                ReactPinterestTag.pageView()
+            })
+            
 
           })
 
