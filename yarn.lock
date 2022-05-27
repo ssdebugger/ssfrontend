@@ -4238,6 +4238,11 @@ react-native-get-random-values@^1.4.0:
   dependencies:
     fast-base64-decode "^1.0.0"
 
+react-pinterest-tag@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/react-pinterest-tag/-/react-pinterest-tag-0.0.2.tgz#6909883153af5dfa5416f80bf4120e9e2cbc51d4"
+  integrity sha512-UszuGuQdznx94M4seOW6he26NCRP9OaXvyPirI78q7Z1d2hAkV3/JEe6rlid2O1mNP9+s8HM+bKTXbOCUONQOg==
+
 react-transition-group@^4.4.1:
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.2.tgz#8b59a56f09ced7b55cbd53c36768b922890d5470"
