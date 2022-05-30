@@ -10,10 +10,21 @@ export async function getServerSideProps(context){
         `https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/getproductdetails?sku=${sku}`
     )
     const data = await res.json()
-
-    return {
+    try{       
+        if ((await data.body.statusCode) === 200) {   
+     return {
         props: {
             data: data,
+        }
+    }
+}
+}
+    catch (error) {
+        return {
+            redirect: {
+                destination: '/404',
+                permanent: false,
+            },
         }
     }
 }
