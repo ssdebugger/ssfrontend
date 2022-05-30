@@ -114,7 +114,7 @@ export const StoriesFromUs = (props) => {
     const data=props.data
     return (
         <StoriesFromUsContainer>
-           <Heading3>Transition towards a more sustainable lifestyle</Heading3>
+           <Heading3>Transition yourself towards a more sustainable lifestyle</Heading3>
             <BlogPostsContainer>
                 
         { data.slice(0,5).map((item,key) =>

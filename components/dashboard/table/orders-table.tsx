@@ -79,7 +79,7 @@ export const OrdersTable = () => {
                                 Plantry (SellSage) Natural Biodegradable Palm
                                 Leaf Bowl - Pack of 20, Soak Free 100%
                                 Compostable like bamboo better than paper (Heart
-                                5 inch)
+                                5 inches)
                             </div>
                             <div>
                                 ASIN: B08G5DMTNR SKU: PALM-HRTB-0500-0020-FBM
