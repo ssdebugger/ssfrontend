@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 
 interface Props {
     heading: string
+    reference?: any
     placeholder: string
     type: string
     value?: string | number
@@ -51,6 +52,7 @@ const TextAreaBox = styled.textarea`
 export const Input: React.FC<Props> = ({
     heading,
     type,
+    reference,
     value,
     onChangeHandler,
     required,
@@ -66,7 +68,9 @@ export const Input: React.FC<Props> = ({
             </Label>
             <InputBox
                 type={type}
-                id={heading}
+                ref={reference}
+                value={value}
+                id={heading.replace(/\s/g, "")}
                 onChange={onChangeHandler}
                 placeholder={placeholder}
                 required={required}

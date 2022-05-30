@@ -10,6 +10,7 @@ import { Input } from '@/components/input'
 import { CheckoutOrderProduct } from './checkout-cards'
 import { ChevronDown } from 'react-feather'
 import { Button } from '@/components/buttons'
+import { usePlacesWidget } from 'react-google-autocomplete'
 
 const Steps = ['a', 'b']
 
@@ -19,6 +20,7 @@ interface IShipping {
     address: string
     aptSuite: string
     city: string
+    state: string
     country: string
     postalCode: string
 }
@@ -39,6 +41,7 @@ const Checkout = () => {
         address: '',
         aptSuite: '',
         city: '',
+        state:'',
         country: '',
         postalCode: '',
     })
@@ -73,6 +76,66 @@ const Checkout = () => {
 
     React.useEffect(() => console.log(shipping), [shipping])
     React.useEffect(() => console.log(payment), [payment])
+
+    const { ref, autocompleteRef } = usePlacesWidget({
+        apiKey: 'AIzaSyDtDZuMfT96MQUfJvR4gRDK2VxoLPQYcao',
+        options: {
+            fields: ['address_components', 'geometry', 'name'],
+            types: ['address'],
+        },
+        onPlaceSelected: (place) => {
+           
+            let address = (
+                document.getElementById(
+                    'Address' 
+                ) as HTMLInputElement
+            ).value
+            setShipping((prev) => ({ ...prev, ...{
+                address: address,
+            } }))
+
+            place['address_components'].map((x, i) => {
+                if (x['types'][0] === 'postal_code') {
+                    ;(
+                        document.getElementById(
+                            'PostalCode'
+                        ) as HTMLInputElement
+                    ).value = x['long_name']
+                    setShipping((prev) => ({ ...prev, ...{
+                        postalCode: x['long_name'],
+                    } }))
+
+                } else if (x['types'][0] === 'country') {
+                    ;(
+                        document.getElementById(
+                            'Country' 
+                        ) as HTMLInputElement
+                    ).value = x['long_name']
+                    setShipping((prev) => ({ ...prev, ...{
+                        country: x['long_name'],
+                    } }))
+                } else if (x['types'][0] === 'administrative_area_level_1') {
+                    ;(
+                        document.getElementById(
+                            'State' 
+                        ) as HTMLInputElement
+                    ).value = x['long_name']
+                    setShipping((prev) => ({ ...prev, ...{
+                        state: x['long_name'],
+                    } }))
+                } else if (x['types'][0] === 'locality') {
+                    ;(
+                        document.getElementById(
+                            'City'
+                        ) as HTMLInputElement
+                    ).value = x['long_name']
+                    setShipping((prev) => ({ ...prev, ...{
+                        city: x['long_name'],
+                    } }))
+                }
+            })
+        },
+    })
 
     return (
         <>
@@ -127,6 +190,7 @@ const Checkout = () => {
 
                                     <Input
                                         value={shipping.address}
+                                        reference={ref}
                                         heading="Address"
                                         placeholder="Your Address"
                                         type="text"
@@ -165,6 +229,19 @@ const Checkout = () => {
                                             })
                                         }
                                     />
+                                     <Input
+                                        value={shipping.state}
+                                        heading="State"
+                                        placeholder="State"
+                                        type="text"
+                                        required
+                                        className="col-start-3 col-end-5"
+                                        onChangeHandler={(e) =>
+                                            handleInputChange('shipping', {
+                                                state: e.target.value,
+                                            })
+                                        }
+                                    />
 
                                     <Input
                                         value={shipping.country}
@@ -172,7 +249,7 @@ const Checkout = () => {
                                         placeholder="Country"
                                         type="text"
                                         required
-                                        className="col-start-3 col-end-5"
+                                        className="col-start-1 col-end-3"
                                         onChangeHandler={(e) =>
                                             handleInputChange('shipping', {
                                                 country: e.target.value,
@@ -186,7 +263,7 @@ const Checkout = () => {
                                         placeholder="Your Postal Code"
                                         type="text"
                                         required
-                                        className="col-start-1 col-end-3"
+                                        className="col-start-3 col-end-5"
                                         onChangeHandler={(e) =>
                                             handleInputChange('shipping', {
                                                 postalCode: e.target.value,
