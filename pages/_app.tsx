@@ -42,13 +42,6 @@ function MyApp({ Component, pageProps }: AppProps) {
             router.events.on('routeChangeComplete', () => {
               ReactPixel.pageView()
             })
-            import('react-pinterest-tag').then((ReactPinterestTag) => {
-                ReactPinterestTag.init('2613059152744')
- 
-                ReactPinterestTag.pageView()
-            })
-            
-
           })
 
       }, [router.events])
