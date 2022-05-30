@@ -78,7 +78,7 @@ const ErrorPage = () => {
 
                     <Paragraph>
                         We&#39;re sorry, it looks like the page you&#39;re looking for
-                        can&#39;t be foundd...
+                        can&#39;t be found...
                     </Paragraph>
 
                     <HyperLink href="/">
