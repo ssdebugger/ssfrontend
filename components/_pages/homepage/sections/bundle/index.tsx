@@ -51,10 +51,9 @@ export const Bundle = () => {
                         </Heading3>
 
                         <Paragraph id="bundleDesc">
-                            In our world avoiding plastic can be challenging and
-                            not a moment too soon for a plastic-choked planet.
-                            Relax, while Sell Sage offers you some sustainable
-                            living inspiration
+                        In our world, avoiding plastic can be challenging, 
+                        and not a moment too soon for a plastic-choked planet.
+                         Relax while Sell Sage offers you some sustainable living inspiration.
                         </Paragraph>
                     </Text>
                 </BrandCard>
@@ -65,10 +64,9 @@ export const Bundle = () => {
                     </BrandImgContainer>
 
                     <BrandContent>
-                        <Heading4>Glove up for self protection</Heading4>
+                        <Heading4>Glove up for self-protection</Heading4>
                         <Paragraph>
-                            Compostable, plant-based biopolymer gloves to
-                            protect yourself on the go.
+                        Compostable plant-based biopolymer gloves are to protect yourself on the go.
                         </Paragraph>
 
                         <HyperLink href="/shop">Shop Gloveup</HyperLink>
@@ -83,8 +81,7 @@ export const Bundle = () => {
                     <BrandContent>
                         <Heading4>Eco-friendly with Plantry</Heading4>
                         <Paragraph>
-                            Classy and environment friendly products for your
-                            house and loved ones.
+                        Classy and environment-friendly products for your house and loved ones.
                         </Paragraph>
 
                         <HyperLink href="/shop">Shop Plantry</HyperLink>

@@ -131,7 +131,7 @@ const ContactUs = () => {
                         <MainHeading>Contact Us</MainHeading>
                         <Paragraph>
                             Let’s explore how we can help you. We will get back
-                            to you within 2 working days.
+                            to you within two working days.
                         </Paragraph>
 
                         <ContactUsLink>

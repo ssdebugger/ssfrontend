@@ -20,7 +20,7 @@ export const TopBar = () => {
         <TopBarContainer>
             <TopBarOffer>
                 <Heading4>Free Delivery:</Heading4>
-                <Paragraph>Applies to order of  $35 and above.</Paragraph>
+                <Paragraph>Applies to orders of $35 and above.</Paragraph>
             </TopBarOffer>
 
             <TopBarLinksContainer>
