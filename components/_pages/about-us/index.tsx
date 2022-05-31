@@ -20,12 +20,14 @@ const AboutUsPage = () => {
     return (
         <>
             <Head>
-            <meta name='title' content='About Us | Sustainable Company | Eco Friendly Products'>            
-                       </meta>
-                        <meta
-                            name="description"
-                            content="SellSage is a minority owned business with a mission to make sustainable living convenient & accessible. Our disposable products are compostable & elegant"
-                        ></meta>
+                <meta
+                    name="title"
+                    content="About Us | Sustainable Company | Eco Friendly Products"
+                ></meta>
+                <meta
+                    name="description"
+                    content="SellSage is a minority owned business with a mission to make sustainable living convenient & accessible. Our disposable products are compostable & elegant"
+                ></meta>
                 <title>About Us - Sellsage</title>
             </Head>
 
@@ -44,7 +46,10 @@ const AboutUsPage = () => {
 
                 <ScrollableCol>
                     <ImgContainer>
-                        <HeaderImg src="/sustainable-impact.jpg" alt='Sustainable img' />
+                        <HeaderImg
+                            src="/sustainable-impact.jpg"
+                            alt="Sustainable img"
+                        />
 
                         <HeaderImgContent>
                             {/* <Paragraph>18•12•2021</Paragraph> */}
@@ -57,7 +62,7 @@ const AboutUsPage = () => {
                     </ImgContainer>
 
                     <ContentSection>
-                        <Heading3>Who we are?</Heading3>
+                        <Heading3>Who are we?</Heading3>
 
                         <Paragraph>
                             We are a young group of individuals passionate about
@@ -74,17 +79,16 @@ const AboutUsPage = () => {
                         <Heading3>Making E-commerce Eco-friendly</Heading3>
 
                         <Paragraph>
-                            With everyone buying online, we knew there was a way
-                            to make it sustainable for ourselves and the planet!
-                            From making sure our raw materials are
-                            earth-friendly to sourcing our products from
-                            factories that follow good manufacturing practices
-                            to ensuring workers in the supply chain are treated
-                            fairly, we are eco-conscious and transparent at
-                            every stage. We only sell products that have been
-                            tested and meet some of the most stringent
-                            requirements to gain the approval of the
-                            environmental community.
+                            With everyone buying online, we know there is a way
+                            to make it sustainable for us and the planet. We
+                            make sure our raw materials are earth-friendly by
+                            sourcing our products from factories that follow
+                            good manufacturing practices to ensure workers in
+                            the supply chain are fairly treated. We are
+                            eco-conscious and transparent at every stage. We
+                            only sell products that have been tested and meet
+                            some of the most stringent requirements to gain the
+                            approval of the environmental community.
                         </Paragraph>
                     </ContentSection>
 
@@ -110,9 +114,8 @@ const AboutUsPage = () => {
                                 </Heading4>
 
                                 <Paragraph>
-                                    We believe that animal testing is cruel. We
-                                    respect animals and believe that every life
-                                    matters.
+                                We believe that animal testing is cruel. We respect animals and believe that every life matters.
+
                                 </Paragraph>
                             </BulletPoint>
 
@@ -122,10 +125,7 @@ const AboutUsPage = () => {
                                 </Heading4>
 
                                 <Paragraph>
-                                    We make sure all the people who come
-                                    together to bring you the product are
-                                    respected and their rights are not violated
-                                    in any way.
+                                We make sure all the people who come together to bring you the product are respected and their rights are not violated.
                                 </Paragraph>
                             </BulletPoint>
 
@@ -160,20 +160,11 @@ const AboutUsPage = () => {
                         <Heading3>Causes we support</Heading3>
 
                         <Paragraph>
-                            We believe creating awareness of critical issues is
-                            the first step towards positive action. This is
-                            precisely why we have weekly blog posts on topics
-                            related to climate change, sustainability,
-                            lifestyle, and the environment. Make sure you
-                            <b> subscribe </b> to receive our weekly posts and
-                            follow us on our social media handles for more.
+                        Creating awareness of critical issues is the first step toward positive action. This is precisely why we have weekly blog posts on topics related to climate change, sustainability, lifestyle, and the environment. Make sure you <b>subscribe</b> to receive our weekly posts and follow us on our social media handles for more.
                         </Paragraph>
 
                         <Paragraph>
-                            Do you have a cause that you think deserves support?
-                            Would you like to volunteer with us? or are you in
-                            need of clean-up equipment? We are happy to
-                            collaborate with you. Please reach out to us at
+                        Do you have a cause that you think deserves support? Would you like to volunteer with us? or are you in need of clean-up equipment? We are happy to collaborate with you. Please reach out to us at 
                             <b>
                                 {' '}
                                 <a href="mailto:connect@sellsage.com">

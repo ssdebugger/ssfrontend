@@ -418,7 +418,7 @@ export const DynamicPage = ({ products }) => {
                                                         )
                                                     }
                                                 >
-                                                    6 inch
+                                                    6 inches
                                                 </SizeDesc>
                                             </Size>
 
@@ -434,7 +434,7 @@ export const DynamicPage = ({ products }) => {
                                                         )
                                                     }
                                                 >
-                                                    7 inch
+                                                    7 inches
                                                 </SizeDesc>
                                             </Size>
 
@@ -450,7 +450,7 @@ export const DynamicPage = ({ products }) => {
                                                         )
                                                     }
                                                 >
-                                                    10 inch
+                                                    10 inches
                                                 </SizeDesc>
                                             </Size>
 
@@ -466,7 +466,7 @@ export const DynamicPage = ({ products }) => {
                                                         )
                                                     }
                                                 >
-                                                    11 inch
+                                                    11 inches
                                                 </SizeDesc>
                                             </Size>
 
@@ -482,7 +482,7 @@ export const DynamicPage = ({ products }) => {
                                                         )
                                                     }
                                                 >
-                                                    14 inch
+                                                    14 inches
                                                 </SizeDesc>
                                             </Size>
                                         </SizeContainer>

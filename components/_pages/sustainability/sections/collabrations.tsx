@@ -89,16 +89,16 @@ export const Collabrations = () => {
                     <Paragraph>
                         We collaborated with Ocean beach clean-up and supplied
                         them with our compostable gloves for their beach
-                        cleaning campaign. Volunteering at a clean-up campaign
-                        and looking to avoid plastic?
+                        cleaning campaign. Are you volunteering at a clean-up
+                        campaign and looking to avoid plastic?
                     </Paragraph>
 
                     <Paragraph>
                         <HyperLink varient="tertiary" href="/contact-us">
                             Shoot us an email
-                        </HyperLink>{' '}
-                        and we would be happy to collaborate with and provide
-                        gloves at a discount!
+                        </HyperLink>
+                        , and we would be happy to collaborate with you and
+                        provide gloves at a discount!
                     </Paragraph>
 
                     <BlockQuote>

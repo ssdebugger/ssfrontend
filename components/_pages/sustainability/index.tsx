@@ -55,7 +55,7 @@ const Sustainability = () => {
     return (
         <>
             <Head>
-            <meta
+                <meta
                     name="title"
                     content="Sustainability | Plastic-Free & Compostable for the Future"
                 ></meta>
@@ -63,7 +63,9 @@ const Sustainability = () => {
                     name="description"
                     content="Ethically sourced, plastic-free & sustainable is our motto! Reduce your waste, choose compostable with our palm leaf plates & dinnerware. Make the world greener"
                 ></meta>
-                <title>Sustainability | Plastic-Free & Compostable for the Future</title>
+                <title>
+                    Sustainability | Plastic-Free & Compostable for the Future
+                </title>
             </Head>
 
             <LandingLayout>
@@ -74,11 +76,11 @@ const Sustainability = () => {
 
                     <IntroText>
                         <Paragraph>
-                            We, at SellSage, want to help divert waste from
-                            these landfills to compost. As of mid-2021 we have
-                            helped divert 10 tons of waste from landfills and
-                            hope for more in the future. This is about the same
-                            weight as a small aircraft or a military tanker.
+                            We at SellSage, want to help divert waste from these
+                            landfills to compost. As of mid-2021, we have helped
+                            divert 10 tons of waste from landfills and hope for
+                            more in the future. This is about the same weight as
+                            a small aircraft or a military tanker.
                         </Paragraph>
                     </IntroText>
 

@@ -170,7 +170,7 @@ export const MobileNav: React.FC<Props> = ({ showNav, toggleNavFn }) => {
             {!isLoggedIn && (
                 <JoinUsSection onClick={toggleNavFn}>
                     <Paragraph>
-                        Become a Sellsage memeber and help fight climate change.
+                        Become a Sellsage member and help fight climate change.
                     </Paragraph>
 
                     <JoinUsLinks>
