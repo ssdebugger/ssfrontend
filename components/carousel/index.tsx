@@ -167,13 +167,13 @@ export const Carousel = () => {
                         <HyperLink href="/shop">
                             <MobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/offer/mothersday_mobile.png"
+                                src="/carouselimages/offer/mothersday_mobile.jpg"
                                 alt="Mothers Day offer"
                             />
 
                             <DesktopImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/offer/mothersday_desktop.png"
+                                src="/carouselimages/offer/mothersday_desktop.jpg"
                                 alt="Mothers Day offer"
                             />
                         </HyperLink>
@@ -200,13 +200,13 @@ export const Carousel = () => {
                         <HyperLink href="/shop">
                             <MobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/plantry/gloveupmobile_comp.png"
+                                src="/carouselimages/plantry/gloveupmobile_comp.jpg"
                                 alt="Gloveup Banner"
                             />
 
                             <DesktopImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/plantry/gloveupdesktop_comp.png"
+                                src="/carouselimages/plantry/gloveupdesktop_comp.jpg"
                                 alt="Gloveup Banner"
                             />
                         </HyperLink>
@@ -215,13 +215,13 @@ export const Carousel = () => {
                         <HyperLink href="/shop">
                             <MobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/Gloveup/gloveupmobile_comp.png"
+                                src="/carouselimages/Gloveup/gloveupmobile_comp.jpg"
                                 alt="Gloveup Banner"
                             />
 
                             <DesktopImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/Gloveup/gloveupdesktop_comp.png"
+                                src="/carouselimages/Gloveup/gloveupdesktop_comp.jpg"
                                 alt="Gloveup Banner"
                             />
                         </HyperLink>

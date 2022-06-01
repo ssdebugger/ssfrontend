@@ -34,13 +34,13 @@ export const Infographic = () => {
         <Container>
             <MobileImg
                 sizes="(max-width: 706px) 100vw, 706px"
-                src="/carouselimages/plantry/plantrymobile_comp.png"
+                src="/carouselimages/plantry/plantrymobile_comp.jpg"
                 alt="Plantry Banner"
             />
 
             <DesktopImg
                 sizes="(max-width: 706px) 100vw, 706px"
-                src="/carouselimages/plantry/plantrydesktop_comp.png"
+                src="/carouselimages/plantry/plantrydesktop_comp.jpg"
                 alt="Plantry Banner"
             />
         </Container>
