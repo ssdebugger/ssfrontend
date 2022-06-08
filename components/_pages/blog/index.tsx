@@ -36,6 +36,7 @@ export interface PropsData {
  * Helper functions required in blog page
  */
 function formatDate(date) {
+    
     date = new Date(date)
     var year = date.getFullYear()
     var month = (1 + date.getMonth()).toString()
