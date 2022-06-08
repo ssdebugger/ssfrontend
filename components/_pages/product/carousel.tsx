@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 
 const Carousel = (props) => {
     const router = useRouter()
@@ -28,7 +29,9 @@ const Carousel = (props) => {
                 <div className="slides">
                     {images.map((e, i) => (
                         <div key={i} id={'slide-' + i}>
-                            <img src={images[i]} alt={props.alt} />
+                            {/* <Image src={images[i]} alt={props.alt} height="50%" width="50%" 
+                            objectFit='cover' layout='responsive' /> */}
+                           <img src={images[i]} alt={props.alt}  loading="lazy" />
                         </div>
                     ))}
                 </div>
@@ -39,10 +42,13 @@ const Carousel = (props) => {
                                 key={i}
                                 onClick={(e) => returnfunc(e, 'slide-' + i)}
                             >
+                                  {/* <Image src={images[i]} alt={props.alt} height="50%" width="100%" 
+                            objectFit='cover' layout='responsive' className='link' />  */}
                                 <img
                                     className="link"
                                     src={images[i]}
                                     alt={props.alt}
+                                    loading="lazy"
                                 />
                             </a>
                         ))}

@@ -40,6 +40,7 @@ import { useState, useRef, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { Header } from '@/components/header'
 import Footer from '@/components/footer'
+import Image from 'next/image'
 
 export const DynamicPage = ({ products }) => {
     const router = useRouter()
@@ -544,12 +545,16 @@ export const DynamicPage = ({ products }) => {
                                         )}
 
                                         <TileHero>
-                                            <ProductImg
-                                                src={e['imageurl']}
-                                                alt="image"
+                                            <Image 
+                                             src={e['imageurl']}
+                                             alt="image"
+                                             height="100%"
+                                             width="100%"
+                                             objectFit='cover'
+                                             layout='responsive'
                                             />
                                             <LifeStyleImg
-                                                src={e['lifeimageurl']}
+                                                 src={e['lifeimageurl']}
                                                 loading="lazy"
                                                 alt="image"
                                             />

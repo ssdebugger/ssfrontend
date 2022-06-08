@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 import { Heading3, Heading4 } from '@/components/typography/heading'
 import { Paragraph } from '@/components/typography/paragraph'
-
+import Image from 'next/image'
 import Link from 'next/link'
 import {
     BrandCard,
@@ -60,7 +60,8 @@ export const Bundle = () => {
 
                 <BrandCard>
                     <BrandImgContainer>
-                        <BrandImg src="/brands/gloveup.jpg" alt="image" />
+                        <Image style={{height:'auto',aspectRatio:'16/9'}} src="/brands/gloveup.jpg" alt="image" height="60%" 
+                         width="100%" objectFit='contain' layout='responsive'/>
                     </BrandImgContainer>
 
                     <BrandContent>
@@ -75,7 +76,8 @@ export const Bundle = () => {
 
                 <BrandCard>
                     <BrandImgContainer>
-                        <BrandImg src="/brands/plantry.jpg" alt="image" />
+                    <Image style={{height:'auto',aspectRatio:'16/9'}} src="/brands/plantry.jpg" alt="image" height="60%" 
+                         width="100%" objectFit='contain' layout='responsive'/>
                     </BrandImgContainer>
 
                     <BrandContent>

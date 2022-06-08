@@ -2,6 +2,7 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
 import { ShoppingBag, Check } from 'react-feather'
+import Image from 'next/image'
 
 import { Heading3, SubHeading,MainHeading } from '@/components/typography/heading'
 import { Paragraph } from '@/components/typography/paragraph'
@@ -51,10 +52,10 @@ export const ProductImageContainer = styled.div`
     min-height: 200px;
 `
 
-export const ProductImage = styled.img`
-    width: 100%;
-    height: auto;
-`
+// export const ProductImage = styled.img`
+//     width: 100%;
+//     height: auto;
+// `
 
 export const ProductContent = styled.div`
     h2 {
@@ -195,10 +196,14 @@ export const ProductCard = (props) => {
 
             <ProductContainer href={'/' + props.sku}>
                 <ProductImageContainer>
-                    <ProductImage
+                    <Image
                         src={props.image}
                         alt="image"
                         loading="lazy"
+                        height="100%"
+                        width="100%"
+                        layout='responsive'
+                        objectFit='contain'
                     />
                 </ProductImageContainer>
 

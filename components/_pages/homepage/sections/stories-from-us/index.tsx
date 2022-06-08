@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-
+import Image from 'next/image'
 import { Heading3, Heading4 } from '@/components/typography/heading'
 import { HomepageContainerStyles } from '../../style'
 import { Paragraph } from '@/components/typography/paragraph'
@@ -90,7 +90,8 @@ const Post = (props) => {
         <Article>
             <BlogPost>
                 <BlogPostImgContainer>
-                    <BlogPostImg src={props.img} alt='image' />
+                    <Image style={{aspectRatio:'2/3'}} src={props.img} alt='image' width="100%" height="150%" 
+                     objectFit='cover' layout='responsive'/>
                 </BlogPostImgContainer>
 
                 <BlogPostContent>

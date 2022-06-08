@@ -6,7 +6,7 @@ module.exports = {
         styledComponents: true,
     } ,
     images: {
-        domains: ['cdn.sanity.io'],
+        domains: ['cdn.sanity.io','ss-compressedimages.s3.amazonaws.com'],
     },
 }
 
