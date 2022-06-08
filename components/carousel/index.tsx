@@ -169,14 +169,14 @@ export const Carousel = () => {
                                 sizes="(max-width: 706px) 100vw, 706px"
                                 src="/carouselimages/offer/mothersday_mobile.webp"
                                 alt="Mothers Day offer"
-                                loading='lazy'
+                            
                             />
 
                             <DesktopImg
                                 sizes="(max-width: 706px) 100vw, 706px"
                                 src="/carouselimages/offer/mothersday_desktop.webp"
                                 alt="Mothers Day offer"
-                                loading='lazy'
+                            
                             />
                         </HyperLink>
                     </div>
