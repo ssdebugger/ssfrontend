@@ -91,7 +91,7 @@ const Post = (props) => {
             <BlogPost>
                 <BlogPostImgContainer>
                     <Image style={{aspectRatio:'2/3'}} src={props.img} alt='image' width="100%" height="150%" 
-                     objectFit='cover' layout='responsive'/>
+                     objectFit='cover' layout='responsive' />
                 </BlogPostImgContainer>
 
                 <BlogPostContent>

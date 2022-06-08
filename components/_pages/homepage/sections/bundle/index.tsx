@@ -60,7 +60,7 @@ export const Bundle = () => {
 
                 <BrandCard>
                     <BrandImgContainer>
-                        <Image style={{height:'auto',aspectRatio:'16/9'}} src="/brands/gloveup.jpg" alt="image" height="60%" 
+                        <Image style={{aspectRatio:'16/9'}} src="/brands/gloveup.jpg" alt="image" height="60%" 
                          width="100%" objectFit='contain' layout='responsive'/>
                     </BrandImgContainer>
 
@@ -76,7 +76,7 @@ export const Bundle = () => {
 
                 <BrandCard>
                     <BrandImgContainer>
-                    <Image style={{height:'auto',aspectRatio:'16/9'}} src="/brands/plantry.jpg" alt="image" height="60%" 
+                    <Image style={{aspectRatio:'16/9'}} src="/brands/plantry.jpg" alt="image" height="60%" 
                          width="100%" objectFit='contain' layout='responsive'/>
                     </BrandImgContainer>
 

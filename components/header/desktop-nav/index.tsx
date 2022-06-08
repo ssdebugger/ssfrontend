@@ -66,6 +66,7 @@ export const DesktopNav: React.FC<Props> = ({ NavLinksData }) => {
                                                         blogJson[0]['image_url']
                                                     }
                                                     alt="The story behind Sellsage"
+                                                    loading='lazy'
                                                 />
                                                 <Heading4>
                                                     {blogJson[0]['title']}
@@ -84,6 +85,7 @@ export const DesktopNav: React.FC<Props> = ({ NavLinksData }) => {
                                                 <BlogImg
                                                     src='/main.jpg'
                                                     alt="The story behind Sellsage"
+                                                    loading='lazy'
                                                 />
                                                 <Heading4>
                                                     {blogJson[2]['title']}

@@ -167,14 +167,16 @@ export const Carousel = () => {
                         <HyperLink href="/shop">
                             <MobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/offer/mothersday_mobile.jpg"
+                                src="/carouselimages/offer/mothersday_mobile.webp"
                                 alt="Mothers Day offer"
+                                loading='lazy'
                             />
 
                             <DesktopImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/offer/mothersday_desktop.jpg"
+                                src="/carouselimages/offer/mothersday_desktop.webp"
                                 alt="Mothers Day offer"
+                                loading='lazy'
                             />
                         </HyperLink>
                     </div>
@@ -200,14 +202,16 @@ export const Carousel = () => {
                         <HyperLink href="/shop">
                             <MobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/plantry/gloveupmobile_comp.jpg"
+                                src="/carouselimages/plantry/gloveupmobile_comp.webp"
                                 alt="Gloveup Banner"
+                                loading='lazy'
                             />
 
                             <DesktopImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/plantry/gloveupdesktop_comp.jpg"
+                                src="/carouselimages/plantry/gloveupdesktop_comp.webp"
                                 alt="Gloveup Banner"
+                                loading='lazy'
                             />
                         </HyperLink>
                     </div>
@@ -215,14 +219,16 @@ export const Carousel = () => {
                         <HyperLink href="/shop">
                             <MobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/Gloveup/gloveupmobile_comp.jpg"
+                                src="/carouselimages/Gloveup/gloveupmobile_comp.webp"
                                 alt="Gloveup Banner"
+                                loading='lazy'
                             />
 
                             <DesktopImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/Gloveup/gloveupdesktop_comp.jpg"
+                                src="/carouselimages/Gloveup/gloveupdesktop_comp.webp"
                                 alt="Gloveup Banner"
+                                loading='lazy'
                             />
                         </HyperLink>
                     </div>
