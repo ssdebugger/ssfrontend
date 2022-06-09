@@ -6,7 +6,8 @@ import { ChevronLeft, ChevronRight } from 'react-feather'
 
 const MobileImg = styled.img`
     display: block;
-    min-width: 100%;
+    width: 100%;
+    height:266px;
     aspect-ratio: 1:1;
     @media (min-width: ${(props) => props.theme.screenMd}) {
         display: none;
@@ -14,8 +15,8 @@ const MobileImg = styled.img`
 `
 const DesktopImg = styled.img`
     display: none;
-    min-width: 100%;
-    aspect-ratio: 16:9;
+    min-width:100%;
+    height:500px;
     @media (min-width: ${(props) => props.theme.screenMd}) {
         display: block;
     }
