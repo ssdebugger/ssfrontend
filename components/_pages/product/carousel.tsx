@@ -31,7 +31,7 @@ const Carousel = (props) => {
                         <div key={i} id={'slide-' + i}>
                             {/* <Image src={images[i]} alt={props.alt} height="50%" width="50%" 
                             objectFit='cover' layout='responsive' /> */}
-                           <img src={images[i]} alt={props.alt}  loading="lazy" />
+                           <img src={images[i]} alt={props.alt}  />
                         </div>
                     ))}
                 </div>
