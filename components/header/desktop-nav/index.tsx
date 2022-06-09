@@ -12,7 +12,7 @@ import {
 } from './desktop-nav.style'
 import { HyperLink } from '@/components/header'
 import { Heading3, Heading4 } from '@/components/typography/heading'
-import blogJson from '../../../cummulative.json'
+
 
 interface Props {
     NavLinksData: any
@@ -62,14 +62,12 @@ export const DesktopNav: React.FC<Props> = ({ NavLinksData }) => {
                                                 }
                                             >
                                                 <BlogImg
-                                                    src={
-                                                        blogJson[0]['image_url']
-                                                    }
+                                                    src='/headerimage2.jpg'
                                                     alt="The story behind Sellsage"
                                                     loading='lazy'
                                                 />
                                                 <Heading4>
-                                                    {blogJson[0]['title']}
+                                                Not your trash… still your responsibility, here’s why!
                                                 </Heading4>
                                                 <span>Read more</span>
                                             </HyperLink>
@@ -88,7 +86,7 @@ export const DesktopNav: React.FC<Props> = ({ NavLinksData }) => {
                                                     loading='lazy'
                                                 />
                                                 <Heading4>
-                                                    {blogJson[2]['title']}
+                                                Sustainable Living: Where to Start & How to Stay Consistent
                                                 </Heading4>
                                                 <span>Read more</span>
                                             </HyperLink>

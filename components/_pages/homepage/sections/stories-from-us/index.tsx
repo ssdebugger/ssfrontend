@@ -5,7 +5,6 @@ import { HomepageContainerStyles } from '../../style'
 import { Paragraph } from '@/components/typography/paragraph'
 import { ScrollbarStyles } from 'theme'
 import { HyperLink } from '@/components/cta/link'
-import blogJson from '../../../../../cummulative.json'
 import { Item } from '@/components/carousel/style'
 
 const StoriesFromUsContainer = styled.section`

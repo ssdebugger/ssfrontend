@@ -13,7 +13,6 @@ import { InstagramPosts } from './sections/instagram'
 
 const HomepageMain = styled.main`
     margin-top: 50px;
-
     @media (min-width: ${(props) => props.theme.screenMd}) {
         margin: 0;
     }

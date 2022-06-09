@@ -9,7 +9,8 @@ import { Collabrations } from './sections/collabrations'
 import { CommonGrid } from './sections/common-grid'
 import { IntroVideo } from './sections/intro-video'
 import { ImpactContainer, ImpactContainerStyles } from './impact.style'
-import blogJson from '../../../cummulative.json'
+
+
 
 const Data = [
     {
