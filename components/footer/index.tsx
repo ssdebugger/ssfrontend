@@ -212,7 +212,7 @@ const Footer = () => {
                         <IconsHolder>
                             <AccrIcons
                                 loading="lazy"
-                                src="/certificates/nmsdc-transparent.png"
+                                src="/certificates/nmsdc-transparent.webp"
                                 alt='image'
                             />
                             <AccrIcons
