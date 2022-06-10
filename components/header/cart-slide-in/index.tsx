@@ -55,6 +55,8 @@ interface Props {
 const initialCouponValue = { id: '', minSpend: 0, amount: 0, type: '' }
 
 export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
+    const  offerproducts=['PALM-HRTB-0500-0020','BNDL-CSET-0000-0300','BNDL-SQDB-0710-0030','PALM-OVLB-0510-0020'
+    ,'PALM-RTGT-0906-0020','PALM-RTGT-0703-0020']
     const { cart } = useCart()
     const [alert, setAlert] = useState('')
     const [originalPrice, setOriginalPrice] = useState(0)
@@ -108,17 +110,14 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
         if (coupon.minSpend >= originalCartValue) {
             return 0
         }
-
         let cartValue = originalCartValue
-
-        // for (let i = 0; i < cart.length; i++) {
-        //     if (
-        //         cart[i].sku === 'BNDL-CPBN-0710-0360' ||
-        //         cart[i].sku === 'BNDL-SHBD-0710-0360'
-        //     ) {
-        //         cartValue -= cart[i].price*cart[i].quantity
-        //     }
-        // }
+        for (let i = 0; i < cart.length; i++) {
+            if (
+                offerproducts.includes(cart[i].sku)
+            ) {
+                cartValue -= cart[i].price*cart[i].quantity
+            }
+        }
 
         let discountValue = cartValue * (coupon.amount / 100)
         return limitDecimal(discountValue)
@@ -149,8 +148,7 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
         var productcheck = false
         for (let i = 0; i < cart.length; i++) {
             if (
-                cart[i].sku !== 'BNDL-CPBN-0710-0360' &&
-                cart[i].sku !== 'BNDL-SHBD-0710-0360'
+                offerproducts.includes(cart[i].sku)
             ) {
                 setShouldClickCoupon(true)
                 productcheck = true
@@ -241,7 +239,7 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
                             <CustomCoupon
                                 setAlert={setAlert}
                                 setDiscount={setDiscount}
-                                originalBagValue={originalPrice}
+                                offerproducts={offerproducts}
                                 customCouponDetails={customCouponDetails}
                                 setCustomCouponDetails={setCustomCouponDetails}
                             />

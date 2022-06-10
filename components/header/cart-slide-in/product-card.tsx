@@ -157,14 +157,16 @@ export const ProductCard: React.FC<ProductProps> = ({
     const alert = useAlert()
     const addToCart = useAddItem()
     const removeFromCart = useRemoveItem()
+    const  offerproducts=['PALM-HRTB-0500-0020','BNDL-CSET-0000-0300','BNDL-SQDB-0710-0030','PALM-OVLB-0510-0020'
+    ,'PALM-RTGT-0906-0020','PALM-RTGT-0703-0020']
 
     let discountValue = price * (discountAmount / 100)
-    // let discountedPrice =
-    //     sku === 'BNDL-CPBN-0710-0360' || sku === 'BNDL-SHBD-0710-0360'
-    //         ? price
-    //         : limitDecimal(price - discountValue)
+    let discountedPrice =
+        offerproducts.includes(sku)
+            ? price
+            : limitDecimal(price - discountValue)
 
-    let discountedPrice = limitDecimal(price - discountValue)
+    // let discountedPrice = limitDecimal(price - discountValue)
 
     async function cartApiOperations(
         actionType: 'SQC' | 'RFC',
@@ -240,15 +242,13 @@ export const ProductCard: React.FC<ProductProps> = ({
             </CardImgContainer>
 
             <CardContent>
-                {/* {price !== discountedPrice ? (
+                {price !== discountedPrice ? (
                     <CouponStatus>Coupon Applied</CouponStatus>
-                ) : sku === 'BNDL-CPBN-0710-0360' ? (
-                    <CouponStatus>Pre Discounted Item</CouponStatus>
-                ) : (
-                    sku === 'BNDL-SHBD-0710-0360' && (
-                        <CouponStatus>Pre Discounted Item</CouponStatus>
-                    )
-                )} */}
+                ) : (offerproducts.includes(sku) ? <CouponStatus>Pre Discounted Item</CouponStatus> :
+                  null
+                )
+                    
+              }
                 <Heading4>{title}</Heading4>
                 <Paragraph>Tableware</Paragraph>
 
