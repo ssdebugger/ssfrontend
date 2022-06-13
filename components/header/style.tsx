@@ -3,22 +3,25 @@ import styled from 'styled-components'
 export const HeaderContent = styled.div`
     z-index: 15;
     width: 100%;
-    transition: opacity 0.2s ease, transform 0.3s ease;
-    transform-origin: top;
+    position:sticky;
+    top:0;
+    left:0;
+`   
+   // transition: opacity 0.2s ease, transform 0.3s ease;
+    // transform-origin: top;
 
-    &.is-hidden {
-        opacity: 0;
-        transition: transform 0.2s ease-in-out, opacity 0.3s ease-in-out;
-        pointer-events: none;
-    }
+    // &.is-hidden {
+    //     opacity: 0;
+    //     transition: transform 0.2s ease-in-out, opacity 0.3s ease-in-out;
+    //     pointer-events: none;
+    // }
 
-    &.is-fixed {
-        position: fixed;
-        top: 0;
-        left: 0;
-        transition: transform: 0.2s ease, opacity 0.25s ease;
-    }
-`
+    // &.is-fixed {
+    //     position: fixed;
+    //     top: 0;
+    //     left: 0;
+    //     transition: transform: 0.2s ease, opacity 0.25s ease;
+    // }
 
 export const HeaderContainer = styled.header`
     position: relative;
