@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import {  useState } from 'react'
 import { usePlacesWidget } from 'react-google-autocomplete'
 import { Button } from '@/components/buttons'
 import { useAddUser, useUser } from '@/context/user'

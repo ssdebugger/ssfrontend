@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import { useAlert } from 'react-alert'
-import Image from 'next/image'
 
 import { Heading4 } from '@/components/typography/heading'
 import {

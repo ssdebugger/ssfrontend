@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react'
-import styled from 'styled-components'
+
 // utility functions
 import { getFromLocal,setToLocal } from '@/utils/local-storage'
 import { getCustomCoupon } from '@/utils/get-custom-coupon'

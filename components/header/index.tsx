@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState} from 'react'
 import Link from 'next/link'
 import { ShoppingBag, Menu, X, Heart } from 'react-feather'
 
@@ -6,7 +6,6 @@ import { Search } from './search'
 
 import {
     BrandContainer,
-    BrandIcon,
     BrandNameIcon,
     ButtonGroup,
     HeaderButton,
@@ -18,7 +17,6 @@ import {
     SearchAndButtonGroup,
 } from './style'
 
-import { Paragraph } from '../typography/paragraph'
 import { TopBar } from './top-bar'
 import { DesktopNav } from './desktop-nav'
 import { useAuth } from 'context/auth'

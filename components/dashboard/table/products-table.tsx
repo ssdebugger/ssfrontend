@@ -2,7 +2,6 @@ import {
     PopupProps,
     ProductType,
 } from '@/components/_pages/admin-dashboard/products'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import {
     CellBody,

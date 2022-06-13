@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import { Input } from '@/components/input/oldInput'
-import { Header } from '@/components/header'
 import  Auth  from '@aws-amplify/auth'
 import { LandingLayout } from 'components/layout/landing'
 import {

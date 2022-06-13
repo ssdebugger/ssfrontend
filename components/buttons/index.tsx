@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import React, { ForwardedRef } from 'react'
+import React from 'react'
 
 type ButtonStyleProps = {
     varient?: 'primary' | 'secondary'

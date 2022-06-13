@@ -45,10 +45,8 @@ import { Checkbox } from '@/components/checkbox'
 import {
     Billboard,
     BillboardImg,
-    BillboardHeading,
     BillboardContent,
-    BillboardDesc,
-    BillboardCta,
+   
     BrandPageContainer,
     FeaturesContainer,
     Feature,
@@ -57,15 +55,13 @@ import {
     FeatureContent,
     FeatureDesc,
     FeatureBlock,
-    BlockHeading,
-    BlockDesc,
+  
     AboutBrandContainer,
     AboutBrandContent,
-    AboutBrandHeading,
-    AboutBrandDesc,
+   
     BrandImage,
 } from './style'
-import { Header } from '@/components/header'
+
 import { HyperLink } from '@/components/cta/link'
 import { MainHeading, SubHeading } from '@/components/typography/heading'
 

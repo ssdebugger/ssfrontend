@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Head from 'next/head'
 import { Header } from '@/components/header'
-import  Auth  from '@aws-amplify/auth'
+import  Auth from '@aws-amplify/auth'
 import Confirm from './confirm'
 import Popup from './popup'
 

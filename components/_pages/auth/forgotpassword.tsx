@@ -9,7 +9,7 @@ import { Input } from '@/components/input'
 import { LandingLayout } from '@/components/layout/landing'
 import { HyperLink } from '@/components/header'
 import { Paragraph } from '@/components/typography/paragraph'
-import { SubHeading,MainHeading } from '@/components/typography/heading'
+import { MainHeading } from '@/components/typography/heading'
 
 import { Form, InputContainer, Content, AlertContainer } from './auth.style'
 import { AlertBar } from '@/components/alert/alert-bar'

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import Footer from '@/components/footer'
 import { LandingLayout } from '@/components/layout/landing'
-import { SubHeading,MainHeading } from '@/components/typography/heading'
+import { MainHeading } from '@/components/typography/heading'
 import { Paragraph } from '@/components/typography/paragraph'
 import { HyperLink } from '@/components/header'
 import { ArrowLeft } from 'react-feather'

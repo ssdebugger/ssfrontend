@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import { Header, HyperLink } from '@/components/header'
+import { Header} from '@/components/header'
 import {
     ContentSection,
     FixedCol,

@@ -1,6 +1,5 @@
 
-import { useState } from 'react';
-import { Heart, Star } from 'react-feather';
+import { Star } from 'react-feather';
 import { RatingsContainer } from 'components/card/style'
 
 

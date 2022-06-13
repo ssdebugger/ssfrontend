@@ -7,7 +7,6 @@ import {
     CloseBtn,
     CouponAlertContainer,
     CouponsContainer,
-    PriceContainer,
     ProductsContainer,
     ProductsList,
     SlideInBg,
@@ -16,7 +15,6 @@ import {
 } from './cart-slide-in.style'
 import { ProductCard } from './product-card'
 import { AlertContainer } from '@/components/_pages/auth/auth.style'
-import { Button } from '@/components/buttons'
 import { CouponList } from './coupons/coupon-list'
 import { CustomCoupon } from './coupons/custom-coupon'
 import { limitDecimal } from '@/utils/limt-decimal'

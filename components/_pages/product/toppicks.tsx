@@ -1,4 +1,4 @@
-import { Heading3, SubHeading } from '../../typography/heading'
+import { Heading3 } from '../../typography/heading'
 import { Container } from '../../container/regular'
 import { ProductCard } from '@/components/card/product-card/v1'
 import { GridContainer } from '@/components/_pages/homepage/style'

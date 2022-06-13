@@ -10,8 +10,6 @@ export const CustomerReview: React.FC<CustomerReviewProps> = ({
     username,
     postedOn,
     reviewTitle,
-    description,
-    rating,
     images,
 }) => {
     const ReviewContainer = styled.div`

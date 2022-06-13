@@ -6,7 +6,6 @@ import { LandingLayout } from '@/components/layout/landing'
 import { Paragraph } from '@/components/typography/paragraph'
 import { Banner } from './sections/banner'
 import { Collabrations } from './sections/collabrations'
-import { CommonGrid } from './sections/common-grid'
 import { IntroVideo } from './sections/intro-video'
 import { ImpactContainer, ImpactContainerStyles } from './impact.style'
 

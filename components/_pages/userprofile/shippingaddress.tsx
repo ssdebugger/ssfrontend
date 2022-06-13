@@ -1,15 +1,12 @@
 import { Typography } from 'components/_pages/product/index.style'
-import { AddressBox, Save, Boxbutton, Boxdefault } from './style'
-import { useEffect } from 'react'
+import { AddressBox, Save, Boxdefault } from './style'
 import { useUser, useAddUser, useRemoveUser } from 'context/user'
 import Popup from '../auth/popup'
-import { GridContainer, GridItem } from '../homepage/style'
+import {  GridItem } from '../homepage/style'
 import { Heading4 } from '@/components/typography/heading'
-import { Button } from '@/components/buttons'
 import { Container } from 'components/container/regular'
 import styled from 'styled-components'
 import Autocompleteform from '../billing/autocomplete'
-import { Checkbox } from '@/components/checkbox'
 import { useState } from 'react'
 
 const Shippingaddress = () => {

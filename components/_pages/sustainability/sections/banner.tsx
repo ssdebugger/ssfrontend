@@ -1,6 +1,5 @@
 import styled from 'styled-components'
-import Image from 'next/image'
-import { Heading3, MainHeading } from '@/components/typography/heading'
+import {  MainHeading } from '@/components/typography/heading'
 import { ImpactContainerStyles } from '../impact.style'
 
 const BannerContainer = styled.div`

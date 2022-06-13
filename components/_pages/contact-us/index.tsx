@@ -9,7 +9,6 @@ import { MainHeading } from '@/components/typography/heading'
 import { Paragraph } from '@/components/typography/paragraph'
 import { Mail, MapPin, Phone } from 'react-feather'
 import Footer from '@/components/footer'
-import { GetCartItems } from '@/utils/get-cart-items'
 import { useState } from 'react'
 
 const ContactUsContainer = styled.div`

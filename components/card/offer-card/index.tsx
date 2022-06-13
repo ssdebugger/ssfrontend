@@ -2,9 +2,9 @@ import styled from 'styled-components'
 import { Gift, Home } from 'react-feather'
 import Link from 'next/link'
 
-import { Heading4,MainHeading } from '@/components/typography/heading'
+import { MainHeading } from '@/components/typography/heading'
 import { Paragraph } from '@/components/typography/paragraph'
-import { HyperLink } from '@/components/cta/link'
+
 
 const OfferCardContainer = styled.div`
     display: flex;

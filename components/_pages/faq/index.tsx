@@ -17,7 +17,7 @@ import {
 import { TopBanner } from './top-banner'
 import Footer from '@/components/footer'
 import { scrollToElement } from '@/utils/scrollToElement'
-import { HyperLink } from '@/components/header'
+
 
 const FaqPage = () => {
     const [activeLink, setActiveLink] = useState('general')

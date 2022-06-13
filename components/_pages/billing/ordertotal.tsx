@@ -1,12 +1,9 @@
 import { GridContainer, GridItem } from '../homepage/style'
 import { Typography } from '../product/index.style'
-import { Button } from 'components//buttons'
-import { useRouter } from 'next/router'
 import { SectionHeading } from '../homepage/style'
 import { useEffect, useState } from 'react'
 
 const BillingDetails = (props) => {
-    const router = useRouter()
     const shipping = 0
     const tax = 0
     const position = props.position

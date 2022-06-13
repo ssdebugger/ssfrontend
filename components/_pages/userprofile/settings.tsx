@@ -1,5 +1,5 @@
 import { Typography } from 'components/_pages/product/index.style'
-import { InputField, Save, DropDown } from './style'
+import { InputField, Save } from './style'
 import { GridContainer, GridItem } from '../homepage/style'
 import { useState } from 'react'
 import Auth from '@aws-amplify/auth'

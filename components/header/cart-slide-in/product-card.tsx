@@ -7,7 +7,6 @@ import { Paragraph } from '@/components/typography/paragraph'
 
 import { CartItem } from '@/types/cart'
 import { useAddItem, useRemoveItem } from '@/context/cart'
-import { getFromLocal } from '@/utils/local-storage'
 import { limitDecimal } from '@/utils/limt-decimal'
 
 const CardContainer = styled.div`

@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
 import Footer from '@/components/footer'
-import { Header } from '@/components/header'
+
 import { MainHeading } from '@/components/typography/heading'
 
 import { LandingLayout } from 'components/layout/landing'

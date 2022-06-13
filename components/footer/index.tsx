@@ -8,7 +8,6 @@ import {
     Copyright,
     FooterWrapper,
 } from './style'
-import Link from 'next/link'
 import { GridContainer, GridItem } from '../_pages/homepage/style'
 import { Typography } from '../_pages/product/index.style'
 import { Instagram, Copy } from 'react-feather'

@@ -9,7 +9,7 @@ import {
     Check,
     CheckCircle,
     Circle,
-    Square,
+    
 } from 'react-feather'
 import {
     OrderCardMain,
@@ -22,7 +22,6 @@ import {
     OrderItemDetails,
     BottomButtons,
     OrderCardContainer,
-    OrderCardStatusbar,
     OrderStatusText,
     OrderStatusBarContainer,
     OrderStatusContainer,

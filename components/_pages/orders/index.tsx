@@ -1,23 +1,17 @@
 import Head from 'next/head'
 
 import {
-    Container,
-    FilterButton,
-    SearchBar,
-    SearchContainer,
-    SearchAndFilterContaienr,
+ 
     OrderOptions,
     OrderOption,
     OrderOptionsContainer,
     Main,
 } from './order-page-styles'
 
-import { Header } from '@/components/header'
 import Footer from '@/components/footer'
 
-import { SubHeading,MainHeading } from '@/components/typography/heading'
+import { MainHeading } from '@/components/typography/heading'
 
-import { Search, Sliders } from 'react-feather'
 import { OrderCard } from '@/components/card/order-card'
 
 import { LandingLayout } from 'components/layout/landing'

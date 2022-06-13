@@ -9,7 +9,6 @@ import {
     Content,
     DateAndReadTime,
     MainContent,
-    MainImage,
     MoreFromUs,
     ShareLinks,
     SocialLink,
@@ -28,7 +27,7 @@ import {
     SubHeading,
 } from '@/components/typography/heading'
 import { WhatsApp } from '@/components/svg/whatsapp'
-import { Download, Link, Mail, Twitter } from 'react-feather'
+import { Link, Mail, Twitter } from 'react-feather'
 import { Paragraph } from '@/components/typography/paragraph'
 import client from '../../../../sanityclient'
 import {

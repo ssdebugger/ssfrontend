@@ -7,7 +7,6 @@ import { useState } from 'react'
 import { Checkbox } from 'components/checkbox/index'
 import { Button } from 'components/cta/button'
 import styled from 'styled-components'
-import { useRouter } from 'next/router'
 
 const Shipping = () => {
     const ShippingContainer = styled(Container)`
@@ -15,7 +14,7 @@ const Shipping = () => {
         width: 100%;
         height: 100%;
     `
-    const router = useRouter()
+   
     const [name, setName] = useState('')
     const [city, setCity] = useState('')
     const [state, setState] = useState('')

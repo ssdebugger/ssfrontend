@@ -1,8 +1,6 @@
 import styled from 'styled-components'
-import Image from 'next/image'
-
 import { HyperLink } from '@/components/cta/link'
-import { SubHeading,MainHeading } from '@/components/typography/heading'
+import { MainHeading } from '@/components/typography/heading'
 import { Paragraph } from '@/components/typography/paragraph'
 import { ImpactContainerStyles } from '../impact.style'
 

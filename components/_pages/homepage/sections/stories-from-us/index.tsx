@@ -2,10 +2,8 @@ import styled from 'styled-components'
 import Image from 'next/image'
 import { Heading3, Heading4 } from '@/components/typography/heading'
 import { HomepageContainerStyles } from '../../style'
-import { Paragraph } from '@/components/typography/paragraph'
 import { ScrollbarStyles } from 'theme'
 import { HyperLink } from '@/components/cta/link'
-import { Item } from '@/components/carousel/style'
 
 const StoriesFromUsContainer = styled.section`
     ${HomepageContainerStyles}

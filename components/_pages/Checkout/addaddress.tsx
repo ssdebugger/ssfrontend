@@ -1,6 +1,5 @@
 import { Form, InputContainer, SubmitBtn } from '../auth/auth.style'
 import { Input } from '@/components/input/oldInput'
-import { useRouter } from 'next/router'
 import Popup from '../auth/popup'
 import { useState } from 'react'
 
@@ -16,7 +15,6 @@ const Addaddress = (props) => {
         setIsOpen(!isOpen)
     }
 
-    const router = useRouter()
     const handleCloseClick = () => {
         props.toggle()
     }

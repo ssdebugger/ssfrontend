@@ -37,7 +37,7 @@ import {
 import { AboutItem } from './about-item'
 import { Paragraph } from '@/components/typography/paragraph'
 import { ProductCertifications } from './product-certifications'
-import { CustomerReviews } from './customer-review'
+
 
 const Productpage = (props) => {
     let data = props.data['body']['response']

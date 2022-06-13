@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import Image from 'next/image'
+
 
 const Carousel = (props) => {
     const router = useRouter()

@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Link from 'next/link'
 
 import {
     Container,
@@ -11,7 +10,7 @@ import {
     ResultTiles,
     ProductCard,
     TileHero,
-    ProductImg,
+  
     LifeStyleImg,
     TileInfo,
     ProductName,

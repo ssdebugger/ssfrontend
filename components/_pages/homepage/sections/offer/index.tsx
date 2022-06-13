@@ -4,7 +4,6 @@ import { OfferCard } from '@/components/card/offer-card'
 import { ProductCard } from '@/components/card/product-card/v1'
 import { HomepageContainerStyles } from '../../style'
 import { ScrollbarStyles } from 'theme'
-import { ChevronsRight, ChevronsLeft } from 'react-feather'
 
 const OfferContainer = styled.section`
     ${HomepageContainerStyles}

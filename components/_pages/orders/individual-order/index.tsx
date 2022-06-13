@@ -1,10 +1,8 @@
-import { Header } from '@/components/header'
 import { Heading3, Heading4 } from '@/components/typography/heading'
 import { Paragraph } from '@/components/typography/paragraph'
 import Head from 'next/head'
 
 import { LandingLayout } from 'components/layout/landing'
-import Link from 'next/link'
 import { useAlert } from 'react-alert'
 
 import {

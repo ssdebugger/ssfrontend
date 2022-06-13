@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import { Header, HyperLink } from '@/components/header'
+import { Header } from '@/components/header'
 import {
     BulletPoint,
     BulletPointsContainer,
@@ -12,7 +12,7 @@ import {
     Main,
     ScrollableCol,
 } from '@/components/_pages/impact/impact.styles'
-import { Heading3, Heading4, SubHeading,MainHeading } from '@/components/typography/heading'
+import { Heading3, Heading4,MainHeading } from '@/components/typography/heading'
 import { Paragraph } from '@/components/typography/paragraph'
 import Footer from '@/components/footer'
 

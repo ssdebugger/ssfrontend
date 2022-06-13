@@ -1,10 +1,8 @@
 import { GridContainer, GridItem, SectionHeading } from '../homepage/style'
-import { Typography } from './index.style'
+
 import { Paragraph } from '../../typography/paragraph'
 import {
-    MainHeading,
     SubHeading,
-    Heading3,
     Heading4,
 } from '../../typography/heading'
 import { Container } from '../../container/regular'

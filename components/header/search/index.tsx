@@ -1,7 +1,5 @@
-import styled from 'styled-components'
-import { Heading4 } from '@/components/typography/heading'
+
 import { Search as SearchIcon, X } from 'react-feather'
-import { HyperLink } from '../index'
 import { ProductCard } from './product-card'
 import {
     SearchContainer,
@@ -10,9 +8,6 @@ import {
     SearchResultsWrapper,
     SearchResult,
     SearchResultContainer,
-    SearchSuggestionsContainer,
-    SearchSuggestions,
-    HighlightSuggestion,
     SearchCloseBtn,
 } from './search.style'
 import { useState } from 'react'
