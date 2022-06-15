@@ -4,10 +4,12 @@ interface Props {
     heading: string
     placeholder: string
     type: string
+    reference?: any
     value?: string | number
     onChangeHandler?: (e) => any
     readonly required?: boolean
     pattern?: string
+    className?: string
 }
 
 export const CommonInputStyles = css`
@@ -55,16 +57,19 @@ export const Input: React.FC<Props> = ({
     required,
     placeholder,
     pattern,
+    className,
+    reference
 }) => {
     return (
-        <InputContainer>
+        <InputContainer className={className}>
             <Label htmlFor={heading}>
                 {heading + ' '}
                 {required && <span>*</span>}
             </Label>
             <InputBox
+                ref={reference}
                 type={type}
-                id={heading}
+                id={heading.replace(/\s/g, '')}
                 onChange={onChangeHandler}
                 placeholder={placeholder}
                 required={required}
@@ -90,7 +95,7 @@ export const Textarea: React.FC<Props> = ({
             </Label>
 
             <TextAreaBox
-                id={heading}
+                id={heading.replace(/\s/g, '')}
                 onChange={onChangeHandler}
                 required={required}
                 placeholder={placeholder}

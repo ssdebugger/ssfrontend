@@ -136,45 +136,45 @@ export const Header = () => {
         }
     }, [showBag])
 
-    useEffect(() => {
-        let oldValue = 0
-        let newValue = 0
+    // useEffect(() => {
+    //     let oldValue = 0
+    //     let newValue = 0
 
-        window.addEventListener('scroll', (e) => {
-            newValue = window.pageYOffset
+    //     window.addEventListener('scroll', (e) => {
+    //         newValue = window.pageYOffset
 
-            if (newValue > 250) {
-                if (oldValue < newValue) {
-                    // user is scrolling up
-                    document
-                        .querySelector('.header-container')
-                        .classList.add('is-hidden')
-                } else if (oldValue > newValue) {
-                    // user is scrolling down
-                    document
-                        .querySelector('.header-container')
-                        .classList.remove('is-hidden')
-                }
-            }
+    //         if (newValue > 250) {
+    //             if (oldValue < newValue) {
+    //                 // user is scrolling up
+    //                 document
+    //                     .querySelector('.header-container')
+    //                     .classList.add('is-hidden')
+    //             } else if (oldValue > newValue) {
+    //                 // user is scrolling down
+    //                 document
+    //                     .querySelector('.header-container')
+    //                     .classList.remove('is-hidden')
+    //             }
+    //         }
 
-            if (newValue > 380) {
-                if (oldValue < newValue) {
-                    // user is scrolling up
-                    document
-                        .querySelector('.header-container')
-                        .classList.add('is-fixed')
-                }
-            }
+    //         if (newValue > 380) {
+    //             if (oldValue < newValue) {
+    //                 // user is scrolling up
+    //                 document
+    //                     .querySelector('.header-container')
+    //                     .classList.add('is-fixed')
+    //             }
+    //         }
 
-            if (newValue < 150) {
-                document
-                    .querySelector('.header-container')
-                    .classList.remove('is-fixed')
-            }
+    //         if (newValue < 150) {
+    //             document
+    //                 .querySelector('.header-container')
+    //                 .classList.remove('is-fixed')
+    //         }
 
-            oldValue = newValue
-        })
-    }, [])
+    //         oldValue = newValue
+    //     })
+    // }, [])
 
     // calcualte the total items in cart.
     useEffect(() => {

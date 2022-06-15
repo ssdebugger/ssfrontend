@@ -38,12 +38,6 @@ export const PriceSection: React.FC<Props> = ({ originalPrice, discount }) => {
     return (
         <PriceSectionContainer>
             <BagPrice originalPrice={originalPrice} discount={discount} />
-
-            <Link href="/checkout" passHref>
-                <Button varient="primary" fill='true'>
-                    Checkout
-                </Button>
-            </Link>
         </PriceSectionContainer>
     )
 }

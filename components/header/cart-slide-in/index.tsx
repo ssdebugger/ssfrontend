@@ -13,6 +13,8 @@ import {
     SlideInContainer,
     SlideInContent,
 } from './cart-slide-in.style'
+import { Button } from '@/components/buttons'
+import Link from 'next/link'
 import { ProductCard } from './product-card'
 import { AlertContainer } from '@/components/_pages/auth/auth.style'
 import { CouponList } from './coupons/coupon-list'
@@ -23,6 +25,7 @@ import { EmptyCart } from './empty-state'
 import { PriceSection } from './price-section'
 import { CartItem } from '@/types/cart'
 import { Coupon } from '@/types/coupon'
+import { BagPriceContainer } from './cart-slide-in.style'
 
 const defaultCouponData = [
     // {
@@ -157,6 +160,7 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
             setCouponSelected(initialCouponValue)
             // setToLocal('coupon', initialCouponValue)
         }
+         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [cart])
 
     useEffect(() => {
@@ -207,6 +211,7 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
             setCouponSelected(initialCouponValue)
             setToLocal('coupon', initialCouponValue)
         }
+         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [originalPrice, couponSelected])
 
     return (
@@ -251,8 +256,15 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
 
                         <ProductsContainer>
                             <MainHeading>My Bag</MainHeading>
-
+                            <BagPriceContainer>      
+                            <Link href="/checkout" passHref>
+                                      <Button varient="primary" fill='true'>
+                                       Checkout
+                                       </Button>
+                            </Link>
+                            </BagPriceContainer> 
                             <ProductsList>
+                          
                                 {cart.map((product) => (
                                     <ProductCard
                                         key={product.sku}
