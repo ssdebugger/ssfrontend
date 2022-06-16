@@ -14,7 +14,7 @@ import { Form, InputContainer, Content, AlertContainer } from './auth.style'
 import { AlertBar } from '@/components/alert/alert-bar'
 import { useAddItem } from '@/context/cart'
 import { GetCartItems } from '@/utils/get-cart-items'
-import { useAddUser, useUser } from '@/context/user'
+import { useAddUser } from '@/context/user'
 
 const SignIn = () => {
     const router = useRouter()
@@ -25,7 +25,6 @@ const SignIn = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [alert, setAlert] = useState('')
-    const { user } = useUser()
 
     const handleChange = (e, targetfield) => {
         setAlert('')

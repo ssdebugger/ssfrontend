@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { SubHeading } from '@/components/typography/heading'
 
 import {
-    Category,
     Heading,
     LatestPosts,
     Post,

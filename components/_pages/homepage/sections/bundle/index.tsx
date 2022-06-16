@@ -3,14 +3,11 @@ import { useEffect } from 'react'
 import { Heading3, Heading4 } from '@/components/typography/heading'
 import { Paragraph } from '@/components/typography/paragraph'
 import Image from 'next/image'
-import Link from 'next/link'
 import {
     BrandCard,
     BrandImgContainer,
-    BrandImg,
     BrandContent,
     BundleContainer,
-    HeadingContainer,
     BundleCardContainer,
     Text,
 } from './bundle.style'

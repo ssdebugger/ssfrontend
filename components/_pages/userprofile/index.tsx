@@ -3,7 +3,6 @@ import { LandingLayout } from 'components/layout/landing'
 import {
     User,
     Settings,
-    Truck,
     HelpCircle,
     LogOut,
     Archive,

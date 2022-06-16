@@ -1,6 +1,6 @@
 import { useEffect, useState} from 'react'
 import Link from 'next/link'
-import { ShoppingBag, Menu, X, Heart } from 'react-feather'
+import { ShoppingBag, Menu, Heart } from 'react-feather'
 
 import { Search } from './search'
 

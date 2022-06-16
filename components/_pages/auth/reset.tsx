@@ -29,10 +29,6 @@ export const Reset = () => {
         setIsOpen(!isOpen)
     }
 
-    const handleCode = (e) => {
-        setCode(e.target.value)
-    }
-
     const handleChange = (e, targetfield) => {
         if (targetfield === 'user') {
             setUser(e.target.value)

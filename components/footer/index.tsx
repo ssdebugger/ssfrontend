@@ -10,7 +10,7 @@ import {
 } from './style'
 import { GridContainer, GridItem } from '../_pages/homepage/style'
 import { Typography } from '../_pages/product/index.style'
-import { Instagram, Copy } from 'react-feather'
+import { Instagram } from 'react-feather'
 import { HyperLink } from '../header'
 
 import { Facebook } from '../svg/facebook'

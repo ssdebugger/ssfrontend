@@ -1,4 +1,4 @@
-import { GridContainer, GridItem, SectionHeading } from '../homepage/style'
+import { GridContainer, GridItem } from '../homepage/style'
 
 import { Paragraph } from '../../typography/paragraph'
 import {

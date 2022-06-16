@@ -1,4 +1,3 @@
-import { HyperLink } from '@/components/cta/link'
 import { Heading3 } from '@/components/typography/heading'
 import { Paragraph } from '@/components/typography/paragraph'
 import { CommonLegalTemplate } from './common-template'

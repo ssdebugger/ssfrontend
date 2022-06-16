@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components'
-import { HeadingProps } from 'types/heading'
 
 export const Main = styled.main``
 

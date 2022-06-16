@@ -20,7 +20,6 @@ import {
     ProductItemDetails,
     ProductValue,
     ProductButton,
-    RecommendedFromUs,
     CancelOrderBtn,
 } from './individual-order-styles'
 import { useRouter } from 'next/router'

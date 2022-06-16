@@ -3,8 +3,7 @@ import { useRouter } from 'next/router'
 import { User } from 'react-feather'
 import styled from 'styled-components'
 import { HyperLink } from '../index'
-import Link from 'next/dist/client/link'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useClearCart } from '@/context/cart'
 
 const DropdownContainer = styled.div`

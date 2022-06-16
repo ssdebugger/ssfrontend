@@ -1,5 +1,5 @@
 import React from 'react'
-import { CheckCircle, ChevronDown, Circle } from 'react-feather'
+import { ChevronDown} from 'react-feather'
 
 import * as Styles from './checkout-accordion.styles'
 

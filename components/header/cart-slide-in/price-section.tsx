@@ -1,6 +1,4 @@
-import { Button } from '@/components/buttons'
 import { limitDecimal } from '@/utils/limt-decimal'
-import Link from 'next/link'
 
 import {
     BagPriceContainer,

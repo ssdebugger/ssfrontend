@@ -1,7 +1,6 @@
 import { Voucher } from '@/components/svg/voucher'
 import { Paragraph } from '@/components/typography/paragraph'
 import { Coupon } from '@/types/coupon'
-import { useEffect } from 'react'
 import styled from 'styled-components'
 
 const CardContainer = styled.div<{ cardSelected: boolean }>`
