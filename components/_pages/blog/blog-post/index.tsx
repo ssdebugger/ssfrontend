@@ -26,7 +26,7 @@ import {
     MainHeading,
     SubHeading,
 } from '@/components/typography/heading'
-import { WhatsApp } from '@/components/svg/whatsapp'
+// import { WhatsApp } from '@/components/svg/whatsapp'
 import { Link, Mail, Twitter } from 'react-feather'
 import { Paragraph } from '@/components/typography/paragraph'
 import client from '../../../../sanityclient'
@@ -126,12 +126,12 @@ const BlogPost = ({ blogData, morePosts }) => {
                             <Heading4>SHARE</Heading4>
 
                             <SocialLinks>
-                                <SocialLink
+                                {/* <SocialLink
                                     href={`https://whatsapp://send?text=${encodedBlogLink}`}
                                     data-action="share/whatsapp/share"
                                 >
                                     <WhatsApp />
-                                </SocialLink>
+                                </SocialLink> */}
 
                                 <SocialLink
                                     href={`https://twitter.com/intent/tweet?counturl=${encodedBlogLink}&text=${encodedBlogTitle}&url=${encodedBlogLink}`}
