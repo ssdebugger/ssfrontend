@@ -12,7 +12,6 @@ import { UserIcons, Tab, Button, Text } from './style'
 import Userdetails from './userdetails'
 import SettingsContent from './settings'
 import { useEffect } from 'react'
-import Shippingaddress from './shippingaddress'
 import Footer from 'components/footer/index'
 import { useRouter } from 'next/router'
 import { useAuthLogout } from 'context/auth'
@@ -101,7 +100,7 @@ const Userprofile = (props) => {
                                 <Text>Your orders</Text>
                             </Button>
 
-                            <Button
+                            {/* <Button
                                 className="tablinks"
                                 onClick={(event) =>
                                     openContent(event, 'Address')
@@ -111,7 +110,7 @@ const Userprofile = (props) => {
                                     <Truck />
                                 </UserIcons>
                                 <Text>Addresses</Text>
-                            </Button>
+                            </Button> */}
                             <Button
                                 className="tablinks"
                                 onClick={() => routefaq()}
@@ -146,9 +145,9 @@ const Userprofile = (props) => {
                         <div id="Settings" className="tabcontent">
                             <SettingsContent />
                         </div>
-                        <div id="Address" className="tabcontent">
+                        {/* <div id="Address" className="tabcontent">
                             <Shippingaddress />
-                        </div>
+                        </div> */}
                     </GridItem>
                 </GridContainer>
                 <style jsx>
