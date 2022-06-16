@@ -222,6 +222,10 @@ const CheckoutPageWrapper = () => {
     }
 
     React.useEffect(() => {
+        document.body.style.overflow = 'auto'
+    },[])
+
+    React.useEffect(() => {
         let timeout = setTimeout(() => {
             let billDetails = JSON.parse(localStorage.getItem('billDetails'))
             if (billDetails !== undefined) {
