@@ -38,7 +38,6 @@ import { AboutItem } from './about-item'
 import { Paragraph } from '@/components/typography/paragraph'
 import { ProductCertifications } from './product-certifications'
 
-
 const Productpage = (props) => {
     let data = props.data['body']['response']
     let recproducts = props.data['body']['recproducts']
@@ -175,7 +174,7 @@ const Productpage = (props) => {
                 <Button
                     varient="primary"
                     size="large"
-                    fill='true'
+                    fill="true"
                     onClick={(e) => handleAddToCart(e)}
                 >
                     Add to cart
@@ -230,7 +229,7 @@ const Productpage = (props) => {
     return (
         <>
             <Head>
-            <meta
+                <meta
                     name="title"
                     content={data['short_description']['S']}
                 ></meta>
@@ -351,27 +350,45 @@ const Productpage = (props) => {
                             </CollapseButton>
                         </CollapseBtnContainer>
 
-                        <AddToCartCta
-                            sku={ItemData.sku}
-                            title={ItemData.title}
-                            img={ItemData.img}
-                            productid={ItemData.productid}
-                            price={ItemData.price}
-                            inStockQuantity={ItemData.inStockQuantity}
-                        />
+                        {ItemData.inStockQuantity === 0 ? (
+                            <SaveToWishlist>
+                                <Button
+                                    disabled
+                                    varient="primary"
+                                    size="large"
+                                    fill="true"
+                                >
+                                    Out Of Stock
+                                </Button>
+                            </SaveToWishlist>
+                        ) : (
+                            <>
+                                <AddToCartCta
+                                    sku={ItemData.sku}
+                                    title={ItemData.title}
+                                    img={ItemData.img}
+                                    productid={ItemData.productid}
+                                    price={ItemData.price}
+                                    inStockQuantity={ItemData.inStockQuantity}
+                                />
 
-                        <SaveToWishlist id="savebtn">
-                            <Button
-                                onClick={(e) =>
-                                    addUserFn(e, data['product_id']['N'])
-                                }
-                                varient="primary"
-                                size="large"
-                                fill='true'
-                            >
-                                Save to Wishlist
-                            </Button>
-                        </SaveToWishlist>
+                                <SaveToWishlist id="savebtn">
+                                    <Button
+                                        onClick={(e) =>
+                                            addUserFn(
+                                                e,
+                                                data['product_id']['N']
+                                            )
+                                        }
+                                        varient="primary"
+                                        size="large"
+                                        fill="true"
+                                    >
+                                        Save to Wishlist
+                                    </Button>
+                                </SaveToWishlist>
+                            </>
+                        )}
                     </MainContentContainer>
                 </Container>
 

@@ -17,6 +17,7 @@ import { limitDecimal } from '@/utils/limt-decimal'
 import {
     loadStripe,
     PaymentIntent,
+    Stripe,
     StripeCardElementChangeEvent,
 } from '@stripe/stripe-js'
 import {
@@ -39,9 +40,15 @@ import { CheckoutHeader } from './checkout-header'
 
 const Steps = ['a', 'b']
 
-const stripePromise = loadStripe(
-    'pk_live_d2HzkdbXHfM31jQJbUsPZiMe00VrTpDvSg'
-)
+let stripePromise: Promise<Stripe>
+
+if (process.env.NODE_ENV !== 'production') {
+    stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_TEST_KEY)
+    console.log('not in prod: ', process.env.NEXT_PUBLIC_STRIPE_TEST_KEY)
+} else {
+    stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY)
+    console.log('in prod: ', process.env.NEXT_PUBLIC_STRIPE_KEY)
+}
 
 const CheckoutPageWrapper = () => {
     const stripe = useStripe()
@@ -210,9 +217,9 @@ const CheckoutPageWrapper = () => {
                 router: router,
                 showAlert: alert.show,
                 clearCart: clearCart,
-            }).then(res => {
-            e.target.innerHTML = 'Pay'
-            e.target.disabled = false
+            }).then((res) => {
+                e.target.innerHTML = 'Pay'
+                e.target.disabled = false
             })
         } catch (error) {
             e.target.innerHTML = 'Pay'
@@ -223,7 +230,7 @@ const CheckoutPageWrapper = () => {
 
     React.useEffect(() => {
         document.body.style.overflow = 'auto'
-    },[])
+    }, [])
 
     React.useEffect(() => {
         let timeout = setTimeout(() => {
@@ -273,7 +280,6 @@ const CheckoutPageWrapper = () => {
                     }))
                 }
             }
-             
         }, 250)
 
         return () => clearTimeout(timeout)
@@ -286,7 +292,7 @@ const CheckoutPageWrapper = () => {
             alert.show(errorMsg)
             setErrorMsg('')
         }
-         // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [errorMsg])
 
     return (
@@ -507,7 +513,7 @@ const CheckoutPageWrapper = () => {
                     <h3>Your Orders</h3>
 
                     <Styles.OrderDetails>
-                        {cart.map((item,key) => (
+                        {cart.map((item, key) => (
                             <CheckoutOrderProduct
                                 key={key}
                                 title={item.title}
