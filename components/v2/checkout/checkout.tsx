@@ -17,6 +17,7 @@ import { limitDecimal } from '@/utils/limt-decimal'
 import {
     loadStripe,
     PaymentIntent,
+    Stripe,
     StripeCardElementChangeEvent,
 } from '@stripe/stripe-js'
 import {
@@ -39,7 +40,15 @@ import { CheckoutHeader } from './checkout-header'
 
 const Steps = ['a', 'b']
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY)
+let stripePromise: Promise<Stripe>
+
+if (process.env.NODE_ENV !== 'production') {
+    stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_TEST_KEY)
+    console.log('not in prod: ', process.env.NEXT_PUBLIC_STRIPE_TEST_KEY)
+} else {
+    stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY)
+    console.log('in prod: ', process.env.NEXT_PUBLIC_STRIPE_KEY)
+}
 
 const CheckoutPageWrapper = () => {
     const stripe = useStripe()
