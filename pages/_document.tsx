@@ -32,7 +32,7 @@ export default class MyDocument extends Document {
           r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
         pintrk('load', '2613059152744', {em: 'fsd1@sellsage.com'});
         pintrk('page');
-      `,
+      ` , 
                             }}
                         />
                         <link
