@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Container = styled.div`
+const DisposableContainer = styled.div`
     min-height: 300px;
     margin: 0.5rem 0;
 
@@ -16,12 +16,12 @@ const Container = styled.div`
     }
 `
 
-const MobileImg = styled.img`
+const DisposableMobileImg = styled.img`
     @media (min-width: 768px) {
         display: none;
     }
 `
-const DesktopImg = styled.img`
+const DisposableDesktopImg = styled.img`
     display: none;
 
     @media (min-width: 768px) {
@@ -31,20 +31,20 @@ const DesktopImg = styled.img`
 
 export const Infographic = () => {
     return (
-        <Container>
-            <MobileImg
+        <DisposableContainer>
+            <DisposableMobileImg
                 sizes="(max-width: 706px) 100vw, 706px"
-                src="/carouselimages/plantry/plantrymobile_comp.webp"
-                alt="Plantry Banner"
+                src="/carouselimages/Disposable_dinnerware/disposable_dinnerware_plastic_mobile.webp"
+                alt="Disposable dinnerware vs plastic"
                 loading='lazy'
             />
 
-            <DesktopImg
+            <DisposableDesktopImg
                 sizes="(max-width: 706px) 100vw, 706px"
-                src="/carouselimages/plantry/plantrydesktop_comp.webp"
-                alt="Plantry Banner"
+                src="/carouselimages/Disposable_dinnerware/disposable_dinnerware_plastic_desktop.webp"
+                alt="Disposable dinnerware vs plastic"
                 loading='lazy'
             />
-        </Container>
+        </DisposableContainer>
     )
 }

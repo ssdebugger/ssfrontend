@@ -97,7 +97,7 @@ export const EmailSubscription = () => {
                 <h4>Don&#39;t leave us yet!</h4>
 
                 <Paragraph>
-                    We keep adding to our collection. Leave us your email
+                    We keep adding to our disposable dinnerware and disposable cutlery collection. Leave us your email
                     address to get updates from us.
                 </Paragraph>
 

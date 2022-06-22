@@ -40,12 +40,19 @@ const ProductsContainer = styled.div`
 `
 
 export const NewLaunches = ({ newLaunchProducts }) => {
+    const imagealt = [
+        'disposable dinner bundle square',
+        'disposable dinner pack',
+        '',
+        'disposable dinner bundle round',
+        'disposable cutlery set'
+    ]
     return (
         <NewLaunchesContainer>
-            <Heading3>Popular Bundles</Heading3>
+            <Heading3>Disposable dinnerware</Heading3>
 
             <ProductsContainer>
-                {newLaunchProducts.map((item) => (
+                {newLaunchProducts.map((item,key) => (
                     <ProductCard
                         key={item.product_name.S}
                         name={item.product_name.S}
@@ -56,6 +63,7 @@ export const NewLaunches = ({ newLaunchProducts }) => {
                         sku={item.sku_code.S}
                         productId={item.product_id.N}
                         inStockQuantity={item.in_stock.N}
+                        alt={imagealt[key]}
                     />
                 ))}
             </ProductsContainer>

@@ -197,7 +197,7 @@ export const ProductCard = (props) => {
                 <ProductImageContainer>
                     <Image
                         src={props.image}
-                        alt="image"
+                        alt={props.alt}
                         loading="lazy"
                         height="100%"
                         width="100%"
@@ -209,7 +209,7 @@ export const ProductCard = (props) => {
                 <ProductContent>
                     <SubHeading>{props.name.replace(/'/g, '"')}</SubHeading>
 
-                    <span>Tableware</span>
+                    <span>Disposable Tableware</span>
 
                     <Paragraph>Durable, {props.desc}</Paragraph>
 

@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { MainHeading } from '@/components/typography/heading'
 import { Paragraph } from '@/components/typography/paragraph'
 
-
 const OfferCardContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -78,27 +77,30 @@ export const OfferCard = ({ card }) => {
 
             {card == 'card1' ? (
                 <OfferContent>
-                    <MainHeading fontSize='1.728rem' fontWeight={800}>
-                    Wondering how to make eco-friendly changes?
+                    <MainHeading fontSize="1.728rem" fontWeight={800}>
+                        A Green wedding with disposable dinnerware and
+                        disposable cutlery
                     </MainHeading>
 
                     <Paragraph>
-                    Scroll down to see some sustainable swaps 
-                    that can have a big impact on your environmental footprint
-                    <br></br>
-                    <br></br>
+                        Looking out for disposable cutlery <br></br> and disposable
+                        dinnerware for weddings,parties without exerting
+                        yourself with the clean-up? Our products are sure to
+                        please you!
+                        <br></br>
+                        <br></br>
                     </Paragraph>
-                 </OfferContent>
+                </OfferContent>
             ) : (
                 <OfferContent>
-                    <MainHeading fontSize='1.728rem' fontWeight={800}>
+                    <MainHeading fontSize="1.728rem" fontWeight={800}>
                         Make your life Easier and Greener every day
                     </MainHeading>
-
                     <Paragraph>
-                        Shop from our range of Dining Essentials and
-                        biodegradable options for disposable tableware - all
-                        curated for a waste-free kitchen
+                        Check out our disposable dinnerware set and disposable
+                        cutlery set selection for the very best elegant and
+                        custom pieces from our shops to add the perfect
+                        finishing touch to your dining experience
                     </Paragraph>
                 </OfferContent>
             )}

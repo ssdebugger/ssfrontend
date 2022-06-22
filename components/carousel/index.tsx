@@ -4,7 +4,7 @@ import { HyperLink } from '../header'
 import { ChevronLeft, ChevronRight } from 'react-feather'
 
 
-const MobileImg = styled.img`
+const DisposableMobileImg = styled.img`
     display: block;
     width: 100%;
     height:266px;
@@ -13,7 +13,7 @@ const MobileImg = styled.img`
         display: none;
     }
 `
-const DesktopImg = styled.img`
+const DisposableDesktopImg = styled.img`
     display: none;
     min-width:100%;
     height:500px;
@@ -22,7 +22,7 @@ const DesktopImg = styled.img`
     }
 `
 
-const Arrowleft = styled.div`
+const DisposableLeft = styled.div`
     position: absolute;
     left: 0;
     top: 40%;
@@ -36,7 +36,7 @@ const Arrowleft = styled.div`
     }
 `
 
-const Arrowright = styled.div`
+const DisposableRight = styled.div`
     position: absolute;
     right: 0;
     top: 40%;
@@ -47,7 +47,7 @@ const Arrowright = styled.div`
     min-width: 2.5rem;
     @media screen and (max-width: 600px) {
         display: none;
-    }
+    
 `
 
 export const Carousel = () => {
@@ -55,18 +55,18 @@ export const Carousel = () => {
     const numberOfSlides = 3
 
     const scrollbanner = (direction) => {
-        const bannerContainer =
-            document.querySelector<HTMLElement>('.bannerContainer')
+        const disposableContainer =
+            document.querySelector<HTMLElement>('.disposable-dinnerware-container')
 
         if (direction == 'left') {
             const screenWidth = -window.innerWidth
             // if (index < 0) {
             //     index = 4
             // }
-            bannerContainer.scrollBy(-screenWidth, 0)
+            disposableContainer.scrollBy(-screenWidth, 0)
             index.current = index.current % numberOfSlides
             let imageToMove =
-                bannerContainer.querySelectorAll<HTMLElement>(`.carouselItem`)[
+                disposableContainer.querySelectorAll<HTMLElement>(`.carouselItem`)[
                     index.current
                 ]
             // The line below move the item to end of carousel by
@@ -78,10 +78,10 @@ export const Carousel = () => {
             index.current++
         } else {
             const screenWidth = window.innerWidth
-            bannerContainer.scrollBy(screenWidth, 0)
+            disposableContainer.scrollBy(screenWidth, 0)
             index.current = index.current % numberOfSlides
             let imageToMove =
-                bannerContainer.querySelectorAll<HTMLElement>(`.carouselItem`)[
+                disposableContainer.querySelectorAll<HTMLElement>(`.carouselItem`)[
                     index.current
                 ]
             // The line below move the item to end of carousel by
@@ -96,16 +96,16 @@ export const Carousel = () => {
     useEffect(() => {
         const screenWidth = window.innerWidth
 
-        const bannerContainer =
-            document.querySelector<HTMLElement>('.bannerContainer')
+        const disposableContainer =
+            document.querySelector<HTMLElement>('.disposable-dinnerware-container')
 
         const speed = 5
         setInterval(() => {
-            bannerContainer.scrollBy(screenWidth, 0)
+            disposableContainer.scrollBy(screenWidth, 0)
             let timeoutX = setTimeout(() => {
                 index.current = index.current % numberOfSlides
                 let imageToMove =
-                    bannerContainer.querySelectorAll<HTMLElement>(
+                    disposableContainer.querySelectorAll<HTMLElement>(
                         `.carouselItem`
                     )[index.current]
                 // The line below move the item to end of carousel by
@@ -119,47 +119,47 @@ export const Carousel = () => {
                 clearTimeout(timeoutX)
             }, 1000)
         }, speed * 1000)
-        const bannerWrapper =
-            document.querySelector<HTMLElement>('.bannerWrapper')
-        bannerWrapper.addEventListener('mouseenter', function () {
+        const disposableWrapper =
+            document.querySelector<HTMLElement>('.disposable-dinnerware-wrapper')
+        disposableWrapper.addEventListener('mouseenter', function () {
             const screenWidth = window.innerWidth
 
             if (screenWidth > 600) {
-                document.getElementById('arrowleft').style.display = 'flex'
-                document.getElementById('arrowright').style.display = 'flex'
+                document.getElementById('DisposableLeft').style.display = 'flex'
+                document.getElementById('DisposableRight').style.display = 'flex'
             }
         })
-        bannerWrapper.addEventListener('mouseleave', function () {
-            document.getElementById('arrowleft').style.display = 'none'
-            document.getElementById('arrowright').style.display = 'none'
+        disposableWrapper.addEventListener('mouseleave', function () {
+            document.getElementById('DisposableLeft').style.display = 'none'
+            document.getElementById('DisposableRight').style.display = 'none'
         })
     }, [])
 
     return (
         <>
-            <div className="bannerWrapper">
-                <Arrowleft id="arrowleft" onClick={() => scrollbanner('left')}>
-                    <div className="leftContainer">
+            <div className="disposable-dinnerware-wrapper">
+                <DisposableLeft id="DisposableLeft" onClick={() => scrollbanner('left')}>
+                    <div className="disposable-dinnerware-left">
                         <ChevronLeft />
                     </div>
-                </Arrowleft>
-                <Arrowright
-                    id="arrowright"
+                </DisposableLeft>
+                <DisposableRight
+                    id="DisposableRight"
                     onClick={() => scrollbanner('right')}
                 >
-                    <div className="rightContainer">
+                    <div className="disposable-dinnerware-right">
                         <ChevronRight />
                     </div>
-                </Arrowright>
-                <div className="bannerContainer">
+                </DisposableRight>
+                <div className="disposable-dinnerware-container">
                     {/* <div className="carouselItem">
                         <HyperLink href="/shop">
-                            <MobileImg
+                            <DisposableMobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
                                 src="/carouselimages/offer/easter_mobile.png"
                                 alt="Easter offer"
                             />
-                            <DesktopImg
+                            <DisposableDesktopImg
                                 sizes="(max-width: 1400px) 100vw, 1400px"
                                 src="/carouselimages/offer/easter_desktop.png"
                                 alt="Easter offer"
@@ -168,17 +168,17 @@ export const Carousel = () => {
                     </div> */}
                     <div className="carouselItem">
                         <HyperLink href="/shop">
-                            <MobileImg
+                            <DisposableMobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/offer/mothersday_mobile.webp"
-                                alt="Mothers Day offer"
+                                src="/carouselimages/Disposable_dinnerware/disposable_dinnerware_mobile.webp"
+                                alt="Disposable dinnerware"
                             
                             />
 
-                            <DesktopImg
+                            <DisposableDesktopImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/offer/mothersday_desktop.webp"
-                                alt="Mothers Day offer"
+                                src="/carouselimages/Disposable_dinnerware/disposable_dinnerware_desktop.webp"
+                                alt="Disposable dinnerware"
                             
                             />
                         </HyperLink>
@@ -187,13 +187,13 @@ export const Carousel = () => {
 
                     {/* <div className="carouselItem">
                         <HyperLink href="/shop">
-                            <MobileImg
+                            <DisposableMobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
                                 src="/carouselimages/plantry/plantrymobile_comp.png"
                                 alt="Plantry Banner"
                             />
 
-                            <DesktopImg
+                            <DisposableDesktopImg
                             sizes="(max-width: 706px) 100vw, 706px"
                             src="/carouselimages/plantry/plantrydesktop_comp.png"
                             alt="Plantry Banner"
@@ -203,34 +203,34 @@ export const Carousel = () => {
 
                     <div className="carouselItem">
                         <HyperLink href="/shop">
-                            <MobileImg
+                            <DisposableMobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/plantry/gloveupmobile_comp.webp"
-                                alt="Gloveup Banner"
+                                src="/carouselimages/Disposable_cutlery/disposable_cutlery_mobile.webp"
+                                alt="Disposable cutlery"
                                 loading='lazy'
                             />
 
-                            <DesktopImg
+                            <DisposableDesktopImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/plantry/gloveupdesktop_comp.webp"
-                                alt="Gloveup Banner"
+                                src="/carouselimages/Disposable_cutlery/disposable_cutlery_desktop.webp"
+                                alt="Disposable cutlery"
                                 loading='lazy'
                             />
                         </HyperLink>
                     </div>
                     <div className="carouselItem">
                         <HyperLink href="/shop">
-                            <MobileImg
+                            <DisposableMobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/Gloveup/gloveupmobile_comp.webp"
-                                alt="Gloveup Banner"
+                                src="/carouselimages/Disposable_tableware/disposable_tableware_mobile.webp"
+                                alt="Disposable tableware"
                                 loading='lazy'
                             />
 
-                            <DesktopImg
+                            <DisposableDesktopImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/Gloveup/gloveupdesktop_comp.webp"
-                                alt="Gloveup Banner"
+                                src="/carouselimages/Disposable_tableware/disposable_tableware_desktop.webp"
+                                alt="Disposable tableware"
                                 loading='lazy'
                             />
                         </HyperLink>
@@ -238,22 +238,22 @@ export const Carousel = () => {
                 </div>
             </div>
             <style jsx>{`
-                .bannerWrapper {
+                .disposable-dinnerware-wrapper {
                     position: relative;
                     min-width: 100%;
                 }
-                .leftContainer {
+                .disposable-dinnerware-left {
                     position: absolute;
                     top: 40%;
                     left: 0rem;
                 }
-                .rightContainer {
+                .disposable-dinnerware-right {
                     position: absolute;
                     top: 40%;
                     right: 0rem;
                 }
 
-                .bannerContainer {
+                .disposable-dinnerware-container {
                     display: flex;
                     min-width: 100%;
                     flex-wrap: nowrap;
@@ -265,11 +265,11 @@ export const Carousel = () => {
                     scroll-behavior: smooth;
                     scroll-snap-type: x mandatory;
                 }
-                .bannerContainer::-webkit-scrollbar {
+                .disposable-dinnerware-container::-webkit-scrollbar {
                     display: none;
                 }
 
-                .bannerContainer .carouselItem {
+                .disposable-dinnerware-container .carouselItem {
                     flex-grow: 0;
                     flex-shrink: 0;
                     min-width: 100%;

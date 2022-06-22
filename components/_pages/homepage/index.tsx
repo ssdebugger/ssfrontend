@@ -36,13 +36,13 @@ const Homepage = ({ offers, bundles, data }) => {
             <Head>
                 <meta
                     name="title"
-                    content="Compostable Plates & Gloves | Disposable Eco Products"
+                    content="Disposable Dinnerware & Disposable Cutlery | Disposable Tableware"
                 ></meta>
                 <meta
                     name="description"
-                    content="Go plastic-free with compostable & biodegradable plates, bowls, trays, utensils, and gloves! Elegant disposable dinnerware for wedding,party and events!"
+                    content="Go plastic-free with disposable dinnerware,disposable cutlery,disposable tableware and disposable gloves ! Elegant disposable dinnerware for weddings,party and events!"
                 ></meta>
-                <title>Compostable Plates & Gloves | Disposable Eco Products</title>
+                <title>Disposable Dinnerware & Disposable Cutlery | Disposable Tableware </title>
             </Head>
             <Header />
 

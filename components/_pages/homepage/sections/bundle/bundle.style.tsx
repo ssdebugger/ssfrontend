@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { HomepageContainerStyles } from '../../style'
 
-export const BrandsContainer = styled.section`
+export const DisposableBrandsContainer = styled.section`
     ${HomepageContainerStyles}
     display: grid;
     grid-template-columns: 1fr;
@@ -12,7 +12,7 @@ export const BrandsContainer = styled.section`
     }
 `
 
-export const BrandCard = styled.div`
+export const DisposableBrandCard = styled.div`
     a {
         display: block;
         font-weight: 500;
@@ -20,7 +20,7 @@ export const BrandCard = styled.div`
     }
 `
 
-export const Text = styled.div`
+export const DisposableText = styled.div`
     padding: 0 3rem 1.5rem;
 
     h3 {
@@ -77,15 +77,15 @@ export const Text = styled.div`
     }
 `
 
-export const BrandImgContainer = styled.div``
+export const DisposableBrandImgContainer = styled.div``
 
-export const BrandImg = styled.img`
+export const DisposableBrandImg = styled.img`
     width: 100%;
     height: auto;
     aspect-ratio: 16/9;
 `
 
-export const BrandContent = styled.div`
+export const DisposableBrandContent = styled.div`
     max-width: 26rem;
     margin: 0 auto;
     text-align: center;
@@ -107,7 +107,7 @@ export const BrandContent = styled.div`
     }
 `
 
-export const BundleContainer = styled.section`
+export const DisposableBundleContainer = styled.section`
     padding: 3rem 0;
     background: ${(props) => props.theme.vibrantGreen};
 
@@ -120,7 +120,7 @@ export const BundleContainer = styled.section`
     }
 `
 
-export const HeadingContainer = styled.div`
+export const DisposableHeadingContainer = styled.div`
     max-width: 53rem;
     margin: 0 auto 3rem;
     text-align: center;
@@ -141,7 +141,7 @@ export const HeadingContainer = styled.div`
     }
 `
 
-export const BundleCardContainer = styled.div`
+export const DisposableBundleCardContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr;
 
