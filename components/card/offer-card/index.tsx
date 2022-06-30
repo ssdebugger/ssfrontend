@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Gift, Home } from 'react-feather'
 import Link from 'next/link'
 
-import { MainHeading } from '@/components/typography/heading'
+import { MainHeading, SubHeading } from '@/components/typography/heading'
 import { Paragraph } from '@/components/typography/paragraph'
 
 const OfferCardContainer = styled.div`
@@ -83,24 +83,25 @@ export const OfferCard = ({ card }) => {
                     </MainHeading>
 
                     <Paragraph>
-                        Looking out for disposable cutlery <br></br> and disposable
-                        dinnerware for weddings,parties without exerting
-                        yourself with the clean-up? Our products are sure to
-                        please you!
+                        Looking out for disposable cutlery <br></br> and
+                        disposable dinnerware for weddings,parties without
+                        exerting yourself with the clean-up? Our products are
+                        sure to please you!
                         <br></br>
                         <br></br>
                     </Paragraph>
                 </OfferContent>
             ) : (
                 <OfferContent>
-                    <MainHeading fontSize="1.728rem" fontWeight={800}>
-                        Make your life Easier and Greener every day
-                    </MainHeading>
+                    <SubHeading fontSize="1.728rem" fontWeight={800}>
+                        Make your life Easier and Greener every day with
+                        disposable dinnerware set
+                    </SubHeading>
                     <Paragraph>
-                        Check out our disposable dinnerware set and disposable
-                        cutlery set selection for the very best elegant and
-                        custom pieces from our shops to add the perfect
-                        finishing touch to your dining experience
+                        Check out our compostable tableware and disposable cutlery set selection for the
+                        very best elegant and custom pieces from our shops to
+                        add the perfect finishing touch to your dining
+                        experience
                     </Paragraph>
                 </OfferContent>
             )}

@@ -36,13 +36,15 @@ const Homepage = ({ offers, bundles, data }) => {
             <Head>
                 <meta
                     name="title"
-                    content="Disposable Dinnerware & Disposable Cutlery | Tableware"
+                    content="Disposable Dinnerware & Cutlery | Compostable Tableware"
                 ></meta>
                 <meta
                     name="description"
-                    content="Go plastic-free with disposable dinnerware,disposable cutlery,disposable tableware and disposable gloves ! Elegant disposable dinnerware for weddings,party and events!"
+                    content="Go plastic-free with disposable dinnerware,compostable cutlery,gloves,trays,plates,bowls! Elegant disposable dinnerware for weddings,party and events!"
                 ></meta>
-                <title>Disposable Dinnerware & Disposable Cutlery | Tableware </title>
+                <title>
+                    Disposable Dinnerware & Cutlery | Compostable Tableware
+                </title>
             </Head>
             <Header />
 

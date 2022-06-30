@@ -1,5 +1,5 @@
 import { ProductCard } from '@/components/card/product-card/v1'
-import { Heading3 } from '@/components/typography/heading'
+import { Heading3,SubHeading } from '@/components/typography/heading'
 import styled from 'styled-components'
 import { HomepageContainerStyles } from '../../style'
 
@@ -43,13 +43,12 @@ export const NewLaunches = ({ newLaunchProducts }) => {
     const imagealt = [
         'disposable dinner bundle square',
         'disposable dinner pack',
-        '',
         'disposable dinner bundle round',
         'disposable cutlery set'
     ]
     return (
         <NewLaunchesContainer>
-            <Heading3>Disposable dinnerware</Heading3>
+            <SubHeading margin='0 0 0 30%'>Disposable Dinnerware</SubHeading>
 
             <ProductsContainer>
                 {newLaunchProducts.map((item,key) => (

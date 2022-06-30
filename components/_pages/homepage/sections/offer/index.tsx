@@ -34,25 +34,24 @@ export const Offer = ({ productsList, card }) => {
     const imagealt_one = [
         'disposable dinnerware bowl',
         'disposable dinnerware heart bowl',
-        '',
         'disposable dinnerware tray',
         'disposable cutlery',
-        'disposable dinnerware rectangle tray'
+        'disposable dinnerware rectangle tray',
     ]
     const imagealt_two = [
         'disposable dinnerware bowl',
         'disposable dinnerware deep bowl',
-        '',
         'disposable dinnerware plate',
         'disposable dinnerware square plate',
-        'disposable dinnerware container'
+        'disposable dinnerware container',
     ]
+
     return (
         <DisposableOfferContainer>
             <OfferCard card={card} />
             {/* <div style={{}}><ChevronsLeft size={35} /></div> */}
             <DisposableProductsContainer>
-                {productsList.map((item,key) =>
+                {productsList.map((item, key) =>
                     card == 'card1' ? (
                         <ProductCard
                             key={item.sku.S}

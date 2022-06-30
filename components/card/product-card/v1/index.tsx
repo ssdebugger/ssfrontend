@@ -207,9 +207,9 @@ export const ProductCard = (props) => {
                 </ProductImageContainer>
 
                 <ProductContent>
-                    <SubHeading>{props.name.replace(/'/g, '"')}</SubHeading>
-
-                    <span>Disposable Tableware</span>
+                    <Heading3>{props.name.replace(/'/g, '"')}</Heading3>
+                    
+                    {/* <span>Disposable Tableware</span> */}
 
                     <Paragraph>Durable, {props.desc}</Paragraph>
 

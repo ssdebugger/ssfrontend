@@ -50,7 +50,9 @@ export const SubHeading = styled.h2<CommonProps>`
 
 // Heading 3
 export const Heading3 = styled.h3<CommonProps>`
-    font-size: ${(props) => props.theme.heading3};
+    text-transform:capitalize;
+    font-size:  ${(props) =>
+        props.fontSize ? props.fontSize : props.theme.heading3};
     ${CommonStyles}
 `
 
