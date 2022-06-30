@@ -98,7 +98,7 @@ export const OfferCard = ({ card }) => {
                         disposable dinnerware set
                     </SubHeading>
                     <Paragraph>
-                        Check out our compostable tableware and disposable cutlery set selection for the
+                        Check out our disposable tableware and disposable cutlery set selection for the
                         very best elegant and custom pieces from our shops to
                         add the perfect finishing touch to your dining
                         experience
