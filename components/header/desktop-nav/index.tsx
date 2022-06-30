@@ -63,7 +63,7 @@ export const DesktopNav: React.FC<Props> = ({ NavLinksData }) => {
                                             >
                                                 <BlogImg
                                                     src='/headerimage2.jpg'
-                                                    alt="The story behind Sellsage"
+                                                    alt="Non disposable trash"
                                                     loading='lazy'
                                                 />
                                                 <Heading4>
@@ -82,7 +82,7 @@ export const DesktopNav: React.FC<Props> = ({ NavLinksData }) => {
                                             >
                                                 <BlogImg
                                                     src='/main.jpg'
-                                                    alt="The story behind Sellsage"
+                                                    alt="Sustainable life"
                                                     loading='lazy'
                                                 />
                                                 <Heading4>
