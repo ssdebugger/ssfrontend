@@ -544,7 +544,7 @@ const CheckoutPageWrapper = () => {
                     <Styles.Total>
                         <Styles.Expanded>
                             <span>Total</span>
-                            <h4>${orderDetails.total}</h4>
+                            <h4>${limitDecimal(orderDetails.total)}</h4>
                         </Styles.Expanded>
                     </Styles.Total>
                 </Styles.Col2>
@@ -555,7 +555,7 @@ const CheckoutPageWrapper = () => {
                 >
                     <span>Order Details</span>
                     <div>
-                        <h4>${orderDetails.total}</h4>
+                        <h4>${limitDecimal(orderDetails.total)}</h4>
                         <ChevronDown />
                     </div>
                 </Styles.Col3>
