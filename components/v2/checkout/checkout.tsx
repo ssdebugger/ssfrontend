@@ -245,7 +245,7 @@ const CheckoutPageWrapper = () => {
                         : billDetails.originalPrice
                 let discount: number = billDetails.discount.totalDiscount
                 let total =
-                    originalPrice + orderDetails.shippingAndTaxes - discount
+                    limitDecimal(originalPrice + orderDetails.shippingAndTaxes - discount)
 
                 if (shipping.postalCode !== '') {
                     fetch(
@@ -261,7 +261,7 @@ const CheckoutPageWrapper = () => {
                             )
 
                             let total =
-                                originalPrice + shippingAndTaxes - discount
+                                limitDecimal(originalPrice + shippingAndTaxes - discount)
 
                             setOrderDetails((prev) => ({
                                 ...prev,
