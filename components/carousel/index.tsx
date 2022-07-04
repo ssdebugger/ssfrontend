@@ -152,20 +152,20 @@ export const Carousel = () => {
                     </div>
                 </DisposableRight>
                 <div className="disposable-dinnerware-container">
-                    {/* <div className="carouselItem">
+                    <div className="carouselItem">
                         <HyperLink href="/shop">
                             <DisposableMobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/offer/easter_mobile.png"
-                                alt="Easter offer"
+                                src="/carouselimages/Disposable_dinnerware/disposable_independence_day_mobile.webp"
+                                alt="Disposable dinnerware"
                             />
                             <DisposableDesktopImg
                                 sizes="(max-width: 1400px) 100vw, 1400px"
-                                src="/carouselimages/offer/easter_desktop.png"
-                                alt="Easter offer"
+                                src="/carouselimages/Disposable_dinnerware/disposable_independence_day_desktop.webp"
+                                alt="Disposable dinnerware"
                             />
                         </HyperLink>
-                    </div> */}
+                    </div>
                     <div className="carouselItem">
                         <HyperLink href="/shop">
                             <DisposableMobileImg
