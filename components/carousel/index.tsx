@@ -52,7 +52,7 @@ const DisposableRight = styled.div`
 
 export const Carousel = () => {
     const index =  useRef(0)
-    const numberOfSlides = 3
+    const numberOfSlides = 4
 
     const scrollbanner = (direction) => {
         const disposableContainer =
@@ -152,20 +152,20 @@ export const Carousel = () => {
                     </div>
                 </DisposableRight>
                 <div className="disposable-dinnerware-container">
-                    {/* <div className="carouselItem">
+                    <div className="carouselItem">
                         <HyperLink href="/shop">
                             <DisposableMobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/Disposable_dinnerware/disposable_independence_day_mobile.webp"
+                                src="/carouselimages/Disposable_dinnerware/disposable_plasticfree_july_mobile.webp"
                                 alt="Disposable dinnerware"
                             />
                             <DisposableDesktopImg
                                 sizes="(max-width: 1400px) 100vw, 1400px"
-                                src="/carouselimages/Disposable_dinnerware/disposable_independence_day_desktop.webp"
+                                src="/carouselimages/Disposable_dinnerware/disposable_plasticfree_july_desktop.webp"
                                 alt="Disposable dinnerware"
                             />
                         </HyperLink>
-                    </div> */}
+                    </div>
                     <div className="carouselItem">
                         <HyperLink href="/shop">
                             <DisposableMobileImg
