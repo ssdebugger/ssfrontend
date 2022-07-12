@@ -244,8 +244,9 @@ const CheckoutPageWrapper = () => {
                         ? cartOriginalPrice
                         : billDetails.originalPrice
                 let discount: number = billDetails.discount.totalDiscount
-                let total =
-                    limitDecimal(originalPrice + orderDetails.shippingAndTaxes - discount)
+                let total = limitDecimal(
+                    originalPrice + orderDetails.shippingAndTaxes - discount
+                )
 
                 if (shipping.postalCode !== '') {
                     fetch(
@@ -260,8 +261,9 @@ const CheckoutPageWrapper = () => {
                                 res['tax_to_add'] + res['shipping_cost']
                             )
 
-                            let total =
-                                limitDecimal(originalPrice + shippingAndTaxes - discount)
+                            let total = limitDecimal(
+                                originalPrice + shippingAndTaxes - discount
+                            )
 
                             setOrderDetails((prev) => ({
                                 ...prev,
@@ -294,11 +296,37 @@ const CheckoutPageWrapper = () => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [errorMsg])
-
+    const pinterestdetails = { 
+        value: 10, 
+        order_quantity: 2, 
+        currency: 'USD', 
+        event_id: 'eventId0001',
+        product_ids: ['1414', '1415'] }
     return (
         <>
             <Head>
                 <title>Checkout - Sellsage</title>
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+        !function(e){if(!window.pintrk){window.pintrk = function () {
+        window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var
+          n=window.pintrk;n.queue=[],n.version="3.0";var
+          t=document.createElement("script");t.async=!0,t.src=e;var
+          r=document.getElementsByTagName("script")[0];
+          r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
+        pintrk('load', '2613059152744', {em: 'fsd1@sellsage.com'});
+        pintrk('track', 'checkout', { 
+            value: ${orderDetails.total}, 
+            order_id: 1234,
+            order_quantity: ${cart.length} , 
+            currency: 'USD', 
+            event_id: 'eventId0001',
+            product_ids: ['123', '123'] }
+         );;
+      `,
+                    }}
+                />
             </Head>
 
             <CheckoutHeader />
