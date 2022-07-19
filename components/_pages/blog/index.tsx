@@ -31,6 +31,7 @@ export type PostType = {
 export interface PropsData {
     posts: Array<PostType>
 }
+
 /**
  * Helper functions required in blog page
  */
