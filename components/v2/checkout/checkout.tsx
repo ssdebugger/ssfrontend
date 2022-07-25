@@ -42,13 +42,8 @@ const Steps = ['a', 'b']
 
 let stripePromise: Promise<Stripe>
 
-if (process.env.NODE_ENV !== 'production') {
-    stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_TEST_KEY)
-    console.log('not in prod: ', process.env.NEXT_PUBLIC_STRIPE_TEST_KEY)
-} else {
-    stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY)
-    console.log('in prod: ', process.env.NEXT_PUBLIC_STRIPE_KEY)
-}
+stripePromise = loadStripe('pk_live_d2HzkdbXHfM31jQJbUsPZiMe00VrTpDvSg')
+
 
 const CheckoutPageWrapper = () => {
     const stripe = useStripe()
@@ -296,17 +291,36 @@ const CheckoutPageWrapper = () => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [errorMsg])
-    const pinterestdetails = { 
-        value: 10, 
-        order_quantity: 2, 
-        currency: 'USD', 
+    const pinterestdetails = {
+        value: 10,
+        order_quantity: 2,
+        currency: 'USD',
         event_id: 'eventId0001',
-        product_ids: ['1414', '1415'] }
+        product_ids: ['1414', '1415'],
+    }
+    React.useEffect(() => {
+        import('react-pinterest-tag').then((ReactPinterestTag) => {
+            console.log('cart', cart)
+            let product_id = []
+            for (let i = 0; i++; i < cart.length) {
+                product_id.push(cart[i]['sku'])
+            }
+            ReactPinterestTag.default.init('2613059152744')
+            ReactPinterestTag.default.track('checkout', {
+                value: JSON.parse(localStorage.getItem('billDetails')).bagTotal,
+                order_id: 1234,
+                order_quantity: cart.length,
+                currency: 'USD',
+                event_id: 'eventId0001',
+                product_id: product_id,
+            })
+        })
+    }, [])
     return (
         <>
             <Head>
                 <title>Checkout - Sellsage</title>
-                <script
+                {/* <script
                     dangerouslySetInnerHTML={{
                         __html: `
         !function(e){if(!window.pintrk){window.pintrk = function () {
@@ -326,7 +340,7 @@ const CheckoutPageWrapper = () => {
          );;
       `,
                     }}
-                />
+                /> */}
             </Head>
 
             <CheckoutHeader />

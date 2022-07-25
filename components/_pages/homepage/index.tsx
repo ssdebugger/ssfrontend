@@ -32,6 +32,17 @@ const Homepage = ({ offers, bundles, data }) => {
         NewLaunchesList.push(bundles['body'][i])
     }
 
+    useEffect(() => {
+        import('react-pinterest-tag').then((ReactPinterestTag) => {
+            ReactPinterestTag.default.init('2613059152744')
+            ReactPinterestTag.default.track('pagevisit', {
+                promo_code: 'LandingPage',
+                event_id: 'eventId0001',
+              })
+            console.log(ReactPinterestTag)
+        })
+    }, [])
+
     return (
         <>
             <Head>
@@ -46,7 +57,7 @@ const Homepage = ({ offers, bundles, data }) => {
                 <title>
                     Disposable Dinnerware & Cutlery | Compostable Tableware
                 </title>
-                <script
+                {/* <script
                             dangerouslySetInnerHTML={{
                                 __html: `
         !function(e){if(!window.pintrk){window.pintrk = function () {
@@ -59,7 +70,7 @@ const Homepage = ({ offers, bundles, data }) => {
         pintrk('track', 'pagevisit');;
       ` , 
                             }}
-                        />
+                        /> */}
             </Head>
             <Header />
 

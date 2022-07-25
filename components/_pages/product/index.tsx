@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import Carousel from '@/components/_pages/product/carousel'
 import { LandingLayout } from '@/components/layout/landing'
@@ -11,7 +11,6 @@ import Footer from '@/components/footer'
 
 import { useAddItem, useCart, useRemoveItem } from 'context/cart'
 import { CartItem } from '@/types/cart'
-
 import Head from 'next/head'
 import { CollapseButton } from '@/components/collapse-button'
 import { BreadCrumb } from '@/components/breadcrumb'
@@ -42,7 +41,7 @@ const Productpage = (props) => {
     let data = props.data['body']['response']
     let recproducts = props.data['body']['recproducts']
     const alert = useAlert()
-
+    var ReactTag
     const AddToCartCta = ({
         sku,
         title,
@@ -78,7 +77,12 @@ const Productpage = (props) => {
         const handleAddToCart = (e) => {
             let itemIndex = cart.findIndex((item) => item.sku === sku)
             let curuser = window.localStorage.getItem('useremail')
-
+            ReactTag.default.track('addtocart', {
+                value: price,
+                order_quantity: 1,
+                currency: 'USD',
+                product_id: sku,
+            })
             if (
                 itemIndex !== -1 &&
                 cart[itemIndex].quantity <= data.in_stock.N
@@ -226,6 +230,17 @@ const Productpage = (props) => {
         price: data['sale_price']['N'],
         inStockQuantity: parseInt(data['in_stock']['N']),
     }
+    useEffect(() => {
+        import('react-pinterest-tag').then((ReactPinterestTag) => {
+            ReactTag = ReactPinterestTag
+            ReactPinterestTag.default.init('2613059152744')
+            ReactPinterestTag.default.track('pagevisit', {
+                promo_code: 'ProductPage',
+                event_id: 'eventId0001',
+            })
+            console.log(ReactPinterestTag)
+        })
+    }, [])
     return (
         <>
             <Head>

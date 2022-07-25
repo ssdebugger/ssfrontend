@@ -21,7 +21,7 @@ export default class MyDocument extends Document {
                 ...initialProps,
                 styles: (
                     <>
-                        <script
+                        {/* <script
                             dangerouslySetInnerHTML={{
                                 __html: `
         !function(e){if(!window.pintrk){window.pintrk = function () {
@@ -34,7 +34,7 @@ export default class MyDocument extends Document {
         pintrk('page');
       ` , 
                             }}
-                        />
+                        /> */}
                         <link
                             rel="apple-touch-icon"
                             sizes="180x180"
