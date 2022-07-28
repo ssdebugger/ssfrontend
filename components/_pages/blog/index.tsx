@@ -46,7 +46,6 @@ function formatDate(date) {
 
     return month + '-' + day + '-' + year
 }
-
 function sortData(data) {
     data.sort((a, b) => {
         a = new Date(a.publishedAt)
