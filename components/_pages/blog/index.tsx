@@ -87,8 +87,8 @@ const Blog = (props) => {
             }
         }
 
-        if (morePosts.length < 10) {
-            for (let i = 11; i < 21; i++) {
+        if (morePosts.length < 30) {
+            for (let i = 11; i < 40; i++) {
                 setMorePosts((prevData) => [...prevData, data[i]])
             }
         }
