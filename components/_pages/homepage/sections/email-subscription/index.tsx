@@ -7,6 +7,7 @@ import { Input } from '@/components/input'
 import { Button } from '@/components/buttons'
 
 export const EmailSubContainer = styled.div`
+    cursor:pointer;
     h4 {
         font-family: 'marcellus';
         font-size: 1.5rem;
@@ -55,37 +56,37 @@ export const EmailSubscription = () => {
         SetEmail(e.target.value)
     }
 
-    const submitForm = (e) => {
-        e.preventDeafult()
+    const submitForm = () => {
+    
     }
 
     useEffect(() => {
-        let emailPopupTimeout
+        let emailPopupTimeout=false
         let documentHeight = document.body.offsetHeight
-
+        console.log('in useEffect')
         function scrollListener() {
+            console.log('in scroll')
             let amountScrolled = window.pageYOffset
             let scrollLeft =
                 ((documentHeight - amountScrolled) / documentHeight) * 100
-
             // Show popup after 5sec once user has scrolled down.
-            if (scrollLeft < 10) {
-                emailPopupTimeout = setTimeout(() => {
-                    togglePopup()
-                }, 5000)
+            if (scrollLeft < 50 && !showPopup && !emailPopupTimeout) {
+                window.removeEventListener('scroll', scrollListener)
+                emailPopupTimeout=true
+                console.log('in pop up')
+              setShowPopup(true)
             }
         }
 
-        window.addEventListener('scroll', () => scrollListener)
-
-        return () => clearTimeout(emailPopupTimeout)
+        window.addEventListener('scroll', () => scrollListener())
+        return
     }, [])
 
-    useEffect(() => {
-        if (showPopup) {
-            window.removeEventListener('scroll', () => {})
-        }
-    }, [showPopup])
+    // useEffect(() => {
+    //     if (showPopup) {
+    //         window.removeEventListener('scroll', () => {})
+    //     }
+    // }, [showPopup])
 
     return (
         <Popup
@@ -94,31 +95,14 @@ export const EmailSubscription = () => {
             aspectRatio="tall"
         >
             <EmailSubContainer>
-                <h4>Don&#39;t leave us yet!</h4>
-
-                <Paragraph>
+                {/* <h4>Don&#39;t leave us yet!</h4> */}
+                <img style={{width:'100%',height:'auto'}} src='/popup.webp' alt='Subscribe to our newsletter'/>
+                {/* <Paragraph>
                     We keep adding to our disposable dinnerware and disposable cutlery collection. Leave us your email
                     address to get updates from us.
-                </Paragraph>
+                </Paragraph> */}
 
-                <SubForm>
-                    <Input
-                        required
-                        value={email}
-                        type="name"
-                        heading="Your Name"
-                        placeholder="Ade Chipole"
-                        onChangeHandler={(e) => handleChange(e)}
-                    />
-                    <Input
-                        required
-                        value={email}
-                        type="email"
-                        heading="Your Email"
-                        placeholder="ada@company.com"
-                        onChangeHandler={(e) => handleChange(e)}
-                    />
-
+                {/* <SubForm>
                     <Button
                         fill='true'
                         size="regular"
@@ -127,7 +111,7 @@ export const EmailSubscription = () => {
                     >
                         Subscribe
                     </Button>
-                </SubForm>
+                </SubForm> */}
             </EmailSubContainer>
         </Popup>
     )

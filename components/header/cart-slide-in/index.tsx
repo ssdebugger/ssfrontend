@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { X } from 'react-feather'
 import { Heading4,MainHeading } from '@/components/typography/heading'
-import { useCart } from '@/context/cart'
+import { useAddItem, useCart,useRemoveItem } from '@/context/cart'
 import { AlertBar } from '@/components/alert/alert-bar'
 import {
     CloseBtn,
@@ -59,6 +59,8 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
     const  offerproducts=['PALM-HRTB-0500-0020','BNDL-CSET-0000-0300','BNDL-SQDB-0710-0030','PALM-OVLB-0510-0020'
     ,'PALM-RTGT-0906-0020','PALM-RTGT-0703-0020']
     const { cart } = useCart()
+    const add=useAddItem()
+    const removeFromCart = useRemoveItem()
     const [alert, setAlert] = useState('')
     const [originalPrice, setOriginalPrice] = useState(0)
     const [discount, setDiscount] = useState(0)
@@ -147,6 +149,50 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
             setAlert('')
         }
         var productcheck = false
+        var cartCheck = false;
+        if(cart.length >3) {
+            for (let i=0;i<cart.length;i++) {
+                if(cart[i].sku=='BNDL-CSET-0000-0300' && cart[i].price==0){
+                    cartCheck=true;
+                }
+            }
+            if(!cartCheck){ 
+                add({
+                sku: 'BNDL-CSET-0000-0300',
+                quantity: 1,
+                title: 'cutlery set',
+                img: 'https://ss-compressedimages.s3.us-east-2.amazonaws.com/SellSage/ShopItems/43/BNDL-CSET-0000-0300/Main_WB.webp',
+                productid: 43,
+                price: 0,
+                inStockQuantity: 10,
+            })}
+        }
+        else if(cart.length==3){
+            for (let i=0;i<cart.length;i++) {
+                if(cart[i].sku=='BNDL-CSET-0000-0300' && cart[i].price==0){
+                    cartCheck=true;
+                }
+            }
+            if(cartCheck){
+                removeFromCart('BNDL-CSET-0000-0300')
+            }
+            else{
+                add({
+                    sku: 'BNDL-CSET-0000-0300',
+                    quantity: 1,
+                    title: 'cutlery set',
+                    img: 'https://ss-compressedimages.s3.us-east-2.amazonaws.com/SellSage/ShopItems/43/BNDL-CSET-0000-0300/Main_WB.webp',
+                    productid: 43,
+                    price: 0,
+                    inStockQuantity: 10,
+                })
+            }
+        }
+        else{
+            if(cartCheck) {
+                removeFromCart('BNDL-CSET-0000-0300' )
+                }
+            }
         for (let i = 0; i < cart.length; i++) {
             if (
                 offerproducts.includes(cart[i].sku)

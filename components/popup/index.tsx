@@ -16,7 +16,6 @@ const PopupContainer = styled.div<{ showPopup: boolean }>`
     height: 100vh;
     z-index: 20;
     background: rgba(0, 0, 0, 0.3);
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,9 +32,9 @@ const ContentWrapper = styled.div<{
 }>`
     background: #fff;
     width: 100%;
-    max-width: ${(props) => (props.aspectRatio === 'tall' ? '400px' : '500px')};
-    margin: 1.25rem;
-    padding: 1.5rem;
+    max-width: ${(props) => (props.aspectRatio === 'tall' ? '450px' : '500px')};
+    margin: 1rem;
+    padding: 1rem;
 
     transform: ${(props) =>
         props.showPopup ? 'translateY(0)' : 'translateY(40px)'};

@@ -88,9 +88,8 @@ const Homepage = ({ offers, bundles, data }) => {
 
                 <StoriesFromUs data={data} />
                 <InstagramPosts />
+                {/* <EmailSubscription /> */}
                 <Footer />
-
-                <EmailSubscription />
             </HomepageMain>
         </>
     )

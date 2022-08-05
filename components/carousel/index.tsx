@@ -156,12 +156,12 @@ export const Carousel = () => {
                         <HyperLink href="/shop">
                             <DisposableMobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/Disposable_dinnerware/disposable_plasticfree_july_mobile.webp"
+                                src="/carouselimages/Disposable_dinnerware/disposable_freecutlery_mobile.webp"
                                 alt="Disposable dinnerware"
                             />
                             <DisposableDesktopImg
                                 sizes="(max-width: 1400px) 100vw, 1400px"
-                                src="/carouselimages/Disposable_dinnerware/disposable_plasticfree_july_desktop.webp"
+                                src="/carouselimages/Disposable_dinnerware/disposable_freecutlery_desktop.webp"
                                 alt="Disposable dinnerware"
                             />
                         </HyperLink>
