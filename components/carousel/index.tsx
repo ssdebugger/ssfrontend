@@ -52,7 +52,7 @@ const DisposableRight = styled.div`
 
 export const Carousel = () => {
     const index =  useRef(0)
-    const numberOfSlides = 4
+    const numberOfSlides = 3
 
     const scrollbanner = (direction) => {
         const disposableContainer =
@@ -166,7 +166,7 @@ export const Carousel = () => {
                             />
                         </HyperLink>
                     </div>
-                    <div className="carouselItem">
+                    {/* <div className="carouselItem">
                         <HyperLink href="/shop">
                             <DisposableMobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
@@ -182,7 +182,7 @@ export const Carousel = () => {
                             
                             />
                         </HyperLink>
-                    </div>
+                    </div> */}
 
 
                     {/* <div className="carouselItem">

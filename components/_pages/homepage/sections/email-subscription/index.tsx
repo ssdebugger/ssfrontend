@@ -96,13 +96,28 @@ export const EmailSubscription = () => {
         >
             <EmailSubContainer>
                 {/* <h4>Don&#39;t leave us yet!</h4> */}
-                <img style={{width:'100%',height:'auto'}} src='/popup.webp' alt='Subscribe to our newsletter'/>
+                <img style={{width:'100%',height:'auto'}} src='/popup2.webp' alt='Subscribe to our newsletter'/>
                 {/* <Paragraph>
                     We keep adding to our disposable dinnerware and disposable cutlery collection. Leave us your email
                     address to get updates from us.
                 </Paragraph> */}
-
-                {/* <SubForm>
+                <SubForm>
+                {/* <Input
+                        required
+                        value={email}
+                        type="name"
+                        heading="Your Name"
+                        placeholder="Ade Chipole"
+                        onChangeHandler={(e) => handleChange(e)}
+                    /> */}
+                    {/* <Input
+                        required
+                        value={email}
+                        type="email"
+                        heading="Your Email"
+                        placeholder="ada@company.com"
+                        onChangeHandler={(e) => handleChange(e)}
+                    /> */}
                     <Button
                         fill='true'
                         size="regular"
@@ -111,7 +126,7 @@ export const EmailSubscription = () => {
                     >
                         Subscribe
                     </Button>
-                </SubForm> */}
+                </SubForm>
             </EmailSubContainer>
         </Popup>
     )

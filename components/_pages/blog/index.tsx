@@ -68,7 +68,6 @@ const Blog = (props) => {
     const [headlinePosts, setHeadlinePosts] = useState([])
     const [featuredPosts, setFeaturedPosts] = useState([])
     const [morePosts, setMorePosts] = useState([])
-
     useEffect(() => {
    
         sortData(data)
