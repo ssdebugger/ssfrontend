@@ -152,7 +152,20 @@ export const Carousel = () => {
                     </div>
                 </DisposableRight>
                 <div className="disposable-dinnerware-container">
-                   
+                    <div className="carouselItem">
+                        <HyperLink href="/shop">
+                            <DisposableMobileImg
+                                sizes="(max-width: 706px) 100vw, 706px"
+                                src="/carouselimages/Disposable_dinnerware/disposable_freecutlery_mobile.png"
+                                alt="Disposable dinnerware"
+                            />
+                            <DisposableDesktopImg
+                                sizes="(max-width: 1400px) 100vw, 1400px"
+                                src="/carouselimages/Disposable_dinnerware/disposable_freecutlery_desktop.webp"
+                                alt="Disposable dinnerware"
+                            />
+                        </HyperLink>
+                    </div>
                     {/* <div className="carouselItem">
                         <HyperLink href="/shop">
                             <DisposableMobileImg
@@ -187,23 +200,7 @@ export const Carousel = () => {
                             />
                         </HyperLink>
                     </div> */}
-                         <div className="carouselItem">
-                        <HyperLink href="/shop">
-                            <DisposableMobileImg
-                                sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/Disposable_tableware/disposable_tableware_mobile.png"
-                                alt="Disposable tableware"
-                                loading='lazy'
-                            />
 
-                            <DisposableDesktopImg
-                                sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/Disposable_tableware/disposable_tableware_desktop.png"
-                                alt="Disposable tableware"
-                                loading='lazy'
-                            />
-                        </HyperLink>
-                    </div> 
                     <div className="carouselItem">
                         <HyperLink href="/shop">
                             <DisposableMobileImg
@@ -215,7 +212,7 @@ export const Carousel = () => {
 
                             <DisposableDesktopImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/Disposable_cutlery/disposable_cutlery_desktop.png"
+                                src="/carouselimages/Disposable_cutlery/disposable_cutlery_desktop.webp"
                                 alt="Disposable cutlery"
                                 loading='lazy'
                             />
@@ -225,17 +222,19 @@ export const Carousel = () => {
                         <HyperLink href="/shop">
                             <DisposableMobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/Disposable_dinnerware/disposable_freecutlery_mobile.png"
-                                alt="Disposable dinnerware"
+                                src="/carouselimages/Disposable_tableware/disposable_tableware_mobile.png"
+                                alt="Disposable tableware"
+                                loading='lazy'
                             />
+
                             <DisposableDesktopImg
-                                sizes="(max-width: 1400px) 100vw, 1400px"
-                                src="/carouselimages/Disposable_dinnerware/disposable_freecutlery_desktop.png"
-                                alt="Disposable dinnerware"
+                                sizes="(max-width: 706px) 100vw, 706px"
+                                src="/carouselimages/Disposable_tableware/disposable_tableware_desktop.webp"
+                                alt="Disposable tableware"
+                                loading='lazy'
                             />
                         </HyperLink>
                     </div>
-               
                 </div>
             </div>
             <style jsx>{`
