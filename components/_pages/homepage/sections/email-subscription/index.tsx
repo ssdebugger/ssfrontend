@@ -122,7 +122,7 @@ export const EmailSubscription = () => {
                         fill='true'
                         size="regular"
                         varient="primary"
-                        onClick={(e) => submitForm(e)}
+                        onClick={() => submitForm()}
                     >
                         Subscribe
                     </Button>

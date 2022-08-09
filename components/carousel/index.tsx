@@ -156,12 +156,12 @@ export const Carousel = () => {
                         <HyperLink href="/shop">
                             <DisposableMobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/Disposable_dinnerware/disposable_freecutlery_mobile.webp"
+                                src="/carouselimages/Disposable_dinnerware/disposable_freecutlery_mobile.PNG"
                                 alt="Disposable dinnerware"
                             />
                             <DisposableDesktopImg
                                 sizes="(max-width: 1400px) 100vw, 1400px"
-                                src="/carouselimages/Disposable_dinnerware/disposable_freecutlery_desktop.webp"
+                                src="/carouselimages/Disposable_dinnerware/disposable_freecutlery_desktop.PNG"
                                 alt="Disposable dinnerware"
                             />
                         </HyperLink>
@@ -170,14 +170,14 @@ export const Carousel = () => {
                         <HyperLink href="/shop">
                             <DisposableMobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/Disposable_dinnerware/disposable_dinnerware_mobile.webp"
+                                src="/carouselimages/Disposable_dinnerware/disposable_dinnerware_mobile.PNG"
                                 alt="Disposable dinnerware"
                             
                             />
 
                             <DisposableDesktopImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/Disposable_dinnerware/disposable_dinnerware_desktop.webp"
+                                src="/carouselimages/Disposable_dinnerware/disposable_dinnerware_desktop.PNG"
                                 alt="Disposable dinnerware"
                             
                             />
@@ -205,14 +205,14 @@ export const Carousel = () => {
                         <HyperLink href="/shop">
                             <DisposableMobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/Disposable_cutlery/disposable_cutlery_mobile.webp"
+                                src="/carouselimages/Disposable_cutlery/disposable_cutlery_mobile.PNG"
                                 alt="Disposable cutlery"
                                 loading='lazy'
                             />
 
                             <DisposableDesktopImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/Disposable_cutlery/disposable_cutlery_desktop.webp"
+                                src="/carouselimages/Disposable_cutlery/disposable_cutlery_desktop.PNG"
                                 alt="Disposable cutlery"
                                 loading='lazy'
                             />
@@ -222,14 +222,14 @@ export const Carousel = () => {
                         <HyperLink href="/shop">
                             <DisposableMobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/Disposable_tableware/disposable_tableware_mobile.webp"
+                                src="/carouselimages/Disposable_tableware/disposable_tableware_mobile.PNG"
                                 alt="Disposable tableware"
                                 loading='lazy'
                             />
 
                             <DisposableDesktopImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/Disposable_tableware/disposable_tableware_desktop.webp"
+                                src="/carouselimages/Disposable_tableware/disposable_tableware_desktop.PNG"
                                 alt="Disposable tableware"
                                 loading='lazy'
                             />
