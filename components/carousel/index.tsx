@@ -187,7 +187,23 @@ export const Carousel = () => {
                             />
                         </HyperLink>
                     </div> */}
+                         <div className="carouselItem">
+                        <HyperLink href="/shop">
+                            <DisposableMobileImg
+                                sizes="(max-width: 706px) 100vw, 706px"
+                                src="/carouselimages/Disposable_tableware/disposable_tableware_mobile.png"
+                                alt="Disposable tableware"
+                                loading='lazy'
+                            />
 
+                            <DisposableDesktopImg
+                                sizes="(max-width: 706px) 100vw, 706px"
+                                src="/carouselimages/Disposable_tableware/disposable_tableware_desktop.png"
+                                alt="Disposable tableware"
+                                loading='lazy'
+                            />
+                        </HyperLink>
+                    </div> 
                     <div className="carouselItem">
                         <HyperLink href="/shop">
                             <DisposableMobileImg
@@ -219,23 +235,7 @@ export const Carousel = () => {
                             />
                         </HyperLink>
                     </div>
-                    <div className="carouselItem">
-                        <HyperLink href="/shop">
-                            <DisposableMobileImg
-                                sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/Disposable_tableware/disposable_tableware_mobile.png"
-                                alt="Disposable tableware"
-                                loading='lazy'
-                            />
-
-                            <DisposableDesktopImg
-                                sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/Disposable_tableware/disposable_tableware_desktop.png"
-                                alt="Disposable tableware"
-                                loading='lazy'
-                            />
-                        </HyperLink>
-                    </div>
+               
                 </div>
             </div>
             <style jsx>{`
