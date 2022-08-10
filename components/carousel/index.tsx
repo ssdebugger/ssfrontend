@@ -9,7 +9,7 @@ const DisposableMobileImg = styled.img`
     width: 100%;
     height:270px;
     object-fit:contain;
-    aspect-ratio: 1:1;
+    
     @media (min-width: ${(props) => props.theme.screenMd}) {
         display: none;
     }
