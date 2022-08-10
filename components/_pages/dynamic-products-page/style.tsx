@@ -136,7 +136,6 @@ export const SidebarContainer = styled.div`
 
     @media (min-width: 1024px) {
         display: block;
-        position: sticky;
         top: 110px;
         height: max-content;
         padding: 2rem 2rem 0 0;

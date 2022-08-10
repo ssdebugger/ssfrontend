@@ -98,7 +98,7 @@ export const DynamicPage = ({ products }) => {
                 )
                 for (var i = 0; i < 6; i++) {
                     let ele = document.getElementById(sizes[i])
-
+                    console.log(ele,sizes[i])
                     if (sizes[i] == size) {
                         ele.style.color = '#D39B75'
                     } else {
@@ -109,6 +109,7 @@ export const DynamicPage = ({ products }) => {
                 filterstate.current = filterrecords
                 setItems((items) => filterrecords)
             } else {
+                console.log(size)
                 let ele = document.getElementById(size)
                 ele.style.color = '#000'
                 repeatsize.current = ''
@@ -408,6 +409,54 @@ export const DynamicPage = ({ products }) => {
                                         <SizeContainer>
                                             <Size>
                                                 <SizeDesc
+                                                    id="3'"
+                                                    onClick={() =>
+                                                        filterfunction(
+                                                            filtercount
+                                                                .current[0],
+                                                            "3'",
+                                                            'size'
+                                                        )
+                                                    }
+                                                >
+                                                    3 inches
+                                                </SizeDesc>
+                                            </Size>
+
+                                            <Size>
+                                                <SizeDesc
+                                                    id="4'"
+                                                    onClick={() =>
+                                                        filterfunction(
+                                                            filtercount
+                                                                .current[0],
+                                                            "4'",
+                                                            'size'
+                                                        )
+                                                    }
+                                                >
+                                                    4 inches
+                                                </SizeDesc>
+                                            </Size>
+
+                                            <Size>
+                                                <SizeDesc
+                                                    id="5'"
+                                                    onClick={() =>
+                                                        filterfunction(
+                                                            filtercount
+                                                                .current[0],
+                                                            "5'",
+                                                            'size'
+                                                        )
+                                                    }
+                                                >
+                                                    5 inches
+                                                </SizeDesc>
+                                            </Size>
+
+                                            <Size>
+                                                <SizeDesc
                                                     id="6'"
                                                     onClick={() =>
                                                         filterfunction(
@@ -437,7 +486,6 @@ export const DynamicPage = ({ products }) => {
                                                     7 inches
                                                 </SizeDesc>
                                             </Size>
-
                                             <Size>
                                                 <SizeDesc
                                                     id="10'"
@@ -451,38 +499,6 @@ export const DynamicPage = ({ products }) => {
                                                     }
                                                 >
                                                     10 inches
-                                                </SizeDesc>
-                                            </Size>
-
-                                            <Size>
-                                                <SizeDesc
-                                                    id="11'"
-                                                    onClick={() =>
-                                                        filterfunction(
-                                                            filtercount
-                                                                .current[0],
-                                                            "11'",
-                                                            'size'
-                                                        )
-                                                    }
-                                                >
-                                                    11 inches
-                                                </SizeDesc>
-                                            </Size>
-
-                                            <Size>
-                                                <SizeDesc
-                                                    id="14'"
-                                                    onClick={() =>
-                                                        filterfunction(
-                                                            filtercount
-                                                                .current[0],
-                                                            "14'",
-                                                            'size'
-                                                        )
-                                                    }
-                                                >
-                                                    14 inches
                                                 </SizeDesc>
                                             </Size>
                                         </SizeContainer>
