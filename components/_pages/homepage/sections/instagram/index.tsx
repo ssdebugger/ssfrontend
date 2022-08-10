@@ -8,7 +8,7 @@ export const InstagramPosts = () => {
                 src="https://apps.elfsight.com/p/platform.js"
                 defer
             ></Script>
-            <div className="elfsight-app-3142e1e4-e19c-4642-a002-72bc356b043e"></div>
+            <div className="elfsight-app-df448e28-3ffb-4a09-9881-d6c78ec6bc26"></div>
             <Script
                 src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
