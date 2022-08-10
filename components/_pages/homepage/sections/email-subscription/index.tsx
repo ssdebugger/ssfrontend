@@ -37,7 +37,7 @@ export const EmailSubContainer = styled.div`
 `
 
 export const SubForm = styled.form`
-    margin: 2rem 0 0;
+    margin: 0 0 0;
 
     input {
         margin: 0 0 1.5rem;
@@ -126,6 +126,7 @@ export const EmailSubscription = () => {
                     >
                         Subscribe
                     </Button>
+                    <p style={{color:'black',marginTop:'0.5rem'}}>Join our movement of changemakers</p>
                 </SubForm>
             </EmailSubContainer>
         </Popup>

@@ -156,7 +156,7 @@ export const Carousel = () => {
                         <HyperLink href="/shop">
                             <DisposableMobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/Disposable_dinnerware/disposable_freecutlery_mobile.png"
+                                src="/carouselimages/Disposable_dinnerware/disposable_freecutlery_mobile.webp"
                                 alt="Disposable dinnerware"
                             />
                             <DisposableDesktopImg
@@ -170,14 +170,14 @@ export const Carousel = () => {
                         <HyperLink href="/shop">
                             <DisposableMobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/Disposable_dinnerware/disposable_dinnerware_mobile.PNG"
+                                src="/carouselimages/Disposable_dinnerware/disposable_dinnerware_mobile.webp"
                                 alt="Disposable dinnerware"
                             
                             />
 
                             <DisposableDesktopImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/Disposable_dinnerware/disposable_dinnerware_desktop.PNG"
+                                src="/carouselimages/Disposable_dinnerware/disposable_dinnerware_desktop.webp"
                                 alt="Disposable dinnerware"
                             
                             />
@@ -189,13 +189,13 @@ export const Carousel = () => {
                         <HyperLink href="/shop">
                             <DisposableMobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/plantry/plantrymobile_comp.png"
+                                src="/carouselimages/plantry/plantrymobile_comp.webp"
                                 alt="Plantry Banner"
                             />
 
                             <DisposableDesktopImg
                             sizes="(max-width: 706px) 100vw, 706px"
-                            src="/carouselimages/plantry/plantrydesktop_comp.png"
+                            src="/carouselimages/plantry/plantrydesktop_comp.webp"
                             alt="Plantry Banner"
                             />
                         </HyperLink>
@@ -205,7 +205,7 @@ export const Carousel = () => {
                         <HyperLink href="/shop">
                             <DisposableMobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/Disposable_cutlery/disposable_cutlery_mobile.png"
+                                src="/carouselimages/Disposable_cutlery/disposable_cutlery_mobile.webp"
                                 alt="Disposable cutlery"
                                 loading='lazy'
                             />
@@ -222,7 +222,7 @@ export const Carousel = () => {
                         <HyperLink href="/shop">
                             <DisposableMobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/Disposable_tableware/disposable_tableware_mobile.png"
+                                src="/carouselimages/Disposable_tableware/disposable_tableware_mobile.webp"
                                 alt="Disposable tableware"
                                 loading='lazy'
                             />
