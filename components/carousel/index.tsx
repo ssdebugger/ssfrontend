@@ -7,8 +7,8 @@ import { ChevronLeft, ChevronRight } from 'react-feather'
 const DisposableMobileImg = styled.img`
     display: block;
     width: 100%;
-    height:270px;
-    object-fit:contain;
+    height:266px;
+    object-fit:cover;
     
     @media (min-width: ${(props) => props.theme.screenMd}) {
         display: none;
