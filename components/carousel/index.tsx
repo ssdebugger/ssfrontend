@@ -118,8 +118,8 @@ export const Carousel = () => {
                         : String(+Number(imageToMove.style.order) + 1)
                 index.current++
                 clearTimeout(timeoutX)
-            }, 1000)
-        }, speed * 1000)
+            }, 1500)
+        }, speed * 1500)
         const disposableWrapper =
             document.querySelector<HTMLElement>('.disposable-dinnerware-wrapper')
         disposableWrapper.addEventListener('mouseenter', function () {
