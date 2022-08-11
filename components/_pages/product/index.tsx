@@ -81,7 +81,7 @@ const Productpage = (props) => {
                 value: price,
                 order_quantity: 1,
                 currency: 'USD',
-                product_id: sku,
+                product_id: [sku],
             })
             if (
                 itemIndex !== -1 &&
@@ -238,7 +238,6 @@ const Productpage = (props) => {
                 promo_code: 'ProductPage',
                 event_id: 'eventId0001',
             })
-            console.log(ReactPinterestTag)
         })
     }, [])
     return (

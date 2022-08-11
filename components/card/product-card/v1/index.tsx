@@ -139,6 +139,14 @@ export const ProductCard = (props) => {
     const [isAddedToCart, setIsAddedToCart] = useState(false)
 
     function handleClick() {
+        import('react-pinterest-tag').then((ReactPinterestTag) => {
+            ReactPinterestTag.default.track('addtocart', {
+                value: props.price,
+                order_quantity: 1,
+                currency: 'USD',
+                product_id: [props.sku],
+            })
+        })
         addToCart({
             sku: props.sku,
             quantity: 1,
