@@ -236,7 +236,7 @@ const Productpage = (props) => {
             ReactPinterestTag.default.init('2613059152744')
             ReactPinterestTag.default.track('pagevisit', {
                 promo_code: 'ProductPage',
-                event_id: 'eventId0001',
+                event_id: 'ProductPageVisit',
             })
         })
     }, [])

@@ -32,12 +32,13 @@ const Homepage = ({ offers, bundles, data }) => {
         NewLaunchesList.push(bundles['body'][i])
     }
 
+
     useEffect(() => {
         import('react-pinterest-tag').then((ReactPinterestTag) => {
             ReactPinterestTag.default.init('2613059152744')
             ReactPinterestTag.default.track('pagevisit', {
                 promo_code: 'LandingPage',
-                event_id: 'eventId0001',
+                event_id: 'LaningPageVisit',
               })
             console.log(ReactPinterestTag)
         })
@@ -77,7 +78,7 @@ const Homepage = ({ offers, bundles, data }) => {
             <HomepageMain>
                 <Carousel />
 
-                <Offer card={'card1'} productsList={ProductsOfferList} />
+                <Offer card={'card1'} productsList={ProductsOfferList}  />
                 <Infographic />
 
                 <NewLaunches newLaunchProducts={NewLaunchesList} />
