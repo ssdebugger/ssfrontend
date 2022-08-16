@@ -59,7 +59,6 @@ function setAllDates(data) {
         data[i]['publishedAt'] = formatDate(data[i]['publishedAt'])
     }
 }
-
 /**
  * Main Function
  */
