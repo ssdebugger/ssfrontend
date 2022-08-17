@@ -76,8 +76,8 @@ export const ExitIntentPopup = () => {
         let emailPopupTimeout=false
         let documentHeight = document.body.offsetHeight
         function mouseListener(event) {
-           
-            if(event.clientX<=0 || event.clientY<=0 || event.clientX>=window.innerWidth || event.clientY>=window.innerHeight){
+        
+            if(event.clientY<=0 || event.clientY>=window.innerHeight){
                 window.removeEventListener('mousemove',mouseListener)
                 emailPopupTimeout=true
                 setShowPopup(true)
