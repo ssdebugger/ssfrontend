@@ -120,13 +120,17 @@ export const EmailSubscription = () => {
                         placeholder="Ade Chipole"
                         onChangeHandler={(e) => handleChange(e)}
                     /> */}
-                    <Input
+                    <input
                         required
+                        style={{color:'#000',
+                            border: '1px solid ${(props) => props.theme.blueGray300}',
+                            padding:'0.5rem 0.5rem',
+                            transition:'${(props) => props.theme.transition}',
+                            width:'100%'}}
                         value={email}
                         type="email"
-                        heading="Your Email"
                         placeholder="sellsage@company.com"
-                        onChangeHandler={(e) => handleChange(e)}
+                        onChange={(e) => handleChange(e)}
                     />
                     <Button
                         fill='true'
