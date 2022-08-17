@@ -81,7 +81,7 @@ export const EmailSubscription = () => {
             let scrollLeft =
                 ((documentHeight - amountScrolled) / documentHeight) * 100
             // Show popup after 5sec once user has scrolled down.
-            if (scrollLeft < 85 && !showPopup && !emailPopupTimeout) {
+            if (scrollLeft < 90 && !showPopup && !emailPopupTimeout) {
                 window.removeEventListener('scroll', scrollListener)
                 emailPopupTimeout=true
               setShowPopup(true)
