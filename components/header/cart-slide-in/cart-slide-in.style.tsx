@@ -200,6 +200,7 @@ export const PriceSectionContainer = styled.div`
 `
 
 export const BagPriceContainer = styled.div`
+    margin-top:0.25rem;
     margin-bottom: 1.5rem;
     padding-bottom: 0.5rem;
 `

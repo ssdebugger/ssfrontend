@@ -185,21 +185,23 @@ export const ProductCard = (props) => {
 
     return (
         <Container>
-            {Number(props.productId) === 4 ? (
-                <NewLaunch>Deal Of The Summer </NewLaunch>
-            ) : Number(props.productId) === 24 ? (
-                <NewLaunch>Deal Of The Summer</NewLaunch>
-            ) : Number(props.productId) === 45 ? (
-                <NewLaunch>Deal Of The Summer</NewLaunch>
-            ) : Number(props.productId) === 7 ? (
-                <NewLaunch>Deal Of The Summer</NewLaunch>
-            ) : Number(props.productId) === 38 ? (
-                <NewLaunch>Deal Of The Summer</NewLaunch>
-            ) : (
-                Number(props.productId) === 43 && (
-                    <NewLaunch>Deal Of The Summer</NewLaunch>
-                )
-            )}
+            {//Number(props.productId) === 4 ? (
+            //     <NewLaunch>Buy 3 Get 1 cutlery FREE </NewLaunch>
+            // ) : 
+            // Number(props.productId) === 24 ? 
+            //    ( <NewLaunch>Buy 3 Get 1 cutlery FREE</NewLaunch>
+            // ) : Number(props.productId) === 45 ? (
+            //     <NewLaunch>Buy 3 Get 1 FREE</NewLaunch>
+            // ) : Number(props.productId) === 7 ? (
+            //     <NewLaunch>Buy 3 Get 1 FREE</NewLaunch>
+            // ) : Number(props.productId) === 38 ? (
+            //     <NewLaunch>Buy 3 Get 1 FREE</NewLaunch>
+            // ) : (
+            //     Number(props.productId) === 43 && (
+            //         <NewLaunch>Buy 3 Get 1 FREE</NewLaunch>
+            //     )
+            //)
+            }
 
             <ProductContainer href={'/' + props.sku}>
                 <ProductImageContainer>
@@ -228,7 +230,7 @@ export const ProductCard = (props) => {
                             <Star className="filled" />
                             <Star className="default" />
                         </RatingsContainer> */}
-                    {props.originalprice != 0 ? (
+                    {props.originalprice != 0 && props.originalprice!=props.price ? (
                         <DashedHeading>${props.originalprice}</DashedHeading>
                     ) : null}
                     <Heading3>${props.price}</Heading3>

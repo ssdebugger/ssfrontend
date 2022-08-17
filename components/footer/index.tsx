@@ -240,7 +240,7 @@ const Footer = () => {
                             fontWeight="400"
                             fontSize="14px"
                         >
-                            Subscribe now to get 10% off your first order and to make your inbox greener with monthly sustainable tips!
+                            Subscribe now to get 15% off your first order and to make your inbox greener with monthly sustainable tips!
                         </Typography>
 
                         <EmailInput placeholder="Email" />

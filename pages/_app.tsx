@@ -9,6 +9,7 @@ import { AuthProvider } from 'context/auth'
 import { UserProvider } from 'context/user'
 import ReactGa from 'react-ga'
 import { useRouter } from 'next/router'
+import { ExitIntentPopup } from '@/components/_pages/homepage/sections/exitIntent'
 
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -54,6 +55,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                     <UserProvider>
                         <CartProvider>
                             <Component {...pageProps} />
+                            <ExitIntentPopup />
                         </CartProvider>
                     </UserProvider>
                 </AuthProvider>

@@ -523,41 +523,44 @@ export const DynamicPage = ({ products }) => {
                                         key={item}
                                         inStock={e['in_stock']['N'] != 0}
                                     >
-                                        {Number(e['product_id']['N']) === 4 ? (
-                                            <NewLaunch top="15px" left="15px">
-                                                Deal Of The Summer
-                                            </NewLaunch>
-                                        ) : Number(e['product_id']['N']) ===
-                                          43 ? (
-                                            <NewLaunch top="15px" left="15px">
-                                                Deal Of The Summer
-                                            </NewLaunch>
-                                        ) : Number(e['product_id']['N']) ===
-                                          24 ? (
-                                            <NewLaunch top="15px" left="15px">
-                                                Deal Of The Summer
-                                            </NewLaunch>
-                                        ) : Number(e['product_id']['N']) ===
-                                          7 ? (
-                                            <NewLaunch top="15px" left="15px">
-                                                Deal Of The Summer
-                                            </NewLaunch>
-                                        ) : Number(e['product_id']['N']) ===
-                                          38 ? (
-                                            <NewLaunch top="15px" left="15px">
-                                                Deal Of The Summer
-                                            </NewLaunch>
-                                        ) : (
-                                            Number(e['product_id']['N']) ===
-                                                45 && (
-                                                <NewLaunch
-                                                    top="15px"
-                                                    left="15px"
-                                                >
-                                                    Deal Of The Summer
-                                                </NewLaunch>
-                                            )
-                                        )}
+                                    { // Number(e['product_id']['N']) === 4 ? (
+                                     //       <NewLaunch top="15px" left="15px">
+                                     //           Buy 3 Get 1 cutlery FREE
+                                     //       </NewLaunch>
+                                     //   ) :
+                                        //  Number(e['product_id']['N']) ===
+                                        //   43 ? 
+                                        //   (
+                                        //     <NewLaunch top="15px" left="15px">
+                                        //         Buy 3 Get 1 cutlery FREE
+                                        //     </NewLaunch>
+                                        // ) : Number(e['product_id']['N']) ===
+                                        //   24 ? (
+                                        //     <NewLaunch top="15px" left="15px">
+                                        //         Buy 3 Get 1 FREE
+                                        //     </NewLaunch>
+                                        // ) : Number(e['product_id']['N']) ===
+                                        //   7 ? (
+                                        //     <NewLaunch top="15px" left="15px">
+                                        //         Buy 3 Get 1 FREE
+                                        //     </NewLaunch>
+                                        // ) : Number(e['product_id']['N']) ===
+                                        //   38 ? (
+                                        //     <NewLaunch top="15px" left="15px">
+                                        //         Buy 3 Get 1 FREE
+                                        //     </NewLaunch>
+                                        // ) : (
+                                        //     Number(e['product_id']['N']) ===
+                                        //         45 && (
+                                        //         <NewLaunch
+                                        //             top="15px"
+                                        //             left="15px"
+                                        //         >
+                                        //             Buy 3 Get 1 FREE
+                                        //         </NewLaunch>
+                                        //     )
+                                        // )
+                                    }
 
                                         <TileHero>
                                             <Image 

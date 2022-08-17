@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
-
 import { Popup } from '@/components/popup'
 import { Paragraph } from '@/components/typography/paragraph'
 import { Input } from '@/components/input'
@@ -44,7 +43,7 @@ export const SubForm = styled.form`
     }
 `
 
-export const EmailSubscription = () => {
+export const ExitIntentPopup = () => {
     const [showPopup, setShowPopup] = useState(false)
     const [email, SetEmail] = useState('')
 
@@ -57,12 +56,12 @@ export const EmailSubscription = () => {
     }
 
     const submitForm = (e) => {
-           e.preventDefault()
-           togglePopup()
-           const data= {
-               "email":email
-           }
-           fetch('https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/addsubscriber', {
+        e.preventDefault()
+        togglePopup()
+        const data= {
+            "email":email
+        }
+        fetch('https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/addsubscriber', {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
             mode: 'no-cors', // no-cors, *cors, same-origin
             headers: {
@@ -76,19 +75,20 @@ export const EmailSubscription = () => {
     useEffect(() => {
         let emailPopupTimeout=false
         let documentHeight = document.body.offsetHeight
-        function scrollListener() {
-            let amountScrolled = window.pageYOffset
-            let scrollLeft =
-                ((documentHeight - amountScrolled) / documentHeight) * 100
-            // Show popup after 5sec once user has scrolled down.
-            if (scrollLeft < 50 && !showPopup && !emailPopupTimeout) {
-                window.removeEventListener('scroll', scrollListener)
+        function mouseListener(event) {
+           
+            if(event.clientX<=0 || event.clientY<=0 || event.clientX>=window.innerWidth || event.clientY>=window.innerHeight){
+                window.removeEventListener('mousemove',mouseListener)
                 emailPopupTimeout=true
-              setShowPopup(true)
+                setShowPopup(true)
             }
+            // Show popup after 5sec once user has scrolled down.
+            // if (scrollLeft < 50 && !showPopup && !emailPopupTimeout) {
+             
+            // }
         }
 
-        window.addEventListener('scroll', () => scrollListener())
+        window.addEventListener('mouseout', (event) => mouseListener(event))
         return
     }, [])
 
@@ -105,12 +105,11 @@ export const EmailSubscription = () => {
             aspectRatio="tall"
         >
             <EmailSubContainer>
-                {/* <h4>Don&#39;t leave us yet!</h4> */}
-                <img style={{width:'100%',height:'auto'}} src='/popup2.webp' alt='Subscribe to our newsletter'/>
-                {/* <Paragraph>
+                <h4>Don&#39;t leave us yet!</h4>
+               <Paragraph>
                     We keep adding to our disposable dinnerware and disposable cutlery collection. Leave us your email
                     address to get updates from us.
-                </Paragraph> */}
+                </Paragraph>
                 <SubForm>
                 {/* <Input
                         required
@@ -125,7 +124,7 @@ export const EmailSubscription = () => {
                         value={email}
                         type="email"
                         heading="Your Email"
-                        placeholder="sellsage@company.com"
+                        placeholder="ada@company.com"
                         onChangeHandler={(e) => handleChange(e)}
                     />
                     <Button
@@ -136,8 +135,7 @@ export const EmailSubscription = () => {
                     >
                         Subscribe
                     </Button>
-                    <p style={{color:'black',marginTop:'0.5rem'}}>Join our movement of changemakers</p>
-                </SubForm>
+               </SubForm>
             </EmailSubContainer>
         </Popup>
     )

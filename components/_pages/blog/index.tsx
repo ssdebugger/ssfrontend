@@ -62,6 +62,7 @@ function setAllDates(data) {
 /**
  * Main Function
  */
+
 const Blog = (props) => {
     const data = props.data
     const [headlinePosts, setHeadlinePosts] = useState([])

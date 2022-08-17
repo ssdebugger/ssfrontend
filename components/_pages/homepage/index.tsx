@@ -11,6 +11,7 @@ import { EmailSubscription } from './sections/email-subscription'
 import { Infographic } from './sections/infographic'
 import { InstagramPosts } from './sections/instagram'
 import { useEffect } from 'react'
+import { ExitIntentPopup } from './sections/exitIntent'
 
 const HomepageMain = styled.main`
     margin-top: 50px;
@@ -40,7 +41,6 @@ const Homepage = ({ offers, bundles, data }) => {
                 promo_code: 'LandingPage',
                 event_id: 'LaningPageVisit',
               })
-            console.log(ReactPinterestTag)
         })
     }, [])
 
@@ -88,8 +88,8 @@ const Homepage = ({ offers, bundles, data }) => {
                 <Offer card={'card2'} productsList={othersection} />
 
                 <StoriesFromUs data={data} />
-                <InstagramPosts />
-                {/* <EmailSubscription /> */}
+                {/* <InstagramPosts /> */}
+                <EmailSubscription />
                 <Footer />
             </HomepageMain>
         </>
