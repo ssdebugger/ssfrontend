@@ -3,7 +3,11 @@ import { InstagramContainer } from './instagram.style'
 
 export const InstagramPosts = () => {
     return (
+
         <InstagramContainer>
+             <h1 style={{textAlign:'center',marginBottom:'0.75rem'}}>
+                    <a style={{fontSize:'2rem'}} href="https://www.instagram.com/sellsage/">Follow Us On Instagram</a>
+                </h1>
             <Script
                 src="https://assets.juicer.io/embed.js"
                 type="text/javascript"
@@ -19,9 +23,6 @@ export const InstagramPosts = () => {
                 data-feed-id="sellsage"
                 data-origin="embed-code"
             >
-                <h1 style={{textAlign:'center',fontSize:'2rem',marginBottom:'0.75rem'}}>
-                    <a href="https://www.instagram.com/sellsage/">Follow Us On Instagram</a>
-                </h1>
             </ul>
         </InstagramContainer>
     )
