@@ -88,7 +88,7 @@ const Homepage = ({ offers, bundles, data }) => {
                 <Offer card={'card2'} productsList={othersection} />
 
                 <StoriesFromUs data={data} />
-                {/* <InstagramPosts /> */}
+                <InstagramPosts />
                 <EmailSubscription />
                 <Footer />
             </HomepageMain>
