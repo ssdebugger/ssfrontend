@@ -189,7 +189,9 @@ export const DynamicPage = ({ products }) => {
         }
     }
     useEffect(() => {
+        console.log(filter,  String(filter).charAt(0).toUpperCase() + filter.slice(1))
         if (filter !== 'none') {
+           
             filterfunction(
                 String(filter).charAt(0).toUpperCase() + filter.slice(1),
                 '0',
@@ -198,7 +200,7 @@ export const DynamicPage = ({ products }) => {
         } else {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [router.query.name])
 
     const checkedlow = useRef(false)
     const checkedhigh = useRef(false)
