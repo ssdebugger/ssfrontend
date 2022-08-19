@@ -34,7 +34,8 @@ const ContentWrapper = styled.div<{
     width: 100%;
     max-width: ${(props) => (props.aspectRatio === 'tall' ? '450px' : '500px')};
     margin: 1rem;
-    padding: 1rem;
+    padding: 1.5rem;
+    
 
     transform: ${(props) =>
         props.showPopup ? 'translateY(0)' : 'translateY(40px)'};
@@ -52,7 +53,7 @@ const BtnWrapper = styled.div`
     margin: -0.5rem -0.5rem 0 0;
 
     button {
-        padding: 0.5rem;
+        padding: 0.25rem;
 
         svg {
             stroke: ${(props) => props.theme.blueGray600};
