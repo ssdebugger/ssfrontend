@@ -36,6 +36,10 @@ import {
 import { AboutItem } from './about-item'
 import { Paragraph } from '@/components/typography/paragraph'
 import { ProductCertifications } from './product-certifications'
+import styled from 'styled-components'
+import OfferBanner from './offerbanner'
+
+
 
 const Productpage = (props) => {
     let data = props.data['body']['response']
@@ -407,10 +411,12 @@ const Productpage = (props) => {
                 </Container>
 
                 <ProductCertifications />
-
+                </LandingLayout>
+                <OfferBanner />
+                
                 <TopPicks offers={recproducts} />
                 {/* <CustomerReviews /> */}
-            </LandingLayout>
+           
             <Footer />
         </>
     )

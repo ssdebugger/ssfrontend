@@ -3,13 +3,13 @@ import styled from 'styled-components'
 import { Paragraph } from '@/components/typography/paragraph'
 
 const CertificationsContainer = styled.div`
-    padding: 2rem 0;
+    padding: 2rem 0 1rem 0;
 
     @media (min-width: ${(props) => props.theme.screenMd}) {
         display: flex;
         align-items: center;
-        margin: 4rem 0 3rem;
-        padding: 2.5rem 0 5rem;
+        margin: 4rem 0 1rem;
+        padding: 2.5rem 0 1rem;
     }
 `
 
