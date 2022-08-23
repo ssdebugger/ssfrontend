@@ -31,9 +31,9 @@ export const getShippingTaxes = async ({
         `https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/shippingtaxesv2?zipcode=${postalCode}&subtotal=${originalPrice}`
     ).then((res) => res.json())
     if(data.statusCode==400){
-        let shippingAndTaxes = limitDecimal(data.tax_to_add + data.shipping_cost)
+        let shippingAndTaxes = 0
 
-        let total = limitDecimal(originalPrice + shippingAndTaxes - discount)
+        let total = limitDecimal(originalPrice  - discount)
         let errorCode=400
         return { shippingAndTaxes, total , errorCode }
     }

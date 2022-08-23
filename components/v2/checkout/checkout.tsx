@@ -491,7 +491,7 @@ const CheckoutPageWrapper = () => {
                                 ) : null}
                                  {zipwarning ? (
                                     <WarningText>
-                                        &#9888; Sorry !! Currently not delivering to this postalcode
+                                        &#9888; Sorry !! Currently not delivering to this Postal Code
                                     </WarningText>
                                 ) : null}
 
