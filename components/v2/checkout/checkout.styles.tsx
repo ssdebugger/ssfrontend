@@ -168,6 +168,12 @@ export const Col3 = styled.button<{ show: boolean }>`
         display: none;
     }
 `
+export const WarningText = styled.p`
+    margin-bottom:0.5rem;
+    text-align:center;
+    color:red;
+    font-weight:500;
+`
 
 // Stipe card input
 export const StripeCardInput = styled.div`

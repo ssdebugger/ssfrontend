@@ -12,7 +12,7 @@ import { Button } from '@/components/buttons'
 import { usePlacesWidget } from 'react-google-autocomplete'
 import { useCart, useClearCart } from '@/context/cart'
 import { limitDecimal } from '@/utils/limt-decimal'
-
+import { WarningText } from './checkout.styles'
 // stripe
 import {
     loadStripe,
@@ -44,7 +44,6 @@ let stripePromise: Promise<Stripe>
 
 stripePromise = loadStripe('pk_live_d2HzkdbXHfM31jQJbUsPZiMe00VrTpDvSg')
 
-
 const CheckoutPageWrapper = () => {
     const stripe = useStripe()
     const { cart } = useCart()
@@ -52,10 +51,8 @@ const CheckoutPageWrapper = () => {
     const router = useRouter()
     const alert = useAlert()
     const elements = useElements()
-
     const [errorMsg, setErrorMsg] = React.useState('')
     const [showOrderDetails, setShowOrderDetails] = React.useState(false)
-
     const [orderDetails, setOrderDetails] = React.useState<IOrderDetails>({
         originalPrice: 0,
         shippingAndTaxes: 0,
@@ -74,16 +71,15 @@ const CheckoutPageWrapper = () => {
         country: '',
         postalCode: '',
     })
-
+    const [warning, setWarning] = React.useState(false)
+    const [zipwarning,setZipwarning] = React.useState(false)
     const [payment, setPayment] = React.useState<IPayment>({
         nameOnCard: '',
         email: '',
         phone: '',
         cardNum: '',
     })
-
     const [paymentIntent, setPaymentIntent] = React.useState<PaymentIntent>()
-
     const showOneAlways = (currentId: string) => {
         const closing = openIndexes.includes(currentId)
         const isLastIndex = openIndexes.length < 2
@@ -96,7 +92,6 @@ const CheckoutPageWrapper = () => {
             setOpenIndexes((prev) => [...prev, currentId])
         }
     }
-
     const handleInputChange = (type: 'shipping' | 'payment', data: Object) => {
         if (type === 'shipping') {
             setShipping((prev) => ({ ...prev, ...data }))
@@ -104,14 +99,13 @@ const CheckoutPageWrapper = () => {
             setPayment((prev) => ({ ...prev, ...data }))
         }
     }
-
     const handleCardInput = (e: StripeCardElementChangeEvent) => {
         if (e.error) {
             alert.show(e.error.message)
         }
         return
     }
-
+  
     const { ref, autocompleteRef } = usePlacesWidget({
         apiKey: 'AIzaSyDtDZuMfT96MQUfJvR4gRDK2VxoLPQYcao',
         options: {
@@ -178,25 +172,33 @@ const CheckoutPageWrapper = () => {
     })
 
     const setShippingTaxes = async () => {
-        let { shippingAndTaxes, total } = await getShippingTaxes({
+        let { shippingAndTaxes, total , errorCode } = await getShippingTaxes({
             originalPrice: orderDetails.originalPrice,
             discount: orderDetails.discount,
             postalCode: shipping.postalCode,
         })
-
-        let intent = await generatePaymentIntent({
-            shipping,
-            orderDetails: {
-                discount: orderDetails.discount,
-                originalPrice: orderDetails.originalPrice,
-                shippingAndTaxes: shippingAndTaxes,
-                total: total,
-            },
-        })
-
-        setOrderDetails((prev) => ({ ...prev, shippingAndTaxes, total }))
-        setPaymentIntent(intent)
+        if(errorCode==400){
+                setZipwarning(true)
+        }
+        else{
+            setOpenIndexes(['b'])
+            setZipwarning(false)
+            let intent = await generatePaymentIntent({
+                shipping,
+                orderDetails: {
+                    discount: orderDetails.discount,
+                    originalPrice: orderDetails.originalPrice,
+                    shippingAndTaxes: shippingAndTaxes,
+                    total: total,
+                },
+            })
+    
+            setOrderDetails((prev) => ({ ...prev, shippingAndTaxes, total }))
+            setPaymentIntent(intent)
+        }
+     
     }
+
 
     const handleProcessPayment = (e) => {
         try {
@@ -220,6 +222,22 @@ const CheckoutPageWrapper = () => {
             e.target.innerHTML = 'Pay'
             e.target.disabled = false
             alert.show(JSON.stringify('Something went wrong please try again.'))
+        }
+    }
+
+    const handleSavePay = () => {
+        if (
+            shipping.firstName.trim() == '' ||
+            shipping.lastName.trim() == '' ||
+            shipping.address.trim() == '' ||
+            shipping.postalCode.trim() == '' ||
+            shipping.city.trim() == '' ||
+            shipping.state.trim() == ''
+        ) {
+            setWarning(true)
+        } else {
+            setWarning(false)
+            setShippingTaxes()
         }
     }
 
@@ -466,12 +484,21 @@ const CheckoutPageWrapper = () => {
                                         }
                                     />
                                 </Styles.ShippingDetailsContainer>
+                                {warning ? (
+                                    <WarningText>
+                                        &#9888; Please Enter all the details
+                                    </WarningText>
+                                ) : null}
+                                 {zipwarning ? (
+                                    <WarningText>
+                                        &#9888; Sorry !! Currently not delivering to this postalcode
+                                    </WarningText>
+                                ) : null}
 
                                 <Button
                                     varient="primary"
                                     onClick={() => {
-                                        setOpenIndexes(['b'])
-                                        setShippingTaxes()
+                                        handleSavePay()
                                     }}
                                 >
                                     Save and Pay

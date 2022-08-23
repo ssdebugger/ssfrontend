@@ -30,12 +30,21 @@ export const getShippingTaxes = async ({
     let data: IShippingAndTaxes = await fetch(
         `https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/shippingtaxesv2?zipcode=${postalCode}&subtotal=${originalPrice}`
     ).then((res) => res.json())
+    if(data.statusCode==400){
+        let shippingAndTaxes = limitDecimal(data.tax_to_add + data.shipping_cost)
 
-    let shippingAndTaxes = limitDecimal(data.tax_to_add + data.shipping_cost)
+        let total = limitDecimal(originalPrice + shippingAndTaxes - discount)
+        let errorCode=400
+        return { shippingAndTaxes, total , errorCode }
+    }
+    else{
+        let shippingAndTaxes = limitDecimal(data.tax_to_add + data.shipping_cost)
 
-    let total = limitDecimal(originalPrice + shippingAndTaxes - discount)
-
-    return { shippingAndTaxes, total }
+        let total = limitDecimal(originalPrice + shippingAndTaxes - discount)
+        let errorCode=200
+        return { shippingAndTaxes, total , errorCode }
+    }
+    
 }
 
 /**
