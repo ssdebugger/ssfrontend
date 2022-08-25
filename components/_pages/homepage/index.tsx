@@ -12,6 +12,7 @@ import { Infographic } from './sections/infographic'
 import { InstagramPosts } from './sections/instagram'
 import { useEffect } from 'react'
 import { ExitIntentPopup } from './sections/exitIntent'
+import CustomerTestimonial from './sections/testimonial'
 
 const HomepageMain = styled.main`
     margin-top: 50px;
@@ -80,13 +81,13 @@ const Homepage = ({ offers, bundles, data }) => {
 
                 <Offer card={'card1'} productsList={ProductsOfferList}  />
                 <Infographic />
-
+                {/* <CustomerTestimonial /> */}
                 <NewLaunches newLaunchProducts={NewLaunchesList} />
-
+                
                 <Bundle />
-
+                
                 <Offer card={'card2'} productsList={othersection} />
-
+                
                 <StoriesFromUs data={data} />
                 <InstagramPosts />
                 <EmailSubscription />
