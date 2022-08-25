@@ -35,7 +35,7 @@ const CustomerTestimonial = () => {
                     <TestimonialHolder color="#f2f2f2">
                         <TestimonialTextHolder>
                             <TestimonialText>
-                                Great for when you don't want to deal with the
+                                Great for when you don`&#39;`t want to deal with the
                                 mess, but want to stay classy AND sustainable.
                                 Recommend for any party, always!!
                             </TestimonialText>
@@ -51,7 +51,7 @@ const CustomerTestimonial = () => {
                         <TestimonialTextHolder>
                             <TestimonialText color="#fff">
                                 These are way better than traditional paper
-                                plates. They are much stronger, and they don’t
+                                plates. They are much stronger, and they don`&#39;`t
                                 have all the toxic chemicals that bleached paper
                                 plates have. Will definitely buy again
                             </TestimonialText>
@@ -83,7 +83,7 @@ const CustomerTestimonial = () => {
                     <TestimonialHolder color="#f2f2f2">
                         <TestimonialTextHolder>
                             <TestimonialText>
-                                Great for when you don't want to deal with the
+                                Great for when you don`&#39;`t want to deal with the
                                 mess, but want to stay classy AND sustainable.
                                 Recommend for any party, always!!
                             </TestimonialText>
@@ -99,7 +99,7 @@ const CustomerTestimonial = () => {
                         <TestimonialTextHolder>
                             <TestimonialText color="#fff">
                                 These are way better than traditional paper
-                                plates. They are much stronger, and they don’t
+                                plates. They are much stronger, and they don`&#39;`t
                                 have all the toxic chemicals that bleached paper
                                 plates have. Will definitely buy again
                             </TestimonialText>
@@ -131,7 +131,7 @@ const CustomerTestimonial = () => {
                     <TestimonialHolder color="#f2f2f2">
                         <TestimonialTextHolder>
                             <TestimonialText>
-                                Great for when you don't want to deal with the
+                                Great for when you don`&#39;`t want to deal with the
                                 mess, but want to stay classy AND sustainable.
                                 Recommend for any party, always!!
                             </TestimonialText>
@@ -147,7 +147,7 @@ const CustomerTestimonial = () => {
                         <TestimonialTextHolder>
                             <TestimonialText color="#fff">
                                 These are way better than traditional paper
-                                plates. They are much stronger, and they don’t
+                                plates. They are much stronger, and they don`&#39;`t
                                 have all the toxic chemicals that bleached paper
                                 plates have. Will definitely buy again
                             </TestimonialText>
