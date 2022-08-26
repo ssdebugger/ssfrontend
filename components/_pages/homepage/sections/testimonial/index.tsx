@@ -43,7 +43,7 @@ const CustomerTestimonial = () => {
                     <TestimonialHolder color="#f2f2f2">
                         <TestimonialTextHolder>
                             <TestimonialText>
-                                Bought these for my daughter's wedding for
+                                Bought these for my daughter`&#39;`s wedding for
                                 serving popcorn, and we LOVE them! Beautiful!
                                 Wish they were just a little cheaper, but WE
                                 LOVE THEM!!! Each one is different and such a
@@ -98,7 +98,7 @@ const CustomerTestimonial = () => {
                         <TestimonialTextHolder>
                             <TestimonialText>
                                 I was skeptical about this but bought a pack to
-                                try with my lop ear and she loves them. It's
+                                try with my lop ear and she loves them. It`&#39;`s
                                 taken her a few days to get thru 1 bowl but she
                                 chews for awhile and then drinks her water.
                             </TestimonialText>
