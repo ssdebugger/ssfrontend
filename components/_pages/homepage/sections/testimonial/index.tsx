@@ -30,7 +30,7 @@ const CustomerTestimonial = () => {
     useEffect(() => {
         const Intrevalid = setInterval(() => {
             ScrollFunction()
-        }, 20000)
+        }, 30000)
         return () => clearInterval(Intrevalid)
     }, [])
     return (
