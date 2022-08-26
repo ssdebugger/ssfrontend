@@ -5,11 +5,8 @@ export const MainContainer = styled.div`
     min-width: 30%;
     margin: 0.5rem 1.5%;
     padding: 1rem 1rem;
-    @media (max-width: 768px) {
-        width: 40vw;
-    }
-    @media (max-width: 500px) {
-        width: 90vw;
+    @media (max-width: 1000px) {
+        min-width: 100%;
     }
     
 `
@@ -19,13 +16,15 @@ export const TestimonialContainer = styled.div`
     flex-direction: row;
     flex-wrap: nowrap ;
     overflow:hidden;
+    @media (max-width: 500px) {
+        overflow:scroll;
+    }
 `
 export const UserText = styled.p`
     font-weight: 600;
     font-size: 1rem;
     text-align: center;
     margin-top: 1rem;
-    padding-bottom: 1rem;
 `
 
 export const TestimonialHolder = styled.div`

@@ -80,8 +80,8 @@ const Homepage = ({ offers, bundles, data }) => {
                 <Carousel />
 
                 <Offer card={'card1'} productsList={ProductsOfferList}  />
-                <Infographic />
-                {/* <CustomerTestimonial /> */}
+                {/* <Infographic /> */}
+                <CustomerTestimonial />
                 <NewLaunches newLaunchProducts={NewLaunchesList} />
                 
                 <Bundle />
