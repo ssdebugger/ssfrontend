@@ -37,7 +37,7 @@ const CustomerTestimonial = () => {
         <>
           <div style={{textAlign:'center'}}>
             <SubHeading>
-                What our customers are saying ..
+                What our amazon customers say ..
             </SubHeading>
             </div>
             <TestimonialContainer id="testcontainer">
