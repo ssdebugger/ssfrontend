@@ -35,9 +35,11 @@ const CustomerTestimonial = () => {
     }, [])
     return (
         <>
-            <SubHeading margin="0.5rem 0rem 1rem 25%">
+          <div style={{textAlign:'center'}}>
+            <SubHeading>
                 What our customers are saying ..
             </SubHeading>
+            </div>
             <TestimonialContainer id="testcontainer">
                 <MainContainer>
                     <TestimonialHolder color="#f2f2f2">
