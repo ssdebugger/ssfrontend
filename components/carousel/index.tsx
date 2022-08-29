@@ -1,23 +1,22 @@
-import React, { useEffect,useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { HyperLink } from '../header'
 import { ChevronLeft, ChevronRight } from 'react-feather'
 
-
 const DisposableMobileImg = styled.img`
     display: block;
     width: 100vw;
-    height:100%;
-    object-fit:cover;
-    
+    height: 100%;
+    object-fit: cover;
+
     @media (min-width: ${(props) => props.theme.screenMd}) {
         display: none;
     }
 `
 const DisposableDesktopImg = styled.img`
     display: none;
-    min-width:100%;
-    height:500px;
+    width: 100vw;
+    height: 500px;
     @media (min-width: ${(props) => props.theme.screenMd}) {
         display: block;
     }
@@ -52,12 +51,13 @@ const DisposableRight = styled.div`
 `
 
 export const Carousel = () => {
-    const index =  useRef(0)
-    const numberOfSlides = 3
+    const index = useRef(0)
+    const numberOfSlides = 4
 
     const scrollbanner = (direction) => {
-        const disposableContainer =
-            document.querySelector<HTMLElement>('.disposable-dinnerware-container')
+        const disposableContainer = document.querySelector<HTMLElement>(
+            '.disposable-dinnerware-container'
+        )
 
         if (direction == 'left') {
             const screenWidth = -window.innerWidth
@@ -67,9 +67,9 @@ export const Carousel = () => {
             disposableContainer.scrollBy(-screenWidth, 0)
             index.current = index.current % numberOfSlides
             let imageToMove =
-                disposableContainer.querySelectorAll<HTMLElement>(`.carouselItem`)[
-                    index.current
-                ]
+                disposableContainer.querySelectorAll<HTMLElement>(
+                    `.carouselItem`
+                )[index.current]
             // The line below move the item to end of carousel by
             // manipulating its flex order
             imageToMove.style.order =
@@ -82,9 +82,9 @@ export const Carousel = () => {
             disposableContainer.scrollBy(screenWidth, 0)
             index.current = index.current % numberOfSlides
             let imageToMove =
-                disposableContainer.querySelectorAll<HTMLElement>(`.carouselItem`)[
-                    index.current
-                ]
+                disposableContainer.querySelectorAll<HTMLElement>(
+                    `.carouselItem`
+                )[index.current]
             // The line below move the item to end of carousel by
             // manipulating its flex order
             imageToMove.style.order =
@@ -97,8 +97,9 @@ export const Carousel = () => {
     useEffect(() => {
         const screenWidth = window.innerWidth
 
-        const disposableContainer =
-            document.querySelector<HTMLElement>('.disposable-dinnerware-container')
+        const disposableContainer = document.querySelector<HTMLElement>(
+            '.disposable-dinnerware-container'
+        )
 
         const speed = 5
         setInterval(() => {
@@ -120,14 +121,16 @@ export const Carousel = () => {
                 clearTimeout(timeoutX)
             }, 1500)
         }, speed * 1500)
-        const disposableWrapper =
-            document.querySelector<HTMLElement>('.disposable-dinnerware-wrapper')
+        const disposableWrapper = document.querySelector<HTMLElement>(
+            '.disposable-dinnerware-wrapper'
+        )
         disposableWrapper.addEventListener('mouseenter', function () {
             const screenWidth = window.innerWidth
 
             if (screenWidth > 600) {
                 document.getElementById('DisposableLeft').style.display = 'flex'
-                document.getElementById('DisposableRight').style.display = 'flex'
+                document.getElementById('DisposableRight').style.display =
+                    'flex'
             }
         })
         disposableWrapper.addEventListener('mouseleave', function () {
@@ -139,7 +142,10 @@ export const Carousel = () => {
     return (
         <>
             <div className="disposable-dinnerware-wrapper">
-                <DisposableLeft id="DisposableLeft" onClick={() => scrollbanner('left')}>
+                <DisposableLeft
+                    id="DisposableLeft"
+                    onClick={() => scrollbanner('left')}
+                >
                     <div className="disposable-dinnerware-left">
                         <ChevronLeft />
                     </div>
@@ -185,7 +191,6 @@ export const Carousel = () => {
                         </HyperLink>
                     </div> */}
 
-
                     {/* <div className="carouselItem">
                         <HyperLink href="/shop">
                             <DisposableMobileImg
@@ -208,14 +213,14 @@ export const Carousel = () => {
                                 sizes="(max-width: 706px) 100vw, 706px"
                                 src="/carouselimages/Disposable_cutlery/disposable_cutlery_mobile.webp"
                                 alt="Disposable cutlery"
-                                loading='lazy'
+                                loading="lazy"
                             />
 
                             <DisposableDesktopImg
                                 sizes="(max-width: 706px) 100vw, 706px"
                                 src="/carouselimages/Disposable_cutlery/disposable_cutlery_desktop.webp"
                                 alt="Disposable cutlery"
-                                loading='lazy'
+                                loading="lazy"
                             />
                         </HyperLink>
                     </div>
@@ -225,14 +230,31 @@ export const Carousel = () => {
                                 sizes="(max-width: 706px) 100vw, 706px"
                                 src="/carouselimages/Disposable_tableware/disposable_tableware_mobile.webp"
                                 alt="Disposable tableware"
-                                loading='lazy'
+                                loading="lazy"
                             />
 
                             <DisposableDesktopImg
                                 sizes="(max-width: 706px) 100vw, 706px"
                                 src="/carouselimages/Disposable_tableware/disposable_tableware_desktop.webp"
                                 alt="Disposable tableware"
-                                loading='lazy'
+                                loading="lazy"
+                            />
+                        </HyperLink>
+                    </div>
+                    <div className="carouselItem">
+                        <HyperLink href="/shop">
+                            <DisposableMobileImg
+                                sizes="(max-width: 706px) 100vw, 706px"
+                                src="/carouselimages/Disposable_dinnerware/disposable_dinnerware_plastic_mobile.webp"
+                                alt="Disposable dinnerware vs plastic"
+                                loading="lazy"
+                            />
+
+                            <DisposableDesktopImg
+                                sizes="(max-width: 706px) 100vw, 706px"
+                                src="/carouselimages/Disposable_dinnerware/disposable_dinnerware_plastic_desktop.webp"
+                                alt="Disposable dinnerware vs plastic"
+                                loading="lazy"
                             />
                         </HyperLink>
                     </div>
