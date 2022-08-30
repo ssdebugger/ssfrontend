@@ -21,143 +21,31 @@ export interface CustomerReviewProps {
     description: string
 }
 
-export const CustomerReviews = () => {
+export const CustomerReviews = ({ reviews }) => {
+    console.log('reviews', reviews)
     return (
         <CustomerReviewContainer>
-            <Heading3>What our customers have to say</Heading3>
+           <Heading3 style={{textAlign:'center'}}>What our customers have to say</Heading3>
 
             <ReviewMain>
-                <ColumnLeft>
+                {/* <ColumnLeft>
                     <ProductRating />
 
                     <Keywords />
-                </ColumnLeft>
+                </ColumnLeft> */}
 
                 <ColumnRight>
                     <ReviewContainer>
-                        <CustomerReview
-                            rating={4}
-                            username={'Baburao'}
-                            postedOn="30th Feb 2020"
-                            reviewTitle="Durable Product"
-                            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-							egestas est nunc suspendisse suspendisse sed pellentesque
-							hendrerit. Velit, curabitur etiam nisi, semper sed sit eu. Diam
-							velit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-							egestas est nunc suspendisse suspendisse sed pellentesque
-							hendrerit. Velit, curabitur etiam nisi, semper sed sit eu. Diam
-							velit"
-                        />
-
-                        <CustomerReview
-                            rating={4}
-                            username={'Baburao'}
-                            postedOn="30th Feb 2020"
-                            reviewTitle="Durable Product"
-                            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-							egestas est nunc suspendisse suspendisse sed pellentesque
-							hendrerit. Velit, curabitur etiam nisi, semper sed sit eu. Diam
-							velit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-							egestas est nunc suspendisse suspendisse sed pellentesque
-							hendrerit. Velit, curabitur etiam nisi, semper sed sit eu. Diam
-							velit"
-                            images={[
-                                'https://m.media-amazon.com/images/I/71RGAQutaJL._AC_UX385_.jpg',
-                                'https://m.media-amazon.com/images/I/71Oud3Qg5XL._AC_UX385_.jpg',
-                            ]}
-                        />
-
-                        <CustomerReview
-                            rating={4}
-                            username={'Baburao'}
-                            postedOn="30th Feb 2020"
-                            reviewTitle="Durable Product"
-                            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-							egestas est nunc suspendisse suspendisse sed pellentesque
-							hendrerit. Velit, curabitur etiam nisi, semper sed sit eu. Diam
-							velit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-							egestas est nunc suspendisse suspendisse sed pellentesque
-							hendrerit. Velit, curabitur etiam nisi, semper sed sit eu. Diam
-							velit"
-                            images={[
-                                'https://m.media-amazon.com/images/I/71RGAQutaJL._AC_UX385_.jpg',
-                                'https://m.media-amazon.com/images/I/71Oud3Qg5XL._AC_UX385_.jpg',
-                                'https://m.media-amazon.com/images/I/71Oud3Qg5XL._AC_UX385_.jpg',
-                                'https://m.media-amazon.com/images/I/71Oud3Qg5XL._AC_UX385_.jpg',
-                            ]}
-                        />
-
-                        <CustomerReview
-                            rating={4}
-                            username={'Baburao'}
-                            postedOn="30th Feb 2020"
-                            reviewTitle="Durable Product"
-                            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-							egestas est nunc suspendisse suspendisse sed pellentesque
-							hendrerit. Velit, curabitur etiam nisi, semper sed sit eu. Diam
-							velit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-							egestas est nunc suspendisse suspendisse sed pellentesque
-							hendrerit. Velit, curabitur etiam nisi, semper sed sit eu. Diam
-							velit"
-                            images={[
-                                'https://m.media-amazon.com/images/I/71RGAQutaJL._AC_UX385_.jpg',
-                                'https://m.media-amazon.com/images/I/71Oud3Qg5XL._AC_UX385_.jpg',
-                            ]}
-                        />
-
-                        <CustomerReview
-                            rating={4}
-                            username={'Baburao'}
-                            postedOn="30th Feb 2020"
-                            reviewTitle="Durable Product"
-                            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-							egestas est nunc suspendisse suspendisse sed pellentesque
-							hendrerit. Velit, curabitur etiam nisi, semper sed sit eu. Diam
-							velit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-							egestas est nunc suspendisse suspendisse sed pellentesque
-							hendrerit. Velit, curabitur etiam nisi, semper sed sit eu. Diam
-							velit"
-                            images={[
-                                'https://m.media-amazon.com/images/I/71RGAQutaJL._AC_UX385_.jpg',
-                                'https://m.media-amazon.com/images/I/71Oud3Qg5XL._AC_UX385_.jpg',
-                            ]}
-                        />
-
-                        <CustomerReview
-                            rating={4}
-                            username={'Baburao'}
-                            postedOn="30th Feb 2020"
-                            reviewTitle="Durable Product"
-                            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-							egestas est nunc suspendisse suspendisse sed pellentesque
-							hendrerit. Velit, curabitur etiam nisi, semper sed sit eu. Diam
-							velit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-							egestas est nunc suspendisse suspendisse sed pellentesque
-							hendrerit. Velit, curabitur etiam nisi, semper sed sit eu. Diam
-							velit"
-                            images={[
-                                'https://m.media-amazon.com/images/I/71RGAQutaJL._AC_UX385_.jpg',
-                                'https://m.media-amazon.com/images/I/71Oud3Qg5XL._AC_UX385_.jpg',
-                            ]}
-                        />
-
-                        <CustomerReview
-                            rating={4}
-                            username={'Baburao'}
-                            postedOn="30th Feb 2020"
-                            reviewTitle="Durable Product"
-                            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-							egestas est nunc suspendisse suspendisse sed pellentesque
-							hendrerit. Velit, curabitur etiam nisi, semper sed sit eu. Diam
-							velit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-							egestas est nunc suspendisse suspendisse sed pellentesque
-							hendrerit. Velit, curabitur etiam nisi, semper sed sit eu. Diam
-							velit"
-                            images={[
-                                'https://m.media-amazon.com/images/I/71RGAQutaJL._AC_UX385_.jpg',
-                                'https://m.media-amazon.com/images/I/71Oud3Qg5XL._AC_UX385_.jpg',
-                            ]}
-                        />
+                        {reviews.map((review) => (
+                            <CustomerReview
+                                rating={review['rating']['N']}
+                                username={review['username']['S']}
+                                postedOn={review['date']['S']}
+                                reviewTitle="Durable Product"
+                                description={review['review']['S']}
+                                images={review['review_images']}
+                            />
+                        ))}
                     </ReviewContainer>
                 </ColumnRight>
             </ReviewMain>

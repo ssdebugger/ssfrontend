@@ -11,6 +11,8 @@ export const CustomerReview: React.FC<CustomerReviewProps> = ({
     postedOn,
     reviewTitle,
     images,
+    description,
+    rating,
 }) => {
     const ReviewContainer = styled.div`
         margin: 0 0 2rem;
@@ -61,20 +63,15 @@ export const CustomerReview: React.FC<CustomerReviewProps> = ({
             display: none;
         }
     `
-
+    console.log(reviewTitle, username, postedOn, 'customer card')
     return (
         <ReviewContainer>
-            <Heading4>{reviewTitle}</Heading4>
-
+            {/* <Heading4>{reviewTitle}</Heading4> */}
             <RatingContainer>
                 <Rating>
-                    <Star fill="#000" />
-                    <Star fill="#000" />
-                    <Star fill="#000" />
-                    <Star fill="#000" />
-                    <Star />
+                    {[...Array(Number(rating))].map((e,i) => <Star key={i} fill="#000"/>)} 
+                    {[...Array(Number(5-Number(rating)))].map((e,i) => <Star />)} 
                 </Rating>
-
                 <Paragraph margin="0 0 0 1rem">
                     {username} - {postedOn}
                 </Paragraph>
@@ -83,17 +80,11 @@ export const CustomerReview: React.FC<CustomerReviewProps> = ({
             {images?.length > 0 && (
                 <ImagesContainer>
                     {images?.map((link) => (
-                        <Image alt='eco products' key={link} src={link} />
+                        <Image alt="eco products" key={link} src={link} />
                     ))}
                 </ImagesContainer>
             )}
-
-            <Paragraph>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-                egestas est nunc suspendisse suspendisse sed pellentesque
-                hendrerit. Velit, curabitur etiam nisi, semper sed sit eu. Diam
-                velit...
-            </Paragraph>
+            <Paragraph>{description}</Paragraph>
         </ReviewContainer>
     )
 }

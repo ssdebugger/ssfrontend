@@ -17,7 +17,7 @@ import { BreadCrumb } from '@/components/breadcrumb'
 import { SizeSelector } from './sizes'
 
 import { useAlert } from 'react-alert'
-
+import { CustomerReviews } from './customer-review'
 import {
     AboutItemContainer,
     AddToCart,
@@ -415,7 +415,7 @@ const Productpage = (props) => {
                 <OfferBanner />
                 
                 <TopPicks offers={recproducts} />
-                {/* <CustomerReviews /> */}
+                <CustomerReviews reviews={data['reviews']} />
            
             <Footer />
         </>
