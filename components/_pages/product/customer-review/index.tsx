@@ -25,31 +25,36 @@ export const CustomerReviews = ({ reviews }) => {
     console.log('reviews', reviews)
     return (
         <CustomerReviewContainer>
-           <Heading3 style={{textAlign:'center'}}>What our customers have to say</Heading3>
-
-            <ReviewMain>
-                {/* <ColumnLeft>
+            {reviews.length > 0 ? (
+                <>
+                    <Heading3 style={{ textAlign: 'center' }}>
+                        What our customers have to say
+                    </Heading3>
+                    <ReviewMain>
+                        {/* <ColumnLeft>
                     <ProductRating />
 
                     <Keywords />
                 </ColumnLeft> */}
 
-                <ColumnRight>
-                    <ReviewContainer>
-                        {reviews.map((review,key) => (
-                            <CustomerReview
-                                rating={review['rating']['N']}
-                                username={review['username']['S']}
-                                postedOn={review['date']['S']}
-                                reviewTitle="Durable Product"
-                                description={review['review']['S']}
-                                images={review['review_images']}
-                                key={key}
-                            />
-                        ))}
-                    </ReviewContainer>
-                </ColumnRight>
-            </ReviewMain>
+                        <ColumnRight>
+                            <ReviewContainer>
+                                {reviews.map((review, key) => (
+                                    <CustomerReview
+                                        rating={review['rating']['N']}
+                                        username={review['username']['S']}
+                                        postedOn={review['date']['S']}
+                                        reviewTitle="Durable Product"
+                                        description={review['review']['S']}
+                                        images={review['review_images']}
+                                        key={key}
+                                    />
+                                ))}
+                            </ReviewContainer>
+                        </ColumnRight>
+                    </ReviewMain>
+                </>
+            ) : null}
         </CustomerReviewContainer>
     )
 }
