@@ -36,7 +36,7 @@ export const CustomerReviews = ({ reviews }) => {
 
                 <ColumnRight>
                     <ReviewContainer>
-                        {reviews.map((review) => (
+                        {reviews.map((review,key) => (
                             <CustomerReview
                                 rating={review['rating']['N']}
                                 username={review['username']['S']}
@@ -44,6 +44,7 @@ export const CustomerReviews = ({ reviews }) => {
                                 reviewTitle="Durable Product"
                                 description={review['review']['S']}
                                 images={review['review_images']}
+                                key={key}
                             />
                         ))}
                     </ReviewContainer>

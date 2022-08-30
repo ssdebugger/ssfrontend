@@ -70,7 +70,7 @@ export const CustomerReview: React.FC<CustomerReviewProps> = ({
             <RatingContainer>
                 <Rating>
                     {[...Array(Number(rating))].map((e,i) => <Star key={i} fill="#000"/>)} 
-                    {[...Array(Number(5-Number(rating)))].map((e,i) => <Star />)} 
+                    {[...Array(Number(5-Number(rating)))].map((e,i) => <Star key={i} />)} 
                 </Rating>
                 <Paragraph margin="0 0 0 1rem">
                     {username} - {postedOn}
