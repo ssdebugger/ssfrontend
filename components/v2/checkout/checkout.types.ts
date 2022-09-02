@@ -32,6 +32,7 @@ export interface IShippingAndTaxes {
     shipping_cost: number
     tax_percent: number
     tax_to_add: number
+    delivery : object
 }
 
 export interface IProcessPayment {

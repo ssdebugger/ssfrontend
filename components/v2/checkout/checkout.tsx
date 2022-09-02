@@ -61,6 +61,7 @@ const CheckoutPageWrapper = () => {
     })
 
     const [openIndexes, setOpenIndexes] = React.useState(['a'])
+    const [delivery, setDelivery] = React.useState('null')
     const [shipping, setShipping] = React.useState<IShipping>({
         firstName: '',
         lastName: '',
@@ -72,7 +73,7 @@ const CheckoutPageWrapper = () => {
         postalCode: '',
     })
     const [warning, setWarning] = React.useState(false)
-    const [zipwarning,setZipwarning] = React.useState(false)
+    const [zipwarning, setZipwarning] = React.useState(false)
     const [payment, setPayment] = React.useState<IPayment>({
         nameOnCard: '',
         email: '',
@@ -105,7 +106,7 @@ const CheckoutPageWrapper = () => {
         }
         return
     }
-  
+
     const { ref, autocompleteRef } = usePlacesWidget({
         apiKey: 'AIzaSyDtDZuMfT96MQUfJvR4gRDK2VxoLPQYcao',
         options: {
@@ -172,17 +173,18 @@ const CheckoutPageWrapper = () => {
     })
 
     const setShippingTaxes = async () => {
-        let { shippingAndTaxes, total , errorCode } = await getShippingTaxes({
-            originalPrice: orderDetails.originalPrice,
-            discount: orderDetails.discount,
-            postalCode: shipping.postalCode,
-        })
-        if(errorCode==400){
-                setZipwarning(true)
-        }
-        else{
+        let { shippingAndTaxes, total, errorCode, delivery_time } =
+            await getShippingTaxes({
+                originalPrice: orderDetails.originalPrice,
+                discount: orderDetails.discount,
+                postalCode: shipping.postalCode,
+            })
+        if (errorCode == 400) {
+            setZipwarning(true)
+        } else {
             setOpenIndexes(['b'])
             setZipwarning(false)
+            setDelivery(delivery_time['fedex'])
             let intent = await generatePaymentIntent({
                 shipping,
                 orderDetails: {
@@ -192,13 +194,11 @@ const CheckoutPageWrapper = () => {
                     total: total,
                 },
             })
-    
+
             setOrderDetails((prev) => ({ ...prev, shippingAndTaxes, total }))
             setPaymentIntent(intent)
         }
-     
     }
-
 
     const handleProcessPayment = (e) => {
         try {
@@ -489,9 +489,10 @@ const CheckoutPageWrapper = () => {
                                         &#9888; Please Enter all the details
                                     </WarningText>
                                 ) : null}
-                                 {zipwarning ? (
+                                {zipwarning ? (
                                     <WarningText>
-                                        &#9888; Sorry !! Currently not delivering to this Postal Code
+                                        &#9888; Sorry !! Currently not
+                                        delivering to this Postal Code
                                     </WarningText>
                                 ) : null}
 
@@ -608,6 +609,12 @@ const CheckoutPageWrapper = () => {
                             <span>Discount</span>
                             <h4>${orderDetails.discount}</h4>
                         </Styles.Expanded>
+                        {delivery !== 'null' ? (
+                            <Styles.Expanded>
+                                <span >Expected Delivery</span>
+                                <h4 style={{color:'green'}}>{delivery}</h4>
+                            </Styles.Expanded>
+                        ) : null}
                     </Styles.PricingDetails>
 
                     <Styles.Total>

@@ -22,7 +22,6 @@ export interface CustomerReviewProps {
 }
 
 export const CustomerReviews = ({ reviews }) => {
-    console.log('reviews', reviews)
     return (
         <CustomerReviewContainer>
             {reviews.length > 0 ? (

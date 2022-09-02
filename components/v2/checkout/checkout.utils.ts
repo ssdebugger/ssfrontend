@@ -35,14 +35,15 @@ export const getShippingTaxes = async ({
 
         let total = limitDecimal(originalPrice  - discount)
         let errorCode=400
-        return { shippingAndTaxes, total , errorCode }
+        let delivery_time = {'fedex': 'Not deliverable','usps':'Not deliverable'}
+        return { shippingAndTaxes, total , errorCode,delivery_time }
     }
     else{
         let shippingAndTaxes = limitDecimal(data.tax_to_add + data.shipping_cost)
-
+        let delivery_time = data.delivery
         let total = limitDecimal(originalPrice + shippingAndTaxes - discount)
         let errorCode=200
-        return { shippingAndTaxes, total , errorCode }
+        return { shippingAndTaxes, total , errorCode,delivery_time }
     }
     
 }
@@ -206,7 +207,7 @@ export const processPayment = async ({
 
             if (order_details.payment_details.payment_status === 'succeeded') {
                 fetch(
-                    'https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/createorder',
+                    'https://hqe9oxnhea.execute-api.us-east-2.amazonaws.com/dev/createorder',
                     {
                         method: 'POST',
                         body: JSON.stringify(order_details),
