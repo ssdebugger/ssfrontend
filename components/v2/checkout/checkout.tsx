@@ -587,7 +587,7 @@ const CheckoutPageWrapper = () => {
                             <CheckoutOrderProduct
                                 key={key}
                                 title={item.title}
-                                img={item.img}
+                                img={`https://ss-compressedimages.s3.us-east-2.amazonaws.com/SellSage/ShopItems/${item.productid}/${item.sku}/Main_WB.webp`}
                                 price={item.price.toString()}
                                 quantity={item.quantity.toString()}
                             />
