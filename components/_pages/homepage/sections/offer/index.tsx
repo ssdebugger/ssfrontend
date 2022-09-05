@@ -57,7 +57,7 @@ export const Offer = ({ productsList, card }) => {
                             key={item.sku.S}
                             sku={item.sku.S}
                             name={item.name.S}
-                            image={item.imageurl}
+                            image={`https://ss-compressedimages.s3.us-east-2.amazonaws.com/SellSage/ShopItems/${item.product_id.N}/${item.sku.S}/Main_WB.webp`}
                             price={item.sale_price.N}
                             originalprice={item.price.N}
                             desc={item.description.S}
@@ -70,7 +70,7 @@ export const Offer = ({ productsList, card }) => {
                             key={item.sku_code.S}
                             sku={item.sku_code.S}
                             name={item.product_name.S}
-                            image={item.imageurl}
+                            image={`https://ss-compressedimages.s3.us-east-2.amazonaws.com/SellSage/ShopItems/${item.product_id.N}/${item.sku_code.S}/Main_WB.webp`}
                             price={item.sale_price}
                             originalprice={0}
                             desc={item.short_description.S}
