@@ -10,7 +10,6 @@ import {
     ResultTiles,
     ProductCard,
     TileHero,
-  
     LifeStyleImg,
     TileInfo,
     ProductName,
@@ -43,7 +42,7 @@ import Image from 'next/image'
 
 export const DynamicPage = ({ products }) => {
     const router = useRouter()
-    const filter=router.query.name || 'none'
+    const filter = router.query.name || 'none'
     const allitems = products['body']
 
     const ids = [
@@ -98,7 +97,7 @@ export const DynamicPage = ({ products }) => {
                 )
                 for (var i = 0; i < 6; i++) {
                     let ele = document.getElementById(sizes[i])
-                    console.log(ele,sizes[i])
+                    console.log(ele, sizes[i])
                     if (sizes[i] == size) {
                         ele.style.color = '#D39B75'
                     } else {
@@ -189,9 +188,11 @@ export const DynamicPage = ({ products }) => {
         }
     }
     useEffect(() => {
-        console.log(filter,  String(filter).charAt(0).toUpperCase() + filter.slice(1))
+        console.log(
+            filter,
+            String(filter).charAt(0).toUpperCase() + filter.slice(1)
+        )
         if (filter !== 'none') {
-           
             filterfunction(
                 String(filter).charAt(0).toUpperCase() + filter.slice(1),
                 '0',
@@ -525,56 +526,57 @@ export const DynamicPage = ({ products }) => {
                                         key={item}
                                         inStock={e['in_stock']['N'] != 0}
                                     >
-                                    { // Number(e['product_id']['N']) === 4 ? (
-                                     //       <NewLaunch top="15px" left="15px">
-                                     //           Buy 3 Get 1 cutlery FREE
-                                     //       </NewLaunch>
-                                     //   ) :
-                                        //  Number(e['product_id']['N']) ===
-                                        //   43 ? 
-                                        //   (
-                                        //     <NewLaunch top="15px" left="15px">
-                                        //         Buy 3 Get 1 cutlery FREE
-                                        //     </NewLaunch>
-                                        // ) : Number(e['product_id']['N']) ===
-                                        //   24 ? (
-                                        //     <NewLaunch top="15px" left="15px">
-                                        //         Buy 3 Get 1 FREE
-                                        //     </NewLaunch>
-                                        // ) : Number(e['product_id']['N']) ===
-                                        //   7 ? (
-                                        //     <NewLaunch top="15px" left="15px">
-                                        //         Buy 3 Get 1 FREE
-                                        //     </NewLaunch>
-                                        // ) : Number(e['product_id']['N']) ===
-                                        //   38 ? (
-                                        //     <NewLaunch top="15px" left="15px">
-                                        //         Buy 3 Get 1 FREE
-                                        //     </NewLaunch>
-                                        // ) : (
-                                        //     Number(e['product_id']['N']) ===
-                                        //         45 && (
-                                        //         <NewLaunch
-                                        //             top="15px"
-                                        //             left="15px"
-                                        //         >
-                                        //             Buy 3 Get 1 FREE
-                                        //         </NewLaunch>
-                                        //     )
-                                        // )
-                                    }
+                                        {
+                                            // Number(e['product_id']['N']) === 4 ? (
+                                            //       <NewLaunch top="15px" left="15px">
+                                            //           Buy 3 Get 1 cutlery FREE
+                                            //       </NewLaunch>
+                                            //   ) :
+                                            //  Number(e['product_id']['N']) ===
+                                            //   43 ?
+                                            //   (
+                                            //     <NewLaunch top="15px" left="15px">
+                                            //         Buy 3 Get 1 cutlery FREE
+                                            //     </NewLaunch>
+                                            // ) : Number(e['product_id']['N']) ===
+                                            //   24 ? (
+                                            //     <NewLaunch top="15px" left="15px">
+                                            //         Buy 3 Get 1 FREE
+                                            //     </NewLaunch>
+                                            // ) : Number(e['product_id']['N']) ===
+                                            //   7 ? (
+                                            //     <NewLaunch top="15px" left="15px">
+                                            //         Buy 3 Get 1 FREE
+                                            //     </NewLaunch>
+                                            // ) : Number(e['product_id']['N']) ===
+                                            //   38 ? (
+                                            //     <NewLaunch top="15px" left="15px">
+                                            //         Buy 3 Get 1 FREE
+                                            //     </NewLaunch>
+                                            // ) : (
+                                            //     Number(e['product_id']['N']) ===
+                                            //         45 && (
+                                            //         <NewLaunch
+                                            //             top="15px"
+                                            //             left="15px"
+                                            //         >
+                                            //             Buy 3 Get 1 FREE
+                                            //         </NewLaunch>
+                                            //     )
+                                            // )
+                                        }
 
                                         <TileHero>
-                                            <Image 
-                                             src={e['imageurl']}
-                                             alt="image"
-                                             height="100%"
-                                             width="100%"
-                                             objectFit='cover'
-                                             layout='responsive'
+                                            <Image
+                                                src={`https://ss-compressedimages.s3.us-east-2.amazonaws.com/SellSage/ShopItems/${e.product_id.N}/${e.sku_code.S}/Main_WB.webp`}
+                                                alt="image"
+                                                height="100%"
+                                                width="100%"
+                                                objectFit="cover"
+                                                layout="responsive"
                                             />
                                             <LifeStyleImg
-                                                 src={e['lifeimageurl']}
+                                                src={`https://ss-compressedimages.s3.us-east-2.amazonaws.com/SellSage/ShopItems/${e.product_id.N}/${e.sku_code.S}/PT01_LIF.webp`}
                                                 loading="lazy"
                                                 alt="image"
                                             />

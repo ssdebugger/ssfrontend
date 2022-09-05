@@ -318,7 +318,7 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
                                         title={product.title}
                                         quantity={product.quantity}
                                         productid={product.productid}
-                                        img={product.img}
+                                        img={`https://ss-compressedimages.s3.us-east-2.amazonaws.com/SellSage/ShopItems/${product.productid}/${product.sku}/Main_WB.webp`}
                                         discountAmount={couponSelected.amount}
                                         price={limitDecimal(
                                             product.price * product.quantity

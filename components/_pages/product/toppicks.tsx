@@ -32,7 +32,7 @@ const TopPicks = (props) => {
                     <ProductCard
                         key={key}
                         name={item['product_name']['S']}
-                        image={item['image0']}
+                        image={`https://ss-compressedimages.s3.us-east-2.amazonaws.com/SellSage/ShopItems/${item.product_id.N}/${item.sku_code.S}/Main_WB.webp`}
                         price={item['sale_price']['N']}
                         desc={item['short_description']['S']}
                         sku={item['sku_code']['S']}

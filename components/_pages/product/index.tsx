@@ -275,10 +275,10 @@ const Productpage = (props) => {
                                     <Carousel
                                         component="product"
                                         images={[
-                                            data['image0'],
-                                            data['image1'],
-                                            data['image2'],
-                                            data['image3'],
+                                            `https://ss-compressedimages.s3.us-east-2.amazonaws.com/SellSage/ShopItems/${ItemData.productid}/${ItemData.sku}/Main_WB.webp`,
+                                            `https://ss-compressedimages.s3.us-east-2.amazonaws.com/SellSage/ShopItems/${ItemData.productid}/${ItemData.sku}/PT01_LIF.webp`,
+                                            `https://ss-compressedimages.s3.us-east-2.amazonaws.com/SellSage/ShopItems/${ItemData.productid}/${ItemData.sku}/PT02_LIF.webp`,
+                                            `https://ss-compressedimages.s3.us-east-2.amazonaws.com/SellSage/ShopItems/${ItemData.productid}/${ItemData.sku}/PT03_LIF.webp`,
                                         ]}
                                         alt={data['about']['L'][0]['S']}
                                     />
