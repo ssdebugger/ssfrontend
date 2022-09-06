@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import Head from 'next/head'
 import { Header } from '@/components/header'
-import  Auth from '@aws-amplify/auth'
-import Confirm from './confirm'
 import Popup from './popup'
 
 import {
@@ -25,10 +23,11 @@ import { Button } from '@/components/buttons'
 
 import { Heading3, MainHeading } from '@/components/typography/heading'
 import Footer from '@/components/footer'
+import { useRouter } from 'next/router'
 
 const Signup = () => {
-    const [accountType, setAccountTye] = useState('personal')
-
+    const [accountType, setAccountType] = useState('personal')
+    const router = useRouter()
     const [email, setEmail] = useState('')
     const [code, setCode] = useState('')
     const [userSub, setUsersub] = useState('')
@@ -92,45 +91,32 @@ const Signup = () => {
              * for testing needs to be changed.
              * */
         } else {
-            Auth.configure({
-                region: 'us-east-2',
-                userPoolId: 'us-east-2_PtilY0Lzj',
-                userPoolWebClientId: '449s5sgctbta5ao7ku7qg9r1dq',
-            })
-
-            Auth.signUp({
-                username:
-                    name.replace(/ .*/, '') +
-                    email.substring(0, email.indexOf('@')),
-                password,
-                attributes: {
-                    email,
-                },
-            })
-                .then((response) => {
-                    setUsersub(response.userSub)
-                    toggleConfirm()
-                })
-                .catch((error) => {
-                    setIsOpen(!isOpen)
-                    setAlert(error.message)
-                })
+                    const data={
+                        "email": email,
+                        "name": name,
+                        "password": password
+    
+                    }
+                    console.log(data)
+                    // fetch('https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/welcomeemail?email='+email)               
+                    fetch('https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/putuserdetails', {
+                        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                        mode: 'no-cors', // no-cors, *cors, same-origin
+                        headers: {
+                          'Content-Type': 'application/json'
+                          // 'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                       body: JSON.stringify(data) // body data type must match "Content-Type" header
+                      })
+                    router.push({ pathname: '/signin' })
+                }
         }
-    }
-
-    const selectAccType = (accType: 'personal' | 'business') => {
-        setAccountTye(accType)
-    }
-
     return (
         <>
             <Head>
                 <title>Sign up - Sellsage</title>
             </Head>
-
             <Header />
-
-            {!toggle ? (
                 <>
                     <Container>
                         <MainContent>
@@ -143,7 +129,7 @@ const Signup = () => {
                                     <Type
                                         isSelected={accountType === 'personal'}
                                         onClick={() =>
-                                            setAccountTye('personal')
+                                            setAccountType('personal')
                                         }
                                     >
                                         For Personal
@@ -151,7 +137,7 @@ const Signup = () => {
                                     <Type
                                         isSelected={accountType === 'business'}
                                         onClick={() =>
-                                            setAccountTye('business')
+                                            setAccountType('business')
                                         }
                                     >
                                         For Business
@@ -209,7 +195,7 @@ const Signup = () => {
                                                 }
                                                 required
                                                 type="text"
-                                                heading="Name"
+                                                heading=" Your Name"
                                                 placeholder="Ada lovice"
                                             />
                                         </InputContainer>
@@ -221,7 +207,7 @@ const Signup = () => {
                                                 }
                                                 required
                                                 type="email"
-                                                heading="Your Email"
+                                                heading="Email"
                                                 placeholder="adalovice@company.com"
                                             />
                                         </InputContainer>
@@ -246,7 +232,7 @@ const Signup = () => {
                                                 }
                                                 required
                                                 type="password"
-                                                heading="Enter Password"
+                                                heading="Enter The Password"
                                                 placeholder="Your password"
                                             />
                                         </InputContainer>
@@ -371,21 +357,6 @@ const Signup = () => {
 
                     <Footer />
                 </>
-            ) : null}
-            {toggle ? (
-                <Confirm
-                    email={email}
-                    code={code}
-                    name={name.replace(/ .*/, '')}
-                    password={password}
-                    response={
-                        name.replace(/ .*/, '') +
-                        email.substring(0, email.indexOf('@'))
-                    }
-                    handlecode={(e) => handleCode(e)}
-                    toggle={toggleConfirm}
-                />
-            ) : null}
             {isOpen && (
                 <Popup
                     content={

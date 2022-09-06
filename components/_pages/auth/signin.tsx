@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
-import  Auth  from '@aws-amplify/auth'
 import { Button } from '@/components/buttons'
 import { Input } from '@/components/input'
 import { LandingLayout } from '@/components/layout/landing'
@@ -39,46 +38,51 @@ const SignIn = () => {
 
     const submitForm = (e) => {
         e.preventDefault()
-
-        Auth.configure({
-            region: 'us-east-2',
-            userPoolId: 'us-east-2_PtilY0Lzj',
-            userPoolWebClientId: '449s5sgctbta5ao7ku7qg9r1dq',
-        })
-
-        Auth.signIn(email, password)
+        fetch(
+            `https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/usersignin?email=${email}&password=${password}`
+        )
+            .then((res) => res.json())
             .then((res) => {
-                fetch(
-                    'https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/getuserattributes?email=' +
-                        email
-                )
-                    .then((response) => response.json())
-                    .then((response) => {
-                        let userdetails = {
-                            verified: response.body[0]['email_verified'],
-                            type: response.body[0]['business']
-                                ? 'business'
-                                : 'general',
-                            name: response.body[0]['firstname'],
-                            phone: 0,
-                            email: email,
-                            address: response.body[0]['address'],
-                            wishlist: response.body[0]['wishlist'],
-                        }
-                        adddToUser(userdetails)
-
-                        window.localStorage.setItem(
-                            'username',
-                            response.body[0]['firstname']
+                console.log(res)
+                    if(res.statusCode==200){
+                        console.log('pass')
+                        fetch(
+                            'https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/getuserattributes?email='+email
                         )
-                    })
-                window.localStorage.setItem('useremail', email)
-                loginFn()
+                            .then((response) => response.json())
+                            .then((response) => {
+                                let userdetails = {
+                                    verified: response.body[0]['email_verified'],
+                                    type: response.body[0]['business']
+                                        ? 'business'
+                                        : 'general',
+                                    name: response.body[0]['firstname'],
+                                    phone: 0,
+                                    email: email,
+                                    address: response.body[0]['address'],
+                                    wishlist: response.body[0]['wishlist'],
+                                }
+                                adddToUser(userdetails)
 
-                router.push({ pathname: '/' })
-            })
-            .catch((err) => {
-                setAlert(err.message)
+                                window.localStorage.setItem(
+                                    'username',
+                                    response.body[0]['firstname']
+                                )
+                            })
+                        window.localStorage.setItem('useremail', email)
+                        loginFn()
+
+                        router.push({ pathname: '/' })
+                    }
+                    else{
+                        console.log('fail')
+                        setAlert(res.body)
+                    }
+                    }
+                  )
+                .catch((err) => {
+                    setAlert(err.message)
+                
             })
     }
 
@@ -163,9 +167,9 @@ const SignIn = () => {
                                 type="password"
                             />
 
-                            <HyperLink href="/forgot-password">
+                            {/* <HyperLink href="/forgot-password">
                                 Forgot password ?
-                            </HyperLink>
+                            </HyperLink> */}
                         </InputContainer>
 
                         <Button

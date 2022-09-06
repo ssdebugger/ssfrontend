@@ -2,7 +2,6 @@ import { Typography } from 'components/_pages/product/index.style'
 import { InputField, Save } from './style'
 import { GridContainer, GridItem } from '../homepage/style'
 import { useState } from 'react'
-import Auth from '@aws-amplify/auth'
 
 const SettingsContent = () => {
     const [newpwd, setNewpwd] = useState('')
@@ -28,36 +27,30 @@ const SettingsContent = () => {
                 setLength(true)
                 setWrongpwd(false)
             } else {
-                Auth.configure({
-                    region: 'us-east-2',
-                    userPoolId: 'us-east-2_PtilY0Lzj',
-                    userPoolWebClientId: '449s5sgctbta5ao7ku7qg9r1dq',
-                })
-                Auth.currentAuthenticatedUser()
-                    .then((user) => {
-                        return Auth.changePassword(user, oldpwd, newpwd)
-                    })
-                    .then((data) => {
                         const email = window.localStorage.getItem('useremail')
+                        console.log(email,oldpwd,confirmpwd)
                         fetch(
-                            'https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/passwordchange?email=' +
-                                email
-                        )
-                        setEmpty(false)
-                        setUpdated(true)
-                        setUnmatch(false)
-                        setLength(false)
-                        setWrongpwd(false)
-                    })
-                    .catch((err) => {
-                        console.log(err)
-                        setWrongpwd(true)
-                        setEmpty(false)
-                        setUpdated(false)
-                        setUnmatch(false)
-                        setLength(false)
-                    })
-            }
+                            `https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/passwordchange?email=${email.trim()}&password=${oldpwd.trim()}&newpassword=${confirmpwd.trim()}`
+                        ).then(res => res.json()).then(res => {
+                          if(res.statusCode==200){
+                            console.log('200')  
+                            setEmpty(false)
+                            setUpdated(true)
+                            setUnmatch(false)
+                            setLength(false)
+                            setWrongpwd(false)
+                          }
+                          else{
+                            console.log('400')  
+                            setWrongpwd(true)
+                            setEmpty(false)
+                            setUpdated(false)
+                            setUnmatch(false)
+                            setLength(false)
+                          }
+                         
+                        })  
+                    }
         } else {
             setUnmatch(true)
             setEmpty(false)

@@ -1,80 +1,80 @@
-import { useState } from 'react'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import Head from 'next/head'
-import { Input } from '@/components/input/oldInput'
-import  Auth  from '@aws-amplify/auth'
-import { LandingLayout } from 'components/layout/landing'
-import {
-    PageDesc,
-    PageHeader,
-    Form,
-    InputContainer,
-    SubmitBtn,
-    Content,
-    PageLink,
-    LinkContainer,
-} from './auth.style'
-import Popup from './popup'
+// import { useState } from 'react'
+// import Link from 'next/link'
+// import { useRouter } from 'next/router'
+// import Head from 'next/head'
+// import { Input } from '@/components/input/oldInput'
+// import  Auth  from '@aws-amplify/auth'
+// import { LandingLayout } from 'components/layout/landing'
+// import {
+//     PageDesc,
+//     PageHeader,
+//     Form,
+//     InputContainer,
+//     SubmitBtn,
+//     Content,
+//     PageLink,
+//     LinkContainer,
+// } from './auth.style'
+// import Popup from './popup'
 
 export const Reset = () => {
-    const [confirmpwd, setConfirmpwd] = useState('')
-    const [code, setCode] = useState('')
-    const [user, setUser] = useState('')
-    const [newpwd, setNewpwd] = useState('')
-    const router = useRouter()
-    const [isOpen, setIsOpen] = useState(false)
-    const [alert, setAlert] = useState('')
-    const togglePopup = () => {
-        setIsOpen(!isOpen)
-    }
+    // const [confirmpwd, setConfirmpwd] = useState('')
+    // const [code, setCode] = useState('')
+    // const [user, setUser] = useState('')
+    // const [newpwd, setNewpwd] = useState('')
+    // const router = useRouter()
+    // const [isOpen, setIsOpen] = useState(false)
+    // const [alert, setAlert] = useState('')
+    // const togglePopup = () => {
+    //     setIsOpen(!isOpen)
+    // }
 
-    const handleChange = (e, targetfield) => {
-        if (targetfield === 'user') {
-            setUser(e.target.value)
-        }
-        if (targetfield === 'verificationcode') {
-            setCode(e.target.value)
-        }
-        if (targetfield === 'newpassword') {
-            setNewpwd(e.target.value)
-        }
-        if (targetfield === 'confirmpassword') {
-            setConfirmpwd(e.target.value)
-        }
-    }
-    const submitForm = (e) => {
-        e.preventDefault()
-        if (
-            code.trim() === '' ||
-            confirmpwd.trim() === '' ||
-            newpwd.trim() === '' ||
-            user.trim() === ''
-        ) {
-        } else {
-            Auth.configure({
-                region: 'us-east-2',
-                userPoolId: 'us-east-2_PtilY0Lzj',
-                userPoolWebClientId: '449s5sgctbta5ao7ku7qg9r1dq',
-            })
+    // const handleChange = (e, targetfield) => {
+    //     if (targetfield === 'user') {
+    //         setUser(e.target.value)
+    //     }
+    //     if (targetfield === 'verificationcode') {
+    //         setCode(e.target.value)
+    //     }
+    //     if (targetfield === 'newpassword') {
+    //         setNewpwd(e.target.value)
+    //     }
+    //     if (targetfield === 'confirmpassword') {
+    //         setConfirmpwd(e.target.value)
+    //     }
+    // }
+    // const submitForm = (e) => {
+    //     e.preventDefault()
+    //     if (
+    //         code.trim() === '' ||
+    //         confirmpwd.trim() === '' ||
+    //         newpwd.trim() === '' ||
+    //         user.trim() === ''
+    //     ) {
+    //     } else {
+    //         Auth.configure({
+    //             region: 'us-east-2',
+    //             userPoolId: 'us-east-2_PtilY0Lzj',
+    //             userPoolWebClientId: '449s5sgctbta5ao7ku7qg9r1dq',
+    //         })
 
-            Auth.forgotPasswordSubmit(user.trim(), code.trim(), newpwd.trim())
-                .then((response) => {
-                    fetch("https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/passwordresetemail?email="+user)
-                    router.push({
-                        pathname: '/signin',
-                    })
-                })
-                .catch((error) => {
-                    setIsOpen(!isOpen)
-                    setAlert(error.message)
-                })
-        }
-    }
+    //         Auth.forgotPasswordSubmit(user.trim(), code.trim(), newpwd.trim())
+    //             .then((response) => {
+    //                 fetch("https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/passwordresetemail?email="+user)
+    //                 router.push({
+    //                     pathname: '/signin',
+    //                 })
+    //             })
+    //             .catch((error) => {
+    //                 setIsOpen(!isOpen)
+    //                 setAlert(error.message)
+    //             })
+    //     }
+    // }
 
     return (
         <>
-            <Head>
+            {/* <Head>
                 <title>Rest Password - Sellsage</title>
             </Head>
             <LandingLayout>
@@ -150,7 +150,7 @@ export const Reset = () => {
                         </LinkContainer>
                     </Content>
                 </>
-            </LandingLayout>
+            </LandingLayout> */}
         </>
     )
 }

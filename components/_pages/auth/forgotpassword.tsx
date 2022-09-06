@@ -1,77 +1,77 @@
-import { useState } from 'react'
-import { useRouter } from 'next/router'
-import Head from 'next/head'
+// import { useState } from 'react'
+// import { useRouter } from 'next/router'
+// import Head from 'next/head'
 
-import  Auth  from '@aws-amplify/auth'
+// import  Auth  from '@aws-amplify/auth'
 
-import { Button } from '@/components/buttons'
-import { Input } from '@/components/input'
-import { LandingLayout } from '@/components/layout/landing'
-import { HyperLink } from '@/components/header'
-import { Paragraph } from '@/components/typography/paragraph'
-import { MainHeading } from '@/components/typography/heading'
+// import { Button } from '@/components/buttons'
+// import { Input } from '@/components/input'
+// import { LandingLayout } from '@/components/layout/landing'
+// import { HyperLink } from '@/components/header'
+// import { Paragraph } from '@/components/typography/paragraph'
+// import { MainHeading } from '@/components/typography/heading'
 
-import { Form, InputContainer, Content, AlertContainer } from './auth.style'
-import { AlertBar } from '@/components/alert/alert-bar'
-import { ArrowLeft } from 'react-feather'
-import styled from 'styled-components'
+// import { Form, InputContainer, Content, AlertContainer } from './auth.style'
+// import { AlertBar } from '@/components/alert/alert-bar'
+// import { ArrowLeft } from 'react-feather'
+// import styled from 'styled-components'
 
-const BackLink = styled.div`
-    margin: 2.5rem 0 0;
+// const BackLink = styled.div`
+//     margin: 2.5rem 0 0;
 
-    a {
-        width: max-content;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: ${(props) => props.theme.linkColor};
+//     a {
+//         width: max-content;
+//         margin: 0 auto;
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         color: ${(props) => props.theme.linkColor};
 
-        svg {
-            margin-right: 0.5rem;
-            transition: ${(props) => props.theme.transition};
-        }
+//         svg {
+//             margin-right: 0.5rem;
+//             transition: ${(props) => props.theme.transition};
+//         }
 
-        &:hover {
-            text-decoration: underline;
+//         &:hover {
+//             text-decoration: underline;
 
-            svg {
-                transform: translateX(-5px);
-            }
-        }
-    }
-`
+//             svg {
+//                 transform: translateX(-5px);
+//             }
+//         }
+//     }
+// `
 
 const Forgotpassword = (props) => {
-    const router = useRouter()
+    // const router = useRouter()
 
-    const [email, setEmail] = useState('')
-    const [alert, setAlert] = useState('')
+    // const [email, setEmail] = useState('')
+    // const [alert, setAlert] = useState('')
 
-    const handleChange = (e) => {
-        setAlert('')
-        setEmail(e.target.value)
-    }
+    // const handleChange = (e) => {
+    //     setAlert('')
+    //     setEmail(e.target.value)
+    // }
 
-    const submitForm = (e) => {
-        e.preventDefault()
-        Auth.configure({
-            region: 'us-east-2',
-            userPoolId: 'us-east-2_PtilY0Lzj',
-            userPoolWebClientId: '449s5sgctbta5ao7ku7qg9r1dq',
-        })
-        Auth.forgotPassword(email)
-            .then((res) => {
-                router.push({ pathname: '/reset' })
-            })
-            .catch((err) => {
-                setAlert(err.message)
-            })
-    }
+    // const submitForm = (e) => {
+    //     e.preventDefault()
+    //     Auth.configure({
+    //         region: 'us-east-2',
+    //         userPoolId: 'us-east-2_PtilY0Lzj',
+    //         userPoolWebClientId: '449s5sgctbta5ao7ku7qg9r1dq',
+    //     })
+    //     Auth.forgotPassword(email)
+    //         .then((res) => {
+    //             router.push({ pathname: '/reset' })
+    //         })
+    //         .catch((err) => {
+    //             setAlert(err.message)
+    //         })
+    // }
 
     return (
         <>
-            <Head>
+            {/* <Head>
                 <title>Reset your password - Sellsage</title>
             </Head>
 
@@ -117,7 +117,7 @@ const Forgotpassword = (props) => {
                         </HyperLink>
                     </BackLink>
                 </Content>
-            </LandingLayout>
+            </LandingLayout> */}
         </>
     )
 }
