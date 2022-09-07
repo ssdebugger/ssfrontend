@@ -243,16 +243,16 @@ const Productpage = (props) => {
         })
     }, [])
     const indexed_products = [
-        'https://www.sellsage.com/PALM-SQRP-0600-0020',
-        'https://www.sellsage.com/BNDL-CSET-0000-0300',
-        'https://www.sellsage.com/PALM-HRTB-0500-0020',
-        'https://www.sellsage.com/PALM-DEPB-0500-0020',
-        'https://www.sellsage.com/PALM-SQRP-0300-0020',
-        'https://www.sellsage.com/GLOV-DOM-0030-0036',
-        'https://www.sellsage.com/PALM-RTGT-0906-0020',
-        'https://www.sellsage.com/PALM-RTGT-0703-0020',
-        'https://www.sellsage.com/PALM-OVLB-0510-0020',
-        'https://www.sellsage.com/PALM-RNDP-10F0-0020',
+        'PALM-SQRP-0600-0020',
+        'BNDL-CSET-0000-0300',
+        'PALM-HRTB-0500-0020',
+        'PALM-DEPB-0500-0020',
+        'PALM-SQRP-0300-0020',
+        'GLOV-DOM-0030-0036',
+        'PALM-RTGT-0906-0020',
+        'PALM-RTGT-0703-0020',
+        'PALM-OVLB-0510-0020',
+        'PALM-RNDP-10F0-0020',
     ]
     return (
         <>
@@ -278,10 +278,10 @@ const Productpage = (props) => {
                             <BreadCrumb items={['Shop', data.brand.S]} />
 
                             <MainHeading>
-                                {String(data['short_description']['S']).slice(
+                                {indexed_products.includes(String(ItemData.sku)) ? String(data['short_description']['S']).slice(
                                     0,
                                     data['short_description']['S'].length - 8
-                                )}
+                                ) : data['short_description']['S']}
                             </MainHeading>
                         </ProductPageTopHeading>
 
@@ -308,10 +308,10 @@ const Productpage = (props) => {
                             <BreadCrumb items={['Shop', data.brand.S]} />
 
                             <MainHeading>
-                                {String(data['short_description']['S']).slice(
+                            {indexed_products.includes(String(ItemData.sku)) ? String(data['short_description']['S']).slice(
                                     0,
                                     data['short_description']['S'].length - 8
-                                )}
+                                ) : data['short_description']['S']}
                             </MainHeading>
                         </HeadingContainer>
 
