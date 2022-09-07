@@ -278,7 +278,10 @@ const Productpage = (props) => {
                             <BreadCrumb items={['Shop', data.brand.S]} />
 
                             <MainHeading>
-                                {data['short_description']['S']}
+                                {String(data['short_description']['S']).slice(
+                                    0,
+                                    data['short_description']['S'].length - 8
+                                )}
                             </MainHeading>
                         </ProductPageTopHeading>
 
@@ -305,7 +308,10 @@ const Productpage = (props) => {
                             <BreadCrumb items={['Shop', data.brand.S]} />
 
                             <MainHeading>
-                                {data['short_description']['S']}
+                                {String(data['short_description']['S']).slice(
+                                    0,
+                                    data['short_description']['S'].length - 8
+                                )}
                             </MainHeading>
                         </HeadingContainer>
 
