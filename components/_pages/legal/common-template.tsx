@@ -29,6 +29,7 @@ export const CommonLegalTemplate: React.FC<Props> = ({
         <>
             <Head>
                 <title>{pageHeading} - Sellsage</title>
+                <meta name='robots' content='noindex'></meta>
             </Head>
 
             <LandingLayout>

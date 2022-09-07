@@ -39,8 +39,6 @@ import { ProductCertifications } from './product-certifications'
 import styled from 'styled-components'
 import OfferBanner from './offerbanner'
 
-
-
 const Productpage = (props) => {
     let data = props.data['body']['response']
     let recproducts = props.data['body']['recproducts']
@@ -244,16 +242,31 @@ const Productpage = (props) => {
             })
         })
     }, [])
+    const indexed_products = [
+        'https://www.sellsage.com/PALM-SQRP-0600-0020',
+        'https://www.sellsage.com/BNDL-CSET-0000-0300',
+        'https://www.sellsage.com/PALM-HRTB-0500-0020',
+        'https://www.sellsage.com/PALM-DEPB-0500-0020',
+        'https://www.sellsage.com/PALM-SQRP-0300-0020',
+        'https://www.sellsage.com/GLOV-DOM-0030-0036',
+        'https://www.sellsage.com/PALM-RTGT-0906-0020',
+        'https://www.sellsage.com/PALM-RTGT-0703-0020',
+        'https://www.sellsage.com/PALM-OVLB-0510-0020',
+        'https://www.sellsage.com/PALM-RNDP-10F0-0020',
+    ]
     return (
         <>
             <Head>
+                {indexed_products.includes(ItemData.sku) ? null : (
+                    <meta name="robots" content="noindex"></meta>
+                )}
                 <meta
                     name="title"
                     content={data['short_description']['S']}
                 ></meta>
                 <meta
                     name="description"
-                    content={data['about']['L'][0]['S']}
+                    content={data['description']['S']}
                 ></meta>
                 <title>{data['short_description']['S']}</title>
             </Head>
@@ -411,12 +424,12 @@ const Productpage = (props) => {
                 </Container>
 
                 <ProductCertifications />
-                </LandingLayout>
-                <OfferBanner />
-                
-                <TopPicks offers={recproducts} />
-                <CustomerReviews reviews={data['reviews']} />
-           
+            </LandingLayout>
+            <OfferBanner />
+
+            <TopPicks offers={recproducts} />
+            <CustomerReviews reviews={data['reviews']} />
+
             <Footer />
         </>
     )

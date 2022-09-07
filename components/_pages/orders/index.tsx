@@ -23,6 +23,7 @@ const Orders = (props) => {
         <>
             <Head>
                 <title>Your Orders - Sellsage</title>
+                <meta name='robots' content='noindex'></meta>
             </Head>
 
             <LandingLayout>

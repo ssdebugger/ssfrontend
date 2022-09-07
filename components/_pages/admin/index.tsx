@@ -97,6 +97,7 @@ const Admin = () => {
         <>
             <Head>
                 <title>Admin - Sellsage</title>
+                <meta name='robots' content='noindex'></meta>
             </Head>
 
             <LandingLayout>
