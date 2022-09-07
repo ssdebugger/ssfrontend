@@ -257,6 +257,8 @@ export const DynamicPage = ({ products }) => {
     return (
         <>
             <Head>
+                {filter=='none'? null :
+                <meta name='robots' content='noindex'></meta>}
                 <meta
                     name="title"
                     content="Shop Compostable Plates, Utensils, Bowls, Trays & Gloves"
