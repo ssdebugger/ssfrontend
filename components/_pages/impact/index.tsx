@@ -18,13 +18,14 @@ const Impact = () => {
     return (
         <>
             <Head>
+                <meta name='robots' content='noindex'></meta>
                 <meta
                     name="title"
-                    content="Sustainability | Plastic-Free & Compostable for the Future"
+                    content="Plastic-free | compostable for a sustainable Future"
                 ></meta>
                 <meta
                     name="description"
-                    content="Ethically sourced, plastic-free & sustainable is our motto! Reduce your waste, choose compostable with our palm leaf plates & dinnerware. Make the world greener"
+                    content="Ethically sourced,compostable,plastic-free & sustainable is our motto! Make the world greener with our palm leaf plates & dinnerware. "
                 ></meta>
                 <title>
                     Sustainability | Plastic-Free & Compostable for the Future

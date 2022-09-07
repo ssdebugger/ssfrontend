@@ -2,9 +2,16 @@
 User-agent: *
 Allow: /
 Disallow: /cgi-bin/
+Disallow: https://www.sellsage.com/2020/12/22/the-7-different-types-of-plastic-and-why-you-should-care
+Disallow: https://www.sellsage.com/2020/11/06/3-misconceptions-about-going-vegan-why-it-is-the-best-way-to-reduce-your-environmental-impact-2
+Disallow: https://www.sellsage.com/2021/04/08/5-documentaries-to-watch-on-netflix-this-earth-day
+Disallow: https://www.sellsage.com/2021/06/08/top-10-most-deadly-single-use-plastic-items-for-marine-life-found-in-the-ocean-their-eco-alternatives
+Disallow: https://www.sellsage.com/2021/06/29/how-to-reduce-pandemic-related-plastic-waste
+Disallow: https://www.sellsage.com/2021/07/13/eco-friendly-tips-to-become-a-more-conscious-traveler
+Disallow: https://www.sellsage.com/2021/10/12/can-your-mental-health-improve-when-adopting-a-more-sustainable-lifestyle
 
 # User agent "Googlebot" should not crawl the `http://example.com/nogooglebot/` folder or any of its subdirectories.
 User-agent: Googlebot
 Disallow: /nogooglebot/
 
-Sitemap: https://www.sellsage.com/
+Sitemap: https://www.sellsage.com/sitemap.xml
