@@ -338,7 +338,7 @@ const CheckoutPageWrapper = () => {
         <>
             <Head>
                 <title>Checkout - Sellsage</title>
-                <meta name='robots' content='noindex'></meta>
+                
                 {/* <script
                     dangerouslySetInnerHTML={{
                         __html: `

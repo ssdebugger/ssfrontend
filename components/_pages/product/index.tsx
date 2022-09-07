@@ -257,9 +257,6 @@ const Productpage = (props) => {
     return (
         <>
             <Head>
-                {indexed_products.includes(ItemData.sku) ? null : (
-                    <meta name="robots" content="noindex"></meta>
-                )}
                 <meta
                     name="title"
                     content={data['short_description']['S']}

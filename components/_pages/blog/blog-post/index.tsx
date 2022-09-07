@@ -97,8 +97,7 @@ const BlogPost = ({ blogData, morePosts }) => {
     }
     return (
         <>
-            <Head>
-            <meta name='robots' content='noindex'></meta>    
+            <Head>    
             <meta name='title' content={blogData.title}>
                 </meta>
                 <meta name='description' content={blogData.title}>

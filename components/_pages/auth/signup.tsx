@@ -115,7 +115,7 @@ const Signup = () => {
         <>
             <Head>
                 <title>Sign up - Sellsage</title>
-                <meta name='robots' content='noindex'></meta>
+                
             </Head>
             <Header />
                 <>

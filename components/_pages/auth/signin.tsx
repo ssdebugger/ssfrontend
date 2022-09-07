@@ -128,7 +128,7 @@ const SignIn = () => {
         <>
             <Head>
                 <title>Sign in - Sellsage</title>
-                <meta name='robots' content='noindex'></meta>
+                
             </Head>
 
             <LandingLayout>

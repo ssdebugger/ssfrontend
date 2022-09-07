@@ -18,7 +18,7 @@ const Impact = () => {
     return (
         <>
             <Head>
-                <meta name='robots' content='noindex'></meta>
+                
                 <meta
                     name="title"
                     content="Plastic-free | compostable for a sustainable Future"
