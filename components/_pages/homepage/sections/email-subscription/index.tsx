@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 
 import { Popup } from '@/components/popup'
@@ -72,19 +72,22 @@ export const EmailSubscription = () => {
            body: JSON.stringify(data) // body data type must match "Content-Type" header
           })
     }
-
+    
     useEffect(() => {
-        let emailPopupTimeout=false
+        let emailPopupTimeout=window.sessionStorage.getItem('popup')?window.sessionStorage.getItem('popup'):false
         let documentHeight = document.body.offsetHeight
         function scrollListener() {
             let amountScrolled = window.pageYOffset
+            emailPopupTimeout = String(emailPopupTimeout)==='true'
             let scrollLeft =
                 ((documentHeight - amountScrolled) / documentHeight) * 100
             // Show popup after 5sec once user has scrolled down.
+            console.log(showPopup,emailPopupTimeout)
             if (scrollLeft < 90 && !showPopup && !emailPopupTimeout) {
+                window.sessionStorage.setItem('popup','true')
+                emailPopupTimeout=window.sessionStorage.getItem('popup')
                 window.removeEventListener('scroll', scrollListener)
-                emailPopupTimeout=true
-              setShowPopup(true)
+              setShowPopup(showPopup => (true))
             }
         }
 

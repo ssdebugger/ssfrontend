@@ -21,7 +21,7 @@ const CustomerTestimonial = () => {
         if (width + count * width <= container.scrollWidth) {
             count += 1
             container.scrollBy(width, 0)
-            console.log(container.scrollWidth, window.innerWidth)
+            
         } else {
             container.scrollBy(-(width + count * width), 0)
             count = 0
