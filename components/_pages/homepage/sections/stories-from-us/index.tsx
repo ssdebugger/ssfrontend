@@ -47,6 +47,7 @@ const Article = styled.article`
 
 const BlogPost = styled.div`
     display: block;
+    cursor: pointer;
 `
 
 const BlogPostImgContainer = styled.div`
@@ -85,32 +86,32 @@ const BlogPostContent = styled.div`
 const Post = (props) => {
     return (
         <Article>
-            <BlogPost>
-                <BlogPostImgContainer>
-                    <Image
-                        style={{ aspectRatio: '2/3' }}
-                        src={props.img}
-                        alt={props.alt}
-                        width="100%"
-                        height="150%"
-                        objectFit="cover"
-                        layout="responsive"
-                    />
-                </BlogPostImgContainer>
+            <HyperLink varient="tertiary" href={'/blog/' + props.id}>
+                <BlogPost>
+                    <BlogPostImgContainer>
+                        <Image
+                            style={{ aspectRatio: '2/3' }}
+                            src={props.img}
+                            alt={props.alt}
+                            width="100%"
+                            height="150%"
+                            objectFit="cover"
+                            layout="responsive"
+                        />
+                    </BlogPostImgContainer>
 
-                <BlogPostContent>
-                    <HyperLink varient="tertiary" href={'/blog/' + props.id}>
+                    <BlogPostContent>
                         <span>READ NOW</span>
-                    </HyperLink>
 
-                    <Heading4>{props.title}</Heading4>
+                        <Heading4>{props.title}</Heading4>
 
-                    {/* <Paragraph>
+                        {/* <Paragraph>
                         The best way to reduce waste at home is composting and
                         guess what, it’s really not that hard!
                     </Paragraph> */}
-                </BlogPostContent>
-            </BlogPost>
+                    </BlogPostContent>
+                </BlogPost>
+            </HyperLink>
         </Article>
     )
 }
@@ -122,15 +123,16 @@ export const StoriesFromUs = (props) => {
         '16 disposable product ideas',
         'resposibility towards trash ',
         'disposable christmas dinner party ideas',
-        'labor day party with disposable dinnerware'
+        'labor day party with disposable dinnerware',
     ]
+    
     return (
         <StoriesFromUsContainer>
             <Heading3>
                 Transition yourself towards a more sustainable lifestyle
             </Heading3>
             <BlogPostsContainer>
-                {data.slice(0, 5).map((item, key) => (
+                {data.slice(28, 33).map((item, key) => (
                     <Post
                         key={key}
                         img={item.mainImage.asset.url}

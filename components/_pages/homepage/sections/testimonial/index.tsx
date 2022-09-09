@@ -21,7 +21,6 @@ const CustomerTestimonial = () => {
         if (width + count * width <= container.scrollWidth) {
             count += 1
             container.scrollBy(width, 0)
-            
         } else {
             container.scrollBy(-(width + count * width), 0)
             count = 0
@@ -35,10 +34,8 @@ const CustomerTestimonial = () => {
     }, [])
     return (
         <>
-          <div style={{textAlign:'center'}}>
-            <SubHeading>
-                What our amazon customers say ..
-            </SubHeading>
+            <div style={{ textAlign: 'center' }}>
+                <SubHeading>What our amazon customers say ..</SubHeading>
             </div>
             <TestimonialContainer id="testcontainer">
                 <MainContainer>
@@ -99,17 +96,19 @@ const CustomerTestimonial = () => {
                     <TestimonialHolder color="#f2f2f2">
                         <TestimonialTextHolder>
                             <TestimonialText>
-                                I was skeptical about this but bought a pack to
-                                try with my lop ear and she loves them. It`&#39;`s
-                                taken her a few days to get thru 1 bowl but she
-                                chews for awhile and then drinks her water.
+                                These small trays were perfect for holding a few
+                                Easter cupcakes and some candy for neighbors.
+                                They were sturdy enough to hold their shape when
+                                I covered them and light enough to carry quite a
+                                few at one time. I will definitely purchase them
+                                again for other gifts of good.
                             </TestimonialText>
                         </TestimonialTextHolder>
                         <TestimonialQuoteHolder>
                             <TestimonialQuote src="./quotations.png" />
                         </TestimonialQuoteHolder>
                     </TestimonialHolder>
-                    <UserText>Laurie gillie</UserText>
+                    <UserText>Laurie</UserText>
                 </MainContainer>
                 <MainContainer color="#f2f2f2">
                     <TestimonialHolder color="#2FBF97">
