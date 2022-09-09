@@ -44,6 +44,13 @@ const Homepage = ({ offers, bundles, data }) => {
     //           })
     //     })
     // }, [])
+    useEffect(() => {
+        if(window.localStorage.getItem('coupon')!=undefined){
+            window.localStorage.removeItem('coupon');
+            console.log('deleting coupon')
+        }
+        
+    },[])
 
     return (
         <>

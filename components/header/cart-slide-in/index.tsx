@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { X } from 'react-feather'
-import { Heading4,MainHeading } from '@/components/typography/heading'
-import { useAddItem, useCart,useRemoveItem } from '@/context/cart'
+import { Heading4, MainHeading } from '@/components/typography/heading'
+import { useAddItem, useCart, useRemoveItem } from '@/context/cart'
 import { AlertBar } from '@/components/alert/alert-bar'
 import {
     CloseBtn,
@@ -26,6 +26,7 @@ import { PriceSection } from './price-section'
 import { CartItem } from '@/types/cart'
 import { Coupon } from '@/types/coupon'
 import { BagPriceContainer } from './cart-slide-in.style'
+import { Item } from '@/components/carousel/style'
 
 const defaultCouponData = [
     // {
@@ -56,9 +57,9 @@ interface Props {
 const initialCouponValue = { id: '', minSpend: 0, amount: 0, type: '' }
 
 export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
-    const  offerproducts=[]
+    const offerproducts = []
     const { cart } = useCart()
-    const add=useAddItem()
+    const add = useAddItem()
     const removeFromCart = useRemoveItem()
     const [alert, setAlert] = useState('')
     const [originalPrice, setOriginalPrice] = useState(0)
@@ -78,15 +79,14 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
             setToLocal('coupon', initialCouponValue)
             setAlert(`Original price should be more than $${coupon.minSpend}`)
             return
-        }
-        else{
+        } else {
             setAlert('')
             setToLocal('coupon', coupon)
             setCouponSelected(coupon)
         }
 
         // if (shouldClickCoupon) {
-          
+
         // }
         //  else {
         //     setAlert('Coupon not applicable on selected items.')
@@ -95,9 +95,10 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
 
     function getTotalOriginalPrice(cart: Array<CartItem>) {
         let totalValue = 0
-        cart.forEach(
-            (item) => (totalValue += Number(item.price) * item.quantity)
-        )
+        cart.forEach((item) => {
+        
+                totalValue += Number(item.price) * item.quantity
+        })
 
         return limitDecimal(totalValue)
     }
@@ -118,22 +119,20 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
         }
         var cartValue = originalCartValue
         for (let i = 0; i < cart.length; i++) {
-            if (
-                offerproducts.includes(cart[i].sku)
-            ) {
-                console.log(cart[i].price*cart[i].quantity,cart)
-                cartValue -= Number(cart[i].price*cart[i].quantity)
+            if (offerproducts.includes(cart[i].sku)) {
+                console.log(cart[i].price * cart[i].quantity, cart)
+                cartValue -= Number(cart[i].price * cart[i].quantity)
             }
         }
 
         let discountValue = cartValue * (coupon.amount / 100)
-        console.log('in get discountvalue',limitDecimal(cartValue),discountValue)
+        console.log(
+            'in get discountvalue',
+            limitDecimal(cartValue),
+            discountValue
+        )
         return limitDecimal(discountValue)
     }
-
-  
-
-
 
     useEffect(() => {
         function setTotalOriginalPrice(
@@ -142,9 +141,10 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
         ) {
             let bagValue = getTotalOriginalPrice(cart)
             setBagValue(bagValue)
-    
+
             return bagValue
         }
+
         setTotalOriginalPrice(cart, setOriginalPrice)
         let coupon = getUserCoupon()
         if (coupon.minSpend > 0) {
@@ -153,54 +153,38 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
             setAlert('')
         }
         var productcheck = false
-        var cartCheck = false;
-        if(cart.length >3) {
-            for (let i=0;i<cart.length;i++) {
-                if(cart[i].sku=='BNDL-CSET-0000-0300' && cart[i].price==0){
-                    cartCheck=true;
-                }
-            }
-            if(!cartCheck){ 
-                add({
-                sku: 'BNDL-CSET-0000-0300',
-                quantity: 1,
-                title: 'cutlery set',
-                img: 'https://ss-compressedimages.s3.us-east-2.amazonaws.com/SellSage/ShopItems/43/BNDL-CSET-0000-0300/Main_WB.webp',
-                productid: 43,
-                price: 0,
-                inStockQuantity: 10,
-            })}
-        }
-        else if(cart.length==3){
-            for (let i=0;i<cart.length;i++) {
-                if(cart[i].sku=='BNDL-CSET-0000-0300' && cart[i].price==0){
-                    cartCheck=true;
-                }
-            }
-            if(cartCheck){
-                removeFromCart('BNDL-CSET-0000-0300')
-            }
-            else{
-                add({
-                    sku: 'BNDL-CSET-0000-0300',
-                    quantity: 1,
-                    title: 'cutlery set',
-                    img: 'https://ss-compressedimages.s3.us-east-2.amazonaws.com/SellSage/ShopItems/43/BNDL-CSET-0000-0300/Main_WB.webp',
-                    productid: 43,
-                    price: 0,
-                    inStockQuantity: 10,
-                })
-            }
-        }
-        else{
-            if(cartCheck) {
-                removeFromCart('BNDL-CSET-0000-0300' )
-                }
-            }
+        // var cartCheck = false
+        // if (cart.length == 3) {
+        //     for (let i = 0; i < cart.length; i++) {
+        //         if (
+        //             cart[i].sku == 'BNDL-CSET-0000-0300' &&
+        //             cart[i].price == 0 
+        //         ) {
+        //             cartCheck = true
+        //         }
+        //     }
+        //     if (cartCheck) {
+        //         cartCheck=false
+        //         removeFromCart('BNDL-CSET-0000-0300')
+        //     } else {
+        //         add({
+        //             sku: 'BNDL-CSET-0000-0300',
+        //             quantity: 1,
+        //             title: 'cutlery set',
+        //             img: 'https://ss-compressedimages.s3.us-east-2.amazonaws.com/SellSage/ShopItems/43/BNDL-CSET-0000-0300/Main_WB.webp',
+        //             productid: 43,
+        //             price: 0,
+        //             inStockQuantity: 10,
+        //         })
+        //     }
+        // } 
+        // else if(cart.length<3) {
+        //     if (cartCheck) {
+        //         removeFromCart('BNDL-CSET-0000-0300')
+        //     }
+        // }
         for (let i = 0; i < cart.length; i++) {
-            if (
-                offerproducts.includes(cart[i].sku)
-            ) {
+            if (offerproducts.includes(cart[i].sku)) {
                 setShouldClickCoupon(true)
                 productcheck = true
             }
@@ -210,54 +194,58 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
             setCouponSelected(initialCouponValue)
             // setToLocal('coupon', initialCouponValue)
         }
-         // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [cart])
-
-
 
     useEffect(() => {
         function setBillDetails(originalPrice: number, discountValue: number) {
             let existingCoupon = getUserCoupon()
-    
+
             let billDetails = {
                 originalPrice: originalPrice,
                 discount: {
                     discountId:
-                        existingCoupon.minSpend !== 0 ? existingCoupon.id : null,
+                        existingCoupon.minSpend !== 0
+                            ? existingCoupon.id
+                            : null,
                     type:
-                        existingCoupon.minSpend !== 0 ? existingCoupon.type : null,
+                        existingCoupon.minSpend !== 0
+                            ? existingCoupon.type
+                            : null,
                     discountValue:
-                        existingCoupon.minSpend !== 0 ? existingCoupon.amount : 0,
+                        existingCoupon.minSpend !== 0
+                            ? existingCoupon.amount
+                            : 0,
                     totalDiscount:
                         existingCoupon.minSpend !== 0 ? discountValue : 0,
                 },
                 bagTotal: limitDecimal(originalPrice - discountValue),
                 zipCode: null,
             }
-    
+
             setToLocal('billDetails', billDetails)
-        }    
-        
-    function setDiscountValue(
-        originalPrice: number,
-        setBagDiscount: Dispatch<SetStateAction<number>>
-    ) {
-        console.log('in setdiscount function')
-        let coupon = getUserCoupon()
-        console.log(coupon)
-        // when coupon does not exist
-        if (coupon.minSpend === 0) {
-            setBagDiscount(0)
-            setBillDetails(originalPrice, 0)
-            return
         }
 
-        let discount = getDiscountValue(coupon, originalPrice)
-        console.log(discount)
-        setBagDiscount(discount)
-        setBillDetails(originalPrice, discount)
-        return discount
-    }
+        function setDiscountValue(
+            originalPrice: number,
+            setBagDiscount: Dispatch<SetStateAction<number>>
+        ) {
+            console.log('in setdiscount function')
+            let coupon = getUserCoupon()
+            console.log(coupon)
+            // when coupon does not exist
+            if (coupon.minSpend === 0) {
+                setBagDiscount(0)
+                setBillDetails(originalPrice, 0)
+                return
+            }
+
+            let discount = getDiscountValue(coupon, originalPrice)
+            console.log(discount)
+            setBagDiscount(discount)
+            setBillDetails(originalPrice, discount)
+            return discount
+        }
         setDiscountValue(originalPrice, setDiscount)
         // if (
         //     couponSelected.minSpend > 0 &&
@@ -266,16 +254,16 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
         //     setCouponSelected(initialCouponValue)
         //     setToLocal('coupon', initialCouponValue)
         // }
-         // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [originalPrice, couponSelected])
-     
-    const setAlertfunction= (e) => {
+
+    const setAlertfunction = (e) => {
         return setAlert(e)
     }
-    const setCouponSelectedfunction= (e) => {
+    const setCouponSelectedfunction = (e) => {
         return setCouponSelected(e)
     }
-    
+
     return (
         <SlideInContainer showBag={showBag}>
             <SlideInBg onClick={toggleFn} />
@@ -306,7 +294,7 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
                                 setDiscount={setDiscount}
                                 offerproducts={offerproducts}
                                 customCouponDetails={customCouponDetails}
-                                setCouponSelected = {setCouponSelectedfunction}
+                                setCouponSelected={setCouponSelectedfunction}
                                 setCustomCouponDetails={setCustomCouponDetails}
                             />
 
@@ -319,16 +307,20 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
 
                         <ProductsContainer>
                             <MainHeading>My Bag</MainHeading>
-                            { cart.length<3 ? <p style={{fontSize:'1rem'}}>Add {3 - cart.length} more products to get a <b>FREE</b> cutlery set</p> : null}
-                            <BagPriceContainer>      
-                            <Link href="/checkout" passHref>
-                                      <Button varient="primary" fill='true'>
-                                       Checkout
-                                       </Button>
-                            </Link>
-                            </BagPriceContainer> 
+                            {cart.length < 3 ? (
+                                <p style={{ fontSize: '1rem' }}>
+                                    Add {3 - cart.length} more products to get a{' '}
+                                    <b>FREE</b> cutlery set
+                                </p>
+                            ) : null}
+                            <BagPriceContainer>
+                                <Link href="/checkout" passHref>
+                                    <Button varient="primary" fill="true">
+                                        Checkout
+                                    </Button>
+                                </Link>
+                            </BagPriceContainer>
                             <ProductsList>
-                          
                                 {cart.map((product) => (
                                     <ProductCard
                                         key={product.sku}

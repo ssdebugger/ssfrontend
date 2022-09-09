@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from 'react'
 
 // utility functions
-import { getFromLocal,setToLocal } from '@/utils/local-storage'
+import { getFromLocal, setToLocal } from '@/utils/local-storage'
 import { getCustomCoupon } from '@/utils/get-custom-coupon'
 import { useCart } from '@/context/cart'
 
@@ -30,16 +30,20 @@ export const CustomCoupon: React.FC<Props> = ({
     offerproducts,
     customCouponDetails,
     setCustomCouponDetails,
-    setCouponSelected
+    setCouponSelected,
 }) => {
-    const {cart}=useCart()
-    var originalBagValue=Number(0)
-    cart.map(products => {offerproducts.includes(products.sku)? null : originalBagValue+=Number(products.price)}) 
-    
+    const { cart } = useCart()
+    var originalBagValue = Number(0)
+
+    cart.map((products) => {
+        offerproducts.includes(products.sku)
+            ? null
+            : (originalBagValue += Number(products.price * products.quantity))
+    })
+
     function handleCouponInput(e) {
         let couponValue = e.target.value
-        
-      
+
         if (couponValue.length > 3) {
             let data = {
                 coupon_code: couponValue,
@@ -52,7 +56,7 @@ export const CustomCoupon: React.FC<Props> = ({
     }
 
     async function handleCouponSubmit(e) {
-        
+        console.log(cart)
         e.target.innerHTML = 'Applying ...'
         e.target.disabled = true
 
@@ -60,19 +64,18 @@ export const CustomCoupon: React.FC<Props> = ({
         let isGuestUser = localUserEmail === 'False' || localUserEmail === null
 
         let userEmail = isGuestUser ? 'guest1@sellsage.com' : localUserEmail
-        
-        
+
         let couponDetails = customCouponDetails
         couponDetails.email = userEmail
         couponDetails.total = originalBagValue
         setCustomCouponDetails(couponDetails)
 
         let customCoupon = await getCustomCoupon(couponDetails)
-        
+        console.log(customCoupon, couponDetails)
         if (customCoupon.message === 'Available') {
-            console.log('available',customCoupon)
+            console.log('available', customCoupon)
             setAlert('Coupon Applied')
-            setToLocal('coupon',customCoupon.coupon)
+            setToLocal('coupon', customCoupon.coupon)
             setCouponSelected(customCoupon.coupon)
             e.target.innerHTML = 'Apply'
             e.target.disabled = false
@@ -90,11 +93,14 @@ export const CustomCoupon: React.FC<Props> = ({
                 placeholder="Enter your Coupon"
                 type={'text'}
                 onChange={(e) => handleCouponInput(e)}
-            />  
-            <Button onClick={(e) => handleCouponSubmit(e)} varient="primary" fill='true'>
+            />
+            <Button
+                onClick={(e) => handleCouponSubmit(e)}
+                varient="primary"
+                fill="true"
+            >
                 Apply
             </Button>
-         
         </CouponForm>
     )
 }

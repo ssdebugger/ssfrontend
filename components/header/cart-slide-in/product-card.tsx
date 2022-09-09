@@ -206,7 +206,7 @@ export const ProductCard: React.FC<ProductProps> = ({
                 img: img,
                 inStockQuantity: inStockQuantity,
             }
-
+            console.log('item adding',item)
             addToCart(item)
             let curuser = window.localStorage.getItem('useremail')
             if (
@@ -289,7 +289,7 @@ export const ProductCard: React.FC<ProductProps> = ({
                     <span className="dashed-price">${price}</span>
                 )}
 
-                <span>${discountedPrice}</span>
+                <span>${quantity>1?29.95:discountedPrice}</span>
             </Paragraph>
         </CardContainer>
     )
