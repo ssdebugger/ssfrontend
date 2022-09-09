@@ -70,10 +70,10 @@ export const CustomCoupon: React.FC<Props> = ({
         let customCoupon = await getCustomCoupon(couponDetails)
         
         if (customCoupon.message === 'Available') {
+            console.log('available',customCoupon)
             setAlert('Coupon Applied')
             setToLocal('coupon',customCoupon.coupon)
             setCouponSelected(customCoupon.coupon)
-            console.log(customCoupon.coupon)
             e.target.innerHTML = 'Apply'
             e.target.disabled = false
             setDiscount(customCoupon.to_deduct)

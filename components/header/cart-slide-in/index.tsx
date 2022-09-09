@@ -213,6 +213,8 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
          // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [cart])
 
+
+
     useEffect(() => {
         function setBillDetails(originalPrice: number, discountValue: number) {
             let existingCoupon = getUserCoupon()
@@ -257,16 +259,23 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
         return discount
     }
         setDiscountValue(originalPrice, setDiscount)
-        if (
-            couponSelected.minSpend > 0 &&
-            couponSelected.minSpend > originalPrice
-        ) {
-            setCouponSelected(initialCouponValue)
-            setToLocal('coupon', initialCouponValue)
-        }
+        // if (
+        //     couponSelected.minSpend > 0 &&
+        //     couponSelected.minSpend > originalPrice
+        // ) {
+        //     setCouponSelected(initialCouponValue)
+        //     setToLocal('coupon', initialCouponValue)
+        // }
          // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [originalPrice, couponSelected])
-
+     
+    const setAlertfunction= (e) => {
+        return setAlert(e)
+    }
+    const setCouponSelectedfunction= (e) => {
+        return setCouponSelected(e)
+    }
+    
     return (
         <SlideInContainer showBag={showBag}>
             <SlideInBg onClick={toggleFn} />
@@ -293,11 +302,11 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
                             </CouponAlertContainer>
 
                             <CustomCoupon
-                                setAlert={setAlert}
+                                setAlert={setAlertfunction}
                                 setDiscount={setDiscount}
                                 offerproducts={offerproducts}
                                 customCouponDetails={customCouponDetails}
-                                setCouponSelected = {setCouponSelected}
+                                setCouponSelected = {setCouponSelectedfunction}
                                 setCustomCouponDetails={setCustomCouponDetails}
                             />
 
