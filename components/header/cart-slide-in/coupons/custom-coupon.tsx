@@ -15,6 +15,7 @@ interface Props {
     setCustomCouponDetails: Dispatch<SetStateAction<userCouponDetails>>
     setAlert: (value: SetStateAction<string>) => void
     setDiscount: Dispatch<SetStateAction<number>>
+    setCouponSelected: Dispatch<SetStateAction<object>>
 }
 
 export interface userCouponDetails {
@@ -29,6 +30,7 @@ export const CustomCoupon: React.FC<Props> = ({
     offerproducts,
     customCouponDetails,
     setCustomCouponDetails,
+    setCouponSelected
 }) => {
     const {cart}=useCart()
     var originalBagValue=Number(0)
@@ -69,11 +71,13 @@ export const CustomCoupon: React.FC<Props> = ({
         
         if (customCoupon.message === 'Available') {
             setAlert('')
+            console.log(customCoupon.coupon)
             e.target.innerHTML = 'Apply'
             e.target.disabled = false
             setDiscount(customCoupon.to_deduct)
             setAlert('Coupon Applied')
             setToLocal('coupon',customCoupon.coupon)
+            setCouponSelected(customCoupon.coupon)
         } else {
             setAlert(customCoupon.message)
             e.target.innerHTML = 'Apply'

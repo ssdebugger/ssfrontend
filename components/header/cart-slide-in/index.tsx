@@ -297,6 +297,7 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
                                 setDiscount={setDiscount}
                                 offerproducts={offerproducts}
                                 customCouponDetails={customCouponDetails}
+                                setCouponSelected = {setCouponSelected}
                                 setCustomCouponDetails={setCustomCouponDetails}
                             />
 
