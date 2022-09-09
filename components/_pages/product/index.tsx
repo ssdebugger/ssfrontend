@@ -79,12 +79,6 @@ const Productpage = (props) => {
         const handleAddToCart = (e) => {
             let itemIndex = cart.findIndex((item) => item.sku === sku)
             let curuser = window.localStorage.getItem('useremail')
-            ReactTag.default.track('addtocart', {
-                value: price,
-                order_quantity: 1,
-                currency: 'USD',
-                product_id: [sku],
-            })
             if (
                 itemIndex !== -1 &&
                 cart[itemIndex].quantity <= data.in_stock.N
