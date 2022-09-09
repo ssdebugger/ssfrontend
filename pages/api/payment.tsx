@@ -19,10 +19,13 @@ export default async function handlePayment(
             const stripe = require('stripe')(
                 'sk_live_8FvXoKEV1y0HiYXKd09heslO00IZdmNx1m'
             )
-
+            // const stripe = require('stripe')(
+            //     'sk_test_51JfLM2SG5BNiWvSgjLdXVI9HCV8ypHpghCaTqspW9b5niFYIgHpmmYicprwoQmD6UlVR81dRMfhXh5i03IrTojLx00JjzPH0RL'
+            // )
+            console.log(billingPrice*100,'billingprice')
             const paymentIntent: PaymentIntent =
                 await stripe.paymentIntents.create({
-                    amount: billingPrice * 100,
+                    amount: limitDecimal(billingPrice * 100),
                     currency: 'usd',
                     description: 'Sellsage Billing Service',
                     shipping: {
@@ -36,10 +39,11 @@ export default async function handlePayment(
                         },
                     },
                 })
-
+            console.log(paymentIntent)
             res.status(200).json(paymentIntent)
         }
     } catch (error) {
-        console.log(error)
+        res.status(400)
+        console.log(error,'paymentintenterror')
     }
 }

@@ -43,6 +43,7 @@ export const getShippingTaxes = async ({
         let delivery_time = data.delivery
         let total = limitDecimal(originalPrice + shippingAndTaxes - discount)
         let errorCode=200
+        console.log(delivery_time)
         return { shippingAndTaxes, total , errorCode,delivery_time }
     }
     
@@ -78,7 +79,7 @@ export const generatePaymentIntent = async ({
         shippingAddress: userDetails,
         billingAddress: userDetails,
     }
-
+    
     let res = await fetch('/api/payment', {
         method: 'POST',
         body: JSON.stringify(paymentIntentProps),

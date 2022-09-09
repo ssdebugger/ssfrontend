@@ -43,6 +43,8 @@ const Steps = ['a', 'b']
 let stripePromise: Promise<Stripe>
 
 stripePromise = loadStripe('pk_live_d2HzkdbXHfM31jQJbUsPZiMe00VrTpDvSg')
+// const stripePromise = loadStripe('pk_test_51JfLM2SG5BNiWvSgo4Zjssn5MGrulgcH6ZZ7jEQ9HO9EvegC6pe0TQsFSAUcwxj0y1LcPutWO9v4SKhvfx87UOjl00H0Wblu3f')
+ 
 
 const CheckoutPageWrapper = () => {
     const stripe = useStripe()
@@ -179,12 +181,21 @@ const CheckoutPageWrapper = () => {
                 discount: orderDetails.discount,
                 postalCode: shipping.postalCode,
             })
+        console.log(errorCode)    
         if (errorCode == 400) {
             setZipwarning(true)
+            console.log('in if')
         } else {
+            console.log('in else')
             setOpenIndexes(['b'])
             setZipwarning(false)
             setDelivery(delivery_time['fedex'])
+            console.log(shipping,{
+                discount: orderDetails.discount,
+                originalPrice: orderDetails.originalPrice,
+                shippingAndTaxes: shippingAndTaxes,
+                total: total,
+            })
             let intent = await generatePaymentIntent({
                 shipping,
                 orderDetails: {
@@ -194,6 +205,7 @@ const CheckoutPageWrapper = () => {
                     total: total,
                 },
             })
+            console.log(intent,'intent')
 
             setOrderDetails((prev) => ({ ...prev, shippingAndTaxes, total }))
             setPaymentIntent(intent)
@@ -217,10 +229,12 @@ const CheckoutPageWrapper = () => {
             }).then((res) => {
                 e.target.innerHTML = 'Pay'
                 e.target.disabled = false
+                console.log(res,'then',paymentIntent)
             })
         } catch (error) {
             e.target.innerHTML = 'Pay'
             e.target.disabled = false
+            console.log(error,'error')
             alert.show(JSON.stringify('Something went wrong please try again.'))
         }
     }

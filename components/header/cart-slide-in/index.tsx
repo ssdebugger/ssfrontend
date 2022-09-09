@@ -56,8 +56,7 @@ interface Props {
 const initialCouponValue = { id: '', minSpend: 0, amount: 0, type: '' }
 
 export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
-    const  offerproducts=['PALM-HRTB-0500-0020','BNDL-CSET-0000-0300','BNDL-SQDB-0710-0030','PALM-OVLB-0510-0020'
-    ,'PALM-RTGT-0906-0020','PALM-RTGT-0703-0020']
+    const  offerproducts=[]
     const { cart } = useCart()
     const add=useAddItem()
     const removeFromCart = useRemoveItem()
@@ -80,14 +79,18 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
             setAlert(`Original price should be more than $${coupon.minSpend}`)
             return
         }
-
-        if (shouldClickCoupon) {
+        else{
             setAlert('')
             setToLocal('coupon', coupon)
             setCouponSelected(coupon)
-        } else {
-            setAlert('Coupon not applicable on selected items.')
         }
+
+        // if (shouldClickCoupon) {
+          
+        // }
+        //  else {
+        //     setAlert('Coupon not applicable on selected items.')
+        // }
     }
 
     function getTotalOriginalPrice(cart: Array<CartItem>) {
@@ -113,16 +116,18 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
         if (coupon.minSpend >= originalCartValue) {
             return 0
         }
-        let cartValue = originalCartValue
+        var cartValue = originalCartValue
         for (let i = 0; i < cart.length; i++) {
             if (
                 offerproducts.includes(cart[i].sku)
             ) {
-                cartValue -= cart[i].price*cart[i].quantity
+                console.log(cart[i].price*cart[i].quantity,cart)
+                cartValue -= Number(cart[i].price*cart[i].quantity)
             }
         }
 
         let discountValue = cartValue * (coupon.amount / 100)
+        console.log('in get discountvalue',limitDecimal(cartValue),discountValue)
         return limitDecimal(discountValue)
     }
 
@@ -235,7 +240,9 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
         originalPrice: number,
         setBagDiscount: Dispatch<SetStateAction<number>>
     ) {
+        console.log('in setdiscount function')
         let coupon = getUserCoupon()
+        console.log(coupon)
         // when coupon does not exist
         if (coupon.minSpend === 0) {
             setBagDiscount(0)
@@ -244,6 +251,7 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
         }
 
         let discount = getDiscountValue(coupon, originalPrice)
+        console.log(discount)
         setBagDiscount(discount)
         setBillDetails(originalPrice, discount)
         return discount
