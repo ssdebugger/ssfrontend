@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import Footer from '@/components/footer'
 import { LandingLayout } from '@/components/layout/landing'
-import { PortableText } from '@portabletext/react'
-
+const BlockContent = require('@sanity/block-content-to-react')
 import imageUrlBuilder from '@sanity/image-url'
+import SyntaxHighlighter from 'react-syntax-highlighter';
 import {
     BlogPostTop,
     Content,
@@ -95,13 +95,68 @@ const BlogPost = ({ blogData, morePosts }) => {
 
         return month + '-' + day + '-' + year
     }
+    const highlight = (props) => {
+        return (
+            <span style={{ backgroundColor: props.mark.color }}>
+                {props.children}
+            </span>
+        )
+    }
+    const serializers = {
+        types: {
+            code: (props) => (
+                <SyntaxHighlighter language={props.node.language}>
+                    {props.node.code}
+                </SyntaxHighlighter>
+            ),
+        },
+        marks: {
+            decorators: [
+                { title: 'Strong', value: 'strong' },
+                { title: 'Emphasis', value: 'em' },
+                { title: 'Code', value: 'code' },
+                { title: 'Highlight', value: 'highlight' },
+                { title: 'Strong', value: 'strong' },
+                { title: 'Emphasis', value: 'em' },
+                { title: 'Code', value: 'code' },
+                { title: 'Underline', value: 'underline' },
+                { title: 'Strike', value: 'strike-through' },
+            ],
+            annotations: [
+                {
+                  name: 'link',
+                  type: 'object',
+                  title: 'link',
+                  fields: [
+                    {
+                      name: 'url',
+                      type: 'url'
+                    }
+                  ]
+                },
+                {
+                  name: 'internalLink',
+                  type: 'object',
+                  title: 'Internal link',
+                  fields: [
+                    {
+                      name: 'reference',
+                      type: 'reference',
+                      to: [
+                        { type: 'post' }
+                        // other types you may want to link to
+                      ]
+                    }
+                  ]
+                }
+              ]
+        },
+    }
     return (
         <>
-            <Head>    
-            <meta name='title' content={blogData.title}>
-                </meta>
-                <meta name='description' content={blogData.title}>
-                </meta>
+            <Head>
+                <meta name="title" content={blogData.title}></meta>
+                <meta name="description" content={blogData.title}></meta>
                 <title>{blogData.title} - sellsage</title>
             </Head>
 
@@ -167,10 +222,12 @@ const BlogPost = ({ blogData, morePosts }) => {
                                         __html: blogData.content,
                                     }}
                                 /> */}
-                                <PortableText
-                                    value={body}
-                                    components={ptComponents}
-                                />
+                                <BlockContent
+                                    projectId={'oz65z3ci'}
+                                    dataset={'production'}
+                                    blocks={body}
+                                    serializers={serializers}
+                                ></BlockContent>
                             </Paragraph>
                         </Content>
                     </MainContent>
@@ -192,7 +249,7 @@ const BlogPost = ({ blogData, morePosts }) => {
                                                     src={
                                                         item.mainImage.asset.url
                                                     }
-                                                    alt='eco products'
+                                                    alt="eco products"
                                                 />
                                             </ImageContainer>
 
