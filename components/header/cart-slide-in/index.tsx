@@ -295,7 +295,7 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
                                     <AlertContainer>
                                         <AlertBar
                                             alertMessage={alert}
-                                            alertType="red"
+                                            alertType="green"
                                         />
                                     </AlertContainer>
                                 )}
