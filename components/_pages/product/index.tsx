@@ -226,16 +226,16 @@ const Productpage = (props) => {
         price: data['sale_price']['N'],
         inStockQuantity: parseInt(data['in_stock']['N']),
     }
-    useEffect(() => {
-        import('react-pinterest-tag').then((ReactPinterestTag) => {
-            ReactTag = ReactPinterestTag
-            ReactPinterestTag.default.init('2613059152744')
-            ReactPinterestTag.default.track('pagevisit', {
-                promo_code: 'ProductPage',
-                event_id: 'ProductPageVisit',
-            })
-        })
-    }, [])
+    // useEffect(() => {
+    //     import('react-pinterest-tag').then((ReactPinterestTag) => {
+    //         ReactTag = ReactPinterestTag
+    //         ReactPinterestTag.default.init('2613059152744')
+    //         ReactPinterestTag.default.track('pagevisit', {
+    //             promo_code: 'ProductPage',
+    //             event_id: 'ProductPageVisit',
+    //         })
+    //     })
+    // }, [])
     const indexed_products = [
         'PALM-SQRP-0600-0020',
         'BNDL-CSET-0000-0300',

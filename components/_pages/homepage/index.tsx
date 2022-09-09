@@ -35,15 +35,15 @@ const Homepage = ({ offers, bundles, data }) => {
     }
 
 
-    useEffect(() => {
-        import('react-pinterest-tag').then((ReactPinterestTag) => {
-            ReactPinterestTag.default.init('2613059152744')
-            ReactPinterestTag.default.track('pagevisit', {
-                promo_code: 'LandingPage',
-                event_id: 'LaningPageVisit',
-              })
-        })
-    }, [])
+    // useEffect(() => {
+    //     import('react-pinterest-tag').then((ReactPinterestTag) => {
+    //         ReactPinterestTag.default.init('2613059152744')
+    //         ReactPinterestTag.default.track('pagevisit', {
+    //             promo_code: 'LandingPage',
+    //             event_id: 'LaningPageVisit',
+    //           })
+    //     })
+    // }, [])
 
     return (
         <>
