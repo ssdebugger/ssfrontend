@@ -301,11 +301,11 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
                                 setCustomCouponDetails={setCustomCouponDetails}
                             />
 
-                            <CouponList
+                            {/* <CouponList
                                 currentCouponId={couponSelected.id}
                                 couponData={defaultCouponData}
                                 handleSelection={handleCouponSelection}
-                            />
+                            /> */}
                         </CouponsContainer>
 
                         <ProductsContainer>
