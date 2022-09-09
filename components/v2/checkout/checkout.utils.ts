@@ -30,6 +30,7 @@ export const getShippingTaxes = async ({
     let data: IShippingAndTaxes = await fetch(
         `https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/shippingtaxesv2?zipcode=${postalCode}&subtotal=${originalPrice}`
     ).then((res) => res.json())
+    console.log(data)
     if(data.statusCode==400){
         let shippingAndTaxes = 0
 
@@ -43,7 +44,7 @@ export const getShippingTaxes = async ({
         let delivery_time = data.delivery
         let total = limitDecimal(originalPrice + shippingAndTaxes - discount)
         let errorCode=200
-        console.log(delivery_time)
+        console.log(delivery_time,postalCode,originalPrice)
         return { shippingAndTaxes, total , errorCode,delivery_time }
     }
     
