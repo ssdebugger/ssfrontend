@@ -189,7 +189,9 @@ const CheckoutPageWrapper = () => {
             console.log('in else')
             setOpenIndexes(['b'])
             setZipwarning(false)
+
             delivery_time['fedex']=='undefined'?'3-5 days':(setDelivery(delivery_time['fedex']))
+            
             console.log(shipping,{
                 discount: orderDetails.discount,
                 originalPrice: orderDetails.originalPrice,
