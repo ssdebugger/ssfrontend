@@ -160,7 +160,7 @@ export const Carousel = () => {
                 </DisposableRight>
                 <div className="disposable-dinnerware-container">
                     <div className="carouselItem">
-                        <HyperLink href="/GLOV-DOM-0030-0036">
+                        <HyperLink href="/product/plant-based-compostable-gloves">
                             <DisposableMobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
                                 src="/carouselimages/Disposable_dinnerware/disposable_freecutlery_mobile.jpg"
@@ -225,7 +225,7 @@ export const Carousel = () => {
                         </HyperLink>
                     </div>
                     <div className="carouselItem">
-                        <HyperLink href="/GLOV-DOM-0030-0036">
+                        <HyperLink href="/product/plant-based-compostable-gloves">
                             <DisposableMobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
                                 src="/carouselimages/Disposable_tableware/disposable_tableware_mobile.webp"
