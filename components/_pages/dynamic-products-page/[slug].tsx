@@ -188,7 +188,8 @@ export const DynamicPage = ({ products }) => {
         }
     }
     useEffect(() => {
-        console.log('filter',
+        console.log(
+            'filter',
             filter,
             String(filter).charAt(0).toUpperCase() + filter.slice(1)
         )
@@ -270,7 +271,10 @@ export const DynamicPage = ({ products }) => {
                             name="description"
                             content="Shop Compostable, Biodegradable, Sustainable, 100% Plant-Based Dinnerware Made from Palm Leaf + Eco Friendly Gloves – Disposable & Plastic-Free Products"
                         ></meta>
-                        <title>Shop Compostable Plates, Utensils, Bowls, Trays & Gloves</title>
+                        <title>
+                            Shop Compostable Plates, Utensils, Bowls, Trays &
+                            Gloves
+                        </title>
                     </>
                 ) : (
                     <>
@@ -285,10 +289,6 @@ export const DynamicPage = ({ products }) => {
                         <title>{`Shop Compostable ${filter}`}</title>
                     </>
                 )}
-                <meta
-                    name="description"
-                    content="Shop Compostable, Biodegradable, Sustainable, 100% Plant-Based Dinnerware Made from Palm Leaf + Eco Friendly Gloves – Disposable & Plastic-Free Products"
-                ></meta>
             </Head>
 
             <Header />
@@ -547,45 +547,11 @@ export const DynamicPage = ({ products }) => {
                                         key={item}
                                         inStock={e['in_stock']['N'] != 0}
                                     >
-                                        {
-                                            Number(e['product_id']['N']) === 44 ? (
-                                                  <NewLaunch top="15px" left="15px">
-                                                      World Clean Up Day Discount
-                                                  </NewLaunch>
-                                              ) : null 
-                                            //  Number(e['product_id']['N']) ===
-                                            //   43 ?
-                                            //   (
-                                            //     <NewLaunch top="15px" left="15px">
-                                            //         Buy 3 Get 1 cutlery FREE
-                                            //     </NewLaunch>
-                                            // ) : Number(e['product_id']['N']) ===
-                                            //   24 ? (
-                                            //     <NewLaunch top="15px" left="15px">
-                                            //         Buy 3 Get 1 FREE
-                                            //     </NewLaunch>
-                                            // ) : Number(e['product_id']['N']) ===
-                                            //   7 ? (
-                                            //     <NewLaunch top="15px" left="15px">
-                                            //         Buy 3 Get 1 FREE
-                                            //     </NewLaunch>
-                                            // ) : Number(e['product_id']['N']) ===
-                                            //   38 ? (
-                                            //     <NewLaunch top="15px" left="15px">
-                                            //         Buy 3 Get 1 FREE
-                                            //     </NewLaunch>
-                                            // ) : (
-                                            //     Number(e['product_id']['N']) ===
-                                            //         45 && (
-                                            //         <NewLaunch
-                                            //             top="15px"
-                                            //             left="15px"
-                                            //         >
-                                            //             Buy 3 Get 1 FREE
-                                            //         </NewLaunch>
-                                            //     )
-                                            // )
-                                        }
+                                        {Number(e['product_id']['N']) === 44 ? (
+                                            <NewLaunch top="15px" left="15px">
+                                                World Clean Up Day Discount
+                                            </NewLaunch>
+                                            ) : null} 
 
                                         <TileHero>
                                             <Image
