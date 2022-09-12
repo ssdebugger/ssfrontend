@@ -110,7 +110,7 @@ export const SizeSelector = (props) => {
             <SizesContainer>
                 {variations.map((x, i) =>
                     x['sort_key'] !== 9999 ? (
-                        path !== x['sku'] ? (
+                        path !== x['url_name'] ? (
                             <Size key={i}>
                                 <Checkbox
                                     name="sizeSku"
