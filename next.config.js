@@ -55,7 +55,7 @@ for (let i = 0; i < arr1.length; i++) {
       destination: `/product/${arr2[i]}`,
       permanent: true,
   })
-}
+
 module.exports = {
     reactStrictMode: true,
     
