@@ -188,7 +188,7 @@ export const DynamicPage = ({ products }) => {
         }
     }
     useEffect(() => {
-        console.log(
+        console.log('filter',
             filter,
             String(filter).charAt(0).toUpperCase() + filter.slice(1)
         )
@@ -257,19 +257,38 @@ export const DynamicPage = ({ products }) => {
     return (
         <>
             <Head>
-                {filter=='none'? null :
-                 <meta name='robots' content='noindex'></meta>} 
-                <meta
-                    name="title"
-                    content="Shop Compostable Plates, Utensils, Bowls, Trays & Gloves"
-                ></meta>
+                {filter == 'none' ? null : (
+                    <meta name="robots" content="noindex"></meta>
+                )}
+                {filter == 'none' ? (
+                    <>
+                        <meta
+                            name="title"
+                            content="Shop Compostable Plates, Utensils, Bowls, Trays & Gloves"
+                        ></meta>{' '}
+                        <meta
+                            name="description"
+                            content="Shop Compostable, Biodegradable, Sustainable, 100% Plant-Based Dinnerware Made from Palm Leaf + Eco Friendly Gloves – Disposable & Plastic-Free Products"
+                        ></meta>
+                        <title>Shop Compostable Plates, Utensils, Bowls, Trays & Gloves</title>
+                    </>
+                ) : (
+                    <>
+                        <meta
+                            name="title"
+                            content={`Shop Compostable ${filter}`}
+                        ></meta>
+                        <meta
+                            name="description"
+                            content={`Shop Compostable, Biodegradable, Sustainable, 100% Plant-Based ${filter} Made from Palm Leaf + Eco Friendly Gloves – Disposable & Plastic-Free ${filter}`}
+                        ></meta>
+                        <title>{`Shop Compostable ${filter}`}</title>
+                    </>
+                )}
                 <meta
                     name="description"
                     content="Shop Compostable, Biodegradable, Sustainable, 100% Plant-Based Dinnerware Made from Palm Leaf + Eco Friendly Gloves – Disposable & Plastic-Free Products"
                 ></meta>
-                <title>
-                    Shop Compostable Plates, Utensils, Bowls, Trays & Gloves
-                </title>
             </Head>
 
             <Header />
