@@ -258,9 +258,6 @@ export const DynamicPage = ({ products }) => {
     return (
         <>
             <Head>
-                {filter == 'none' ? null : (
-                    <meta name="robots" content="noindex"></meta>
-                )}
                 {filter == 'none' ? (
                     <>
                         <meta
@@ -278,6 +275,7 @@ export const DynamicPage = ({ products }) => {
                     </>
                 ) : (
                     <>
+                        <meta name="robots" content="noindex"></meta>
                         <meta
                             name="title"
                             content={`Shop Compostable ${filter}`}
@@ -551,7 +549,7 @@ export const DynamicPage = ({ products }) => {
                                             <NewLaunch top="15px" left="15px">
                                                 World Clean Up Day Discount
                                             </NewLaunch>
-                                            ) : null} 
+                                        ) : null}
 
                                         <TileHero>
                                             <Image
