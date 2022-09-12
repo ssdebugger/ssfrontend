@@ -257,7 +257,6 @@ export const DynamicPage = ({ products }) => {
     }
     return (
         <>
-                {filter == 'none' ? (
                     <Head>
                         <meta
                             name="title"
@@ -272,21 +271,7 @@ export const DynamicPage = ({ products }) => {
                             Gloves
                         </title>
                     </Head>
-                ) : (
-                    <Head>
-                        <meta name="robots" content="noindex"></meta>
-                        <meta
-                            name="title"
-                            content={`Shop Compostable ${filter}`}
-                        ></meta>
-                        <meta
-                            name="description"
-                            content={`Shop Compostable, Biodegradable, Sustainable, 100% Plant-Based ${filter} Made from Palm Leaf + Eco Friendly Gloves – Disposable & Plastic-Free ${filter}`}
-                        ></meta>
-                        <title>{`Shop Compostable ${filter}`}</title>
-                    </Head>
-                )}
-
+               
             <Header />
 
             <Main>
