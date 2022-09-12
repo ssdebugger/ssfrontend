@@ -19,14 +19,14 @@ export const TopBarOffer = styled.div`
 
     h4 {
         display: inline-block;
-        font-size: 1rem;
+        font-size: 1.125rem;
         margin: 0 0.5rem 0 0;
-        font-weight: 500;
+        font-weight: 600;
     }
 
     p {
         display: inline-block;
-        font-size: 0.875rem;
+        font-size: 1rem;
         margin: 0;
         color: ${(props) => props.theme.blueGray900};
     }
