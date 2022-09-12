@@ -251,6 +251,9 @@ const Productpage = (props) => {
     return (
         <>
             <Head>
+                {indexed_products.includes(data['sku_code']['S']) ? (
+                    <meta name="robots" content="noindex"></meta>
+                ) : null}
                 <meta
                     name="title"
                     content={data['short_description']['S']}
@@ -269,10 +272,15 @@ const Productpage = (props) => {
                             <BreadCrumb items={['Shop', data.brand.S]} />
 
                             <MainHeading>
-                                {indexed_products.includes(String(ItemData.sku)) ? String(data['short_description']['S']).slice(
-                                    0,
-                                    data['short_description']['S'].length - 8
-                                ) : data['short_description']['S']}
+                                {indexed_products.includes(String(ItemData.sku))
+                                    ? String(
+                                          data['short_description']['S']
+                                      ).slice(
+                                          0,
+                                          data['short_description']['S']
+                                              .length - 8
+                                      )
+                                    : data['short_description']['S']}
                             </MainHeading>
                         </ProductPageTopHeading>
 
@@ -299,10 +307,15 @@ const Productpage = (props) => {
                             <BreadCrumb items={['Shop', data.brand.S]} />
 
                             <MainHeading>
-                            {indexed_products.includes(String(ItemData.sku)) ? String(data['short_description']['S']).slice(
-                                    0,
-                                    data['short_description']['S'].length - 8
-                                ) : data['short_description']['S']}
+                                {indexed_products.includes(String(ItemData.sku))
+                                    ? String(
+                                          data['short_description']['S']
+                                      ).slice(
+                                          0,
+                                          data['short_description']['S']
+                                              .length - 8
+                                      )
+                                    : data['short_description']['S']}
                             </MainHeading>
                         </HeadingContainer>
 
