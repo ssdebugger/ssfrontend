@@ -92,7 +92,7 @@ export const SizeSelector = (props) => {
 
     const path = router.query.sku
     const productRoute = (sku) => {
-        router.push(sku)
+        router.push(`/product/${sku}`)
     }
     useEffect(() => {
         const defaultSize = window.document.getElementById(
@@ -115,7 +115,7 @@ export const SizeSelector = (props) => {
                                 <Checkbox
                                     name="sizeSku"
                                     type="radio"
-                                    onChange={() => productRoute(x['sku'])}
+                                    onChange={() => productRoute(x['url_name'])}
                                 />
                                 <SizeLabel>
                                     <SizeDesc>
@@ -130,7 +130,7 @@ export const SizeSelector = (props) => {
                                     id="default"
                                     name="sizeSku"
                                     type="radio"
-                                    onChange={() => productRoute(x['sku'])}
+                                    onChange={() => productRoute(x['url_name'])}
                                 />
 
                                 <SizeLabel>
@@ -147,7 +147,7 @@ export const SizeSelector = (props) => {
                                 id="default"
                                 name="sizeSku"
                                 type="radio"
-                                onChange={() => productRoute(x['sku'])}
+                                onChange={() => productRoute(x['url_name'])}
                             />
                             <SizeLabel>
                                 <SizeDesc>{x['size']}</SizeDesc>
