@@ -257,21 +257,23 @@ export const DynamicPage = ({ products }) => {
     }
     return (
         <>
-                    <Head>
-                        <meta
-                            name="title"
-                            content="Shop Compostable Plates, Utensils, Bowls, Trays & Gloves"
-                        ></meta>
-                        <meta
-                            name="description"
-                            content="Shop Compostable, Biodegradable, Sustainable, 100% Plant-Based Dinnerware Made from Palm Leaf + Eco Friendly Gloves – Disposable & Plastic-Free Products"
-                        ></meta>
-                        <title>
-                            Shop Compostable Plates, Utensils, Bowls, Trays &
-                            Gloves
-                        </title>
-                    </Head>
-               
+            <Head>
+                {filter == 'none' ? (
+                    <meta name="robots" content="noindex"></meta>
+                ) : null}
+                <meta
+                    name="title"
+                    content="Shop Compostable Plates, Utensils, Bowls, Trays & Gloves"
+                ></meta>
+                <meta
+                    name="description"
+                    content="Shop Compostable, Biodegradable, Sustainable, 100% Plant-Based Dinnerware Made from Palm Leaf + Eco Friendly Gloves | Disposable & Plastic-Free Products"
+                ></meta>
+                <title>
+                    Shop Compostable Plates, Utensils, Bowls, Trays & Gloves
+                </title>
+            </Head>
+
             <Header />
 
             <Main>
