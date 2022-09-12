@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { ShoppingBag, Check } from 'react-feather'
 import Image from 'next/image'
 
-import { Heading3, SubHeading} from '@/components/typography/heading'
+import { Heading3, SubHeading } from '@/components/typography/heading'
 import { Paragraph } from '@/components/typography/paragraph'
 import { useAddItem } from '@/context/cart'
 
@@ -182,29 +182,29 @@ export const ProductCard = (props) => {
 
         return () => clearTimeout(addToCartTimeout)
     }
-
+    console.log('product card',props.url)
     return (
         <Container>
             {
-            Number(props.productId) === 44 ? (
-                <NewLaunch>World Clean Up Day Discount </NewLaunch>
-            ) : null
-            // Number(props.productId) === 24 ? 
-            //    ( <NewLaunch>Buy 3 Get 1 cutlery FREE</NewLaunch>
-            // ) : Number(props.productId) === 45 ? (
-            //     <NewLaunch>Buy 3 Get 1 FREE</NewLaunch>
-            // ) : Number(props.productId) === 7 ? (
-            //     <NewLaunch>Buy 3 Get 1 FREE</NewLaunch>
-            // ) : Number(props.productId) === 38 ? (
-            //     <NewLaunch>Buy 3 Get 1 FREE</NewLaunch>
-            // ) : (
-            //     Number(props.productId) === 43 && (
-            //         <NewLaunch>Buy 3 Get 1 FREE</NewLaunch>
-            //     )
-            //)
+                Number(props.productId) === 44 ? (
+                    <NewLaunch>World Clean Up Day Discount </NewLaunch>
+                ) : null
+                // Number(props.productId) === 24 ?
+                //    ( <NewLaunch>Buy 3 Get 1 cutlery FREE</NewLaunch>
+                // ) : Number(props.productId) === 45 ? (
+                //     <NewLaunch>Buy 3 Get 1 FREE</NewLaunch>
+                // ) : Number(props.productId) === 7 ? (
+                //     <NewLaunch>Buy 3 Get 1 FREE</NewLaunch>
+                // ) : Number(props.productId) === 38 ? (
+                //     <NewLaunch>Buy 3 Get 1 FREE</NewLaunch>
+                // ) : (
+                //     Number(props.productId) === 43 && (
+                //         <NewLaunch>Buy 3 Get 1 FREE</NewLaunch>
+                //     )
+                //)
             }
 
-            <ProductContainer href={'/' + props.sku}>
+            <ProductContainer href={'/product/' + props.url}>
                 <ProductImageContainer>
                     <Image
                         src={props.image}
@@ -212,14 +212,14 @@ export const ProductCard = (props) => {
                         loading="lazy"
                         height="100%"
                         width="100%"
-                        layout='responsive'
-                        objectFit='contain'
+                        layout="responsive"
+                        objectFit="contain"
                     />
                 </ProductImageContainer>
 
                 <ProductContent>
                     <Heading3>{props.name.replace(/'/g, '"')}</Heading3>
-                    
+
                     {/* <span>Disposable Tableware</span> */}
 
                     <Paragraph>Durable, {props.desc}</Paragraph>
@@ -231,7 +231,8 @@ export const ProductCard = (props) => {
                             <Star className="filled" />
                             <Star className="default" />
                         </RatingsContainer> */}
-                    {props.originalprice != 0 && props.originalprice!=props.price ? (
+                    {props.originalprice != 0 &&
+                    props.originalprice != props.price ? (
                         <DashedHeading>${props.originalprice}</DashedHeading>
                     ) : null}
                     <Heading3>${props.price}</Heading3>

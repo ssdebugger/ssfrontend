@@ -24,42 +24,45 @@ import { Paragraph } from '../../typography/paragraph'
 
 export const ProductCard = (props) => {
     const [addToWishList, setAddToWishList] = useState(props.wishlist)
-    const handleClick = () => {        
-        const user=window.localStorage.getItem('useremail')
-        if(user!==null && user!==undefined){
-            if(!addToWishList ){
-                let data={
-                    "activity_type": "ATW",
-                    "email_id": user,
-                    "pid": props.id,
-                    "quant":1
-                    
+    const handleClick = () => {
+        const user = window.localStorage.getItem('useremail')
+        if (user !== null && user !== undefined) {
+            if (!addToWishList) {
+                let data = {
+                    activity_type: 'ATW',
+                    email_id: user,
+                    pid: props.id,
+                    quant: 1,
                 }
-                fetch("https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/addtowlorcart",{
-                    method:'POST',
-                    body:JSON.stringify(data)
-                }).then()
-                .catch(err => console.log(err,'error'))
-            }
-            else{
-                let data={
-                    "activity_type": "RWL",
-                    "email_id": user,
-                    "pid": props.id,
-                    "quant":1
+                fetch(
+                    'https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/addtowlorcart',
+                    {
+                        method: 'POST',
+                        body: JSON.stringify(data),
+                    }
+                )
+                    .then()
+                    .catch((err) => console.log(err, 'error'))
+            } else {
+                let data = {
+                    activity_type: 'RWL',
+                    email_id: user,
+                    pid: props.id,
+                    quant: 1,
                 }
-                fetch("https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/addtowlorcart",{
-                    method:'POST',
-                    body:JSON.stringify(data)
-                }).then()
-                .catch(err => console.log(err,'error'))
+                fetch(
+                    'https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/addtowlorcart',
+                    {
+                        method: 'POST',
+                        body: JSON.stringify(data),
+                    }
+                )
+                    .then()
+                    .catch((err) => console.log(err, 'error'))
             }
+        } else {
         }
-        else{
 
-            
-        }
-        
         setAddToWishList((prevState) => !prevState)
     }
     return (
@@ -73,16 +76,15 @@ export const ProductCard = (props) => {
                     width={20}
                     height={20}
                 />
-
             </WishlistButton>
             <CardContents>
-                <Link href={"/" + props.sku} passHref>
+                <Link href={'/product/' + props.sku} passHref>
                     <CardLink>
                         <ImageContainer>
-                            <CardImage src={props.imageurl}/>
+                            <CardImage src={props.imageurl} />
                             <LifeStyleImage src={props.lifeimageurl} />
                         </ImageContainer>
-                        <CardTitle>{props.name.replace(/'/g,'"')} </CardTitle>
+                        <CardTitle>{props.name.replace(/'/g, '"')} </CardTitle>
                         <Paragraph margin="0.5rem 0" fontSize="small">
                             {props.description}
                         </Paragraph>
@@ -96,8 +98,10 @@ export const ProductCard = (props) => {
                         <PriceContainer>
                             <CardPrice>
                                 <PriceSymbol>$</PriceSymbol>
-                                <PriceInteger>{ props.priceint}</PriceInteger>
-                                <PriceDecimals>.{props.pricedecimal}</PriceDecimals>
+                                <PriceInteger>{props.priceint}</PriceInteger>
+                                <PriceDecimals>
+                                    .{props.pricedecimal}
+                                </PriceDecimals>
                             </CardPrice>
                             <Mrp>(Save ${props.discount}) </Mrp>
                         </PriceContainer>

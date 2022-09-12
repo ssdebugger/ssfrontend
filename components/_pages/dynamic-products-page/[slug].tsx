@@ -526,7 +526,7 @@ export const DynamicPage = ({ products }) => {
                             <ResultTiles>
                                 {items.map((e, item) => (
                                     <ProductCard
-                                        href={'/' + e['sku_code']['S']}
+                                        href={'/product/' + e['url_name']['S']}
                                         key={item}
                                         inStock={e['in_stock']['N'] != 0}
                                     >

@@ -248,6 +248,7 @@ const Productpage = (props) => {
         'PALM-OVLB-0510-0020',
         'PALM-RNDP-10F0-0020',
     ]
+    console.log(data,'product data')
     return (
         <>
             <Head>
@@ -332,7 +333,7 @@ const Productpage = (props) => {
 
                         <AboutItemContainer>
                             <AboutItem
-                                sku={ItemData.sku}
+                                sku={data['sku_code']['S']}
                                 data={data['about']['L']}
                             />
                         </AboutItemContainer>
@@ -435,7 +436,7 @@ const Productpage = (props) => {
 
                 <ProductCertifications />
             </LandingLayout>
-            <OfferBanner />
+            {/* <OfferBanner /> */}
 
             <TopPicks offers={recproducts} />
             <CustomerReviews reviews={data['reviews']} />

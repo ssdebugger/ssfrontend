@@ -45,6 +45,7 @@ export const Offer = ({ productsList, card }) => {
         'disposable dinnerware square plate',
         'disposable dinnerware container',
     ]
+    console.log('offer',productsList)
 
     return (
         <DisposableOfferContainer>
@@ -56,6 +57,7 @@ export const Offer = ({ productsList, card }) => {
                         <ProductCard
                             key={item.sku.S}
                             sku={item.sku.S}
+                            url={item.url_name.S}
                             name={item.name.S}
                             image={`https://ss-compressedimages.s3.us-east-2.amazonaws.com/SellSage/ShopItems/${item.product_id.N}/${item.sku.S}/Main_WB.webp`}
                             price={item.sale_price.N}
@@ -69,6 +71,7 @@ export const Offer = ({ productsList, card }) => {
                         <ProductCard
                             key={item.sku_code.S}
                             sku={item.sku_code.S}
+                            url={item.url_name.S}
                             name={item.product_name.S}
                             image={`https://ss-compressedimages.s3.us-east-2.amazonaws.com/SellSage/ShopItems/${item.product_id.N}/${item.sku_code.S}/Main_WB.webp`}
                             price={item.sale_price}

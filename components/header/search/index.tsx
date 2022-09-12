@@ -80,6 +80,7 @@ export const Search = () => {
                                 name={x['product_name']['S']}
                                 img={x['image']}
                                 sku={x['sku_code']['S']}
+                                url={x['url_name']['S']}
                                 description={x['short_description']['S']}
                             />
                         </SearchResult>

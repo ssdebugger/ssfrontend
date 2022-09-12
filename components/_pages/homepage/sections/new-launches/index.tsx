@@ -55,6 +55,7 @@ export const NewLaunches = ({ newLaunchProducts }) => {
                     <ProductCard
                         key={item.product_name.S}
                         name={item.product_name.S}
+                        url={item.url_name.S}
                         image={`https://ss-compressedimages.s3.us-east-2.amazonaws.com/SellSage/ShopItems/${item.product_id.N}/${item.sku_code.S}/Main_WB.webp`}
                         price={item.sale_price}
                         desc={item.short_description.S}

@@ -39,7 +39,7 @@ const ProductContent = styled.div`
 export const ProductCard = (props) => {
     return (
         <ProductCardContainer>
-            <HyperLink href={"/"+props.sku}>
+            <HyperLink href={"/product/"+props.url}>
                 <ProductImgContainer>
                     <img src={props.img} alt='eco products' />
                 </ProductImgContainer>

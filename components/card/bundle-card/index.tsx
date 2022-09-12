@@ -9,7 +9,6 @@ import {
 import {
     CardContainer,
     CardTitle,
-    
     BundlePrice,
     SaveAmount,
     BundleDesc,
@@ -21,23 +20,25 @@ export const BundleCard = (props) => {
     return (
         <CardContainer>
             <CardContents>
-                <Link href={"/product?id=" + props.id} passHref>
+                <Link href={'/product/' + props.id} passHref>
                     <CardLink>
-                <ImageContainer>
-                    <CardImage src={props.imageurl}  alt='image'/>
-                    <LifeStyleImage src={props.lifeimageurl} alt='image'/>
-                </ImageContainer>
+                        <ImageContainer>
+                            <CardImage src={props.imageurl} alt="image" />
+                            <LifeStyleImage
+                                src={props.lifeimageurl}
+                                alt="image"
+                            />
+                        </ImageContainer>
 
-                <CardTitle>{props.name}</CardTitle>
+                        <CardTitle>{props.name}</CardTitle>
 
-                <BundlePrice>
-                    ${props.priceint}.{props.pricedecimal}<SaveAmount>(Save ${props.discount})</SaveAmount>
-                </BundlePrice>
+                        <BundlePrice>
+                            ${props.priceint}.{props.pricedecimal}
+                            <SaveAmount>(Save ${props.discount})</SaveAmount>
+                        </BundlePrice>
 
-                <BundleDesc>
-                    { props.description}
-                        </BundleDesc>
-                  </CardLink>
+                        <BundleDesc>{props.description}</BundleDesc>
+                    </CardLink>
                 </Link>
             </CardContents>
 

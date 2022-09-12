@@ -38,6 +38,7 @@ const TopPicks = (props) => {
                         sku={item['sku_code']['S']}
                         originalprice="0"
                         productId={item['product_id']['N']}
+                        url={item.url_name.S}
                     />
                 ))}
             </RecommendedProducts>

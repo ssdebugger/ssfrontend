@@ -30,7 +30,7 @@ const Homepage = ({ offers, bundles, data }) => {
     }
 
     const NewLaunchesList = []
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 4; i++) {
         NewLaunchesList.push(bundles['body'][i])
     }
 
