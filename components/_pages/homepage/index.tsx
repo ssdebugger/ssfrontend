@@ -51,7 +51,6 @@ const Homepage = ({ offers, bundles, data }) => {
         }
         
     },[])
-    console.log('new launches',NewLaunchesList)
     return (
         <>
             <Head>
