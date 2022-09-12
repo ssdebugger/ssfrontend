@@ -185,9 +185,10 @@ export const ProductCard = (props) => {
 
     return (
         <Container>
-            {//Number(props.productId) === 4 ? (
-            //     <NewLaunch>Buy 3 Get 1 cutlery FREE </NewLaunch>
-            // ) : 
+            {
+            Number(props.productId) === 44 ? (
+                <NewLaunch>World Clean Up Day Discount </NewLaunch>
+            ) : null
             // Number(props.productId) === 24 ? 
             //    ( <NewLaunch>Buy 3 Get 1 cutlery FREE</NewLaunch>
             // ) : Number(props.productId) === 45 ? (

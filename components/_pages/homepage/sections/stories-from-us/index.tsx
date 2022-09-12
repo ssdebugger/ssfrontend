@@ -118,6 +118,7 @@ const Post = (props) => {
 
 export const StoriesFromUs = (props) => {
     const data = props.data
+    const blogs=[data[4],data[43],data[28],data[29],data[9]]
     const imgalt = [
         'sustainability ideas',
         '16 disposable product ideas',
@@ -125,14 +126,13 @@ export const StoriesFromUs = (props) => {
         'disposable christmas dinner party ideas',
         'labor day party with disposable dinnerware',
     ]
-    
     return (
         <StoriesFromUsContainer>
             <Heading3>
                 Transition yourself towards a more sustainable lifestyle
             </Heading3>
             <BlogPostsContainer>
-                {data.slice(28, 33).map((item, key) => (
+                {blogs.map((item, key) => (
                     <Post
                         key={key}
                         img={item.mainImage.asset.url}

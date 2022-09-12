@@ -44,8 +44,7 @@ const CustomerTestimonial = () => {
                             <TestimonialText>
                                 Bought these for my daughter`&#39;`s wedding for
                                 serving popcorn, and we LOVE them! Beautiful!
-                                Wish they were just a little cheaper, but WE
-                                LOVE THEM!!! Each one is different and such a
+                                Each one is different and such a
                                 nice tone!
                             </TestimonialText>
                         </TestimonialTextHolder>
