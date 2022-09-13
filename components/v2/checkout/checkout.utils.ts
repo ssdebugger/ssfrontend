@@ -209,7 +209,7 @@ export const processPayment = async ({
 
             if (order_details.payment_details.payment_status === 'succeeded') {
                 fetch(
-                    'https://hqe9oxnhea.execute-api.us-east-2.amazonaws.com/dev/createorder',
+                    'https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/createorder',
                     {
                         method: 'POST',
                         body: JSON.stringify(order_details),
