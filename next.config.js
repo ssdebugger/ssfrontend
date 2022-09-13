@@ -90,7 +90,7 @@ module.exports = {
             'ss-compressedimages.s3.us-east-2.amazonaws.com',
         ],
     },
-    async redirects() {
+    async rewrites() {
         return redirectstring
     },
 }
