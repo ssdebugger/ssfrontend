@@ -23,6 +23,11 @@
   <priority>0.80</priority>
 </url>
 <url>
+  <loc>https://www.sellsage.com/shop</loc>
+  <lastmod>2022-09-13T07:45:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
   <loc>https://www.sellsage.com/about</loc>
   <lastmod>2022-09-13T07:45:03+00:00</lastmod>
   <priority>0.80</priority>
@@ -197,16 +202,7 @@
   <lastmod>2022-09-13T07:45:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
-<url>
-  <loc>https://www.sellsage.com/2020/12/22/the-7-different-types-of-plastic-and-why-you-should-care</loc>
-  <lastmod>2022-09-13T07:45:03+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.sellsage.com/2021/04/08/5-documentaries-to-watch-on-netflix-this-earth-day</loc>
-  <lastmod>2022-09-13T07:45:03+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
+
 <url>
   <loc>https://www.sellsage.com/brochure/GloveUp_SellSage_Catalog_2021.pdf</loc>
   <lastmod>2022-09-13T07:45:03+00:00</lastmod>
@@ -298,11 +294,6 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.sellsage.com/2020/11/06/3-misconceptions-about-going-vegan-why-it-is-the-best-way-to-reduce-your-environmental-impact-2</loc>
-  <lastmod>2022-09-13T07:45:03+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
   <loc>https://www.sellsage.com/blog/6-reasons-you-need-to-start-composting-at-home</loc>
   <lastmod>2022-09-13T07:45:03+00:00</lastmod>
   <priority>0.64</priority>
@@ -322,36 +313,16 @@
   <lastmod>2022-09-13T07:45:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
-<url>
-  <loc>https://www.sellsage.com/2021/07/13/eco-friendly-tips-to-become-a-more-conscious-traveler</loc>
-  <lastmod>2022-09-13T07:45:03+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.sellsage.com/2021/06/08/top-10-most-deadly-single-use-plastic-items-for-marine-life-found-in-the-ocean-their-eco-alternatives</loc>
-  <lastmod>2022-09-13T07:45:03+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.sellsage.com/2021/06/29/how-to-reduce-pandemic-related-plastic-waste</loc>
-  <lastmod>2022-09-13T07:45:03+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
+
+
+
 <url>
   <loc>https://www.sellsage.com/blog/12-products-to-stop-buying-and-start-swapping</loc>
   <lastmod>2022-09-13T07:45:03+00:00</lastmod>
   <priority>0.51</priority>
 </url>
-<url>
-  <loc>https://www.sellsage.com/2021/05/21/composting-tips-for-beginners</loc>
-  <lastmod>2022-09-13T07:45:03+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.sellsage.com/2021/10/12/can-your-mental-health-improve-when-adopting-a-more-sustainable-lifestyle</loc>
-  <lastmod>2022-09-13T07:45:03+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
+
+
 <url>
   <loc>https://www.sellsage.com/blog/make-the-switch-from-single-use-plastic-to-compostable-tableware-at-your-business</loc>
   <lastmod>2022-09-13T07:45:03+00:00</lastmod>

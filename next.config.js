@@ -46,23 +46,7 @@ const arr2 = [
     'palm-leaf-party-bundle-rectangle',
 ]
 
-var redirectstring = [
-    {
-        source: '/2020/:path*',
-        destination: '/blog',
-        
-    },
-    {
-        source: '/Shop',
-        destination: '/shop',
-      
-    },
-    {
-        source: '/2021/:path*',
-        destination: '/blog',
-        
-    },
-]
+var redirectstring = []
 for (let i = 0; i < arr1.length; i++) {
     //     redirectstring += "{" + "source: '/" + arr1[i] + "' ,destination:'/product/" + arr2[i] + "'}"
     //   }
