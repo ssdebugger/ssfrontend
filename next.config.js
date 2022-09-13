@@ -47,6 +47,19 @@ const arr2 = [
 ]
 
 var redirectstring = []
+
+var redirectpath = [
+    {
+        source: '/2020/:path*',
+        destination: '/blog',
+        permanent: true,
+    },
+    {
+        source: '/2021/:path*',
+        destination: '/blog',
+        permanent: true,
+    },
+]
 for (let i = 0; i < arr1.length; i++) {
     //     redirectstring += "{" + "source: '/" + arr1[i] + "' ,destination:'/product/" + arr2[i] + "'}"
     //   }
@@ -55,7 +68,6 @@ for (let i = 0; i < arr1.length; i++) {
             JSON.stringify({
                 source: '/product/' + arr1[i],
                 destination: '/product/' + arr2[i],
-            
             })
         )
     )
@@ -77,4 +89,7 @@ module.exports = {
     async rewrites() {
         return redirectstring
     },
+    async redirects() {
+        return redirectpath
+    }
 }
