@@ -11,7 +11,7 @@ const Wishlist = (props) => {
         <>
             <Head>
                 <title>Wishlist - Sellsage</title>
-                {/* <meta name='robots' content='noindex'></meta> */}
+                <meta name='robots' content='noindex'></meta>
             </Head>
             <LandingLayout>
                 <Typography

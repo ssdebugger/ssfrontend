@@ -59,7 +59,7 @@ const Userprofile = (props) => {
         <>
             <Head>
                 <title>UserProfile - Sellsage</title>
-                {/* <meta name='robots' content='noindex'></meta> */}
+                <meta name='robots' content='noindex'></meta>
             </Head>
             <LandingLayout>
                 <GridContainer>

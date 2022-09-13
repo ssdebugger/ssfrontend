@@ -70,7 +70,7 @@ const ErrorPage = () => {
         <>
             <Head>
                 <title>Page Not Found - Sellsage</title>
-                {/* <meta name='robots' content='noindex'></meta> */}
+                <meta name='robots' content='noindex'></meta>
             </Head>
 
             <LandingLayout>
