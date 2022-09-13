@@ -36,7 +36,7 @@ const arr2 = [
     'palm-leaf-rectangular-tray-9inchx6inch',
     'palm-leaf-rectangular-tray-3partition-10inch',
     'palm-leaf-rectangular-tray-5partition-12inchx10inch',
-    'leaf-container-500ml',
+    'palm-leaf-container-500ml',
     'palm-leaf-dinner-bundle-round',
     'palm-leaf-dinner-bundle-square',
     'palm-leaf-house-party-bundle-round',
