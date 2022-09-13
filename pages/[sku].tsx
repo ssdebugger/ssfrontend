@@ -7,7 +7,7 @@ export async function getServerSideProps(context){
     const sku = context.params.sku
 
     const res = await fetch(
-        `https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/getproductdetails?sku=${sku}`
+        `https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/getproductdetailssku?sku=${sku}`
     )
     const data = await res.json()
     try{       
