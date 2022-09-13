@@ -5,6 +5,7 @@ interface Props {
     children: React.ReactNode
     showPopup: boolean
     togglePopupFn: () => void
+    showX: boolean
     aspectRatio?: 'tall' | 'regular'
 }
 
@@ -35,7 +36,6 @@ const ContentWrapper = styled.div<{
     max-width: ${(props) => (props.aspectRatio === 'tall' ? '450px' : '500px')};
     margin: 1rem;
     padding: 1.5rem;
-    
 
     transform: ${(props) =>
         props.showPopup ? 'translateY(0)' : 'translateY(40px)'};
@@ -68,15 +68,18 @@ export const Popup: React.FC<Props> = ({
     showPopup,
     aspectRatio,
     togglePopupFn,
+    showX,
 }) => {
     return (
         <PopupContainer showPopup={showPopup}>
             <ContentWrapper showPopup={showPopup} aspectRatio={aspectRatio}>
-                <BtnWrapper>
-                    <button onClick={togglePopupFn}>
-                        <X />
-                    </button>
-                </BtnWrapper>
+                {showX ? (
+                    <BtnWrapper>
+                        <button onClick={togglePopupFn}>
+                            <X />
+                        </button>
+                    </BtnWrapper>
+                ) : null}
 
                 <PopupContent>{children}</PopupContent>
             </ContentWrapper>

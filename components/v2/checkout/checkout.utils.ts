@@ -101,6 +101,7 @@ export const processPayment = async ({
     router,
     clearCart,
     showAlert,
+    togglepopup
 }: IProcessPayment) => {
     try {
         let shippingDetailsData = Object.entries(shippingDetails)
@@ -220,9 +221,9 @@ export const processPayment = async ({
                     }
                 )
                     .then((res) => {
-                        showAlert('Order Placed')
+                        togglepopup()
                         clearCart()
-                        router.push('/shop')
+                       
                     })
                     .catch((res) => {
                         showAlert(

@@ -103,6 +103,7 @@ export const ExitIntentPopup = () => {
             showPopup={showPopup}
             togglePopupFn={togglePopup}
             aspectRatio="tall"
+            showX={true}
         >
             <EmailSubContainer>
                 <h4>Don&#39;t leave us yet!</h4>

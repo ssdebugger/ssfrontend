@@ -37,16 +37,23 @@ import {
 } from './checkout.utils'
 import { useRouter } from 'next/router'
 import { CheckoutHeader } from './checkout-header'
+import { OrderPlacedPopup } from './orderplacedpopup'
+import { useState } from 'react'
+
 
 const Steps = ['a', 'b']
 
 let stripePromise: Promise<Stripe>
 
 stripePromise = loadStripe('pk_live_d2HzkdbXHfM31jQJbUsPZiMe00VrTpDvSg')
-// const stripePromise = loadStripe('pk_test_51JfLM2SG5BNiWvSgo4Zjssn5MGrulgcH6ZZ7jEQ9HO9EvegC6pe0TQsFSAUcwxj0y1LcPutWO9v4SKhvfx87UOjl00H0Wblu3f')
+// stripePromise = loadStripe('pk_test_51JfLM2SG5BNiWvSgo4Zjssn5MGrulgcH6ZZ7jEQ9HO9EvegC6pe0TQsFSAUcwxj0y1LcPutWO9v4SKhvfx87UOjl00H0Wblu3f')
  
 
 const CheckoutPageWrapper = () => {
+    const [showPopup, setShowPopup] = useState(false)
+    const togglePopup = () => {
+        setShowPopup((prevState) => !prevState)
+    }
     const stripe = useStripe()
     const { cart } = useCart()
     const clearCart = useClearCart()
@@ -227,6 +234,7 @@ const CheckoutPageWrapper = () => {
                 router: router,
                 showAlert: alert.show,
                 clearCart: clearCart,
+                togglepopup: togglePopup
             }).then((res) => {
                 e.target.innerHTML = 'Pay'
                 e.target.disabled = false
@@ -652,6 +660,7 @@ const CheckoutPageWrapper = () => {
                     </div>
                 </Styles.Col3>
             </Styles.Main>
+            <OrderPlacedPopup popup={showPopup} togglePopup={togglePopup}/>
         </>
     )
 }

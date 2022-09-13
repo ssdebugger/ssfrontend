@@ -44,5 +44,6 @@ export interface IProcessPayment {
     paymentIntent: PaymentIntent
     router: NextRouter
     clearCart: () => void
+    togglepopup : any
     showAlert: (msg: string) => void
 }
