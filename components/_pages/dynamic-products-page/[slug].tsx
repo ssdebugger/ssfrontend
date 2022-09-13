@@ -258,9 +258,9 @@ export const DynamicPage = ({ products }) => {
     return (
         <>
             <Head>
-                {filter == 'none' ? (
+                {/* {filter == 'none' ? (
                     <meta name="robots" content="noindex"></meta>
-                ) : null}
+                ) : null} */}
                 <meta
                     name="title"
                     content="Shop Compostable Plates, Utensils, Bowls, Trays & Gloves"

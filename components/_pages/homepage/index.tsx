@@ -34,7 +34,6 @@ const Homepage = ({ offers, bundles, data }) => {
         NewLaunchesList.push(bundles['body'][i])
     }
 
-
     // useEffect(() => {
     //     import('react-pinterest-tag').then((ReactPinterestTag) => {
     //         ReactPinterestTag.default.init('2613059152744')
@@ -45,12 +44,11 @@ const Homepage = ({ offers, bundles, data }) => {
     //     })
     // }, [])
     useEffect(() => {
-        if(window.localStorage.getItem('coupon')!=undefined){
-            window.localStorage.removeItem('coupon');
+        if (window.localStorage.getItem('coupon') != undefined) {
+            window.localStorage.removeItem('coupon')
             console.log('deleting coupon')
         }
-        
-    },[])
+    }, [])
     return (
         <>
             <Head>
@@ -85,15 +83,15 @@ const Homepage = ({ offers, bundles, data }) => {
             <HomepageMain>
                 <Carousel />
 
-                <Offer card={'card1'} productsList={ProductsOfferList}  />
+                <Offer card={'card1'} productsList={ProductsOfferList} />
                 {/* <Infographic /> */}
                 <CustomerTestimonial />
                 <NewLaunches newLaunchProducts={NewLaunchesList} />
-                
+
                 <Bundle />
-                
+
                 <Offer card={'card2'} productsList={othersection} />
-                
+
                 <StoriesFromUs data={data} />
                 <InstagramPosts />
                 <EmailSubscription />

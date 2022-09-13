@@ -28,7 +28,7 @@ const Impact = () => {
                     content="Ethically sourced,compostable,plastic-free & sustainable is our motto! Make the world greener with our palm leaf plates & dinnerware. "
                 ></meta>
                 <title>
-                    Sustainability | Plastic-Free & Compostable for the Future
+                   Plastic-free | compostable for a sustainable Future
                 </title>
             </Head>
             <Header />

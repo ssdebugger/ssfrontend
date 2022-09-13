@@ -44,17 +44,27 @@ const arr2 = [
   'palm-leaf-party-bundle-round',
   'birch-wood-cutlery-set-dinner-bundle',
   'palm-leaf-party-bundle-rectangle'
-
 ]
 
-var str = ''
-for (let i = 0; i < arr1.length; i++) {
-  str += JSON.stringify({
-      source: `/${arr1[i]}`,
-      destination: `/product/${arr2[i]}`,
-      permanent: true,
-  })
+var redirectstring = [  {
+  source: '/2020/:path*',
+  destination: '/blog',
+  
+},
+{
+  source: '/2021/:path*',
+  destination: '/blog',
+
+}]
+for (let i = 0; i<arr1.length; i++) {
+//     redirectstring += "{" + "source: '/" + arr1[i] + "' ,destination:'/product/" + arr2[i] + "'}" 
+//   }
+    redirectstring.push(JSON.parse(JSON.stringify({
+        source: '/'+arr1[i],
+        destination: '/product/'+arr2[i],
+    })))
 }
+
 module.exports = {
   reactStrictMode: true,
 
@@ -68,20 +78,7 @@ module.exports = {
           'ss-compressedimages.s3.us-east-2.amazonaws.com',
       ],
   },
-  async redirects() {
-      return [
-          {
-              source: '/2020/:path*',
-              destination: '/blog',
-              permanent: true,
-          },
-          {
-              source: '/2021/:path*',
-              destination: '/blog',
-              permanent: true,
-          },
-        
-          
-      ]
+  async rewrites() {
+      return redirectstring
   },
 }
