@@ -60,7 +60,7 @@ for (let i = 0; i<arr1.length; i++) {
 //     redirectstring += "{" + "source: '/" + arr1[i] + "' ,destination:'/product/" + arr2[i] + "'}" 
 //   }
     redirectstring.push(JSON.parse(JSON.stringify({
-        source: '/'+arr1[i],
+        source: '/product/'+arr1[i],
         destination: '/product/'+arr2[i],
     })))
 }
