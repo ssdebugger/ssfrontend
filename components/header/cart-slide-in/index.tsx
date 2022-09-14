@@ -307,12 +307,6 @@ export const CartSlideIn: React.FC<Props> = ({ showBag, toggleFn }) => {
 
                         <ProductsContainer>
                             <MainHeading>My Bag</MainHeading>
-                            {cart.length < 3 ? (
-                                <p style={{ fontSize: '1rem' }}>
-                                    Add {3 - cart.length} more products to get a{' '}
-                                    <b>FREE</b> cutlery set
-                                </p>
-                            ) : null}
                             <BagPriceContainer>
                                 <Link href="/checkout" passHref>
                                     <Button varient="primary" fill="true">
