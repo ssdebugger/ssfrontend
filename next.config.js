@@ -52,12 +52,12 @@ var redirectpath = [
     {
         source: '/2020/:path*',
         destination: '/blog',
-        permanent: true,
+      
     },
     {
         source: '/2021/:path*',
         destination: '/blog',
-        permanent: true,
+     
     },
 ]
 for (let i = 0; i < arr1.length; i++) {
@@ -68,6 +68,7 @@ for (let i = 0; i < arr1.length; i++) {
             JSON.stringify({
                 source: '/product/' + arr1[i],
                 destination: '/product/' + arr2[i],
+                permanent: true,
             })
         )
     )
@@ -87,9 +88,9 @@ module.exports = {
         ],
     },
     async rewrites() {
-        return redirectstring
+        return redirectpath
     },
     async redirects() {
-        return redirectpath
+        return redirectstring
     }
 }
