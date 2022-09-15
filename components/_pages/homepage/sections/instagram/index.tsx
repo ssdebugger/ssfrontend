@@ -5,9 +5,9 @@ export const InstagramPosts = () => {
     return (
 
         <InstagramContainer>
-             <h1 style={{textAlign:'center',marginBottom:'0.75rem'}}>
+             <h2 style={{textAlign:'center',marginBottom:'0.75rem'}}>
                     <a style={{fontSize:'2rem'}} href="https://www.instagram.com/sellsage/">Follow Us On Instagram</a>
-                </h1>
+                </h2>
             <Script
                 src="https://assets.juicer.io/embed.js"
                 type="text/javascript"

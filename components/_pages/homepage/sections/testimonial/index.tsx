@@ -44,12 +44,14 @@ const CustomerTestimonial = () => {
                             <TestimonialText>
                                 Bought these for my daughter`&#39;`s wedding for
                                 serving popcorn, and we LOVE them! Beautiful!
-                                Each one is different and such a
-                                nice tone!
+                                Each one is different and such a nice tone!
                             </TestimonialText>
                         </TestimonialTextHolder>
                         <TestimonialQuoteHolder>
-                            <TestimonialQuote src="./quotations.png" />
+                            <TestimonialQuote
+                                src="./quotations.png"
+                                alt="quotations"
+                            />
                         </TestimonialQuoteHolder>
                     </TestimonialHolder>
                     <UserText>S.Burger</UserText>
@@ -69,6 +71,7 @@ const CustomerTestimonial = () => {
                             <TestimonialQuote
                                 color="#f2f2f2"
                                 src="./quotations.png"
+                                alt="quotations"
                             />
                         </TestimonialQuoteHolder>
                     </TestimonialHolder>
@@ -86,7 +89,10 @@ const CustomerTestimonial = () => {
                             </TestimonialText>
                         </TestimonialTextHolder>
                         <TestimonialQuoteHolder>
-                            <TestimonialQuote src="./quotations.png" />
+                            <TestimonialQuote
+                                src="./quotations.png"
+                                alt="quotations"
+                            />
                         </TestimonialQuoteHolder>
                     </TestimonialHolder>
                     <UserText>A.C.Kramer</UserText>
@@ -104,7 +110,10 @@ const CustomerTestimonial = () => {
                             </TestimonialText>
                         </TestimonialTextHolder>
                         <TestimonialQuoteHolder>
-                            <TestimonialQuote src="./quotations.png" />
+                            <TestimonialQuote
+                                src="./quotations.png"
+                                alt="quotations"
+                            />
                         </TestimonialQuoteHolder>
                     </TestimonialHolder>
                     <UserText>Laurie</UserText>
@@ -124,6 +133,7 @@ const CustomerTestimonial = () => {
                             <TestimonialQuote
                                 color="#f2f2f2"
                                 src="./quotations.png"
+                                alt="quotations"
                             />
                         </TestimonialQuoteHolder>
                     </TestimonialHolder>
@@ -141,7 +151,10 @@ const CustomerTestimonial = () => {
                             </TestimonialText>
                         </TestimonialTextHolder>
                         <TestimonialQuoteHolder>
-                            <TestimonialQuote src="./quotations.png" />
+                            <TestimonialQuote
+                                src="./quotations.png"
+                                alt="quotations"
+                            />
                         </TestimonialQuoteHolder>
                     </TestimonialHolder>
                     <UserText>kendrick J Jimenez</UserText>
@@ -156,7 +169,10 @@ const CustomerTestimonial = () => {
                             </TestimonialText>
                         </TestimonialTextHolder>
                         <TestimonialQuoteHolder>
-                            <TestimonialQuote src="./quotations.png" />
+                            <TestimonialQuote
+                                src="./quotations.png"
+                                alt="quotations"
+                            />
                         </TestimonialQuoteHolder>
                     </TestimonialHolder>
                     <UserText> Llana</UserText>
@@ -174,6 +190,7 @@ const CustomerTestimonial = () => {
                             <TestimonialQuote
                                 color="#f2f2f2"
                                 src="./quotations.png"
+                                alt="quotations"
                             />
                         </TestimonialQuoteHolder>
                     </TestimonialHolder>
@@ -188,7 +205,10 @@ const CustomerTestimonial = () => {
                             </TestimonialText>
                         </TestimonialTextHolder>
                         <TestimonialQuoteHolder>
-                            <TestimonialQuote src="./quotations.png" />
+                            <TestimonialQuote
+                                src="./quotations.png"
+                                alt="quotations"
+                            />
                         </TestimonialQuoteHolder>
                     </TestimonialHolder>
                     <UserText> Kristin Elaine Stewart</UserText>
