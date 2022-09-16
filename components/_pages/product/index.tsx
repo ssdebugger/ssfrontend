@@ -79,6 +79,12 @@ const Productpage = (props) => {
         const handleAddToCart = (e) => {
             let itemIndex = cart.findIndex((item) => item.sku === sku)
             let curuser = window.localStorage.getItem('useremail')
+            ReactTag.default ? ReactTag.default.track('addtocart', {
+                value: price,
+                order_quantity: 1,
+                currency: 'USD',
+                product_id: [sku],
+            }): null
             if (
                 itemIndex !== -1 &&
                 cart[itemIndex].quantity <= data.in_stock.N
@@ -226,16 +232,16 @@ const Productpage = (props) => {
         price: data['sale_price']['N'],
         inStockQuantity: parseInt(data['in_stock']['N']),
     }
-    // useEffect(() => {
-    //     import('react-pinterest-tag').then((ReactPinterestTag) => {
-    //         ReactTag = ReactPinterestTag
-    //         ReactPinterestTag.default.init('2613059152744')
-    //         ReactPinterestTag.default.track('pagevisit', {
-    //             promo_code: 'ProductPage',
-    //             event_id: 'ProductPageVisit',
-    //         })
-    //     })
-    // }, [])
+    useEffect(() => {
+        import('react-pinterest-tag').then((ReactPinterestTag) => {
+            ReactTag=ReactPinterestTag
+            window['pintrk']?null: ReactPinterestTag.default.init('2613059152744')
+            ReactPinterestTag.default.track('pagevisit', {
+                promo_code: 'ProductPage',
+                event_id: 'ProductPageVisit',
+            })
+        })
+    }, [])
     const indexed_products = [
         'PALM-SQRP-0600-0020',
         'BNDL-CSET-0000-0300',

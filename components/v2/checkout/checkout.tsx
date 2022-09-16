@@ -40,14 +40,12 @@ import { CheckoutHeader } from './checkout-header'
 import { OrderPlacedPopup } from './orderplacedpopup'
 import { useState } from 'react'
 
-
 const Steps = ['a', 'b']
 
 let stripePromise: Promise<Stripe>
 
 stripePromise = loadStripe('pk_live_d2HzkdbXHfM31jQJbUsPZiMe00VrTpDvSg')
 // stripePromise = loadStripe('pk_test_51JfLM2SG5BNiWvSgo4Zjssn5MGrulgcH6ZZ7jEQ9HO9EvegC6pe0TQsFSAUcwxj0y1LcPutWO9v4SKhvfx87UOjl00H0Wblu3f')
- 
 
 const CheckoutPageWrapper = () => {
     const [showPopup, setShowPopup] = useState(false)
@@ -188,7 +186,7 @@ const CheckoutPageWrapper = () => {
                 discount: orderDetails.discount,
                 postalCode: shipping.postalCode,
             })
-        console.log(errorCode)    
+        console.log(errorCode)
         if (errorCode == 400) {
             setZipwarning(true)
             console.log('in if')
@@ -196,9 +194,11 @@ const CheckoutPageWrapper = () => {
             console.log('in else')
             setOpenIndexes(['b'])
             setZipwarning(false)
-            delivery_time==undefined ?setDelivery('3-5 days'):setDelivery(delivery_time['fedex'])
+            delivery_time == undefined
+                ? setDelivery('3-5 days')
+                : setDelivery(delivery_time['fedex'])
 
-            console.log(shipping,{
+            console.log(shipping, {
                 discount: orderDetails.discount,
                 originalPrice: orderDetails.originalPrice,
                 shippingAndTaxes: shippingAndTaxes,
@@ -213,7 +213,7 @@ const CheckoutPageWrapper = () => {
                     total: total,
                 },
             })
-            console.log(intent,'intent')
+            console.log(intent, 'intent')
 
             setOrderDetails((prev) => ({ ...prev, shippingAndTaxes, total }))
             setPaymentIntent(intent)
@@ -234,16 +234,16 @@ const CheckoutPageWrapper = () => {
                 router: router,
                 showAlert: alert.show,
                 clearCart: clearCart,
-                togglepopup: togglePopup
+                togglepopup: togglePopup,
             }).then((res) => {
                 e.target.innerHTML = 'Pay'
                 e.target.disabled = false
-                console.log(res,'then',paymentIntent)
+                console.log(res, 'then', paymentIntent)
             })
         } catch (error) {
             e.target.innerHTML = 'Pay'
             e.target.disabled = false
-            console.log(error,'error')
+            console.log(error, 'error')
             alert.show(JSON.stringify('Something went wrong please try again.'))
         }
     }
@@ -339,29 +339,31 @@ const CheckoutPageWrapper = () => {
     //     event_id: 'eventId0001',
     //     product_ids: ['1414', '1415'],
     // }
-    // React.useEffect(() => {
-    //     import('react-pinterest-tag').then((ReactPinterestTag) => {
-    //         console.log('cart', cart)
-    //         let product_id = []
-    //         for (let i = 0; i++; i < cart.length) {
-    //             product_id.push(cart[i]['sku'])
-    //         }
-    //         ReactPinterestTag.default.init('2613059152744')
-    //         ReactPinterestTag.default.track('checkout', {
-    //             value: JSON.parse(localStorage.getItem('billDetails')).bagTotal,
-    //             order_id: 1234,
-    //             order_quantity: cart.length,
-    //             currency: 'USD',
-    //             event_id: 'eventId0001',
-    //             product_id: product_id,
-    //         })
-    //     })
-    // }, [])
+    React.useEffect(() => {
+        import('react-pinterest-tag').then((ReactPinterestTag) => {
+            console.log('cart', cart)
+            let product_id = []
+            for (let i = 0; i++; i < cart.length) {
+                product_id.push(cart[i]['sku'])
+            }
+            window['pintrk']
+                ? null
+                : ReactPinterestTag.default.init('2613059152744')
+            ReactPinterestTag.default.track('checkout', {
+                value: JSON.parse(localStorage.getItem('billDetails')).bagTotal,
+                order_id: 1234,
+                order_quantity: cart.length,
+                currency: 'USD',
+                event_id: 'eventId0001',
+                product_id: product_id,
+            })
+        })
+    }, [])
     return (
         <>
             <Head>
                 <title>Checkout - Sellsage</title>
-                
+
                 {/* <script
                     dangerouslySetInnerHTML={{
                         __html: `
@@ -635,8 +637,8 @@ const CheckoutPageWrapper = () => {
                         </Styles.Expanded>
                         {delivery !== 'null' ? (
                             <Styles.Expanded>
-                                <span >Expected Delivery</span>
-                                <h4 style={{color:'green'}}>{delivery}</h4>
+                                <span>Expected Delivery</span>
+                                <h4 style={{ color: 'green' }}>{delivery}</h4>
                             </Styles.Expanded>
                         ) : null}
                     </Styles.PricingDetails>
@@ -660,7 +662,7 @@ const CheckoutPageWrapper = () => {
                     </div>
                 </Styles.Col3>
             </Styles.Main>
-            <OrderPlacedPopup popup={showPopup} togglePopup={togglePopup}/>
+            <OrderPlacedPopup popup={showPopup} togglePopup={togglePopup} />
         </>
     )
 }

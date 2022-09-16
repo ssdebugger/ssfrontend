@@ -34,15 +34,17 @@ const Homepage = ({ offers, bundles, data }) => {
         NewLaunchesList.push(bundles['body'][i])
     }
 
-    // useEffect(() => {
-    //     import('react-pinterest-tag').then((ReactPinterestTag) => {
-    //         ReactPinterestTag.default.init('2613059152744')
-    //         ReactPinterestTag.default.track('pagevisit', {
-    //             promo_code: 'LandingPage',
-    //             event_id: 'LaningPageVisit',
-    //           })
-    //     })
-    // }, [])
+    useEffect(() => {
+        import('react-pinterest-tag').then((ReactPinterestTag) => {
+            window['pintrk']
+                ? null
+                : ReactPinterestTag.default.init('2613059152744')
+            ReactPinterestTag.default.track('pagevisit', {
+                promo_code: 'LandingPage',
+                event_id: 'LandingPageVisit',
+            })
+        })
+    }, [])
     useEffect(() => {
         if (window.localStorage.getItem('coupon') != undefined) {
             window.localStorage.removeItem('coupon')
