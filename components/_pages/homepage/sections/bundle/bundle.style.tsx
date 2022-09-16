@@ -59,7 +59,7 @@ export const DisposableText = styled.div`
     @media (min-width: ${(props) => props.theme.screenMd}) {
         padding: 2.5rem 0;
 
-        h4 {
+        h3 {
             font-size: 2.75rem;
             line-height: 1.208;
         }
@@ -110,8 +110,9 @@ export const DisposableBrandContent = styled.div`
 export const DisposableBundleContainer = styled.section`
     padding: 3rem 0;
     background: ${(props) => props.theme.vibrantGreen};
-
+    display:none;
     @media (min-width: ${(props) => props.theme.screenLg}) {
+        display:block;
         padding: 4rem ${(props) => props.theme.spacingTabletHorizontal};
     }
 
