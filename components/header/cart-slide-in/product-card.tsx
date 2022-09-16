@@ -289,7 +289,7 @@ export const ProductCard: React.FC<ProductProps> = ({
                     <span className="dashed-price">${price}</span>
                 )}
 
-                <span>${quantity>1?29.95:discountedPrice}</span>
+                <span>${discountedPrice}</span>
             </Paragraph>
         </CardContainer>
     )
