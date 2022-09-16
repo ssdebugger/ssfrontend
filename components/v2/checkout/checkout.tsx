@@ -339,26 +339,25 @@ const CheckoutPageWrapper = () => {
     //     event_id: 'eventId0001',
     //     product_ids: ['1414', '1415'],
     // }
-    // React.useEffect(() => {
-    //     import('react-pinterest-tag').then((ReactPinterestTag) => {
-    //         console.log('cart', cart)
-    //         let product_id = []
-    //         for (let i = 0; i++; i < cart.length) {
-    //             product_id.push(cart[i]['sku'])
-    //         }
-    //         window['pintrk']
-    //             ? null
-    //             : ReactPinterestTag.default.init('2613059152744')
-    //         ReactPinterestTag.default.track('checkout', {
-    //             value: JSON.parse(localStorage.getItem('billDetails')).bagTotal,
-    //             order_id: 1234,
-    //             order_quantity: cart.length,
-    //             currency: 'USD',
-    //             event_id: 'eventId0001',
-    //             product_id: product_id,
-    //         })
-    //     })
-    // }, [])
+    React.useEffect(() => {
+        import('react-pinterest-tag').then((ReactPinterestTag) => {
+            console.log('cart', cart)
+            let product_id = []
+            for (let i = 0; i++; i < cart.length) {
+                product_id.push(cart[i]['sku'])
+            }
+            window['pintrk']==undefined
+                ?  ReactPinterestTag.default.init('2613059152744') : null
+            ReactPinterestTag.default.track('checkout', {
+                value: JSON.parse(localStorage.getItem('billDetails')).bagTotal,
+                order_id: 1234,
+                order_quantity: cart.length,
+                currency: 'USD',
+                event_id: 'eventId0001',
+                product_id: product_id,
+            })
+        })
+    }, [])
     return (
         <>
             <Head>
