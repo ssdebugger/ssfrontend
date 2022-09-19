@@ -1,4 +1,4 @@
-import { useState} from 'react'
+import { useState } from 'react'
 
 import Head from 'next/head'
 import { Button } from '@/components/buttons'
@@ -8,7 +8,7 @@ import { LandingLayout } from '@/components/layout/landing'
 import Footer from '@/components/footer'
 import { Paragraph } from '@/components/typography/paragraph'
 import { MainHeading } from '@/components/typography/heading'
-import {useAlert} from 'react-alert'
+import { useAlert } from 'react-alert'
 import {
     Form,
     InputContainer,
@@ -28,19 +28,18 @@ const Label = styled.label`
 `
 
 const SelectOptions = styled.select`
-height: 45px;
-width:40%;
-padding-left:2rem;
-cursor:pointer;
-
+    height: 45px;
+    width: 40%;
+    padding-left: 2rem;
+    cursor: pointer;
 `
 
 const Admin = () => {
     const [orderid, setOrderid] = useState('')
     const [trackno, setTrackno] = useState('')
     const [alert, setAlert] = useState('')
-    const [status,setStatus]=useState('Processing')
-    const [shipmethod,setShipmethod]=useState('FedEx')
+    const [status, setStatus] = useState('Processing')
+    const [shipmethod, setShipmethod] = useState('FedEx')
 
     const handleChange = (e, targetfield) => {
         setAlert('')
@@ -52,52 +51,52 @@ const Admin = () => {
             setTrackno(e.target.value)
         }
         if (targetfield === 'status') {
-           
             setStatus(e.target.value)
         }
         if (targetfield === 'shipmethod') {
-           
             setShipmethod(e.target.value)
         }
     }
-    const alertstatus=useAlert()
+    const alertstatus = useAlert()
     const submitForm = (e) => {
         e.target.innerHTML = 'UPDATING...'
-        e.target.disabled = true     
+        e.target.disabled = true
         e.preventDefault()
-        let data={
-            "order_no": Number(orderid),
-            "tracking_id": Number(trackno),
-            "tracking_status": status,
-            "shipping_method":shipmethod
+        let data = {
+            order_no: Number(orderid),
+            tracking_id: Number(trackno),
+            tracking_status: status,
+            shipping_method: shipmethod,
+        }
+        fetch(
+            'https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/updatetrackingid',
+            {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                mode: 'no-cors', // no-cors, *cors, same-origin
+                headers: {
+                    'Content-Type': 'application/json',
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: JSON.stringify(data), // body data type must match "Content-Type" header
             }
-        fetch('https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/updatetrackingid', {
-            method: 'POST', // *GET, POST, PUT, DELETE, etc.
-            mode: 'no-cors', // no-cors, *cors, same-origin
-            headers: {
-              'Content-Type': 'application/json'
-              // 'Content-Type': 'application/x-www-form-urlencoded',
-            },
-           body: JSON.stringify(data) // body data type must match "Content-Type" header
-          }).then(res => 
-            
-            {   
+        )
+            .then((res) => {
                 e.target.innerHTML = 'UPDATE DETAILS'
                 e.target.disabled = false
                 alertstatus.show('Order Details Updated')
-              
-        
-        
-        })
-          .catch(err => alertstatus.show('user post error'))
-      
-      
+            })
+            .catch((err) => {
+                console.log(err)
+                e.target.innerHTML = 'UPDATE DETAILS'
+                e.target.disabled = false
+                alertstatus.show('Fill all details')
+            })
     }
     return (
         <>
             <Head>
                 <title>Admin - Sellsage</title>
-                <meta name='robots' content='noindex'></meta>
+                <meta name="robots" content="noindex"></meta>
             </Head>
 
             <LandingLayout>
@@ -140,14 +139,18 @@ const Admin = () => {
 
                         <InputContainer>
                             <Label>Shipping Method</Label>
-                            <SelectOptions onChange={(e) => handleChange(e, 'shipmethod')}>
+                            <SelectOptions
+                                onChange={(e) => handleChange(e, 'shipmethod')}
+                            >
                                 <option value="FedEx">FedEx</option>
                                 <option value="USPS">USPS</option>
                             </SelectOptions>
                         </InputContainer>
                         <InputContainer>
                             <Label>Select Status</Label>
-                            <SelectOptions onChange={(e) => handleChange(e, 'status')}>
+                            <SelectOptions
+                                onChange={(e) => handleChange(e, 'status')}
+                            >
                                 <option value="Processing">Processing</option>
                                 <option value="Shipped">Shipped</option>
                                 <option value="Delivered">Delivered</option>
@@ -155,7 +158,7 @@ const Admin = () => {
                         </InputContainer>
 
                         <Button
-                            fill='true'
+                            fill="true"
                             size="large"
                             varient="primary"
                             onClick={(e) => submitForm(e)}
