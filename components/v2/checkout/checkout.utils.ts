@@ -236,6 +236,8 @@ export const processPayment = async ({
                 showAlert(
                     `Payment ${order_details.payment_details.payment_status}`
                 )
+                let response={statusCode : 402}
+                return response
             }
         }
     } catch (error) {
