@@ -223,12 +223,14 @@ export const processPayment = async ({
                     .then((res) => {
                         togglepopup()
                         clearCart()
+                        return res
                        
                     })
                     .catch((res) => {
                         showAlert(
                             'Failed to create an order, amount deducted will be refunded.'
                         )
+                        return res
                     })
             } else {
                 showAlert(

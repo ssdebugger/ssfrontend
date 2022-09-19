@@ -236,8 +236,7 @@ const CheckoutPageWrapper = () => {
                 clearCart: clearCart,
                 togglepopup: togglePopup,
             }).then((res) => {
-                e.target.innerHTML = 'Pay'
-                e.target.disabled = false
+                e.target.innerHTML = 'Please wait..'
                 console.log(res, 'then', paymentIntent)
             })
         } catch (error) {

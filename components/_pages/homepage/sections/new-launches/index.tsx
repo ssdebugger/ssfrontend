@@ -48,7 +48,7 @@ export const NewLaunches = ({ newLaunchProducts }) => {
     ]
     return (
         <NewLaunchesContainer>
-            <SubHeading margin='0 0 0 30%'>Disposable Dinnerware</SubHeading>
+            <SubHeading textAlign='center'>Disposable Dinnerware</SubHeading>
 
             <ProductsContainer>
                 {newLaunchProducts.map((item,key) => (
