@@ -93,7 +93,7 @@ export const DynamicPage = ({ products }) => {
             if (repeatsize.current !== size) {
                 repeatsize.current = size
                 let filterrecords = allitems.filter(
-                    (x) => x['size'] !== null && x['size']['S'] == size
+                    (x) => x['size'] !== null && String(x['size']['S']).includes(size)
                 )
                 for (var i = 0; i < 6; i++) {
                     let ele = document.getElementById(sizes[i])
@@ -142,7 +142,7 @@ export const DynamicPage = ({ products }) => {
                     let filterrecords = allitems.filter(
                         (x) =>
                             x['size'] !== null &&
-                            x['size']['S'] == size &&
+                            String(x['size']['S']).includes(size) &&
                             x['category']['L'][1]['S'] === name
                     )
                     filtercount.current[1] = size
@@ -157,7 +157,7 @@ export const DynamicPage = ({ products }) => {
                     ele.style.color = '#000'
 
                     let filterrecords = allitems.filter(
-                        (x) => x['size'] !== null && x['size']['S'] == size
+                        (x) => x['size'] !== null && String(x['size']['S']).includes(size)
                     )
                     filtercount.current[0] = 'all'
                     filterstate.current = filterrecords
@@ -177,7 +177,7 @@ export const DynamicPage = ({ products }) => {
                     let filterrecords = allitems.filter(
                         (x) =>
                             x['size'] !== null &&
-                            x['size']['S'] == size &&
+                            String(x['size']['S']).includes(size) &&
                             x['category']['L'][1]['S'] === name
                     )
                     filtercount.current[0] = name
