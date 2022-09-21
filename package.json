@@ -23,6 +23,7 @@
         "gsap": "^3.8.0",
         "next": "^12.2.6-canary.8",
         "node": "^16.10.0",
+        "npm": "^8.19.2",
         "react": "^17.0.2",
         "react-alert": "^7.0.3",
         "react-alert-template-oldschool-dark": "^1.0.1",

@@ -530,11 +530,11 @@ export const DynamicPage = ({ products }) => {
                                         key={item}
                                         inStock={e['in_stock']['N'] != 0}
                                     >
-                                        {Number(e['product_id']['N']) === 44 ? (
+                                        {/* {Number(e['product_id']['N']) === 44 ? (
                                             <NewLaunch top="15px" left="15px">
                                                 World Clean Up Day Discount
                                             </NewLaunch>
-                                        ) : null}
+                                        ) : null} */}
 
                                         <TileHero>
                                             <Image
