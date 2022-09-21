@@ -159,11 +159,25 @@ export const Carousel = () => {
                     </div>
                 </DisposableRight>
                 <div className="disposable-dinnerware-container">
-                    {/* <div className="carouselItem">
+                    <div className="carouselItem">
                         <HyperLink href="/product/plant-based-compostable-gloves">
                             <DisposableMobileImg
                                 sizes="(max-width: 706px) 100vw, 706px"
-                                src="/carouselimages/Disposable_dinnerware/disposable_freecutlery_mobile.jpg"
+                                src="/carouselimages/Disposable_dinnerware/fallbanner_mobile.webp"
+                                alt="Disposable dinnerware"
+                            />
+                            <DisposableDesktopImg
+                                sizes="(max-width: 1400px) 100vw, 1400px"
+                                src="/carouselimages/Disposable_dinnerware/fallbanner.webp"
+                                alt="Disposable dinnerware"
+                            />
+                        </HyperLink>
+                    </div>
+                    <div className="carouselItem">
+                        <HyperLink href="/product/plant-based-compostable-gloves">
+                            <DisposableMobileImg
+                                sizes="(max-width: 706px) 100vw, 706px"
+                                src="/carouselimages/Disposable_dinnerware/disposable_freecutlery_mobile.webp"
                                 alt="Disposable dinnerware"
                             />
                             <DisposableDesktopImg
@@ -172,7 +186,7 @@ export const Carousel = () => {
                                 alt="Disposable dinnerware"
                             />
                         </HyperLink>
-                    </div> */}
+                    </div>
                     {/* <div className="carouselItem">
                         <HyperLink href="/shop">
                             <DisposableMobileImg
