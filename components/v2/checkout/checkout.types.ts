@@ -24,6 +24,7 @@ export interface IOrderDetails {
     shippingAndTaxes: number
     discount: number
     total: number
+    coupon : string
 }
 
 export interface IShippingAndTaxes {

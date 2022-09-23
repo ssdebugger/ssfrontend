@@ -65,6 +65,7 @@ const CheckoutPageWrapper = () => {
         shippingAndTaxes: 0,
         discount: 0,
         total: 0,
+        coupon: 'none',
     })
 
     const [openIndexes, setOpenIndexes] = React.useState(['a'])
@@ -211,6 +212,7 @@ const CheckoutPageWrapper = () => {
                     originalPrice: orderDetails.originalPrice,
                     shippingAndTaxes: shippingAndTaxes,
                     total: total,
+                    coupon: orderDetails.coupon,
                 },
             })
             console.log(intent, 'intent')
@@ -283,6 +285,11 @@ const CheckoutPageWrapper = () => {
                 let total = limitDecimal(
                     originalPrice + orderDetails.shippingAndTaxes - discount
                 )
+                var coupon = 'none'
+                if (discount != 0) {
+                    coupon = JSON.parse(window.localStorage.getItem('coupon'))
+                    coupon = coupon['id']
+                }
 
                 if (shipping.postalCode !== '') {
                     fetch(
@@ -307,6 +314,7 @@ const CheckoutPageWrapper = () => {
                                 originalPrice,
                                 discount,
                                 total,
+                                coupon,
                             }))
                         })
                 } else {
@@ -315,6 +323,7 @@ const CheckoutPageWrapper = () => {
                         originalPrice,
                         discount,
                         total,
+                        coupon,
                     }))
                 }
             }
@@ -346,8 +355,9 @@ const CheckoutPageWrapper = () => {
             for (let i = 0; i++; i < cart.length) {
                 product_id.push(cart[i]['sku'])
             }
-            window['pintrk']==undefined
-                ?  ReactPinterestTag.default.init('2613059152744') : null
+            window['pintrk'] == undefined
+                ? ReactPinterestTag.default.init('2613059152744')
+                : null
             ReactPinterestTag.default.track('checkout', {
                 value: JSON.parse(localStorage.getItem('billDetails')).bagTotal,
                 order_id: 1234,
@@ -634,6 +644,14 @@ const CheckoutPageWrapper = () => {
                             <span>Discount</span>
                             <h4>${orderDetails.discount}</h4>
                         </Styles.Expanded>
+                        {orderDetails.coupon != 'none'?(   <Styles.Expanded>
+                                <span>Coupon</span>
+                                <h4>{orderDetails.coupon}</h4>
+                            </Styles.Expanded>): null}
+                        
+                         
+                        
+
                         {delivery !== 'null' ? (
                             <Styles.Expanded>
                                 <span>Expected Delivery</span>
