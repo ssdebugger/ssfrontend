@@ -126,7 +126,7 @@ const Signup = () => {
                                     Create your Sellsage Account
                                 </MainHeading>
 
-                                <SignUpTypes>
+                                {/* <SignUpTypes>
                                     <Type
                                         isSelected={accountType === 'personal'}
                                         onClick={() =>
@@ -143,7 +143,7 @@ const Signup = () => {
                                     >
                                         For Business
                                     </Type>
-                                </SignUpTypes>
+                                </SignUpTypes> */}
 
                                 <SignUpForm>
                                     <PersonalSignUp
@@ -186,7 +186,7 @@ const Signup = () => {
                                         </InputContainer>
                                     </PersonalSignUp>
 
-                                    <BusinessSignUp
+                                    {/* <BusinessSignUp
                                         isActive={accountType === 'business'}
                                     >
                                         <InputContainer>
@@ -299,7 +299,7 @@ const Signup = () => {
                                                 placeholder="Address of your company"
                                             />
                                         </InputContainer>
-                                    </BusinessSignUp>
+                                    </BusinessSignUp> */}
 
                                     <Button
                                         onClick={(e) => submitForm(e)}
@@ -330,6 +330,15 @@ const Signup = () => {
                                             </SideContentPoint>
                                             <SideContentPoint>
                                                 Promote Fair Trade
+                                            </SideContentPoint>
+                                            <SideContentPoint>
+                                                Get Bulk Discounts
+                                            </SideContentPoint>
+                                            <SideContentPoint>
+                                                Trusted Certified Brands
+                                            </SideContentPoint>
+                                            <SideContentPoint>
+                                                Custom Quotations
                                             </SideContentPoint>
                                         </>
                                     ) : (
