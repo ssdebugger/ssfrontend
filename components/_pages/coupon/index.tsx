@@ -58,17 +58,17 @@ const Coupon = () => {
     }
     const alertdiscountpercent = useAlert()
     const submitForm = (e) => {
-        e.target.innerHTML = 'UPDATING...'
+        e.target.innerHTML = 'CREATING...'
         e.target.disabled = true
         e.preventDefault()
         let data = {
-            order_no: Number(promocode),
-            tracking_id: Number(ordermin),
-            tracking_discountpercent: discountpercent,
-            shipping_method: couponlimit,
+            coupon: String(promocode),
+            orderminimum: String(ordermin),
+            discount: String(discountpercent),
+            limit: String(couponlimit),
         }
         fetch(
-            'https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/updatetrackingid',
+            'https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/createcoupon',
             {
                 method: 'POST', // *GET, POST, PUT, DELETE, etc.
                 mode: 'no-cors', // no-cors, *cors, same-origin
@@ -80,13 +80,13 @@ const Coupon = () => {
             }
         )
             .then((res) => {
-                e.target.innerHTML = 'UPDATE DETAILS'
+                e.target.innerHTML = 'CREATE  COUPON'
                 e.target.disabled = false
-                alertdiscountpercent.show('Order Details Updated')
+                alertdiscountpercent.show('Coupon created')
             })
             .catch((err) => {
                 console.log(err)
-                e.target.innerHTML = 'UPDATE DETAILS'
+                e.target.innerHTML = 'CREATE  COUPON'
                 e.target.disabled = false
                 alertdiscountpercent.show('Fill all details')
             })
@@ -166,7 +166,7 @@ const Coupon = () => {
                             varient="primary"
                             onClick={(e) => submitForm(e)}
                         >
-                            Create Coupon
+                            CREATE COUPON
                         </Button>
                     </Form>
                 </Content>
