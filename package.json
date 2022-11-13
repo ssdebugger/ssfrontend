@@ -20,6 +20,7 @@
         "@types/react-syntax-highlighter": "^15.5.5",
         "@types/styled-components": "^5.1.13",
         "axios": "^0.24.0",
+        "gh-pages": "^4.0.0",
         "gsap": "^3.8.0",
         "next": "^12.2.6-canary.8",
         "node": "^16.10.0",
