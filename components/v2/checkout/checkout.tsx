@@ -44,8 +44,7 @@ const Steps = ['a', 'b']
 
 let stripePromise: Promise<Stripe>
 
-stripePromise = loadStripe('pk_live_d2HzkdbXHfM31jQJbUsPZiMe00VrTpDvSg')
-// stripePromise = loadStripe('pk_test_51JfLM2SG5BNiWvSgo4Zjssn5MGrulgcH6ZZ7jEQ9HO9EvegC6pe0TQsFSAUcwxj0y1LcPutWO9v4SKhvfx87UOjl00H0Wblu3f')
+stripePromise = loadStripe('pk_test_51JfLM2SG5BNiWvSgo4Zjssn5MGrulgcH6ZZ7jEQ9HO9EvegC6pe0TQsFSAUcwxj0y1LcPutWO9v4SKhvfx87UOjl00H0Wblu3f')
 
 const CheckoutPageWrapper = () => {
     const [showPopup, setShowPopup] = useState(false)

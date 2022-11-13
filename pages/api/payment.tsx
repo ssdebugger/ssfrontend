@@ -16,12 +16,10 @@ export default async function handlePayment(
             let totalPrice = bill.total
             let billingPrice = bill.total
 
+        
             const stripe = require('stripe')(
-                'sk_live_8FvXoKEV1y0HiYXKd09heslO00IZdmNx1m'
+                'sk_test_51JfLM2SG5BNiWvSgjLdXVI9HCV8ypHpghCaTqspW9b5niFYIgHpmmYicprwoQmD6UlVR81dRMfhXh5i03IrTojLx00JjzPH0RL'
             )
-            // const stripe = require('stripe')(
-            //     'sk_test_51JfLM2SG5BNiWvSgjLdXVI9HCV8ypHpghCaTqspW9b5niFYIgHpmmYicprwoQmD6UlVR81dRMfhXh5i03IrTojLx00JjzPH0RL'
-            // )
             console.log(billingPrice*100,'billingprice')
             const paymentIntent: PaymentIntent =
                 await stripe.paymentIntents.create({
