@@ -87,9 +87,7 @@ const StockOutSize = styled.div`
  * Main logic
  */
 export const SizeSelector = (props) => {
-    const variations = props.variations
     const router = useRouter()
-
     const path = router.query.sku
     const productRoute = (sku) => {
         router.push(`/product/${sku}`)
@@ -108,54 +106,20 @@ export const SizeSelector = (props) => {
         <SizeSelectorContainer>
             <Heading3 margin="0 0 1rem">Size</Heading3>
             <SizesContainer>
-                {variations.map((x, i) =>
-                    x['sort_key'] !== 9999 ? (
-                        path !== x['url_name'] ? (
-                            <Size key={i}>
-                                <Checkbox
-                                    name="sizeSku"
-                                    type="radio"
-                                    onChange={() => productRoute(x['url_name'])}
-                                />
-                                <SizeLabel>
-                                    <SizeDesc>
-                                        {x['size'].replace(/'/g, '"')}
-                                    </SizeDesc>
-                                    <SizePrice>$ {x['sale_price']}</SizePrice>
-                                </SizeLabel>
-                            </Size>
-                        ) : (
-                            <Size key={i}>
-                                <Checkbox
-                                    id="default"
-                                    name="sizeSku"
-                                    type="radio"
-                                    onChange={() => productRoute(x['url_name'])}
-                                />
 
+                            <Size>
+                                <Checkbox
+                                    name="sizeSku"
+                                    type="radio"
+                                    onChange={() => productRoute('palm-leaf-oval-bowl-5inchx10inch')}
+                                />
                                 <SizeLabel>
                                     <SizeDesc>
-                                        {x['size'].replace(/'/g, '"')}
+                                        5 inch
                                     </SizeDesc>
-                                    <SizePrice>$ {x['sale_price']}</SizePrice>
+                                    <SizePrice>$ 60 </SizePrice>
                                 </SizeLabel>
                             </Size>
-                        )
-                    ) : (
-                        <StockOutSize key={i}>
-                            <Checkbox
-                                id="default"
-                                name="sizeSku"
-                                type="radio"
-                                onChange={() => productRoute(x['url_name'])}
-                            />
-                            <SizeLabel>
-                                <SizeDesc>{x['size']}</SizeDesc>
-                                <SizePrice>Out of stock</SizePrice>
-                            </SizeLabel>
-                        </StockOutSize>
-                    )
-                )}
             </SizesContainer>
         </SizeSelectorContainer>
     )

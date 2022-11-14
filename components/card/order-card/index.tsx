@@ -158,23 +158,23 @@ export const OrderCard: React.FC<Props> = ({
                     <Span margin="0 0 0 0.75rem">{detailedMessage}</Span>
                 </OrderStatusText>
                 <OrderItemsContainer>
-                    {orderitems.map((item) => (
-                        <OrderItem key={item.title}>
-                            <Image src={item.image_url} alt='image' height={50} width={50}/>
+               
+                        <OrderItem >
+                            <Image src={'/Main_WB.webp'} alt='image' height={50} width={50}/>
 
                             <OrderItemDetails>
-                                <Heading4>{item.title}</Heading4>
+                                <Heading4>Palm Leaf Bowl</Heading4>
 
-                                <Span>Quantity: {item.quantity}</Span>
+                                <Span>Quantity: 1</Span>
 
-                                <a href={item.sku}>
+                                <a href='/PALM-OVLB-0510-0020'>
                                     <Button varient="primary">
                                         Buy it again
                                     </Button>
                                 </a>
                             </OrderItemDetails>
                         </OrderItem>
-                    ))}
+            
                 </OrderItemsContainer>
             </OrderCardMain>
 

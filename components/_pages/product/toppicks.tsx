@@ -28,19 +28,48 @@ const TopPicks = (props) => {
             <Heading3 margin="0 0 2rem">Products You Might Like</Heading3>
 
             <RecommendedProducts>
-                {offers.slice(0, 4).map((item,key) => (
+              
                     <ProductCard
-                        key={key}
-                        name={item['product_name']['S']}
-                        image={`https://ss-compressedimages.s3.us-east-2.amazonaws.com/SellSage/ShopItems/${item.product_id.N}/${item.sku_code.S}/Main_WB.webp`}
-                        price={item['sale_price']['N']}
-                        desc={item['short_description']['S']}
-                        sku={item['sku_code']['S']}
+                        name={'Palm leaf oval bowl'}
+                        image={`/Main_WB.webp`}
+                        price={100}
+                        desc={'Palm leaf product'}
+                        sku={'PALM-OVLB-0510-0020'}
                         originalprice="0"
-                        productId={item['product_id']['N']}
-                        url={item.url_name.S}
+                        productId={44}
+                        url={'palm-leaf-oval-bowl-5inchx10inch'}
                     />
-                ))}
+                     <ProductCard
+                        name={'Palm leaf oval bowl'}
+                        image={`/Main_WB.webp`}
+                        price={100}
+                        desc={'Palm leaf product'}
+                        sku={'PALM-OVLB-0510-0020'}
+                        originalprice="0"
+                        productId={44}
+                        url={'palm-leaf-oval-bowl-5inchx10inch'}
+                    />
+                     <ProductCard
+                        name={'Palm leaf oval bowl'}
+                        image={`/Main_WB.webp`}
+                        price={100}
+                        desc={'Palm leaf product'}
+                        sku={'PALM-OVLB-0510-0020'}
+                        originalprice="0"
+                        productId={44}
+                        url={'palm-leaf-oval-bowl-5inchx10inch'}
+                    />
+                     <ProductCard
+                        name={'Palm leaf oval bowl'}
+                        image={`/Main_WB.webp`}
+                        price={100}
+                        desc={'Palm leaf product'}
+                        sku={'PALM-OVLB-0510-0020'}
+                        originalprice="0"
+                        productId={44}
+                        url={'palm-leaf-oval-bowl-5inchx10inch'}
+                    />
+
             </RecommendedProducts>
         </Container>
     )

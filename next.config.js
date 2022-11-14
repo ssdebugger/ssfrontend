@@ -76,7 +76,6 @@ for (let i = 0; i < arr1.length; i++) {
 
 module.exports = {
     reactStrictMode: true,
-
     compiler: {
         styledComponents: true,
     },
@@ -86,11 +85,12 @@ module.exports = {
             'ss-compressedimages.s3.amazonaws.com',
             'ss-compressedimages.s3.us-east-2.amazonaws.com',
         ],
+        unoptimized : true ,
     },
-    async rewrites() {
-        return redirectpath
-    },
-    async redirects() {
-        return redirectstring
-    }
+    // async rewrites() {
+    //     return redirectpath
+    // },
+    // async redirects() {
+    //     return redirectstring
+    // }
 }

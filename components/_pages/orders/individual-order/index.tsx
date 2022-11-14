@@ -27,14 +27,13 @@ import { useRouter } from 'next/router'
 const IndividualOrder = (props) => {
     const alert = useAlert()
     const router = useRouter()
-    const orderdetails = props.response.body[0]
+    // const orderdetails = props.response.body[0]
 
-    let useremail = localStorage.getItem('useremail')
+    let useremail = 'gokulravi1702@gmail.com'
 
     const cancelOrder = () => {
         fetch(
-            'https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/cancelorder?order=' +
-                orderdetails['order_no'],
+            'https://wpsqswbxjj.execute-api.us-east-2.amazonaws.com/dev/cancelorder?order=1001',
             {
                 method: 'GET', // *GET, POST, PUT, DELETE, etc.
                 mode: 'no-cors', // no-cors, *cors, same-origin
@@ -48,14 +47,14 @@ const IndividualOrder = (props) => {
             router.push(`/orders?email=${useremail}`)
         })
     }
-    const gotoProduct = (sku) => {
-        router.push('/' + sku)
+    const gotoProduct = () => {
+        router.push('/' + 'PALM-OVLB-0510-0020')
     }
 
     return (
         <>
             <Head>
-                <title>Order Id: #{orderdetails['order_no']} - Sellsage</title>
+                <title>Order Id: #1001 - Sellsage</title>
             </Head>
 
             <LandingLayout>
@@ -68,23 +67,23 @@ const IndividualOrder = (props) => {
                             <Detail>
                                 <DetailHeading>Orderd on:</DetailHeading>
                                 <DetailsContent>
-                                    {orderdetails['time_stamp'].slice(0, 10)}
+                                    {14-11-2022}
                                 </DetailsContent>
                             </Detail>
 
                             <Detail>
                                 <DetailHeading>Orderd Id:</DetailHeading>
                                 <DetailsContent>
-                                    #{orderdetails['order_no']}
+                                    #1001
                                 </DetailsContent>
                             </Detail>
 
                             <Detail>
                                 <DetailHeading>Invoice:</DetailHeading>
                                 <DetailsContent>
-                                    <a href={props.invoice['invoice']}>
+                                
                                         Download invoice
-                                    </a>
+                                    
                                 </DetailsContent>
                             </Detail>
                         </DetailsContainer>
@@ -96,7 +95,7 @@ const IndividualOrder = (props) => {
                             </Heading3>
                             <Detail>
                                 <Paragraph maxWidth="160px">
-                                    {orderdetails['shipping']}
+                                    
                                 </Paragraph>
                             </Detail>
                         </DetailsContainer>
@@ -108,9 +107,7 @@ const IndividualOrder = (props) => {
                                 <DetailsContent>
                                     $
                                     {
-                                        orderdetails['bill_details'][
-                                            'items_subtotal'
-                                        ]
+                                       100
                                     }
                                 </DetailsContent>
                             </Detail>
@@ -118,22 +115,14 @@ const IndividualOrder = (props) => {
                                 <DetailHeading>Shipping::</DetailHeading>
                                 <DetailsContent>
                                     $
-                                    {
-                                        orderdetails['bill_details'][
-                                            'shipping_cost'
-                                        ]
-                                    }
+                                   5
                                 </DetailsContent>
                             </Detail>
                             <Detail>
                                 <DetailHeading>Total:</DetailHeading>
                                 <DetailsContent>
                                     $
-                                    {
-                                        orderdetails['bill_details'][
-                                            'order_total'
-                                        ]
-                                    }
+                                   105
                                 </DetailsContent>
                             </Detail>
 
@@ -141,11 +130,7 @@ const IndividualOrder = (props) => {
                                 <DetailHeading>Grand total:</DetailHeading>
                                 <DetailsContent>
                                     $
-                                    {
-                                        orderdetails['bill_details'][
-                                            'order_total'
-                                        ]
-                                    }
+                                  105
                                 </DetailsContent>
                             </Detail>
                         </DetailsContainer>
@@ -172,26 +157,26 @@ const IndividualOrder = (props) => {
                             </Heading3>
 
                             <ProductsList>
-                                {orderdetails['items'].map((item) => (
-                                    <Product key={item['title']}>
-                                        <ProductImage src={item['image_url']} />
+                             
+                                    <Product>
+                                        <ProductImage src='/Main_WB.webp' />
 
                                         <ProductItemDetails>
-                                            <Heading4>{item['title']}</Heading4>
+                                            <Heading4>Palm leaf oval bowl</Heading4>
                                             <ProductValue>
-                                                Quantity: {item['quantity']}
+                                                Quantity: {1}
                                             </ProductValue>
 
                                             <ProductButton
                                                 onClick={() =>
-                                                    gotoProduct(item.sku)
+                                                    gotoProduct()
                                                 }
                                             >
                                                 Buy again
                                             </ProductButton>
                                         </ProductItemDetails>
                                     </Product>
-                                ))}
+                            
                             </ProductsList>
                         </OrderedProducts>
 

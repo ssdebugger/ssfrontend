@@ -1,7 +1,6 @@
 import Head from 'next/head'
 
-import {
- 
+import { 
     OrderOptions,
     OrderOption,
     OrderOptionsContainer,
@@ -17,7 +16,7 @@ import { OrderCard } from '@/components/card/order-card'
 import { LandingLayout } from 'components/layout/landing'
 
 const Orders = (props) => {
-    let orders = props.response.body
+  
 
     return (
         <>
@@ -41,23 +40,23 @@ const Orders = (props) => {
                     </OrderOptionsContainer>
 
                     <div>
-                        {orders.map((item) => (
+                      
                             <OrderCard
-                                key={item['order_no']}
-                                orderStatus={item['tracking_status']}
+                                key={1001}
+                                orderStatus={'Dispatched'}
                                 detailedMessage={
-                                    item.cancelled == 'true'
-                                        ? 'Order Cancelled'
-                                        : 'Order ' + item['tracking_status']
+                                  
+                                'Order dispatched' 
                                 }
-                                orderid={Number(item['order_no'])}
-                                orderdate={item['time_stamp'].slice(0, 10)}
+                                orderid={1001}
+                                orderdate={'14-11-2022'}
                                 orderamount={
-                                    item['bill_details']['order_total']
+                                   '100'
                                 }
-                                orderitems={item['items']}
+                                orderitems={[]}
+                               
                             />
-                        ))}
+                        
                     </div>
                 </Main>
             </LandingLayout>

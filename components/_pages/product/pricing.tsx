@@ -24,22 +24,13 @@ const DiscountPercent = styled.div`
 export const Pricing = (props) => {
     return (
         <>
-            <MainPricing>{`$ ${props.saleprice}`}</MainPricing>
-            {Number(props.regularprice) - Number(props.saleprice) ==
-            0 ? null : (
+            <MainPricing>{`$ 100`}</MainPricing>
                 <DiscountContainer>
-                    <OriginalPrice>{props.regularprice}</OriginalPrice>
+                    <OriginalPrice>$ 80</OriginalPrice>
                     <DiscountPercent>
-                        Save $
-                        {(props.regularprice - props.saleprice).toFixed(2)} (
-                        {(
-                            ((props.regularprice - props.saleprice) * 100) /
-                            props.regularprice
-                        ).toFixed(2)}
-                        %)
+                        Save $ 20
                     </DiscountPercent>
                 </DiscountContainer>
-            )}
         </>
     )
 }

@@ -20,9 +20,9 @@ const Userprofile = (props) => {
     const router = useRouter()
     const logout = useAuthLogout()
 
-    const useremail = props.response.body[0]['email_id']
-    const isbusiness = props.response.body[0]['business']
-    const username = props.response.body[0]['firstname']
+    const useremail = 'gokulravi1702@gmail.com'
+    const isbusiness = false
+    const username = 'UserName'
     const routelogout = () => {
         logout()
         window.localStorage.removeItem('user')

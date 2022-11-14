@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-
 import Carousel from '@/components/_pages/product/carousel'
 import { LandingLayout } from '@/components/layout/landing'
 import { Pricing } from './pricing'
@@ -40,8 +39,6 @@ import styled from 'styled-components'
 import OfferBanner from './offerbanner'
 
 const Productpage = (props) => {
-    let data = props.data['body']['response']
-    let recproducts = props.data['body']['recproducts']
     const alert = useAlert()
     var ReactTag
     const AddToCartCta = ({
@@ -51,7 +48,7 @@ const Productpage = (props) => {
         productid,
         price,
         inStockQuantity,
-    }: {
+    } : {
         sku: CartItem['sku']
         title: CartItem['title']
         img: CartItem['img']
@@ -62,7 +59,6 @@ const Productpage = (props) => {
         const { cart } = useCart()
         const add = useAddItem()
         const deleteItem = useRemoveItem()
-
         const [productQuantity, setProductQuantity] = useState(1)
 
         /**
@@ -87,11 +83,11 @@ const Productpage = (props) => {
             })
             if (
                 itemIndex !== -1 &&
-                cart[itemIndex].quantity <= data.in_stock.N
+                cart[itemIndex].quantity <= 100
             ) {
                 alert.removeAll()
                 alert.show(
-                    `Product already in cart, Maximum quantity available: ${data.in_stock.N}`
+                    `Product already in cart, Maximum quantity available: 100`
                 )
                 return
             }
@@ -105,7 +101,7 @@ const Productpage = (props) => {
                 let fetchdata = {
                     activity_type: 'ATC',
                     email_id: window.localStorage.getItem('useremail'),
-                    pid: data['product_id']['N'],
+                    pid: 44,
                     quant: productQuantity,
                 }
 
@@ -158,9 +154,9 @@ const Productpage = (props) => {
         }) => {
             if (parseInt(e.target.value) <= 0) {
                 setProductQuantity(1)
-            } else if (parseInt(e.target.value) > parseInt(data.in_stock.N)) {
+            } else if (parseInt(e.target.value) > 100) {
                 alert.removeAll()
-                alert.show(`Maximum quantity available: ${data.in_stock.N}`)
+                alert.show(`Maximum quantity available: 100`)
             } else {
                 setProductQuantity(parseInt(e.target.value))
             }
@@ -173,7 +169,7 @@ const Productpage = (props) => {
                     <QuantityInput
                         type="number"
                         placeholder="1"
-                        value={productQuantity}
+                        value={1}
                         onChange={(e) => handleProductQuantityChange(e)}
                     />
                 </Quantity>
@@ -223,15 +219,6 @@ const Productpage = (props) => {
         }, 1500)
     }
 
-    let ItemData: CartItem = {
-        sku: data['sku_code']['S'],
-        quantity: 1,
-        title: data['product_name']['S'],
-        img: data['image0'],
-        productid: data['product_id']['N'],
-        price: data['sale_price']['N'],
-        inStockQuantity: parseInt(data['in_stock']['N']),
-    }
     useEffect(() => {
         import('react-pinterest-tag').then((ReactPinterestTag) => {
             ReactTag=ReactPinterestTag
@@ -254,40 +241,29 @@ const Productpage = (props) => {
         'PALM-OVLB-0510-0020',
         'PALM-RNDP-10F0-0020',
     ]
-    console.log(data,'product data')
+    
     return (
         <>
             <Head>
-                {indexed_products.includes(data['sku_code']['S']) ? (
-                    <meta name="robots" content="noindex"></meta>
-                ) : null}
                 <meta
                     name="title"
-                    content={data['short_description']['S']}
+                    content='palm leaf oval bowl'
                 ></meta>
                 <meta
                     name="description"
-                    content={data['description']['S']}
+                    content='palm leaf oval bowl'
                 ></meta>
-                <title>{data['short_description']['S']}</title>
+                <title>palm leaf oval bowl</title>
             </Head>
 
             <LandingLayout>
                 <Container>
                     <ProductPageTop>
                         <ProductPageTopHeading>
-                            <BreadCrumb items={['Shop', data.brand.S]} />
+                            <BreadCrumb items={['Shop', 'Plantry']} />
 
                             <MainHeading>
-                                {indexed_products.includes(String(ItemData.sku))
-                                    ? String(
-                                          data['short_description']['S']
-                                      ).slice(
-                                          0,
-                                          data['short_description']['S']
-                                              .length - 8
-                                      )
-                                    : data['short_description']['S']}
+                            Palm Leaf Bowl Oval Shaped 5inchx10inch Packof20
                             </MainHeading>
                         </ProductPageTopHeading>
 
@@ -296,13 +272,7 @@ const Productpage = (props) => {
                                 <GridItem sm={100} md={50} lg={50}>
                                     <Carousel
                                         component="product"
-                                        images={[
-                                            `https://ss-compressedimages.s3.us-east-2.amazonaws.com/SellSage/ShopItems/${ItemData.productid}/${ItemData.sku}/Main_WB.webp`,
-                                            `https://ss-compressedimages.s3.us-east-2.amazonaws.com/SellSage/ShopItems/${ItemData.productid}/${ItemData.sku}/PT01_LIF.webp`,
-                                            `https://ss-compressedimages.s3.us-east-2.amazonaws.com/SellSage/ShopItems/${ItemData.productid}/${ItemData.sku}/PT02_LIF.webp`,
-                                            `https://ss-compressedimages.s3.us-east-2.amazonaws.com/SellSage/ShopItems/${ItemData.productid}/${ItemData.sku}/PT03_LIF.webp`,
-                                        ]}
-                                        alt={data['about']['L'][0]['S']}
+                                      
                                     />
                                 </GridItem>
                             </GridContainer>
@@ -311,54 +281,30 @@ const Productpage = (props) => {
 
                     <MainContentContainer>
                         <HeadingContainer>
-                            <BreadCrumb items={['Shop', data.brand.S]} />
+                            <BreadCrumb items={['Shop', 'Plantry']} />
 
                             <MainHeading>
-                                {indexed_products.includes(String(ItemData.sku))
-                                    ? String(
-                                          data['short_description']['S']
-                                      ).slice(
-                                          0,
-                                          data['short_description']['S']
-                                              .length - 8
-                                      )
-                                    : data['short_description']['S']}
+                            Palm Leaf Bowl Oval Shaped 5inchx10inch Packof20
                             </MainHeading>
                         </HeadingContainer>
 
                         <PricingContainer>
                             <Pricing
-                                regularprice={data['regular_price']['N']}
-                                saleprice={data['sale_price']['N']}
-                            />
+                             />
                         </PricingContainer>
 
-                        {data['variations'].length > 0 && (
-                            <SizeSelector variations={data['variations']} />
-                        )}
+                            <SizeSelector  />
+                        
 
                         <AboutItemContainer>
                             <AboutItem
-                                sku={data['sku_code']['S']}
-                                data={data['about']['L']}
+                             
                             />
                         </AboutItemContainer>
 
                         <CollapseBtnContainer>
                             <CollapseButton heading="About brand">
-                                {data['product_id']['N'] == 44 ? (
-                                    <Paragraph>
-                                        Glove-up is SellSage&#39;s line of
-                                        commercially compostable individually
-                                        packaged gloves made of plant-based
-                                        biopolymer. Certified by BPI, this
-                                        product turns to biomass, water and CO2,
-                                        as a part of the degradation process,
-                                        once discarded in a composting facility.
-                                        Maintain hygiene and protect yourself
-                                        with our gloves on the go.
-                                    </Paragraph>
-                                ) : (
+                              
                                     <Paragraph>
                                         We at SellSage are proud to bring you
                                         our eco-friendly disposable tableware
@@ -376,8 +322,7 @@ const Productpage = (props) => {
                                         experience so you do not have to worry
                                         about cleanup.
                                     </Paragraph>
-                                )}
-
+                                
                                 <a
                                     style={{
                                         display: 'block',
@@ -387,9 +332,8 @@ const Productpage = (props) => {
                                         textDecoration: 'underline',
                                     }}
                                     href={
-                                        data.brand.S === 'Gloveup'
-                                            ? '/brochure/GloveUp_SellSage_Catalog_2021.pdf'
-                                            : '/brochure/catalog.pdf'
+                                             '/brochure/GloveUp_SellSage_Catalog_2021.pdf'
+                                        
                                     }
                                     download
                                 >
@@ -397,27 +341,15 @@ const Productpage = (props) => {
                                 </a>
                             </CollapseButton>
                         </CollapseBtnContainer>
-
-                        {ItemData.inStockQuantity === 0 ? (
-                            <SaveToWishlist>
-                                <Button
-                                    disabled
-                                    varient="primary"
-                                    size="large"
-                                    fill="true"
-                                >
-                                    Out Of Stock
-                                </Button>
-                            </SaveToWishlist>
-                        ) : (
+ 
                             <>
                                 <AddToCartCta
-                                    sku={ItemData.sku}
-                                    title={ItemData.title}
-                                    img={ItemData.img}
-                                    productid={ItemData.productid}
-                                    price={ItemData.price}
-                                    inStockQuantity={ItemData.inStockQuantity}
+                                    sku={'PALM-OVLB-0510-0020'}
+                                    title={'oVAL BOWL'}
+                                    img={'PALM-OVLB-0510-0020'}
+                                    productid={44}
+                                    price={100}
+                                    inStockQuantity={100}
                                 />
 
                                 <SaveToWishlist id="savebtn">
@@ -425,7 +357,7 @@ const Productpage = (props) => {
                                         onClick={(e) =>
                                             addUserFn(
                                                 e,
-                                                data['product_id']['N']
+                                                44
                                             )
                                         }
                                         varient="primary"
@@ -436,17 +368,13 @@ const Productpage = (props) => {
                                     </Button>
                                 </SaveToWishlist>
                             </>
-                        )}
                     </MainContentContainer>
                 </Container>
-
                 <ProductCertifications />
             </LandingLayout>
             {/* <OfferBanner /> */}
-
-            <TopPicks offers={recproducts} />
-            <CustomerReviews reviews={data['reviews']} />
-
+            <TopPicks />
+            {/* <CustomerReviews reviews={data['reviews']} /> */}
             <Footer />
         </>
     )

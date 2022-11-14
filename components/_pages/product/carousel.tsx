@@ -6,7 +6,6 @@ const Carousel = (props) => {
     const router = useRouter()
     useEffect(() => {
         var currentpath
-
         currentpath = window.location.origin + window.location.pathname
         window.onpopstate = function (e) {
             e.preventDefault()
@@ -19,64 +18,32 @@ const Carousel = (props) => {
 
     const returnfunc = (e, i) => {
         e.preventDefault()
-
         window.location.href = '#' + i
     }
-    const images = props.images
     return (
         <>
             <div className="slider">
                 <div className="slides">
-                    {images.map((e, i) => (
-                        <div key={i} id={'slide-' + i}>
+                        <div  id={'slide-'}>
                             {/* <Image src={images[i]} alt={props.alt} height="50%" width="50%" 
                             objectFit='cover' layout='responsive' /> */}
-                           <img src={images[i]} alt={props.alt}  />
+                           <img src={'/Main_WB.webp'} alt={props.alt}  />
                         </div>
-                    ))}
                 </div>
-                {props.component === 'product' ? (
                     <>
-                        {images.map((e, i) => (
                             <a
-                                key={i}
-                                onClick={(e) => returnfunc(e, 'slide-' + i)}
+                                onClick={(e) => returnfunc(e, 'slide-')}
                             >
                                   {/* <Image src={images[i]} alt={props.alt} height="50%" width="100%" 
                             objectFit='cover' layout='responsive' className='link' />  */}
                                 <img
                                     className="link"
-                                    src={images[i]}
-                                    alt={props.alt}
+                                    src={'/Main_WB.webp'}
+                                    alt={'eco product'}
                                     loading="lazy"
                                 />
-                            </a>
-                        ))}
+                            </a> 
                     </>
-                ) : (
-                    <>
-                        <a
-                            href="#slide-1"
-                            onClick={(e) => returnfunc(e, 'slide-1')}
-                        ></a>
-                        <a
-                            href="#slide-2"
-                            onClick={(e) => returnfunc(e, 'slide-2')}
-                        ></a>
-                        <a
-                            href="#slide-3"
-                            onClick={(e) => returnfunc(e, 'slide-3')}
-                        ></a>
-                        <a
-                            href="#slide-4"
-                            onClick={(e) => returnfunc(e, 'slide-4')}
-                        ></a>
-                        <a
-                            href="#slide-5"
-                            onClick={(e) => returnfunc(e, 'slide-5')}
-                        ></a>
-                    </>
-                )}
             </div>
 
             <style jsx>{`
